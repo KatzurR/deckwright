@@ -149,6 +149,7 @@ Name und Regeltext, als Aufzählung der Effekte. Keine weiteren Felder.
 - Symbole: game-icons.net (CC BY 3.0, Namensnennung in der App)
 - **Textüberlauf:** Passt der Regeltext nicht, wird die Schrift bis zu einer Mindestgröße verkleinert. Reicht das nicht, entsteht automatisch eine Folgekarte („Name (2/2)“). Der Editor zeigt eine Warnung.
 - Vorschau im Editor entspricht exakt dem Druckergebnis
+- Gestaltung: Stil „Grimoire Codex“, siehe [design/README.md](design/README.md)
 
 ## 6. Datenquellen
 
@@ -234,4 +235,6 @@ Die Pipeline schlägt fehl, wenn ein SRD-Eintrag keine deutsche Zuordnung hat od
 
 ## 11. Offene Fragen
 
-Derzeit keine. Neue Fragen aus der Umsetzung werden hier gesammelt.
+1. **Schriftlizenz:** Der Kartenentwurf verwendet C059 (URW, AGPL mit Font-Ausnahme). Klären, ob sie mit der App ausgeliefert werden darf, oder auf die gleichwertige TeX Gyre Schola (GUST Font License) wechseln.
+
+Neue Fragen aus der Umsetzung werden hier gesammelt.
