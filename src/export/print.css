@@ -1,0 +1,27 @@
+/* Browser print: only the sheets are printed, at 100 % scale (SPEC §8). */
+.otc-print-root { display: none; }
+
+@media print {
+  html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; }
+  body.otc-printing > *:not(.otc-print-root) { display: none !important; }
+  body.otc-printing > .otc-print-root { display: block; }
+}
+
+.otc-print__sheet {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  break-after: page;
+  page-break-after: always;
+}
+.otc-print__sheet:last-child { break-after: auto; page-break-after: auto; }
+.otc-print__cell { position: absolute; overflow: hidden; }
+.otc-print__mark { position: absolute; background: #000; }
+.otc-print__attribution {
+  position: absolute;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 4.2pt;
+  line-height: 1.25;
+  color: #404040;
+  box-sizing: border-box;
+}

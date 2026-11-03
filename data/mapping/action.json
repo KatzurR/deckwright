@@ -1,0 +1,162 @@
+{
+  "srd-2024_action_attack": {
+    "de": "Angriff"
+  },
+  "srd-2024_action_dash": {
+    "de": "Spurt",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_action_disengage": {
+    "de": "Rückzug"
+  },
+  "srd-2024_action_dodge": {
+    "de": "Ausweichen"
+  },
+  "srd-2024_action_help": {
+    "de": "Helfen"
+  },
+  "srd-2024_action_hide": {
+    "de": "Verstecken"
+  },
+  "srd-2024_action_influence": {
+    "de": "Beeinflussen"
+  },
+  "srd-2024_action_magic": {
+    "de": "Magie",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_action_ready": {
+    "de": "Vorbereiten",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_action_search": {
+    "de": "Suchen",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_action_study": {
+    "de": "Studieren",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_action_utilize": {
+    "de": "Verwenden"
+  },
+  "srd-2024_battleaxe": {
+    "de": "Streitaxt"
+  },
+  "srd-2024_blowgun": {
+    "de": "Blasrohr"
+  },
+  "srd-2024_club": {
+    "de": "Knüppel"
+  },
+  "srd-2024_dagger": {
+    "de": "Dolch"
+  },
+  "srd-2024_dart": {
+    "de": "Wurfpfeil"
+  },
+  "srd-2024_flail": {
+    "de": "Flegel"
+  },
+  "srd-2024_glaive": {
+    "de": "Glefe"
+  },
+  "srd-2024_greataxe": {
+    "de": "Zweihandaxt"
+  },
+  "srd-2024_greatclub": {
+    "de": "Zweihandknüppel"
+  },
+  "srd-2024_greatsword": {
+    "de": "Zweihandschwert"
+  },
+  "srd-2024_halberd": {
+    "de": "Hellebarde"
+  },
+  "srd-2024_hand-crossbow": {
+    "de": "Handarmbrust"
+  },
+  "srd-2024_handaxe": {
+    "de": "Beil"
+  },
+  "srd-2024_heavy-crossbow": {
+    "de": "Schwere Armbrust"
+  },
+  "srd-2024_javelin": {
+    "de": "Wurfspeer"
+  },
+  "srd-2024_lance": {
+    "de": "Lanze"
+  },
+  "srd-2024_light-crossbow": {
+    "de": "Leichte Armbrust"
+  },
+  "srd-2024_light-hammer": {
+    "de": "Leichter Hammer"
+  },
+  "srd-2024_longbow": {
+    "de": "Langbogen"
+  },
+  "srd-2024_longsword": {
+    "de": "Langschwert"
+  },
+  "srd-2024_mace": {
+    "de": "Streitkolben"
+  },
+  "srd-2024_maul": {
+    "de": "Zweihandhammer"
+  },
+  "srd-2024_morningstar": {
+    "de": "Morgenstern"
+  },
+  "srd-2024_musket": {
+    "de": "Muskete"
+  },
+  "srd-2024_pike": {
+    "de": "Pike"
+  },
+  "srd-2024_pistol": {
+    "de": "Pistole"
+  },
+  "srd-2024_quarterstaff": {
+    "de": "Kampfstab"
+  },
+  "srd-2024_rapier": {
+    "de": "Rapier"
+  },
+  "srd-2024_scimitar": {
+    "de": "Krummsäbel"
+  },
+  "srd-2024_shortbow": {
+    "de": "Kurzbogen"
+  },
+  "srd-2024_shortsword": {
+    "de": "Kurzschwert"
+  },
+  "srd-2024_sickle": {
+    "de": "Sichel"
+  },
+  "srd-2024_sling": {
+    "de": "Schleuder"
+  },
+  "srd-2024_spear": {
+    "de": "Speer"
+  },
+  "srd-2024_trident": {
+    "de": "Dreizack"
+  },
+  "srd-2024_war-pick": {
+    "de": "Kriegspicke"
+  },
+  "srd-2024_warhammer": {
+    "de": "Kriegshammer"
+  },
+  "srd-2024_whip": {
+    "de": "Peitsche"
+  }
+}
