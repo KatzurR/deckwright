@@ -19,13 +19,53 @@ export interface Doc extends BlockOptions {
   lines: Line[];
 }
 
-export function makeDoc(lang: Lang, lines: Line[]): Doc {
+export function makeDoc(lang: Lang, allLines: Line[]): Doc {
+  const lines = stripSidebars(allLines);
   return {
     lang,
     lines,
     baseLeft: computeBaseLeft(lines),
     hyphenated: collectHyphenatedWords(lines.map((l) => l.text)),
   };
+}
+
+/**
+ * Remove sidebars ("Breaking Your Oath" / "Einen Schwur brechen"). They are boxed GillSans text
+ * with a small-caps title: 17 pt capitals and 12 pt small caps on a baseline a few points lower.
+ * Poppler emits the title as one line or as two lines (capitals, then small caps). A sidebar is
+ * never part of an entry, but its sans lines would otherwise be read as a table of the entry it
+ * is printed next to. The box ends at the first line of another role, column or page.
+ */
+export function stripSidebars(lines: Line[]): Line[] {
+  const capitals = (l: Line) => l.role === 'sans' && l.cells.some((c) => c.size >= 16 && c.text.trim());
+  const smallCaps = (l: Line) => l.role === 'sans' && l.cells.some((c) => c.size <= 13 && c.text.trim());
+  const out: Line[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i];
+    const next = lines[i + 1];
+    let bodyStart = -1;
+    if (capitals(l) && smallCaps(l)) bodyStart = i + 1;
+    else if (
+      capitals(l) &&
+      next &&
+      smallCaps(next) &&
+      next.page === l.page &&
+      next.col === l.col &&
+      next.top > l.top &&
+      next.top - l.top <= 10
+    )
+      bodyStart = i + 2;
+    if (bodyStart < 0) {
+      out.push(l);
+      continue;
+    }
+    let j = bodyStart;
+    // A second title line ("Erweitern oder" / "ersetzen") is set in small caps as well.
+    while (j < lines.length && smallCaps(lines[j]) && !lines[j].cells.some((c) => c.size > 13) && lines[j].page === l.page) j++;
+    while (j < lines.length && lines[j].role === 'sans' && lines[j].page === l.page && lines[j].col === l.col) j++;
+    i = j - 1;
+  }
+  return out;
 }
 
 const HEADING_RANK: Partial<Record<Role, number>> = { title: 0, h1: 1, h2: 2, h3: 3, h4: 4 };

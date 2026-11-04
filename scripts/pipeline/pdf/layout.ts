@@ -27,7 +27,7 @@ export interface Line {
   segments: Segment[];
   text: string;
   /** The positioned text elements of the line (used to split table cells by column). */
-  cells: { left: number; text: string }[];
+  cells: { left: number; text: string; size: number }[];
 }
 
 export function classify(el: TextElement, pageHeight: number): Role {
@@ -173,7 +173,7 @@ export function pageLines(page: XmlPage): Line[] {
       size: main.el.font.size,
       segments,
       text: plain(segments),
-      cells: g.items.map((it) => ({ left: it.el.left, text: plain(it.el.segments) })),
+      cells: g.items.map((it) => ({ left: it.el.left, text: plain(it.el.segments), size: it.el.font.size })),
     };
   });
 

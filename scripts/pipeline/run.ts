@@ -10,7 +10,7 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { CATALOG_FORMAT_VERSION, catalogFileSchema, cardSchema, type Card } from '../../src/model/schema';
+import { CATALOG_FORMAT_VERSION, catalogFileSchema, cardSchema, type Card, type CatalogFile } from '../../src/model/schema';
 import { hasProblems, MAPPING_DIR, type ReportSection, type TypeResult } from './build/common';
 import { buildActions, type Open5eWeapon } from './build/actions';
 import { buildConditions } from './build/conditions';
@@ -40,8 +40,19 @@ export function cardIssues(card: Card): string[] {
   return issues;
 }
 
-export async function runPipeline(opts: SourceOptions): Promise<{ ok: boolean; sections: ReportSection[] }> {
-  const start = Date.now();
+export interface BuiltType {
+  result: TypeResult;
+  /** Cards failing {@link cardIssues}. */
+  invalid: { card: Card; issues: string[] }[];
+  /** Missing/duplicate assignments or invalid cards – the catalog file must not be written. */
+  failed: boolean;
+}
+
+/**
+ * Build all card types from the sources without writing anything.
+ * Matched spells and conditions serve as cross-language anchors for the free-text types.
+ */
+export async function buildCatalog(opts: SourceOptions): Promise<BuiltType[]> {
   const log = opts.log ?? (() => {});
   const [spells, weapons, magicitems, classes, species, feats] = await Promise.all([
     loadOpen5e('spells', opts),
@@ -55,7 +66,6 @@ export async function runPipeline(opts: SourceOptions): Promise<{ ok: boolean; s
   const en = makeDoc('en', loadPdf('en', opts).lines);
   const de = makeDoc('de', loadPdf('de', opts).lines);
 
-  // Matched spells and conditions serve as cross-language anchors for the free-text types.
   const dict = emptyDict();
   const builders: [string, () => TypeResult][] = [
     ['spell', () => buildSpells(spells as Open5eSpell[], en, de)],
@@ -68,31 +78,46 @@ export async function runPipeline(opts: SourceOptions): Promise<{ ok: boolean; s
     ],
   ];
 
-  let ok = true;
-  const sections: ReportSection[] = [];
-  mkdirSync(CATALOG_DIR, { recursive: true });
+  const out: BuiltType[] = [];
   for (const [type, build] of builders) {
     log(`Building ${type} …`);
     const result = build();
     if (type === 'spell') addCards(dict, result.entries, 'spell');
     if (type === 'condition') addCards(dict, result.entries, 'cond');
     const invalid = result.entries
-      .map((c) => ({ c, issues: cardIssues(c) }))
+      .map((card) => ({ card, issues: cardIssues(card) }))
       .filter((x) => x.issues.length > 0);
-    for (const { c, issues } of invalid) result.report.warnings.unshift(`INVALID ${c.srdKey}: ${issues.join('; ')}`);
+    for (const { card, issues } of invalid) result.report.warnings.unshift(`INVALID ${card.srdKey}: ${issues.join('; ')}`);
+    out.push({ result, invalid, failed: hasProblems(result.report.problems) || invalid.length > 0 });
+  }
+  return out;
+}
+
+export function catalogFile(result: TypeResult): CatalogFile {
+  return catalogFileSchema.parse({
+    formatVersion: CATALOG_FORMAT_VERSION,
+    type: result.type,
+    source: 'srd-5.2.1',
+    entries: result.entries,
+  });
+}
+
+export async function runPipeline(opts: SourceOptions): Promise<{ ok: boolean; sections: ReportSection[] }> {
+  const start = Date.now();
+  const log = opts.log ?? (() => {});
+  const built = await buildCatalog(opts);
+
+  let ok = true;
+  const sections: ReportSection[] = [];
+  mkdirSync(CATALOG_DIR, { recursive: true });
+  for (const { result, invalid, failed } of built) {
+    const type = result.type;
     writeMapping(join(MAPPING_DIR, `${type}.json`), result.mapping);
-    const failed = hasProblems(result.report.problems) || invalid.length > 0;
     if (failed) {
       ok = false;
       log(`  ✗ ${type}: ${result.report.problems.missing.length} missing, ${result.report.problems.duplicates.length} duplicate, ${invalid.length} invalid – catalog not written`);
     } else {
-      const file = catalogFileSchema.parse({
-        formatVersion: CATALOG_FORMAT_VERSION,
-        type: result.type,
-        source: 'srd-5.2.1',
-        entries: result.entries,
-      });
-      writeFileSync(join(CATALOG_DIR, `${type}.json`), `${JSON.stringify(file, null, 1)}\n`);
+      writeFileSync(join(CATALOG_DIR, `${type}.json`), `${JSON.stringify(catalogFile(result), null, 1)}\n`);
       log(`  ✓ ${type}: ${result.entries.length} cards`);
     }
     sections.push(result.report);

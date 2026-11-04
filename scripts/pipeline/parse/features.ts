@@ -36,6 +36,42 @@ const OPTIONS_H2: Record<Lang, RegExp> = { en: /Options$/, de: /Optionen$/ };
 const CLASS_CHAPTER_END: Record<Lang, string> = { en: 'Character Origins', de: 'Charakterherkunft' };
 const PREREQ: Record<Lang, RegExp> = { en: /^\(?Prerequisite:\s*(.+?)\)?$/, de: /^\(?Voraussetzung:\s*(.+?)\)?$/ };
 
+/** Caption of the class table ("Paladin Features" / "Paladinmerkmale"). */
+const CLASS_TABLE_CAPTION: Record<Lang, RegExp> = { en: /^\p{L}+ Features$/u, de: /^\p{L}+merkmale$/u };
+
+/**
+ * Remove the class tables. A class table is wider than a column: Poppler splits it into a left
+ * half (level, proficiency bonus, features) that follows the caption and a right half (spell
+ * slots, resources) that is read with the right column – i.e. inside the first class feature.
+ * All sans lines on the caption's page between the caption and the last row are dropped.
+ */
+const TABLE_ROW_GAP = 60;
+
+export function stripClassTables(lines: Line[], lang: Lang): Line[] {
+  const drop = new Set<Line>();
+  for (let i = 0; i < lines.length; i++) {
+    const caption = lines[i];
+    if (caption.role !== 'h4' || !CLASS_TABLE_CAPTION[lang].test(lineText(caption))) continue;
+    drop.add(caption);
+    // The rows below the caption in its column (or full width), without larger vertical gaps.
+    // Geometry instead of reading order: full-width rows split the page into bands, so the
+    // right column's text can be read between the caption and the first rows.
+    const rows = lines
+      .filter((l) => l.page === caption.page && l.role === 'sans' && (l.col === caption.col || l.col === -1) && l.top > caption.top)
+      .map((l) => l.top)
+      .sort((a, b) => a - b);
+    let bottom = caption.top;
+    for (const top of rows) {
+      if (top - bottom > TABLE_ROW_GAP) break;
+      bottom = top;
+    }
+    for (const l of lines) {
+      if (l.page === caption.page && l.role === 'sans' && l.top >= caption.top && l.top <= bottom + 5) drop.add(l);
+    }
+  }
+  return lines.filter((l) => !drop.has(l));
+}
+
 /** Join consecutive heading lines of the same role (wrapped headings). */
 function headingText(doc: Doc, lines: Line[], i: number): { text: string; next: number } {
   let text = lineText(lines[i]);
@@ -58,7 +94,7 @@ export function parseClassFeatures(doc: Doc): ParsedFeature[] {
   const lang = doc.lang;
   const start = doc.lines.findIndex((l) => l.role === 'h1' && CLASS_NAMES[lang][lineText(l).toLowerCase()]);
   const end = doc.lines.findIndex((l, i) => i > start && (l.role === 'title' || l.role === 'h1') && lineText(l).startsWith(CLASS_CHAPTER_END[lang]));
-  const lines = doc.lines.slice(start, end);
+  const lines = stripClassTables(doc.lines.slice(start, end), lang);
   const out: ParsedFeature[] = [];
   let classKey: ClassKey | undefined;
   let context: 'features' | 'subclass' | 'options' | 'other' = 'other';

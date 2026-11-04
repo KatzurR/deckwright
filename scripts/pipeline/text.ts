@@ -234,12 +234,33 @@ function columnOf(left: number, starts: number[]): number {
  * (header "Dragon, Damage Type, Dragon, Damage Type") are split into separate rows.
  */
 export function parseTable(lines: Line[], ctx: JoinContext): Table {
-  const header = lines[0];
-  const starts = (header?.cells ?? []).map((c) => c.left).sort((a, b) => a - b);
-  if (!header || starts.length < 2) return parseTableByGaps(lines, ctx);
+  if (lines.length === 0) return parseTableByGaps(lines, ctx);
+  // Multi-line header ("1d100" / "(13-Card" / "Deck)"): only when the first line is visibly
+  // incomplete (an empty cell, an open parenthesis, or only dice followed by an open
+  // parenthesis); it continues while a parenthesis is open.
+  const depth = (l: Line) => (l.text.match(/\(/g)?.length ?? 0) - (l.text.match(/\)/g)?.length ?? 0);
+  const filled = (l: Line) => (l.cells ?? []).filter((c) => c.text.trim());
+  const first = lines[0];
+  let headerLines = 1;
+  const onlyDice = filled(first).length > 0 && filled(first).every((c) => /^\d*[dW]\d+$/.test(c.text.trim()));
+  if (
+    filled(first).length < (first.cells ?? []).length ||
+    depth(first) > 0 ||
+    (onlyDice && lines.length > 1 && depth(lines[1]) > 0)
+  ) {
+    let open = depth(first);
+    while (headerLines < Math.min(3, lines.length - 1) && (open > 0 || depth(lines[headerLines]) > 0)) {
+      open += depth(lines[headerLines]);
+      headerLines++;
+    }
+  }
+  const widest =
+    headerLines === 1 ? first : lines.slice(0, headerLines).reduce((a, b) => (filled(b).length > filled(a).length ? b : a));
+  const starts = (headerLines === 1 ? (first.cells ?? []) : filled(widest)).map((c) => c.left).sort((a, b) => a - b);
+  if (starts.length < 2) return parseTableByGaps(lines, ctx);
   const width = starts.length;
   const rows: string[][] = [];
-  for (const l of lines) {
+  lines.forEach((l, lineIndex) => {
     const cells: string[] = Array(width).fill('');
     for (const c of l.cells ?? []) {
       const i = columnOf(c.left, starts);
@@ -247,14 +268,20 @@ export function parseTable(lines: Line[], ctx: JoinContext): Table {
     }
     const clean = cells.map((c) => tidy(c.replace(/\t/g, ' ')));
     const prev = rows[rows.length - 1];
+    if (prev && lineIndex < headerLines) {
+      clean.forEach((c, i) => {
+        if (c) prev[i] = prev[i] ? `${prev[i]} ${c}` : c;
+      });
+      return;
+    }
     if (prev && !clean[0] && clean.some(Boolean)) {
       clean.forEach((c, i) => {
         if (c) prev[i] = prev[i] ? joinBroken(prev[i], c, ctx) : c;
       });
-      continue;
+      return;
     }
     rows.push(clean);
-  }
+  });
   // Repeated header → two tables side by side.
   const half = width / 2;
   const h = rows[0];
@@ -266,18 +293,43 @@ export function parseTable(lines: Line[], ctx: JoinContext): Table {
   return { rows };
 }
 
+/** Leading key of a fixed-width row: number range ("2–6", "01–20", "10+") or dice ("1d100"). */
+const ROW_KEY = /^(\d+(?:\s*[–-]\s*\d+)?\+?|\d*[dW]\d+)\s+(.+)$/;
+
+/** Continuation lines of a row with a hanging indent are indented further than this (px); keys
+ * of a row can be right-aligned ("1" vs "10") and indented a little. */
+const HANGING_INDENT = 20;
+
 /** Fallback without a usable header: cells separated by wide gaps (tabs). */
 function parseTableByGaps(lines: Line[], ctx: JoinContext): Table {
   const rows: string[][] = [];
-  const contLeft = Math.max(...lines.map((l) => l.left));
+  // Indentation relative to the table's left edge in each column (a table can continue in the
+  // next column or on the next page).
+  const edge = new Map<string, number>();
+  for (const l of lines) {
+    const k = `${l.page}:${l.col}`;
+    edge.set(k, Math.min(edge.get(k) ?? Infinity, l.left));
+  }
+  const indent = (l: Line) => l.left - edge.get(`${l.page}:${l.col}`)!;
+  const contIndent = Math.max(...lines.map(indent));
+  // Rows with a hanging indent ("01–20 You cast …" / indented continuation lines): the
+  // indentation alone decides. Justified continuation lines can contain wide gaps that would
+  // otherwise look like cell separators.
+  const keyed = (l: Line) => ROW_KEY.test(tidy(l.text.replace(/\t/g, ' ')));
+  const hanging =
+    lines.filter((l) => indent(l) > HANGING_INDENT).length > 1 &&
+    lines.filter((l) => indent(l) <= HANGING_INDENT && keyed(l)).length > 1;
   for (const l of lines) {
     const cells = splitCells(l.segments);
+    // Repeated header where the table continues in the next column.
+    if (rows.length > 0 && cells.join('|') === rows[0].join('|')) continue;
     const prev = rows[rows.length - 1];
-    if (prev && cells.length > 1 && cells.length === prev.length && /^[\p{Ll}(]/u.test(cells[0])) {
+    if (prev && !hanging && cells.length > 1 && cells.length === prev.length && /^[\p{Ll}(]/u.test(cells[0])) {
       cells.forEach((c, i) => (prev[i] = joinBroken(prev[i], c, ctx)));
       continue;
     }
-    const isStart = cells.length > 1 || l.left < contLeft - 10 || rows.length === 0;
+    const isStart =
+      rows.length === 0 || (hanging ? indent(l) <= HANGING_INDENT : cells.length > 1 || indent(l) < contIndent - 10);
     if (isStart) rows.push(cells);
     else if (rows.length) {
       const row = rows[rows.length - 1];
@@ -288,15 +340,20 @@ function parseTableByGaps(lines: Line[], ctx: JoinContext): Table {
 }
 
 export function tableToMarkdown(table: Table): string {
-  const [header, ...rows] = table.rows;
+  let [header, ...rows] = table.rows;
   if (!header) return '';
+  // Header without a wide gap ("1d100 Effect" / "W100 Effekt"): split off the dice column.
+  if (header.length === 1) {
+    const m = header[0].match(ROW_KEY);
+    if (m && rows.some((r) => r.length === 1 && ROW_KEY.test(r[0]))) header = [m[1], m[2]];
+  }
   if (rows.length === 0) return header.join(' ');
   const out: string[] = [];
   for (let row of rows) {
     if (row.length === 0) continue;
     // Key cell not separated by a wide gap ("2–6 The target …"): split off a leading number range.
     if (row.filter(Boolean).length === 1 && row[0] && header.length >= 2) {
-      const m = row[0].match(/^(\d+(?:\s*[–-]\s*\d+)?\+?|\d+d\d+)\s+(.+)$/);
+      const m = row[0].match(ROW_KEY);
       if (m) row = [m[1], m[2]];
     }
     const [key, ...restRaw] = row;
