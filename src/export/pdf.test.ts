@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { describe, expect, it } from 'vitest';
 import { PDFDocument, PDFName, PDFRawStream, decodePDFRawStream, StandardFonts } from 'pdf-lib';
 import { buildPdf, noticeCapacity, noticeLines, wrapText } from './pdf';

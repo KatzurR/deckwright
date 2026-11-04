@@ -24,7 +24,7 @@ Everything runs in the browser. There is no server, no account and no external s
 
 ## Installation
 
-Requirements: [Node.js](https://nodejs.org/) 18.18 or newer (tested with 18.19) and Git.
+Requirements: [Node.js](https://nodejs.org/) 24 LTS or newer (tested with 24.22) and Git.
 
 ```bash
 git clone https://github.com/KatzurR/deckwright.git

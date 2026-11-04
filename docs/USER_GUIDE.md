@@ -22,7 +22,7 @@ Contents:
 
 You need:
 
-- **Node.js** version 18.18 or newer (https://nodejs.org, the LTS version is fine). Check with `node -v`.
+- **Node.js** version 24 or newer (https://nodejs.org, the LTS version is fine). Check with `node -v`.
 - **Git** to download the project (alternatively the ZIP from GitHub).
 - A current browser: Chrome, Edge, Firefox or Safari.
 
