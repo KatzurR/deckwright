@@ -1,6 +1,6 @@
 # Spezifikation: open-tabletop-cards
 
-**Status:** Entwurf v0.4 · 2026-11-03
+**Status:** v0.5 · 2026-11-04 · MVP (Phase 1) umgesetzt, Entscheidungen aus der Umsetzung in Abschnitt 11
 
 ## 1. Ziel
 
@@ -166,7 +166,7 @@ Die App enthält einen fertigen Datensatz aller relevanten SRD-5.2.1-Einträge i
    | `spells` | 339 | strukturierte Felder (Grad, Schule, Reichweite, Komponenten, Schaden, Rettungswurf …) |
    | `weapons` | 75 | inkl. Meisterschaften (2024) |
    | `armor` | 13 | |
-   | `items` / `magicitems` | 440 / – | Filter auf SRD noch zu prüfen |
+   | `magicitems` | 760 | inkl. ausgeschriebener Varianten („Battleaxe (+1)“ …); die Pipeline fasst sie zu den 258 Einträgen der PDFs zusammen |
    | `classes` | 24 | 12 Klassen + 12 Unterklassen, mit Merkmalen |
    | `species`, `feats`, `backgrounds` | 9 / 17 / 4 | |
    | `conditions` | **0** | fehlen für 2024 |
@@ -235,6 +235,25 @@ Die Pipeline schlägt fehl, wenn ein SRD-Eintrag keine deutsche Zuordnung hat od
 
 ## 11. Offene Fragen
 
-1. **Schriftlizenz:** Der Kartenentwurf verwendet C059 (URW, AGPL mit Font-Ausnahme). Klären, ob sie mit der App ausgeliefert werden darf, oder auf die gleichwertige TeX Gyre Schola (GUST Font License) wechseln.
+### 11.1 Entschieden
+
+1. **Schrift:** TeX Gyre Schola (GUST Font License) statt C059. Sie gehört zur selben Familie (Century Schoolbook) und darf ohne Einschränkung mit der App ausgeliefert werden. Lizenz: `public/licenses/GUST-FONT-LICENSE.txt`.
+2. **Beschnitt:** Die Karten liegen auf dem Bogen ohne Abstand nebeneinander. Da der Ledereinband an allen Kanten gleich ist, wirkt die Nachbarkarte als Beschnitt. Nur das 3 × 3-Raster bekommt außen 3 mm Beschnittzugabe. So passt der Beschnitt auch auf US Letter.
+3. **SRD-Namensnennung auf dem Bogen:** im größeren Rand außerhalb der Schnittmarken (A4 unten, US Letter links, gedreht).
+4. **Texturen** (Leder, Pergament) als erzeugte PNG-Dateien (`npm run textures`), weil SVG-`feTurbulence` im 300-dpi-Export schwarz gerendert wird.
+5. **Zeilenhöhe** in ganzen CSS-Pixeln, sonst werden die Zeilenabstände im Export ungleichmäßig.
+6. **Magische Gegenstände:** Open5e-Varianten („Battleaxe (+1)“, „Battleaxe (+2)“ …) werden zu einem Eintrag je PDF-Eintrag zusammengefasst („Waffe +1, +2 oder +3“).
+7. **Nicht im Katalog:** die 4 Hintergründe und gewöhnliche Ausrüstung (keine eigenen Kartentypen im MVP).
+8. **Einheiten:** Das deutsche SRD rechnet 5 Fuß = 1,5 m und 1 Meile = 1,6 km. Gespeichert wird in Fuß, die deutsche Karte rechnet beim Rendern um.
+9. **Textextraktion:** Poppler `pdftohtml -xml` statt `pdftotext`, weil die XML-Ausgabe Schriftart, Fett/Kursiv und Position behält. Damit lassen sich Überschriften, fette Einleitungen und Tabellen zuverlässig erkennen. Klassentabellen und Infokästen („Einen Schwur brechen“) werden entfernt, weil sie nicht zu einem einzelnen Merkmal gehören.
+10. **Kartenbilder in Firefox:** Die eingebettete Kartenschrift für den 300-dpi-Export erzeugt die App selbst (`src/export/fonts.ts`), weil html-to-image die Schriftfamilie in Firefox nicht lesen kann. Firefox bricht Zeilen im Bildexport minimal anders um als in der Ansicht; damit sich Absätze dabei nicht überlappen, wachsen die Textblöcke im Export mit ihrem Inhalt.
+11. **Textüberlauf:** Regeltext 6,0 pt, Verkleinerung in Schritten von 0,2 pt bis 4,8 pt, danach Folgekarten. Die Mindestgröße ist vorläufig, siehe 11.2.
+
+### 11.2 Offen
+
+1. **Probedruck:** Lesbarkeit der Beschriftungen (3,8 pt) und der Mindestgröße des Regeltexts (4,8 pt) an einem echten Druck bestätigen (`FONT` in `src/render/paginate.ts`).
+2. **Aus dem Text abgeleitete Felder:** Aktionsart, Erholung und Nutzungen von Fähigkeiten werden aus dem englischen Regeltext erschlossen (`inferUsage` in `scripts/pipeline/build/features.ts`). Stichproben sind korrekt, eine vollständige Durchsicht fehlt.
+3. **Tabellen mit ungewöhnlichem Satz:** Bei wenigen Einträgen steht der Schlüssel einer Tabellenzeile senkrecht mittig neben mehrzeiligem Text (Regenbogenwand) oder Wörter sind in der PDF-Extraktion vertauscht (Amulett der Ebenen). Der Text ist vollständig, die Gliederung aber unsauber. Lösung: Handkorrektur im Editor oder eine Sonderbehandlung in der Pipeline.
+4. **Browser:** Automatisch getestet werden Chromium und Firefox (alle Ende-zu-Ende-Tests). Safari (WebKit) und Edge sind noch von Hand zu prüfen, vor allem der Browser-Druck.
 
 Neue Fragen aus der Umsetzung werden hier gesammelt.
