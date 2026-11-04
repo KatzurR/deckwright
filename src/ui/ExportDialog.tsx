@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Deck } from '../model/schema';
 import { deckFileName } from '../model/deckFile';
+import { NOTICE_FILE_NAME, noticeText } from '../model/legal';
 import type { LaidOutCard } from '../render/measure';
 import { BLEED_MM, toSheets, type Paper } from '../export/layout';
 import { buildPdf } from '../export/pdf';
@@ -60,7 +61,10 @@ export function ExportDialog({ deck, laid, selectedIds, onClose }: {
       }
       const images = await renderCardImages(cards, { bleed: bleedMm, onProgress: setProgress });
       if (format === 'png') {
-        const zip = zipFiles(images.map((i) => ({ name: `${i.name}.png`, bytes: i.bytes })));
+        const zip = zipFiles([
+          ...images.map((i) => ({ name: `${i.name}.png`, bytes: i.bytes })),
+          { name: NOTICE_FILE_NAME[deck.lang], bytes: new TextEncoder().encode(noticeText(deck.lang)) },
+        ]);
         downloadBlob(zip, deckFileName(deck, 'png.zip'), 'application/zip');
       } else {
         const pdf = await buildPdf(images.map((i) => i.bytes), { paper, bleed: bleedMm, lang: deck.lang, title: deck.name });

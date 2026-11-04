@@ -54,12 +54,17 @@ export interface SheetLayout {
   slots: SheetSlot[];
   cutMarks: Line[];
   /**
-   * Box for the attribution text, outside the cut marks in the larger margin:
+   * Box for the SRD attribution, outside the cut marks in the larger margin:
    * below the grid (rotation 0, A4) or left of it, reading bottom to top (rotation 90, Letter).
    * For rotation 90 the text runs along `h`.
    */
-  attribution: Rect & { rotation: 0 | 90 };
+  attribution: NoticeBox;
+  /** Box for the change note and icon credits, mirrored: above the grid (A4) or right of it (Letter). */
+  credits: NoticeBox;
 }
+
+/** `side` is the side of the grid the box lies on; text lines start next to the cards. */
+export type NoticeBox = Rect & { rotation: 0 | 90; side: 'top' | 'bottom' | 'left' | 'right' };
 
 const round = (v: number) => Math.round(v * 1000) / 1000;
 
@@ -105,27 +110,31 @@ export function sheetLayout(paper: Paper, bleed = 0): SheetLayout {
     }
   }
 
-  // Attribution outside the cut marks, in the larger of bottom and side margin.
+  // Notices outside the cut marks, in the larger of the vertical and horizontal margins:
+  // SRD attribution below / left of the grid, credits in the mirrored margin above / right.
   const gap = 0.8;
-  const bottomSpace = page.h - outer.bottom;
-  const sideSpace = outer.left;
-  const attribution: SheetLayout['attribution'] = bottomSpace >= sideSpace
-    ? {
-        x: grid.x,
-        y: round(outer.bottom + MARK_OFFSET_MM + vLen + gap),
-        w: gridW,
-        h: round(Math.max(0, page.h - PRINTER_MARGIN_MM - (outer.bottom + MARK_OFFSET_MM + vLen + gap))),
-        rotation: 0,
-      }
-    : {
-        x: PRINTER_MARGIN_MM,
-        y: grid.y,
-        w: round(Math.max(0, outer.left - MARK_OFFSET_MM - hLen - gap - PRINTER_MARGIN_MM)),
-        h: gridH,
-        rotation: 90,
-      };
+  const vertical = page.h - outer.bottom >= outer.left;
+  let attribution: NoticeBox;
+  let credits: NoticeBox;
+  if (vertical) {
+    const thickness = round(Math.max(0, page.h - PRINTER_MARGIN_MM - (outer.bottom + MARK_OFFSET_MM + vLen + gap)));
+    attribution = { x: grid.x, y: round(outer.bottom + MARK_OFFSET_MM + vLen + gap), w: gridW, h: thickness, rotation: 0, side: 'bottom' };
+    credits = {
+      x: grid.x, y: PRINTER_MARGIN_MM, w: gridW,
+      h: round(Math.max(0, outer.top - MARK_OFFSET_MM - vLen - gap - PRINTER_MARGIN_MM)),
+      rotation: 0, side: 'top',
+    };
+  } else {
+    attribution = {
+      x: PRINTER_MARGIN_MM, y: grid.y,
+      w: round(Math.max(0, outer.left - MARK_OFFSET_MM - hLen - gap - PRINTER_MARGIN_MM)), h: gridH,
+      rotation: 90, side: 'left',
+    };
+    const x = round(outer.right + MARK_OFFSET_MM + hLen + gap);
+    credits = { x, y: grid.y, w: round(Math.max(0, page.w - PRINTER_MARGIN_MM - x)), h: gridH, rotation: 90, side: 'right' };
+  }
 
-  return { paper, page: { ...page }, bleed, grid, slots, cutMarks, attribution };
+  return { paper, page: { ...page }, bleed, grid, slots, cutMarks, attribution, credits };
 }
 
 /** Pixel size of a card image at 300 dpi, e.g. 744 × 1039 px for 63 × 88 mm (SPEC §8). */

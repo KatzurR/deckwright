@@ -34,9 +34,14 @@ test('PNG export: one 744 × 1039 px image at 300 dpi per card, zipped', async (
   await page.getByLabel('PNG-Bilder (ZIP)').check();
   const zip = await download(page, () => page.getByTestId('export-start').click());
   const files = unzipSync(new Uint8Array(zip));
-  const names = Object.keys(files).sort();
+  const names = Object.keys(files).filter((n) => n.endsWith('.png')).sort();
   expect(names).toHaveLength(7);
   expect(names[0]).toBe('01-feuerball.png');
+  // the attribution travels with the images
+  expect(Object.keys(files)).toHaveLength(8);
+  const notice = new TextDecoder().decode(files['NAMENSNENNUNG.txt']);
+  expect(notice).toContain('Systemreferenzdokument 5.2.1');
+  expect(notice).toContain('game-icons.net');
   for (const name of names) {
     expect(pngSize(files[name])).toEqual({ w: 744, h: 1039 });
     expect(pngDpi(files[name])).toBe(300);
@@ -82,6 +87,7 @@ test('browser print: sheets and cards have exact physical sizes', async ({ page 
   expect(card.y - box.y).toBeCloseTo(16.5 * MM_TO_PX, 0);
   await expect(page.locator('.otc-print__mark')).toHaveCount(16);
   await expect(page.locator('.otc-print__attribution')).toContainText('Systemreferenzdokument 5.2.1');
+  await expect(page.locator('.otc-print__credits')).toContainText('Symbole von game-icons.net');
   // the app UI is hidden in print
   await expect(page.locator('#root')).toBeHidden();
 });

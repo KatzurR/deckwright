@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { PDFDocument, PDFName, PDFRawStream, decodePDFRawStream, StandardFonts } from 'pdf-lib';
-import { buildPdf, wrapText } from './pdf';
-import { mmToPt, sheetLayout } from './layout';
+import { buildPdf, noticeCapacity, noticeLines, wrapText } from './pdf';
+import { mmToPt, sheetLayout, type Paper } from './layout';
+import { SRD_ATTRIBUTION, sheetCredits } from '../model/legal';
 import { solidPng } from './png';
 
 async function contentOf(doc: PDFDocument, pageIndex: number): Promise<string> {
@@ -63,6 +64,21 @@ describe('buildPdf', () => {
       const joined = hexTexts.join(' ');
       expect(joined).toContain('Systemreferenzdokument 5.2.1');
       expect(joined).toContain('Creative Commons Namensnennung 4.0');
+      expect(joined).toContain('Änderungen: Die SRD-Texte');
+      expect(joined).toContain('Symbole von game-icons.net');
+    }
+  });
+
+  it.each([
+    ['a4', 0], ['a4', 3], ['letter', 0], ['letter', 3],
+  ] as [Paper, number][])('fits both notices into their boxes (%s, bleed %i mm)', async (paper, bleed) => {
+    const doc = await PDFDocument.create();
+    const font = await doc.embedFont(StandardFonts.Helvetica);
+    const layout = sheetLayout(paper, bleed);
+    for (const lang of ['de', 'en'] as const) {
+      for (const [box, text] of [[layout.attribution, SRD_ATTRIBUTION[lang]], [layout.credits, sheetCredits(lang)]] as const) {
+        expect(noticeLines(text, box, font).length).toBeLessThanOrEqual(noticeCapacity(box));
+      }
     }
   });
 

@@ -118,8 +118,8 @@ Im Deck öffnet **Drucken & Export …** den Exportdialog.
 
 | Format | Ergebnis |
 |---|---|
-| **PDF-Bogen** | PDF mit 3 × 3 Karten je Seite, Schnittmarken und der SRD-Namensnennung am Rand. Papier A4 oder US Letter. |
-| **PNG-Bilder (ZIP)** | eine PNG-Datei je Karte, 744 × 1039 px (300 dpi), gepackt als ZIP, z. B. für Druckdienste oder digitale Spieltische |
+| **PDF-Bogen** | PDF mit 3 × 3 Karten je Seite, Schnittmarken und am Rand der SRD-Namensnennung, dem Änderungshinweis und der Namensnennung der Symbole. Papier A4 oder US Letter. |
+| **PNG-Bilder (ZIP)** | eine PNG-Datei je Karte, 744 × 1039 px (300 dpi), gepackt als ZIP zusammen mit einer Textdatei mit der Namensnennung (`NAMENSNENNUNG.txt` bzw. `ATTRIBUTION.txt`), z. B. für Druckdienste oder digitale Spieltische. Wenn du die Bilder weitergibst, gib die Namensnennung mit. |
 | **Direkt drucken (Browser)** | öffnet den Druckdialog des Browsers mit derselben Anordnung wie im PDF |
 
 **3 mm Beschnittzugabe** (nur PDF): Der Ledereinband der Karten reicht 3 mm über die Schnittkante hinaus. Das ist für Druckereien und randlosen Druck gedacht, damit beim Schneiden kein weißer Rand bleibt. Für den Heimdrucker ist es nicht nötig.

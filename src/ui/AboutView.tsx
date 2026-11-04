@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { Lang } from '../model/schema';
-import { COMPATIBILITY, SRD_ATTRIBUTION } from '../model/legal';
+import { COMPATIBILITY, SRD_ATTRIBUTION, SRD_CHANGES } from '../model/legal';
 import { ICONS } from '../render/icons';
 
 export function AboutView({ uiLang }: { uiLang: Lang }) {
@@ -15,6 +15,7 @@ export function AboutView({ uiLang }: { uiLang: Lang }) {
       <h2>{t('about.srd')}</h2>
       <blockquote lang="de">{SRD_ATTRIBUTION.de}</blockquote>
       <blockquote lang="en">{SRD_ATTRIBUTION.en}</blockquote>
+      <p>{SRD_CHANGES[uiLang]}</p>
 
       <h2>{t('about.icons')}</h2>
       <p>{t('about.iconsText')}</p>

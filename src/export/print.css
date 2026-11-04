@@ -17,7 +17,8 @@
 .otc-print__sheet:last-child { break-after: auto; page-break-after: auto; }
 .otc-print__cell { position: absolute; overflow: hidden; }
 .otc-print__mark { position: absolute; background: #000; }
-.otc-print__attribution {
+.otc-print__attribution,
+.otc-print__credits {
   position: absolute;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 4.2pt;

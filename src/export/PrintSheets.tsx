@@ -6,10 +6,10 @@ import type { CSSProperties } from 'react';
 import { createRoot } from 'react-dom/client';
 import { flushSync } from 'react-dom';
 import type { Lang } from '../model/schema';
-import { SRD_ATTRIBUTION } from '../model/legal';
+import { SRD_ATTRIBUTION, sheetCredits } from '../model/legal';
 import { CardFace } from '../render/CardFace';
 import type { LaidOutCard } from '../render/measure';
-import { sheetLayout, toSheets, type Paper } from './layout';
+import { sheetLayout, toSheets, type NoticeBox, type Paper } from './layout';
 import './print.css';
 
 export interface PrintSheetsProps {
@@ -21,19 +21,29 @@ export interface PrintSheetsProps {
 
 const mm = (v: number) => `${v}mm`;
 
+/** Position a notice box; the text sits on the side next to the cards. */
+function noticeStyle(a: NoticeBox): CSSProperties {
+  // Rotated boxes: a box of size h × w is rotated around its top-left corner so it reads bottom
+  // to top; its local bottom then faces right and its local top faces left.
+  const towardCards = a.side === 'bottom' || a.side === 'right' ? 'flex-start' : 'flex-end';
+  return a.rotation === 0
+    ? {
+        left: mm(a.x), top: mm(a.y), width: mm(a.w), height: mm(a.h), textAlign: 'center',
+        display: 'flex', alignItems: towardCards, justifyContent: 'center',
+      }
+    : {
+        left: mm(a.x), top: mm(a.y + a.h), width: mm(a.h), height: mm(a.w),
+        transform: 'rotate(-90deg)', transformOrigin: '0 0', textAlign: 'center',
+        display: 'flex', alignItems: towardCards, justifyContent: 'center',
+      };
+}
+
 export function PrintSheets({ cards, paper, bleed, lang }: PrintSheetsProps) {
   const layout = sheetLayout(paper, bleed);
   const pages = cards.flatMap((c) => c.pagination.pages.map((page) => ({ card: c, page })));
   const sheets = toSheets(pages);
-  const a = layout.attribution;
-  const attributionStyle: CSSProperties = a.rotation === 0
-    ? { left: mm(a.x), top: mm(a.y), width: mm(a.w), height: mm(a.h), textAlign: 'center' }
-    : {
-        // rotate a box of size h × w around its top-left corner so it reads bottom to top
-        left: mm(a.x), top: mm(a.y + a.h), width: mm(a.h), height: mm(a.w),
-        transform: 'rotate(-90deg)', transformOrigin: '0 0', textAlign: 'center',
-        display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-      };
+  const attributionStyle = noticeStyle(layout.attribution);
+  const creditsStyle = noticeStyle(layout.credits);
 
   return (
     <div className="otc-print" data-paper={paper}>
@@ -72,6 +82,9 @@ export function PrintSheets({ cards, paper, bleed, lang }: PrintSheetsProps) {
           ))}
           <div className="otc-print__attribution" style={attributionStyle}>
             <span>{SRD_ATTRIBUTION[lang]}</span>
+          </div>
+          <div className="otc-print__credits" style={creditsStyle}>
+            <span>{sheetCredits(lang)}</span>
           </div>
         </section>
       ))}

@@ -1,6 +1,6 @@
 # open-tabletop-cards
 
-An open-source tool for turning D&D rules content — spells, actions, class features, abilities, items, and conditions — into small, printable reference cards you can keep at the table.
+An open-source tool for turning fifth edition (5E) rules content — spells, actions, class features, abilities, items, and conditions — into small, printable reference cards you can keep at the table.
 
 > **Status:** MVP (phase 1, local use). The web app runs on your own computer; it is not published online yet. See the [user guide](docs/USER_GUIDE.md) (German) and the [specification](docs/SPEC.md).
 
@@ -71,15 +71,21 @@ e2e           Playwright tests
 
 ## Content and licensing
 
-The code in this repository is released under the [MIT License](LICENSE).
+The source code in this repository is released under the [MIT License](LICENSE). Not everything in the repository is code – the parts below keep their own licenses (overview: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)):
 
-open-tabletop-cards is compatible with fifth edition (2024 rules). The only rules content included is the System Reference Document 5.2.1, in its official English and German versions (see [srd/](srd/)):
+| Part | License |
+|---|---|
+| Rules content: SRD 5.2.1 PDFs ([srd/](srd/)) and the catalog derived from them ([data/catalog/](data/catalog/)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([details](data/catalog/LICENSE.md)) |
+| Card icons from [game-icons.net](https://game-icons.net) | CC BY 3.0 ([license](public/licenses/CC-BY-3.0.txt)) |
+| Card font TeX Gyre Schola ([src/render/fonts/](src/render/fonts/)) | GUST Font License ([license](public/licenses/GUST-FONT-LICENSE.txt)) |
+
+open-tabletop-cards is compatible with fifth edition (2024 rules). The only rules content included is the System Reference Document 5.2.1, in its official English and German versions:
 
 > This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
 
-Card icons are from [game-icons.net](https://game-icons.net) (CC BY 3.0, [license](public/licenses/CC-BY-3.0.txt)). The card font is TeX Gyre Schola (GUST Font License, [license](public/licenses/GUST-FONT-LICENSE.txt)).
+Changes: the SRD texts were split into individual entries and reformatted for cards, tables and sidebars were removed. The app prints this attribution, the change note and the icon credits on every PDF and print sheet and adds them as a text file to the PNG export.
 
-Any other content you enter, for example from books you own, stays in your own files and is your responsibility.
+Any other content you enter, for example from books you own, stays in your own files and is your responsibility. Contributions to this repository may only add rules content from the SRD 5.2.1.
 
 ## Contributing
 

@@ -1,14 +1,14 @@
 /**
  * PDF sheets with pdf-lib (SPEC §8): cards as 300 dpi images placed at exact millimetre
- * positions, cut marks as vector lines, SRD attribution on every sheet.
+ * positions, cut marks as vector lines, SRD attribution and credits on every sheet.
  */
 import {
   PDFDocument, StandardFonts, clip, degrees, endPath, popGraphicsState, pushGraphicsState, rectangle, rgb,
-  type PDFFont,
+  type PDFFont, type PDFPage,
 } from 'pdf-lib';
 import type { Lang } from '../model/schema';
-import { SRD_ATTRIBUTION } from '../model/legal';
-import { mmToPt, sheetLayout, toSheets, type Paper } from './layout';
+import { SRD_ATTRIBUTION, sheetCredits } from '../model/legal';
+import { mmToPt, sheetLayout, toSheets, type NoticeBox, type Paper } from './layout';
 
 export interface PdfOptions {
   paper: Paper;
@@ -19,6 +19,7 @@ export interface PdfOptions {
 
 export const CUT_MARK_WIDTH_PT = 0.3;
 export const ATTRIBUTION_FONT_PT = 4.2;
+const NOTICE_LINE_GAP_PT = ATTRIBUTION_FONT_PT * 1.25;
 
 /** Greedy word wrap with real font metrics. */
 export function wrapText(text: string, font: Pick<PDFFont, 'widthOfTextAtSize'>, size: number, maxWidth: number): string[] {
@@ -55,11 +56,10 @@ export async function buildPdf(images: Uint8Array[], options: PdfOptions): Promi
   // PDF origin is bottom left, layout origin is top left.
   const flipY = (yMm: number, hMm: number) => pageH - mmToPt(yMm + hMm);
 
-  const a = layout.attribution;
-  const attribution = SRD_ATTRIBUTION[options.lang];
-  const textLength = mmToPt(a.rotation === 0 ? a.w : a.h);
-  const attrLines = wrapText(attribution, font, ATTRIBUTION_FONT_PT, textLength);
-  const lineGap = ATTRIBUTION_FONT_PT * 1.25;
+  const notices: [NoticeBox, string][] = [
+    [layout.attribution, SRD_ATTRIBUTION[options.lang]],
+    [layout.credits, sheetCredits(options.lang)],
+  ];
 
   const sheets = toSheets(images);
   if (sheets.length === 0) sheets.push([]);
@@ -90,25 +90,55 @@ export async function buildPdf(images: Uint8Array[], options: PdfOptions): Promi
         color: rgb(0, 0, 0),
       });
     }
-    attrLines.forEach((line, i) => {
-      const width = font.widthOfTextAtSize(line, ATTRIBUTION_FONT_PT);
-      if (a.rotation === 0) {
-        // Centred below the grid, first line closest to the cards.
-        page.drawText(line, {
-          x: mmToPt(a.x) + (textLength - width) / 2,
-          y: pageH - mmToPt(a.y) - ATTRIBUTION_FONT_PT - i * lineGap,
-          size: ATTRIBUTION_FONT_PT, font, color: rgb(0.25, 0.25, 0.25),
-        });
-      } else {
-        // Rotated 90° (reads bottom to top), first line closest to the cards.
-        page.drawText(line, {
-          x: mmToPt(a.x + a.w) - ATTRIBUTION_FONT_PT * 0.25 - i * lineGap,
-          y: pageH - mmToPt(a.y + a.h) + (textLength - width) / 2,
-          size: ATTRIBUTION_FONT_PT, font, color: rgb(0.25, 0.25, 0.25),
-          rotate: degrees(90),
-        });
-      }
-    });
+    for (const [box, text] of notices) drawNotice(page, text, box, font, pageH);
   }
   return doc.save();
+}
+
+/** Lines of a notice wrapped to the length of its box. */
+export function noticeLines(text: string, box: NoticeBox, font: Pick<PDFFont, 'widthOfTextAtSize'>): string[] {
+  return wrapText(text, font, ATTRIBUTION_FONT_PT, mmToPt(box.rotation === 0 ? box.w : box.h));
+}
+
+/** Number of notice lines that fit across the thickness of a box. */
+export function noticeCapacity(box: NoticeBox): number {
+  const thickness = mmToPt(box.rotation === 0 ? box.h : box.w);
+  return Math.max(0, Math.floor((thickness - ATTRIBUTION_FONT_PT * 1.25) / NOTICE_LINE_GAP_PT + 1e-9) + 1);
+}
+
+/** Draw a centred notice; the line next to the cards comes first in reading order where possible. */
+function drawNotice(page: PDFPage, text: string, box: NoticeBox, font: PDFFont, pageH: number) {
+  const size = ATTRIBUTION_FONT_PT;
+  const color = rgb(0.25, 0.25, 0.25);
+  const length = mmToPt(box.rotation === 0 ? box.w : box.h);
+  const lines = noticeLines(text, box, font);
+  lines.forEach((line, i) => {
+    const offset = (length - font.widthOfTextAtSize(line, size)) / 2;
+    switch (box.side) {
+      case 'bottom': // below the grid, first line on top
+        page.drawText(line, { x: mmToPt(box.x) + offset, y: pageH - mmToPt(box.y) - size - i * NOTICE_LINE_GAP_PT, size, font, color });
+        break;
+      case 'top': // above the grid, block aligned to the bottom of the box
+        page.drawText(line, {
+          x: mmToPt(box.x) + offset,
+          y: pageH - mmToPt(box.y + box.h) + size * 0.25 + (lines.length - 1 - i) * NOTICE_LINE_GAP_PT,
+          size, font, color,
+        });
+        break;
+      case 'left': // rotated 90° (reads bottom to top), first line next to the cards
+        page.drawText(line, {
+          x: mmToPt(box.x + box.w) - size * 0.25 - i * NOTICE_LINE_GAP_PT,
+          y: pageH - mmToPt(box.y + box.h) + offset,
+          size, font, color, rotate: degrees(90),
+        });
+        break;
+      case 'right': // rotated 90°, first line next to the cards
+        page.drawText(line, {
+          x: mmToPt(box.x) + size + i * NOTICE_LINE_GAP_PT,
+          y: pageH - mmToPt(box.y + box.h) + offset,
+          size, font, color, rotate: degrees(90),
+        });
+        break;
+    }
+  });
 }

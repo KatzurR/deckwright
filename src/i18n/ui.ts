@@ -81,7 +81,7 @@ const de = {
     scope: 'Umfang', wholeDeck: 'Ganzes Deck ({{count}})', selection: 'Auswahl ({{count}})', start: 'Exportieren', printStart: 'Druckdialog öffnen',
     progress: 'Karte {{done}} von {{total}} wird gerendert …', layout: 'Karten werden gesetzt …', done: 'Fertig.', failed: 'Export fehlgeschlagen: {{message}}',
     hint100: 'Beim Drucken unbedingt „Tatsächliche Größe“ bzw. 100 % wählen, nicht „An Seite anpassen“.',
-    pngInfo: 'Eine PNG-Datei pro Karte, 300 dpi (744 × 1039 px).', sheets_one: '{{count}} Bogen', sheets_other: '{{count}} Bögen',
+    pngInfo: 'Eine PNG-Datei pro Karte, 300 dpi (744 × 1039 px), dazu eine Textdatei mit der Namensnennung.', sheets_one: '{{count}} Bogen', sheets_other: '{{count}} Bögen',
   },
   about: {
     title: 'Über open-tabletop-cards',
@@ -171,7 +171,7 @@ const en: Resources = {
     scope: 'Scope', wholeDeck: 'Whole deck ({{count}})', selection: 'Selection ({{count}})', start: 'Export', printStart: 'Open print dialog',
     progress: 'Rendering card {{done}} of {{total}} …', layout: 'Laying out cards …', done: 'Done.', failed: 'Export failed: {{message}}',
     hint100: 'When printing, choose "Actual size" / 100 %, not "Fit to page".',
-    pngInfo: 'One PNG file per card, 300 dpi (744 × 1039 px).', sheets_one: '{{count}} sheet', sheets_other: '{{count}} sheets',
+    pngInfo: 'One PNG file per card, 300 dpi (744 × 1039 px), plus a text file with the attribution.', sheets_one: '{{count}} sheet', sheets_other: '{{count}} sheets',
   },
   about: {
     title: 'About open-tabletop-cards',

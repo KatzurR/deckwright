@@ -76,6 +76,25 @@ describe.each([
     if (a.rotation === 0) expect(a.y + a.h).toBeLessThanOrEqual(layout.page.h - PRINTER_MARGIN_MM + 1e-9);
     else expect(a.x).toBeGreaterThanOrEqual(PRINTER_MARGIN_MM);
   });
+
+  it('reserves a mirrored area for the credits in the opposite margin', () => {
+    const a = layout.attribution;
+    const c = layout.credits;
+    expect(c.rotation).toBe(a.rotation);
+    expect(c.side).toBe(a.side === 'bottom' ? 'top' : 'right');
+    expect(inside(c, layout.page)).toBe(true);
+    expect(overlap(c, a)).toBe(false);
+    for (const s of layout.slots) expect(overlap(c, s.clip)).toBe(false);
+    for (const m of layout.cutMarks) {
+      const mark: Rect = { x: Math.min(m.x1, m.x2), y: Math.min(m.y1, m.y2), w: Math.abs(m.x2 - m.x1) || 1e-6, h: Math.abs(m.y2 - m.y1) || 1e-6 };
+      expect(overlap(c, mark)).toBe(false);
+      expect(overlap(a, mark)).toBe(false);
+    }
+    // same thickness as the attribution box (the grid is centred), and inside the printer margin
+    expect(c.rotation === 0 ? c.h : c.w).toBeCloseTo(a.rotation === 0 ? a.h : a.w, 3);
+    if (c.rotation === 0) expect(c.y).toBeGreaterThanOrEqual(PRINTER_MARGIN_MM);
+    else expect(c.x + c.w).toBeLessThanOrEqual(layout.page.w - PRINTER_MARGIN_MM + 1e-9);
+  });
 });
 
 describe('toSheets', () => {

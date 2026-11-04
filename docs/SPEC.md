@@ -4,7 +4,7 @@
 
 ## 1. Ziel
 
-open-tabletop-cards ist eine Web-App, mit der Spieler und Spielleiter Regelinhalte aus D&D 5e (2024) – Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände – als kleine Referenzkarten im Pokerkartenformat gestalten und drucken.
+open-tabletop-cards ist eine Web-App, mit der Spieler und Spielleiter Regelinhalte der fünften Edition (Regeln 2024) – Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände – als kleine Referenzkarten im Pokerkartenformat gestalten und drucken.
 
 Eine Karte enthält alles, was am Tisch nötig ist, um die Regel anzuwenden, ohne ins Buch zu schauen.
 
@@ -27,7 +27,7 @@ Die Karten sind **allgemeine Regelreferenzen, nicht an einen Charakter gebunden.
 - Charakterprofile und daraus berechnete Werte (bewusst ausgeschlossen, siehe Abschnitt 1)
 - Veröffentlichung im Internet und PWA (Phase 2, siehe Abschnitt 3.1)
 - Benutzerkonten, Server, Synchronisation zwischen Geräten
-- Import aus D&D Beyond, Foundry VTT oder anderen Tools
+- Import aus Charakterverwaltungen, virtuellen Spieltischen oder anderen Tools
 - Regeleditionen außer 5e 2024
 - Frei gestaltbare Kartenlayouts (nur vordefinierte Layouts pro Typ)
 - Kartenrückseiten
@@ -146,7 +146,7 @@ Name und Regeltext, als Aufzählung der Effekte. Keine weiteren Felder.
 - Format: 63 × 88 mm (Pokerkarte), passt in Standard-Kartenhüllen
 - Jeder Kartentyp hat ein festes Layout: Kopfzeile (Name, Typ-Symbol), Eigenschaftsblock, Regeltext, Fußzeile (Quelle, Grad/Seltenheit)
 - Jeder Typ hat eine eigene Akzentfarbe; Zauberkarten optional nach Schule eingefärbt
-- Symbole: game-icons.net (CC BY 3.0, Namensnennung in der App)
+- Symbole: game-icons.net (CC BY 3.0, Namensnennung in der App, auf jedem Bogen und im PNG-Export)
 - **Textüberlauf:** Passt der Regeltext nicht, wird die Schrift bis zu einer Mindestgröße verkleinert. Reicht das nicht, entsteht automatisch eine Folgekarte („Name (2/2)“). Der Editor zeigt eine Warnung.
 - Vorschau im Editor entspricht exakt dem Druckergebnis
 - Gestaltung: Stil „Grimoire Codex“, siehe [design/README.md](design/README.md)
@@ -229,7 +229,10 @@ Die Pipeline schlägt fehl, wenn ein SRD-Eintrag keine deutsche Zuordnung hat od
 
 - Code: MIT-Lizenz
 - Regelinhalte ausschließlich aus dem SRD 5.2.1 (CC BY 4.0), offizielle deutsche und englische Fassung, siehe [srd/README.md](../srd/README.md)
-- Die vorgeschriebene Namensnennungserklärung erscheint in der App (Über-Seite) und auf jedem PDF-Bogen, in der Sprache des Decks
+- Die vorgeschriebene Namensnennungserklärung erscheint in der App (Über-Seite) und auf jedem PDF- und Druckbogen, in der Sprache des Decks
+- CC BY 4.0 verlangt einen Hinweis auf Änderungen: „Änderungen: Die SRD-Texte wurden in einzelne Einträge aufgeteilt …“ (`SRD_CHANGES` in `src/model/legal.ts`). Er steht zusammen mit der Namensnennung der Symbole im gegenüberliegenden Rand jedes Bogens, auf der Über-Seite und in der README
+- Der PNG-Export (ZIP) enthält eine Textdatei mit Namensnennung, Änderungshinweis und Symbol-Namensnennung (`NAMENSNENNUNG.txt` / `ATTRIBUTION.txt`)
+- Die Katalogdaten stehen unter CC BY 4.0, nicht unter MIT ([data/catalog/LICENSE.md](../data/catalog/LICENSE.md)); Übersicht aller Fremdlizenzen in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
 - Laut Lizenzhinweis dürfen keine weiteren Verweise auf den Herausgeber erscheinen; erlaubt ist „kompatibel mit der fünften Edition“ / „5E compatible“
 - Keine Inhalte aus anderen Büchern im Repository
 
@@ -239,7 +242,7 @@ Die Pipeline schlägt fehl, wenn ein SRD-Eintrag keine deutsche Zuordnung hat od
 
 1. **Schrift:** TeX Gyre Schola (GUST Font License) statt C059. Sie gehört zur selben Familie (Century Schoolbook) und darf ohne Einschränkung mit der App ausgeliefert werden. Lizenz: `public/licenses/GUST-FONT-LICENSE.txt`.
 2. **Beschnitt:** Die Karten liegen auf dem Bogen ohne Abstand nebeneinander. Da der Ledereinband an allen Kanten gleich ist, wirkt die Nachbarkarte als Beschnitt. Nur das 3 × 3-Raster bekommt außen 3 mm Beschnittzugabe. So passt der Beschnitt auch auf US Letter.
-3. **SRD-Namensnennung auf dem Bogen:** im größeren Rand außerhalb der Schnittmarken (A4 unten, US Letter links, gedreht).
+3. **SRD-Namensnennung auf dem Bogen:** im größeren Rand außerhalb der Schnittmarken (A4 unten, US Letter links, gedreht). Änderungshinweis und Symbol-Namensnennung stehen gespiegelt im gegenüberliegenden Rand (A4 oben, US Letter rechts), weil bei US Letter mit Beschnitt nur eine Zeile Platz hat.
 4. **Texturen** (Leder, Pergament) als erzeugte PNG-Dateien (`npm run textures`), weil SVG-`feTurbulence` im 300-dpi-Export schwarz gerendert wird.
 5. **Zeilenhöhe** in ganzen CSS-Pixeln, sonst werden die Zeilenabstände im Export ungleichmäßig.
 6. **Magische Gegenstände:** Open5e-Varianten („Battleaxe (+1)“, „Battleaxe (+2)“ …) werden zu einem Eintrag je PDF-Eintrag zusammengefasst („Waffe +1, +2 oder +3“).
