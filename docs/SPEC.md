@@ -2,6 +2,8 @@
 
 **Status:** v0.5 · 2026-11-04 · MVP (phase 1) implemented, decisions from the implementation in section 11
 
+This is the product specification. How the code implements it is described in [ARCHITECTURE.md](ARCHITECTURE.md).
+
 ## 1. Goal
 
 Deckwright is a web app with which players and game masters design and print rules content of fifth edition (2024 rules) – spells, actions, features, items and conditions – as small reference cards in poker card size.
@@ -46,7 +48,7 @@ The cards are **general rules references, not tied to a character.** They show t
 - Start for development with `npm install` and `npm run dev`, available at `http://localhost:5173`
 - Production build can be checked locally with `npm run build` and `npm run preview`
 - The server only listens on `localhost`, not on the network
-- Requirement: Node.js (current LTS version); for the data pipeline also Poppler (`pdftotext`)
+- Requirement: Node.js (current LTS version); for the data pipeline also Poppler (`pdftohtml`, see 11.1)
 - The README describes the local installation step by step
 
 **Phase 2: online, as soon as phase 1 runs stably.** Publication as a static site (e.g. GitHub Pages), then optionally installable and usable offline as a PWA. The architecture from phase 1 stays unchanged; only deployment and PWA configuration are added. So that this works without restructuring, the following already applies in phase 1:
@@ -56,19 +58,7 @@ The cards are **general rules references, not tied to a character.** They show t
 
 ### 3.2 Technology
 
-| Area | Decision | Reason |
-|---|---|---|
-| Language | TypeScript | Data model and data pipeline benefit from type checking |
-| Build | Vite | Standard, fast, static output |
-| UI | React | Most widespread, makes outside contributions easier |
-| Storage | IndexedDB via Dexie | Sufficient for many decks, simple API |
-| Card rendering | HTML/CSS with dimensions in mm | One source for preview, print and export |
-| PNG export | Rendering the card DOM elements into an image (e.g. html-to-image) at 300 dpi | No server needed |
-| PDF export | pdf-lib, cards as 300 dpi images placed on A4/Letter, cut marks as vectors | Exact dimensions, independent of the browser's print dialog |
-| Browser print | Print CSS with `@page` | Alternative with vector text |
-| i18n | i18next | Proven, supports plural forms |
-| Data pipeline | Node scripts in TypeScript, PDF text via pdftotext (Poppler) | Only runs when generating the catalog, not in the app |
-| Tests | Vitest for data model and pipeline, Playwright for export | Pipeline results and print dimensions must be demonstrably correct |
+TypeScript, Vite and React; storage in IndexedDB (Dexie); cards rendered once in HTML/CSS with dimensions in mm and used for preview, print and export; PDF via pdf-lib, PNG via html-to-image, browser print via print CSS; i18next; data pipeline as Node scripts; tests with Vitest and Playwright. The decisions and their reasons: [ARCHITECTURE.md §2](ARCHITECTURE.md#2-technology).
 
 ## 4. Card types
 
@@ -159,30 +149,17 @@ The app contains a ready-made data set of all relevant SRD 5.2.1 entries in Germ
 
 **Sources:**
 
-1. **Structure and English texts from the Open5e API** (`document__key=srd-2024`). Checked on 2026-11-03:
-
-   | Endpoint | Entries | Remark |
-   |---|---|---|
-   | `spells` | 339 | structured fields (level, school, range, components, damage, saving throw …) |
-   | `weapons` | 75 | incl. masteries (2024) |
-   | `armor` | 13 | |
-   | `magicitems` | 760 | incl. spelled-out variants ("Battleaxe (+1)" …); the pipeline merges them into the 258 entries of the PDFs |
-   | `classes` | 24 | 12 classes + 12 subclasses, with features |
-   | `species`, `feats`, `backgrounds` | 9 / 17 / 4 | |
-   | `conditions` | **0** | missing for 2024 |
-
+1. **Structure and English texts from the Open5e API** (document `srd-2024`), for spells, weapons, magic items, classes, species and feats.
 2. **German texts from the official German SRD 5.2.1** (PDF, downloaded by the pipeline, see [srd/README.md](../srd/README.md)): name, description, "At higher levels", material text.
 3. **Conditions** in both languages directly from the SRD PDFs, because Open5e does not provide them.
+
+Endpoints, counts and the extraction from the PDFs: [ARCHITECTURE.md §9](ARCHITECTURE.md#9-data-pipeline).
 
 Structured fields (school, action type, damage type …) are stored as keys and translated when rendering; only the free texts are translated or matched.
 
 ### 6.2 Matching English ↔ German
 
-The German and English entries have no common ID, and both PDFs are sorted alphabetically by the respective name. Matching is therefore done in three steps:
-
-1. **Split the entries from the German PDF.** The entries have a fixed structure. For spells: name, header line "‹Schule›zauber N. Grades (Klassen)", then the fields "Zeitaufwand:", "Reichweite:", "Komponenten:", "Wirkungsdauer:", then the rules text. A sample found 347 blocks with "Zeitaufwand:" in the German and 343 with "Casting Time:" in the English SRD. PDF text extraction is done in reading order (not in layout mode), because the two-column layout would otherwise mix lines.
-2. **Automatic matching via a fingerprint of values** that agree in both languages: type, level, school, class list, casting time, range (feet → metres), components, duration, concentration, ritual, dice in the text. Analogously for other types (e.g. items: category, rarity, attunement).
-3. **Mapping file as the authoritative source.** The result is written to `data/mapping/*.json` (`srdKey` → German name). Unique matches are entered automatically; ambiguous or missing ones are listed in the pipeline report and added by hand. Manual entries are kept on every new run.
+The German and English entries have no common ID, and both PDFs are sorted alphabetically by the respective name. The pipeline therefore pairs them automatically by a fingerprint of values that agree in both languages (level, school, classes, ranges converted from feet to metres, dice …). The result is written to the mapping files `data/mapping/*.json` (`srdKey` → German name), which are the authoritative source: ambiguous or missing pairs are listed in the pipeline report and added there by hand, and manual entries are kept on every new run. The procedure is described in [ARCHITECTURE.md §9](ARCHITECTURE.md#english--german-matching).
 
 The pipeline fails if an SRD entry has no German assignment or a German entry is assigned twice. A test checks the totals per type against both PDFs.
 
@@ -243,13 +220,13 @@ The pipeline fails if an SRD entry has no German assignment or a German entry is
 1. **Typeface:** TeX Gyre Schola (GUST Font License) instead of C059. It belongs to the same family (Century Schoolbook) and may be shipped with the app without restriction. License: `public/licenses/GUST-FONT-LICENSE.txt`.
 2. **Bleed:** the cards lie on the sheet next to each other without gaps. Because the leather border is the same on all edges, the neighbouring card acts as bleed. Only the 3 × 3 grid gets 3 mm bleed on the outside. This way the bleed also fits on US Letter.
 3. **SRD attribution on the sheet:** in the larger margin outside the cut marks (A4 bottom, US Letter left, rotated). The change note and the icon credits are mirrored in the opposite margin (A4 top, US Letter right), because on US Letter with bleed there is only room for one line.
-4. **Textures** (leather, parchment) as generated PNG files (`npm run textures`), because SVG `feTurbulence` renders black in the 300 dpi export.
-5. **Line height** in whole CSS pixels, otherwise the line spacing becomes uneven in the export.
+4. **Textures** (leather, parchment) as generated PNG files – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
+5. **Line height** in whole CSS pixels – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
 6. **Magic items:** Open5e variants ("Battleaxe (+1)", "Battleaxe (+2)" …) are merged into one entry per PDF entry ("Weapon, +1, +2, or +3").
 7. **Not in the catalog:** the 4 backgrounds and mundane equipment (no card types of their own in the MVP).
-8. **Units:** the German SRD uses 5 feet = 1.5 m and 1 mile = 1.6 km. Values are stored in feet; the German card converts when rendering.
-9. **Text extraction:** Poppler `pdftohtml -xml` instead of `pdftotext`, because the XML output keeps the font, bold/italic and position. This makes headings, bold lead-ins and tables reliably detectable. Class tables and sidebars ("Breaking Your Oath") are removed, because they do not belong to a single feature.
-10. **Card images in Firefox:** the app creates the embedded card font for the 300 dpi export itself (`src/export/fonts.ts`), because html-to-image cannot read the font family in Firefox. Firefox breaks lines in the image export slightly differently than in the view; so that paragraphs do not overlap, the text blocks grow with their content in the export.
+8. **Units:** stored in feet, German cards convert as in the German SRD – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
+9. **Text extraction** with Poppler `pdftohtml -xml` – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
+10. **Card images in Firefox:** embedded card font and growing text blocks in the image export – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
 11. **Text overflow:** rules text 6.0 pt, reduced in steps of 0.2 pt down to 4.8 pt, then continuation cards. The minimum size is provisional, see 11.2.
 
 ### 11.2 Open

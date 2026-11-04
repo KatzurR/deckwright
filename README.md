@@ -2,7 +2,7 @@
 
 An open-source tool for turning fifth edition (5E) rules content — spells, actions, class features, abilities, items, and conditions — into small, printable reference cards you can keep at the table.
 
-> **Status:** MVP (phase 1, local use). The web app runs on your own computer; it is not published online yet. See the [user guide](docs/USER_GUIDE.md) and the [specification](docs/SPEC.md).
+> **Status:** MVP (phase 1, local use). The web app runs on your own computer; it is not published online yet. See the [user guide](docs/USER_GUIDE.md), the [specification](docs/SPEC.md) and the [architecture overview](docs/ARCHITECTURE.md) for developers.
 
 ## Why
 
@@ -54,7 +54,7 @@ The SRD catalog is part of the repository (`data/catalog/`), so you do not need 
 
 The data pipeline ([scripts/pipeline](scripts/pipeline)) takes structure and keys from the Open5e API and the rules texts from the English and German SRD 5.2.1 PDFs (Poppler `pdftohtml -xml`). English and German entries are paired by a fingerprint of language-independent values; manual assignments in `data/mapping/*.json` are kept on every run. The pipeline fails if an entry has no German counterpart or a German entry is assigned twice; the result is summarised in [data/pipeline-report.md](data/pipeline-report.md).
 
-Project layout:
+Project layout (details in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)):
 
 ```
 src/model     card and deck model (zod), units, deck operations, deck file format
