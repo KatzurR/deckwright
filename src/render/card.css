@@ -1,0 +1,279 @@
+/*
+ * Card face in the "Grimoire Codex" style (docs/design/README.md).
+ * All sizes are physical units (mm, pt) so that screen preview, browser print and the
+ * 300 dpi export are the same layout (SPEC §5: preview equals print result).
+ */
+@font-face { font-family: 'TeX Gyre Schola'; src: url('./fonts/texgyreschola-regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: 'TeX Gyre Schola'; src: url('./fonts/texgyreschola-bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: block; }
+@font-face { font-family: 'TeX Gyre Schola'; src: url('./fonts/texgyreschola-italic.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: block; }
+@font-face { font-family: 'TeX Gyre Schola'; src: url('./fonts/texgyreschola-bolditalic.otf') format('opentype'); font-weight: 700; font-style: italic; font-display: block; }
+
+.otc-card {
+  --leather: #4b2a16;
+  --leather-dark: #34190b;
+  --gold: #c79a3e;
+  --parchment: #efe1bd;
+  --medallion: #f7ecd2;
+  --ink: #3b2614;
+  --line: #6b4523;
+  --accent: #8a2a12;
+  --band: 2.9mm;
+  --bleed: 0mm;
+  --body-size: 6pt;
+
+  position: relative;
+  box-sizing: border-box;
+  width: calc(63mm + 2 * var(--bleed));
+  height: calc(88mm + 2 * var(--bleed));
+  font-family: 'TeX Gyre Schola', 'C059', 'Century Schoolbook', 'New Century Schoolbook', Georgia, serif;
+  color: var(--ink);
+  overflow: hidden;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  text-rendering: geometricPrecision;
+  font-kerning: normal;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.otc-card *, .otc-card *::before, .otc-card *::after { box-sizing: border-box; }
+
+/* Leather binding. Without bleed it has rounded corners; with bleed it fills the bleed area. */
+.otc-card__leather {
+  position: absolute;
+  inset: 0;
+  border-radius: 3mm;
+  background-color: var(--leather);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(120, 70, 35, 0.45), transparent 60%),
+    radial-gradient(ellipse at 75% 85%, rgba(20, 8, 2, 0.45), transparent 55%),
+    url('./textures/leather.png');
+  background-size: auto, auto, 22mm 22mm;
+}
+.otc-card--bleed .otc-card__leather { border-radius: 0; }
+/* Fine gold line along the outer edge of the trimmed card */
+.otc-card__leather::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--bleed) + 0.45mm);
+  border: 0.18mm solid var(--gold);
+  border-radius: 2.6mm;
+  opacity: 0.85;
+}
+
+.otc-card__trim {
+  position: absolute;
+  left: var(--bleed);
+  top: var(--bleed);
+  width: 63mm;
+  height: 88mm;
+}
+
+.otc-card__parchment {
+  position: absolute;
+  inset: var(--band);
+  border-radius: 1.4mm;
+  border: 0.22mm solid var(--gold);
+  background-color: var(--parchment);
+  background-image:
+    radial-gradient(ellipse at 50% 45%, rgba(255, 250, 235, 0.55) 0%, rgba(255, 250, 235, 0) 60%),
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(110, 70, 30, 0.28) 100%),
+    url('./textures/parchment.png');
+  background-size: auto, auto, 60mm 60mm;
+  box-shadow: inset 0 0 1.2mm rgba(70, 40, 15, 0.35);
+}
+/* Fine brown frame inside the parchment */
+.otc-card__parchment::before {
+  content: '';
+  position: absolute;
+  inset: 1.05mm;
+  border: 0.15mm solid var(--line);
+  border-radius: 0.8mm;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.otc-card__content {
+  position: absolute;
+  inset: var(--band);
+  padding: 7.2mm 2.75mm 4.6mm;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Medallion: ⌀ 10.5 mm, top centre, overlapping the leather band */
+.otc-card__medallion {
+  position: absolute;
+  top: 0.35mm;
+  left: calc(50% - 5.25mm);
+  width: 10.5mm;
+  height: 10.5mm;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #6a3d20, var(--leather-dark));
+  border: 0.3mm solid var(--gold);
+  box-shadow: 0 0.2mm 0.5mm rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+.otc-card__medallion-inner {
+  position: absolute;
+  inset: 1.15mm;
+  border-radius: 50%;
+  background: var(--medallion);
+  border: 0.2mm solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.otc-card__medallion-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0.35mm;
+  border-radius: 50%;
+  border: 0.35mm solid var(--accent);
+}
+.otc-card__icon {
+  width: 5.6mm;
+  height: 5.6mm;
+  fill: var(--accent);
+}
+
+.otc-card__header { text-align: center; flex: none; }
+.otc-card__title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14.4pt;
+  line-height: 1.05;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+}
+.otc-card__title--wrap { white-space: normal; }
+.otc-card__subtitle {
+  margin: 0.6mm 0 0;
+  font-style: italic;
+  font-size: 6.2pt;
+  line-height: 1.15;
+}
+
+.otc-card__divider {
+  position: relative;
+  flex: none;
+  height: 1.6mm;
+  margin: 1mm 0.4mm 0.6mm;
+}
+.otc-card__divider::before,
+.otc-card__divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 1.6mm);
+  border-top: 0.15mm solid var(--line);
+}
+.otc-card__divider::before { left: 0; }
+.otc-card__divider::after { right: 0; }
+.otc-card__diamond {
+  position: absolute;
+  left: calc(50% - 0.6mm);
+  top: calc(50% - 0.6mm);
+  width: 1.2mm;
+  height: 1.2mm;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+.otc-card__props {
+  flex: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.4mm;
+  row-gap: 1.25mm;
+  padding: 0.6mm 0 0.4mm;
+  text-align: center;
+  background-image: linear-gradient(var(--line), var(--line));
+  background-size: 0.15mm calc(100% - 1mm);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.otc-card__prop { min-width: 0; }
+.otc-card__prop-label {
+  display: block;
+  font-weight: 700;
+  font-size: 3.8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.otc-card__prop-value {
+  display: block;
+  font-size: 6.5pt;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+.otc-card__footnotes {
+  flex: none;
+  margin: 0.7mm 0 0;
+  font-style: italic;
+  font-size: 4.8pt;
+  line-height: 1.2;
+  color: var(--line);
+  text-align: center;
+}
+.otc-card__footnotes p { margin: 0; }
+
+.otc-card__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  font-size: var(--body-size);
+  line-height: var(--body-line, 1.15);
+  text-align: left;
+  padding: 0 0.3mm;
+}
+/* Whole-pixel spacing keeps every baseline on the same pixel grid (see bodyLineHeightPx). */
+.otc-card__body p { margin: 0 0 3px; }
+.otc-card__body ul { margin: 0 0 3px; padding-left: 1.05em; }
+.otc-card__body li { margin: 0 0 1px; }
+.otc-card__body ul.otc-card__continued > li:first-child { list-style: none; }
+.otc-card__body > :last-child { margin-bottom: 0; }
+
+.otc-card__footer {
+  flex: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8mm;
+  font-style: italic;
+  font-size: 4.6pt;
+  line-height: 1.15;
+  color: var(--line);
+  padding: 0.8mm 0.4mm 0;
+}
+.otc-card__footer span:first-child { text-align: left; }
+.otc-card__footer span:last-child { text-align: right; white-space: nowrap; }
+
+/* Shield in the bottom leather band */
+.otc-card__badge {
+  position: absolute;
+  left: calc(50% - 3mm);
+  bottom: 0.35mm;
+  width: 6mm;
+  height: 5.2mm;
+  background: var(--gold);
+  clip-path: polygon(0 0, 100% 0, 100% 62%, 50% 100%, 0 62%);
+  z-index: 2;
+}
+.otc-card__badge-inner {
+  position: absolute;
+  inset: 0.3mm 0.3mm 0.45mm;
+  background: var(--leather);
+  clip-path: polygon(0 0, 100% 0, 100% 62%, 50% 100%, 0 62%);
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 7.2pt;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.55mm;
+}
+.otc-card__badge-inner--small { font-size: 5.6pt; padding-top: 0.8mm; }

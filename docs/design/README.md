@@ -41,7 +41,7 @@ Die Akzentfarbe wechselt je Kartentyp bzw. Zauberschule (SPEC Abschnitt 5) und b
 
 ## Schrift
 
-Serifenschrift aus der Familie Century Schoolbook. Im Entwurf ist das **C059** (URW), Größen bei 300 dpi:
+Serifenschrift aus der Familie Century Schoolbook. Der Entwurf wurde mit **C059** (URW) gezeichnet. Die App verwendet die gleichwertige **TeX Gyre Schola** (GUST Font License, frei auslieferbar; SPEC Abschnitt 11.1). Größen bei 300 dpi:
 
 | Element | Schnitt | Größe |
 |---|---|---|
@@ -49,7 +49,7 @@ Serifenschrift aus der Familie Century Schoolbook. Im Entwurf ist das **C059** (
 | Untertitel | Italic | 6,2 pt |
 | Beschriftung Eigenschaften | Bold, Versalien, Sperrung | 3,8 pt |
 | Wert Eigenschaften | Roman | 6,5 pt |
-| Regeltext | Roman | 6,0 pt |
+| Regeltext | Roman | 6,0 pt (bei langen Texten bis 4,8 pt) |
 | Fußnote Material | Italic | 4,8 pt |
 | Fußzeile | Italic | 4,6 pt |
 | Grad im Schild | Bold | 7,2 pt |
@@ -58,5 +58,8 @@ Diese Größen gelten für einen Regeltext, der auf eine Karte passt. Bei länge
 
 ## Noch zu prüfen
 
-- **Probedruck:** Die Beschriftung der Eigenschaften (3,8 pt) ist sehr klein. Ein Probedruck soll zeigen, ob sie lesbar bleibt, und die Mindestgröße für den Regeltext festlegen.
-- **Tinte und Schnitt:** Der Ledereinband reicht bis an den Kartenrand. Für den Druck braucht er die Beschnittzugabe von 3 mm (SPEC Abschnitt 8), damit beim Schneiden kein weißer Rand entsteht.
+- **Probedruck:** Die Beschriftung der Eigenschaften (3,8 pt) ist sehr klein. Ein Probedruck soll zeigen, ob sie lesbar bleibt, und die Mindestgröße für den Regeltext bestätigen (vorläufig 4,8 pt, `FONT` in `src/render/paginate.ts`).
+
+## Erledigt
+
+- **Tinte und Schnitt:** Der Ledereinband reicht bis an den Kartenrand. Auf dem PDF-Bogen liegen die Karten ohne Abstand nebeneinander, die Nachbarkarte wirkt als Beschnitt. Außen bekommt das Raster optional 3 mm Beschnittzugabe (SPEC Abschnitte 8 und 11.1).

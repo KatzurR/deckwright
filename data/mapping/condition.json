@@ -1,0 +1,57 @@
+{
+  "srd-2024_condition_blinded": {
+    "de": "Blind",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_condition_charmed": {
+    "de": "Bezaubert",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_condition_deafened": {
+    "de": "Taub",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_condition_exhaustion": {
+    "de": "Erschöpfung"
+  },
+  "srd-2024_condition_frightened": {
+    "de": "Verängstigt",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_condition_grappled": {
+    "de": "Gepackt"
+  },
+  "srd-2024_condition_incapacitated": {
+    "de": "Kampfunfähig"
+  },
+  "srd-2024_condition_invisible": {
+    "de": "Unsichtbar"
+  },
+  "srd-2024_condition_paralyzed": {
+    "de": "Gelähmt"
+  },
+  "srd-2024_condition_petrified": {
+    "de": "Versteinert"
+  },
+  "srd-2024_condition_poisoned": {
+    "de": "Vergiftet",
+    "manual": true,
+    "note": "Same structure (number of effects, no numbers in the text) as other entries; assigned by the official SRD terminology."
+  },
+  "srd-2024_condition_prone": {
+    "de": "Liegend"
+  },
+  "srd-2024_condition_restrained": {
+    "de": "Festgesetzt"
+  },
+  "srd-2024_condition_stunned": {
+    "de": "Betäubt"
+  },
+  "srd-2024_condition_unconscious": {
+    "de": "Bewusstlos"
+  }
+}

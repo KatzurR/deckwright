@@ -1,0 +1,49 @@
+{
+  "name": "open-tabletop-cards",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Printable D&D 5e (2024) rules reference cards \u2013 SRD 5.2.1, German and English",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "pipeline": "tsx scripts/pipeline/run.ts",
+    "pipeline:offline": "tsx scripts/pipeline/run.ts --offline",
+    "schema": "tsx scripts/gen-schema.ts",
+    "textures": "tsx scripts/gen-textures.ts"
+  },
+  "dependencies": {
+    "dexie": "4.4.7",
+    "fflate": "0.8.3",
+    "html-to-image": "1.11.13",
+    "i18next": "26.7.1",
+    "pdf-lib": "1.17.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-i18next": "17.1.12",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "18.19.130",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
+    "@vitejs/plugin-react": "4.7.0",
+    "fake-indexeddb": "6.2.7",
+    "jsdom": "25.0.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "6.4.5",
+    "vitest": "3.2.7"
+  }
+}

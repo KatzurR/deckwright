@@ -1,0 +1,1021 @@
+{
+  "srd-2024_acid-arrow": {
+    "de": "Säurepfeil"
+  },
+  "srd-2024_acid-splash": {
+    "de": "Säurespritzer"
+  },
+  "srd-2024_aid": {
+    "de": "Beistand"
+  },
+  "srd-2024_alarm": {
+    "de": "Alarm"
+  },
+  "srd-2024_alter-self": {
+    "de": "Gestalt verändern"
+  },
+  "srd-2024_animal-friendship": {
+    "de": "Tierfreundschaft"
+  },
+  "srd-2024_animal-messenger": {
+    "de": "Tierbote"
+  },
+  "srd-2024_animal-shapes": {
+    "de": "Tierform"
+  },
+  "srd-2024_animate-dead": {
+    "de": "Tote beleben"
+  },
+  "srd-2024_animate-objects": {
+    "de": "Gegenstände beleben"
+  },
+  "srd-2024_antilife-shell": {
+    "de": "Schutzhülle gegen Lebendes"
+  },
+  "srd-2024_antimagic-field": {
+    "de": "Antimagisches Feld"
+  },
+  "srd-2024_antipathysympathy": {
+    "de": "Antipathie/Sympathie"
+  },
+  "srd-2024_arcane-eye": {
+    "de": "Arkanes Auge"
+  },
+  "srd-2024_arcane-hand": {
+    "de": "Arkane Hand"
+  },
+  "srd-2024_arcane-lock": {
+    "de": "Arkanes Schloss"
+  },
+  "srd-2024_arcane-sword": {
+    "de": "Arkanes Schwert"
+  },
+  "srd-2024_arcanists-magic-aura": {
+    "de": "Magische Aura des Arkanisten"
+  },
+  "srd-2024_astral-projection": {
+    "de": "Astrale Projektion"
+  },
+  "srd-2024_augury": {
+    "de": "Vorahnung"
+  },
+  "srd-2024_aura-of-life": {
+    "de": "Aura des Lebens"
+  },
+  "srd-2024_awaken": {
+    "de": "Erwecken"
+  },
+  "srd-2024_bane": {
+    "de": "Verderben"
+  },
+  "srd-2024_banishment": {
+    "de": "Verbannung"
+  },
+  "srd-2024_barkskin": {
+    "de": "Rindenhaut"
+  },
+  "srd-2024_beacon-of-hope": {
+    "de": "Leuchtfeuer der Hoffnung"
+  },
+  "srd-2024_befuddlement": {
+    "de": "Wirrnis"
+  },
+  "srd-2024_bestow-curse": {
+    "de": "Fluch"
+  },
+  "srd-2024_black-tentacles": {
+    "de": "Schwarze Tentakel"
+  },
+  "srd-2024_blade-barrier": {
+    "de": "Klingenbarriere"
+  },
+  "srd-2024_bless": {
+    "de": "Segnen"
+  },
+  "srd-2024_blight": {
+    "de": "Dürre"
+  },
+  "srd-2024_blindnessdeafness": {
+    "de": "Blindheit/Taubheit"
+  },
+  "srd-2024_blink": {
+    "de": "Flimmern"
+  },
+  "srd-2024_blur": {
+    "de": "Verschwimmen"
+  },
+  "srd-2024_burning-hands": {
+    "de": "Brennende Hände"
+  },
+  "srd-2024_call-lightning": {
+    "de": "Blitze herbeirufen"
+  },
+  "srd-2024_calm-emotions": {
+    "de": "Gefühle besänftigen"
+  },
+  "srd-2024_chain-lightning": {
+    "de": "Kettenblitz"
+  },
+  "srd-2024_charm-monster": {
+    "de": "Monster bezaubern"
+  },
+  "srd-2024_charm-person": {
+    "de": "Person bezaubern"
+  },
+  "srd-2024_chill-touch": {
+    "de": "Kalte Hand"
+  },
+  "srd-2024_chromatic-orb": {
+    "de": "Chromatische Kugel"
+  },
+  "srd-2024_circle-of-death": {
+    "de": "Todeskreis"
+  },
+  "srd-2024_clairvoyance": {
+    "de": "Hellsehen"
+  },
+  "srd-2024_clone": {
+    "de": "Klon"
+  },
+  "srd-2024_cloudkill": {
+    "de": "Todeswolke"
+  },
+  "srd-2024_color-spray": {
+    "de": "Sprühende Farben"
+  },
+  "srd-2024_command": {
+    "de": "Befehl"
+  },
+  "srd-2024_commune": {
+    "de": "Heiliges Gespräch"
+  },
+  "srd-2024_commune-with-nature": {
+    "de": "Einswerden mit der Natur"
+  },
+  "srd-2024_comprehend-languages": {
+    "de": "Sprachen verstehen"
+  },
+  "srd-2024_compulsion": {
+    "de": "Zwang"
+  },
+  "srd-2024_cone-of-cold": {
+    "de": "Kältekegel"
+  },
+  "srd-2024_confusion": {
+    "de": "Verwirrung"
+  },
+  "srd-2024_conjure-animals": {
+    "de": "Tiere beschwören"
+  },
+  "srd-2024_conjure-celestial": {
+    "de": "Celestisches Wesen beschwören"
+  },
+  "srd-2024_conjure-elemental": {
+    "de": "Elementar beschwören"
+  },
+  "srd-2024_conjure-fey": {
+    "de": "Feenwesen beschwören"
+  },
+  "srd-2024_conjure-minor-elementals": {
+    "de": "Schwache Elementare beschwören"
+  },
+  "srd-2024_conjure-woodland-beings": {
+    "de": "Wesen des Waldes beschwören"
+  },
+  "srd-2024_contact-other-plane": {
+    "de": "Kontakt zu anderen Ebenen"
+  },
+  "srd-2024_contagion": {
+    "de": "Ansteckung"
+  },
+  "srd-2024_contingency": {
+    "de": "Notfall"
+  },
+  "srd-2024_continual-flame": {
+    "de": "Dauerhafte Flamme"
+  },
+  "srd-2024_control-water": {
+    "de": "Wasser kontrollieren"
+  },
+  "srd-2024_control-weather": {
+    "de": "Wetterkontrolle"
+  },
+  "srd-2024_counterspell": {
+    "de": "Gegenzauber"
+  },
+  "srd-2024_create-food-and-water": {
+    "de": "Nahrung und Wasser erschaffen"
+  },
+  "srd-2024_create-or-destroy-water": {
+    "de": "Wasser erschaffen oder zerstören"
+  },
+  "srd-2024_create-undead": {
+    "de": "Untote erschaffen"
+  },
+  "srd-2024_creation": {
+    "de": "Erschaffung"
+  },
+  "srd-2024_cure-wounds": {
+    "de": "Wunden heilen"
+  },
+  "srd-2024_dancing-lights": {
+    "de": "Tanzende Lichter"
+  },
+  "srd-2024_darkness": {
+    "de": "Dunkelheit"
+  },
+  "srd-2024_darkvision": {
+    "de": "Dunkelsicht"
+  },
+  "srd-2024_daylight": {
+    "de": "Tageslicht"
+  },
+  "srd-2024_death-ward": {
+    "de": "Todesschutz"
+  },
+  "srd-2024_delayed-blast-fireball": {
+    "de": "Spätzündender Feuerball"
+  },
+  "srd-2024_demiplane": {
+    "de": "Halbebene"
+  },
+  "srd-2024_detect-evil-and-good": {
+    "de": "Gutes und Böses entdecken"
+  },
+  "srd-2024_detect-magic": {
+    "de": "Magie entdecken"
+  },
+  "srd-2024_detect-poison-and-disease": {
+    "de": "Gift und Krankheit entdecken"
+  },
+  "srd-2024_detect-thoughts": {
+    "de": "Gedanken wahrnehmen"
+  },
+  "srd-2024_dimension-door": {
+    "de": "Dimensionstür"
+  },
+  "srd-2024_disguise-self": {
+    "de": "Selbstverkleidung"
+  },
+  "srd-2024_disintegrate": {
+    "de": "Auflösung"
+  },
+  "srd-2024_dispel-evil-and-good": {
+    "de": "Gutes und Böses bannen"
+  },
+  "srd-2024_dispel-magic": {
+    "de": "Magie bannen"
+  },
+  "srd-2024_dissonant-whispers": {
+    "de": "Dissonantes Flüstern"
+  },
+  "srd-2024_divination": {
+    "de": "Weissagung"
+  },
+  "srd-2024_divine-favor": {
+    "de": "Göttliche Gunst"
+  },
+  "srd-2024_divine-smite": {
+    "de": "Göttliches Niederstrecken"
+  },
+  "srd-2024_divine-word": {
+    "de": "Göttliches Wort"
+  },
+  "srd-2024_dominate-beast": {
+    "de": "Tier beherrschen"
+  },
+  "srd-2024_dominate-monster": {
+    "de": "Monster beherrschen"
+  },
+  "srd-2024_dominate-person": {
+    "de": "Person beherrschen"
+  },
+  "srd-2024_dragons-breath": {
+    "de": "Drachenodem"
+  },
+  "srd-2024_dream": {
+    "de": "Traum"
+  },
+  "srd-2024_druidcraft": {
+    "de": "Druidenkunst"
+  },
+  "srd-2024_earthquake": {
+    "de": "Erdbeben"
+  },
+  "srd-2024_eldritch-blast": {
+    "de": "Schauriger Strahl"
+  },
+  "srd-2024_elementalism": {
+    "de": "Elementalismus"
+  },
+  "srd-2024_enhance-ability": {
+    "de": "Attribut verbessern"
+  },
+  "srd-2024_enlargereduce": {
+    "de": "Vergrößern/Verkleinern"
+  },
+  "srd-2024_ensnaring-strike": {
+    "de": "Fesselnder Schlag"
+  },
+  "srd-2024_entangle": {
+    "de": "Verstricken"
+  },
+  "srd-2024_enthrall": {
+    "de": "Fesseln"
+  },
+  "srd-2024_etherealness": {
+    "de": "Ätherische Gestalten"
+  },
+  "srd-2024_expeditious-retreat": {
+    "de": "Rascher Rückzug"
+  },
+  "srd-2024_eyebite": {
+    "de": "Böser Blick"
+  },
+  "srd-2024_fabricate": {
+    "de": "Verarbeitung"
+  },
+  "srd-2024_faerie-fire": {
+    "de": "Feenfeuer"
+  },
+  "srd-2024_faithful-hound": {
+    "de": "Treuer Hund"
+  },
+  "srd-2024_false-life": {
+    "de": "Falsches Leben"
+  },
+  "srd-2024_fear": {
+    "de": "Furcht"
+  },
+  "srd-2024_feather-fall": {
+    "de": "Federfall"
+  },
+  "srd-2024_find-familiar": {
+    "de": "Vertrauten finden"
+  },
+  "srd-2024_find-steed": {
+    "de": "Reittier finden"
+  },
+  "srd-2024_find-the-path": {
+    "de": "Weg finden"
+  },
+  "srd-2024_find-traps": {
+    "de": "Fallen finden"
+  },
+  "srd-2024_finger-of-death": {
+    "de": "Finger des Todes"
+  },
+  "srd-2024_fire-bolt": {
+    "de": "Feuerpfeil"
+  },
+  "srd-2024_fire-shield": {
+    "de": "Feuerschild"
+  },
+  "srd-2024_fire-storm": {
+    "de": "Feuersturm"
+  },
+  "srd-2024_fireball": {
+    "de": "Feuerball"
+  },
+  "srd-2024_flame-blade": {
+    "de": "Flammenklinge"
+  },
+  "srd-2024_flame-strike": {
+    "de": "Flammenschlag"
+  },
+  "srd-2024_flaming-sphere": {
+    "de": "Flammenkugel"
+  },
+  "srd-2024_flesh-to-stone": {
+    "de": "Fleisch zu Stein"
+  },
+  "srd-2024_floating-disk": {
+    "de": "Schwebende Scheibe"
+  },
+  "srd-2024_fly": {
+    "de": "Flug"
+  },
+  "srd-2024_fog-cloud": {
+    "de": "Nebelwolke"
+  },
+  "srd-2024_forbiddance": {
+    "de": "Zutritt verwehren"
+  },
+  "srd-2024_forcecage": {
+    "de": "Energiekäfig"
+  },
+  "srd-2024_foresight": {
+    "de": "Voraussicht"
+  },
+  "srd-2024_freedom-of-movement": {
+    "de": "Bewegungsfreiheit"
+  },
+  "srd-2024_freezing-sphere": {
+    "de": "Frostsphäre"
+  },
+  "srd-2024_gaseous-form": {
+    "de": "Gasförmige Gestalt"
+  },
+  "srd-2024_gate": {
+    "de": "Tor"
+  },
+  "srd-2024_geas": {
+    "de": "Geas"
+  },
+  "srd-2024_gentle-repose": {
+    "de": "Sanfte Ruhe"
+  },
+  "srd-2024_giant-insect": {
+    "de": "Rieseninsekt"
+  },
+  "srd-2024_glibness": {
+    "de": "Redegewandtheit"
+  },
+  "srd-2024_globe-of-invulnerability": {
+    "de": "Kugel der Unverwundbarkeit"
+  },
+  "srd-2024_glyph-of-warding": {
+    "de": "Glyphe des Schutzes"
+  },
+  "srd-2024_goodberry": {
+    "de": "Gute Beeren"
+  },
+  "srd-2024_grease": {
+    "de": "Schmieren"
+  },
+  "srd-2024_greater-invisibility": {
+    "de": "Mächtige Unsichtbarkeit"
+  },
+  "srd-2024_greater-restoration": {
+    "de": "Vollständige Genesung"
+  },
+  "srd-2024_guardian-of-faith": {
+    "de": "Hüter des Glaubens"
+  },
+  "srd-2024_guards-and-wards": {
+    "de": "Wächter und Hüter"
+  },
+  "srd-2024_guidance": {
+    "de": "Göttliche Führung"
+  },
+  "srd-2024_guiding-bolt": {
+    "de": "Lenkendes Geschoss"
+  },
+  "srd-2024_gust-of-wind": {
+    "de": "Windstoß"
+  },
+  "srd-2024_hallow": {
+    "de": "Weihen"
+  },
+  "srd-2024_hallucinatory-terrain": {
+    "de": "Scheingelände"
+  },
+  "srd-2024_harm": {
+    "de": "Leid"
+  },
+  "srd-2024_haste": {
+    "de": "Hast"
+  },
+  "srd-2024_heal": {
+    "de": "Heilung"
+  },
+  "srd-2024_healing-word": {
+    "de": "Heilendes Wort"
+  },
+  "srd-2024_heat-metal": {
+    "de": "Metall erhitzen"
+  },
+  "srd-2024_hellish-rebuke": {
+    "de": "Höllischer Tadel"
+  },
+  "srd-2024_heroes-feast": {
+    "de": "Heldenmahl"
+  },
+  "srd-2024_heroism": {
+    "de": "Heldenmut"
+  },
+  "srd-2024_hex": {
+    "de": "Verwünschung"
+  },
+  "srd-2024_hideous-laughter": {
+    "de": "Fürchterlicher Lachanfall"
+  },
+  "srd-2024_hold-monster": {
+    "de": "Monster festhalten"
+  },
+  "srd-2024_hold-person": {
+    "de": "Person festhalten"
+  },
+  "srd-2024_holy-aura": {
+    "de": "Heilige Aura"
+  },
+  "srd-2024_hunters-mark": {
+    "de": "Zeichen des Jägers"
+  },
+  "srd-2024_hypnotic-pattern": {
+    "de": "Hypnotisches Muster",
+    "manual": true,
+    "note": "Components differ between the editions: EN \"S, M\", DE \"V, G, M\"."
+  },
+  "srd-2024_ice-knife": {
+    "de": "Eismesser"
+  },
+  "srd-2024_ice-storm": {
+    "de": "Eissturm"
+  },
+  "srd-2024_identify": {
+    "de": "Identifizieren"
+  },
+  "srd-2024_illusory-script": {
+    "de": "Illusionsschrift"
+  },
+  "srd-2024_imprisonment": {
+    "de": "Einkerkerung"
+  },
+  "srd-2024_incendiary-cloud": {
+    "de": "Flammende Wolke"
+  },
+  "srd-2024_inflict-wounds": {
+    "de": "Wunden verursachen"
+  },
+  "srd-2024_insect-plague": {
+    "de": "Insektenplage"
+  },
+  "srd-2024_instant-summons": {
+    "de": "Sofortige Beschwörung"
+  },
+  "srd-2024_invisibility": {
+    "de": "Unsichtbarkeit"
+  },
+  "srd-2024_irresistible-dance": {
+    "de": "Unwiderstehlicher Tanz"
+  },
+  "srd-2024_jump": {
+    "de": "Sprung"
+  },
+  "srd-2024_knock": {
+    "de": "Klopfen"
+  },
+  "srd-2024_legend-lore": {
+    "de": "Sagenkunde"
+  },
+  "srd-2024_lesser-restoration": {
+    "de": "Schwache Genesung"
+  },
+  "srd-2024_levitate": {
+    "de": "Schweben"
+  },
+  "srd-2024_light": {
+    "de": "Leicht"
+  },
+  "srd-2024_lightning-bolt": {
+    "de": "Blitz"
+  },
+  "srd-2024_locate-animals-or-plants": {
+    "de": "Tiere oder Pflanzen aufspüren"
+  },
+  "srd-2024_locate-creature": {
+    "de": "Kreatur aufspüren"
+  },
+  "srd-2024_locate-object": {
+    "de": "Gegenstand aufspüren"
+  },
+  "srd-2024_longstrider": {
+    "de": "Lange Schritte"
+  },
+  "srd-2024_mage-armor": {
+    "de": "Magierrüstung"
+  },
+  "srd-2024_mage-hand": {
+    "de": "Magierhand"
+  },
+  "srd-2024_magic-circle": {
+    "de": "Schutzkreis"
+  },
+  "srd-2024_magic-jar": {
+    "de": "Magisches Gefäß"
+  },
+  "srd-2024_magic-missile": {
+    "de": "Magisches Geschoss"
+  },
+  "srd-2024_magic-mouth": {
+    "de": "Magischer Mund"
+  },
+  "srd-2024_magic-weapon": {
+    "de": "Magische Waffe"
+  },
+  "srd-2024_magnificent-mansion": {
+    "de": "Herrliches Herrenhaus"
+  },
+  "srd-2024_major-image": {
+    "de": "Mächtiges Trugbild"
+  },
+  "srd-2024_mass-cure-wounds": {
+    "de": "Massen-Wunden heilen"
+  },
+  "srd-2024_mass-heal": {
+    "de": "Massen-Heilung"
+  },
+  "srd-2024_mass-healing-word": {
+    "de": "Massen-Heilendes Wort"
+  },
+  "srd-2024_mass-suggestion": {
+    "de": "Massen-Einflüsterung"
+  },
+  "srd-2024_maze": {
+    "de": "Irrgarten"
+  },
+  "srd-2024_meld-into-stone": {
+    "de": "Mit Stein verschmelzen"
+  },
+  "srd-2024_mending": {
+    "de": "Ausbessern"
+  },
+  "srd-2024_message": {
+    "de": "Botschaft"
+  },
+  "srd-2024_meteor-swarm": {
+    "de": "Meteoritenschwarm"
+  },
+  "srd-2024_mind-blank": {
+    "de": "Gedankenleere"
+  },
+  "srd-2024_mind-spike": {
+    "de": "Gedankendorn"
+  },
+  "srd-2024_minor-illusion": {
+    "de": "Einfache Illusion"
+  },
+  "srd-2024_mirage-arcane": {
+    "de": "Arkane Spiegelung"
+  },
+  "srd-2024_mirror-image": {
+    "de": "Spiegelbilder"
+  },
+  "srd-2024_mislead": {
+    "de": "Ablenkung"
+  },
+  "srd-2024_misty-step": {
+    "de": "Nebelschritt"
+  },
+  "srd-2024_modify-memory": {
+    "de": "Erinnerung verändern"
+  },
+  "srd-2024_moonbeam": {
+    "de": "Mondstrahl"
+  },
+  "srd-2024_move-earth": {
+    "de": "Erde bewegen"
+  },
+  "srd-2024_nondetection": {
+    "de": "Unauffindbarkeit"
+  },
+  "srd-2024_pass-without-trace": {
+    "de": "Spurloses Gehen"
+  },
+  "srd-2024_passwall": {
+    "de": "Wände passieren"
+  },
+  "srd-2024_phantasmal-force": {
+    "de": "Macht der Vorstellungskraft"
+  },
+  "srd-2024_phantasmal-killer": {
+    "de": "Tödliches Phantom"
+  },
+  "srd-2024_phantom-steed": {
+    "de": "Geisterross"
+  },
+  "srd-2024_planar-ally": {
+    "de": "Verbündeter aus den Ebenen"
+  },
+  "srd-2024_planar-binding": {
+    "de": "Bindung der Ebenen"
+  },
+  "srd-2024_plane-shift": {
+    "de": "Ebenenwechsel"
+  },
+  "srd-2024_plant-growth": {
+    "de": "Pflanzenwachstum"
+  },
+  "srd-2024_poison-spray": {
+    "de": "Gift versprühen"
+  },
+  "srd-2024_polymorph": {
+    "de": "Verwandlung"
+  },
+  "srd-2024_power-word-heal": {
+    "de": "Wort der Macht: Heilung"
+  },
+  "srd-2024_power-word-kill": {
+    "de": "Wort der Macht: Tod"
+  },
+  "srd-2024_power-word-stun": {
+    "de": "Wort der Macht: Betäubung"
+  },
+  "srd-2024_prayer-of-healing": {
+    "de": "Gebet der Heilung"
+  },
+  "srd-2024_prestidigitation": {
+    "de": "Taschenspielerei"
+  },
+  "srd-2024_prismatic-spray": {
+    "de": "Regenbogenspiel"
+  },
+  "srd-2024_prismatic-wall": {
+    "de": "Regenbogenwand"
+  },
+  "srd-2024_private-sanctum": {
+    "de": "Privates Heiligtum"
+  },
+  "srd-2024_produce-flame": {
+    "de": "Flammen erzeugen"
+  },
+  "srd-2024_programmed-illusion": {
+    "de": "Vorbestimmtes Trugbild"
+  },
+  "srd-2024_project-image": {
+    "de": "Trugbild projizieren"
+  },
+  "srd-2024_protection-from-energy": {
+    "de": "Schutz vor Energie"
+  },
+  "srd-2024_protection-from-evil-and-good": {
+    "de": "Schutz vor Gut und Böse"
+  },
+  "srd-2024_protection-from-poison": {
+    "de": "Schutz vor Gift"
+  },
+  "srd-2024_purify-food-and-drink": {
+    "de": "Nahrung und Wasser reinigen"
+  },
+  "srd-2024_raise-dead": {
+    "de": "Tote erwecken"
+  },
+  "srd-2024_ray-of-enfeeblement": {
+    "de": "Schwächestrahl"
+  },
+  "srd-2024_ray-of-frost": {
+    "de": "Kältestrahl"
+  },
+  "srd-2024_ray-of-sickness": {
+    "de": "Strahl der Übelkeit"
+  },
+  "srd-2024_regenerate": {
+    "de": "Regeneration"
+  },
+  "srd-2024_reincarnate": {
+    "de": "Wiedergeburt"
+  },
+  "srd-2024_remove-curse": {
+    "de": "Fluch brechen"
+  },
+  "srd-2024_resilient-sphere": {
+    "de": "Unverwüstliche Sphäre"
+  },
+  "srd-2024_resistance": {
+    "de": "Widerstand"
+  },
+  "srd-2024_resurrection": {
+    "de": "Auferstehung"
+  },
+  "srd-2024_reverse-gravity": {
+    "de": "Schwerkraft umkehren"
+  },
+  "srd-2024_revivify": {
+    "de": "Wiederbeleben"
+  },
+  "srd-2024_rope-trick": {
+    "de": "Seiltrick"
+  },
+  "srd-2024_sacred-flame": {
+    "de": "Heilige Flamme"
+  },
+  "srd-2024_sanctuary": {
+    "de": "Heiligtum"
+  },
+  "srd-2024_scorching-ray": {
+    "de": "Sengender Strahl"
+  },
+  "srd-2024_scrying": {
+    "de": "Ausspähung"
+  },
+  "srd-2024_searing-smite": {
+    "de": "Sengendes Niederstrecken"
+  },
+  "srd-2024_secret-chest": {
+    "de": "Geheime Truhe"
+  },
+  "srd-2024_see-invisibility": {
+    "de": "Unsichtbares sehen"
+  },
+  "srd-2024_seeming": {
+    "de": "Äußerlichkeiten"
+  },
+  "srd-2024_sending": {
+    "de": "Verständigung"
+  },
+  "srd-2024_sequester": {
+    "de": "Verbergen"
+  },
+  "srd-2024_shapechange": {
+    "de": "Gestaltwandel"
+  },
+  "srd-2024_shatter": {
+    "de": "Zerbersten"
+  },
+  "srd-2024_shield": {
+    "de": "Schild"
+  },
+  "srd-2024_shield-of-faith": {
+    "de": "Schild des Glaubens"
+  },
+  "srd-2024_shillelagh": {
+    "de": "Shillelagh"
+  },
+  "srd-2024_shining-smite": {
+    "de": "Strahlendes Niederstrecken"
+  },
+  "srd-2024_shocking-grasp": {
+    "de": "Schockgriff"
+  },
+  "srd-2024_silence": {
+    "de": "Stille"
+  },
+  "srd-2024_silent-image": {
+    "de": "Lautloses Trugbild"
+  },
+  "srd-2024_simulacrum": {
+    "de": "Simulakrum"
+  },
+  "srd-2024_sleep": {
+    "de": "Schlaf"
+  },
+  "srd-2024_sleet-storm": {
+    "de": "Schneesturm"
+  },
+  "srd-2024_slow": {
+    "de": "Verlangsamen"
+  },
+  "srd-2024_sorcerous-burst": {
+    "de": "Explosion der Zauberei"
+  },
+  "srd-2024_spare-the-dying": {
+    "de": "Verschonung der Sterbenden"
+  },
+  "srd-2024_speak-with-animals": {
+    "de": "Mit Tieren sprechen"
+  },
+  "srd-2024_speak-with-dead": {
+    "de": "Mit Toten sprechen"
+  },
+  "srd-2024_speak-with-plants": {
+    "de": "Mit Pflanzen sprechen"
+  },
+  "srd-2024_spider-climb": {
+    "de": "Spinnenklettern"
+  },
+  "srd-2024_spike-growth": {
+    "de": "Dornenwuchs"
+  },
+  "srd-2024_spirit-guardians": {
+    "de": "Schutzgeister"
+  },
+  "srd-2024_spiritual-weapon": {
+    "de": "Waffe des Glaubens"
+  },
+  "srd-2024_starry-wisp": {
+    "de": "Sternenfunke"
+  },
+  "srd-2024_stinking-cloud": {
+    "de": "Stinkende Wolke"
+  },
+  "srd-2024_stone-shape": {
+    "de": "Stein formen"
+  },
+  "srd-2024_stoneskin": {
+    "de": "Steinhaut"
+  },
+  "srd-2024_storm-of-vengeance": {
+    "de": "Sturm der Vergeltung"
+  },
+  "srd-2024_suggestion": {
+    "de": "Einflüsterung"
+  },
+  "srd-2024_summon-dragon": {
+    "de": "Drachen herbeirufen"
+  },
+  "srd-2024_sunbeam": {
+    "de": "Sonnenstrahl"
+  },
+  "srd-2024_sunburst": {
+    "de": "Sonnenfeuer"
+  },
+  "srd-2024_symbol": {
+    "de": "Symbol"
+  },
+  "srd-2024_telekinesis": {
+    "de": "Telekinese"
+  },
+  "srd-2024_telepathic-bond": {
+    "de": "Telepathische Bindung"
+  },
+  "srd-2024_teleport": {
+    "de": "Teleportieren"
+  },
+  "srd-2024_teleportation-circle": {
+    "de": "Kreis der Teleportation"
+  },
+  "srd-2024_thaumaturgy": {
+    "de": "Thaumaturgie"
+  },
+  "srd-2024_thunderwave": {
+    "de": "Donnerwoge"
+  },
+  "srd-2024_time-stop": {
+    "de": "Zeitstopp"
+  },
+  "srd-2024_tiny-hut": {
+    "de": "Winzige Hütte"
+  },
+  "srd-2024_tongues": {
+    "de": "Zungen"
+  },
+  "srd-2024_transport-via-plants": {
+    "de": "Pflanzentor"
+  },
+  "srd-2024_tree-stride": {
+    "de": "Baumwandeln"
+  },
+  "srd-2024_true-polymorph": {
+    "de": "Wahre Verwandlung"
+  },
+  "srd-2024_true-resurrection": {
+    "de": "Wahre Auferstehung"
+  },
+  "srd-2024_true-seeing": {
+    "de": "Wahrer Blick"
+  },
+  "srd-2024_true-strike": {
+    "de": "Zielsicherer Schlag"
+  },
+  "srd-2024_tsunami": {
+    "de": "Tsunami"
+  },
+  "srd-2024_unseen-servant": {
+    "de": "Unsichtbarer Diener"
+  },
+  "srd-2024_vampiric-touch": {
+    "de": "Vampirgriff"
+  },
+  "srd-2024_vicious-mockery": {
+    "de": "Gehässiger Spott"
+  },
+  "srd-2024_vitriolic-sphere": {
+    "de": "Ätzkugel"
+  },
+  "srd-2024_wall-of-fire": {
+    "de": "Feuerwand"
+  },
+  "srd-2024_wall-of-force": {
+    "de": "Energiewand"
+  },
+  "srd-2024_wall-of-ice": {
+    "de": "Eiswand"
+  },
+  "srd-2024_wall-of-stone": {
+    "de": "Steinwand"
+  },
+  "srd-2024_wall-of-thorns": {
+    "de": "Dornenwand"
+  },
+  "srd-2024_warding-bond": {
+    "de": "Schützendes Band"
+  },
+  "srd-2024_water-breathing": {
+    "de": "Wasser atmen"
+  },
+  "srd-2024_water-walk": {
+    "de": "Wasserwandeln"
+  },
+  "srd-2024_web": {
+    "de": "Spinnennetz"
+  },
+  "srd-2024_weird": {
+    "de": "Unheimliches Schicksal"
+  },
+  "srd-2024_wind-walk": {
+    "de": "Windwandeln"
+  },
+  "srd-2024_wind-wall": {
+    "de": "Windwall"
+  },
+  "srd-2024_wish": {
+    "de": "Wunsch"
+  },
+  "srd-2024_word-of-recall": {
+    "de": "Wort des Rückrufs"
+  },
+  "srd-2024_zone-of-truth": {
+    "de": "Zone der Wahrheit"
+  }
+}
