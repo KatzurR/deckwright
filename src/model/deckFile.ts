@@ -6,7 +6,9 @@ import { z } from 'zod';
 import { deckSchema, type Deck } from './schema';
 
 export const DECK_FORMAT_VERSION = 1;
-export const DECK_FILE_GENERATOR = 'open-tabletop-cards';
+export const DECK_FILE_GENERATOR = 'deckwright';
+/** Extension of exported deck files. Import accepts any `.json` file, including the older `.otc.json`. */
+export const DECK_FILE_EXTENSION = 'deckwright.json';
 
 export const deckFileSchema = z
   .object({
@@ -60,8 +62,8 @@ export function parseDeckFile(text: string): Deck {
   return result.data.deck;
 }
 
-/** File name for a deck export, e.g. "magierzauber-grad-1-3.otc.json". */
-export function deckFileName(deck: Deck, extension = 'otc.json'): string {
+/** File name for a deck export, e.g. "magierzauber-grad-1-3.deckwright.json". */
+export function deckFileName(deck: Deck, extension = DECK_FILE_EXTENSION): string {
   const slug = deck.name
     .toLowerCase()
     .normalize('NFKD')

@@ -4,7 +4,7 @@ import { unzipSync } from 'fflate';
 import { PDFDocument, PDFName } from 'pdf-lib';
 import { pngDpi, pngSize } from '../src/export/png';
 
-const SAMPLE = 'e2e/fixtures/sample-deck.otc.json';
+const SAMPLE = 'e2e/fixtures/sample-deck.deckwright.json';
 const MM_TO_PX = 96 / 25.4;
 
 async function importSample(page: Page) {
@@ -23,7 +23,7 @@ test.beforeEach(async ({ page }) => {
   // fresh IndexedDB per test
   await page.goto('/');
   await page.evaluate(() => new Promise<void>((resolve) => {
-    const req = indexedDB.deleteDatabase('open-tabletop-cards');
+    const req = indexedDB.deleteDatabase('deckwright');
     req.onsuccess = req.onerror = req.onblocked = () => resolve();
   }));
 });

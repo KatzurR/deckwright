@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { Card, Deck, Lang } from '../model/schema';
 import { createDeck, duplicateDeck, newId } from '../model/deck';
 import { DeckStore } from '../storage/db';
+import { readPreference, writePreference } from '../storage/preferences';
 import { layoutCards, type LaidOutCard } from '../render/measure';
 import type { DisplayOptions } from '../render/format';
 
@@ -29,8 +30,6 @@ interface AppState {
 
 const Ctx = createContext<AppState | null>(null);
 
-const CURRENT_KEY = 'otc.currentDeck';
-
 export function AppStateProvider({ children, store: injected }: { children: ReactNode; store?: DeckStore }) {
   const store = useMemo(() => injected ?? new DeckStore(), [injected]);
   const [decks, setDecks] = useState<Deck[]>([]);
@@ -48,12 +47,18 @@ export function AppStateProvider({ children, store: injected }: { children: Reac
   useEffect(() => {
     let cancelled = false;
     void (async () => {
+      try {
+        await store.migrateLegacy();
+      } catch (e) {
+        // the old database stays where it is; the app starts with the new one
+        console.warn('Could not migrate decks from the old database', e);
+      }
       const list = await store.list();
       if (cancelled) return;
       setDecks(list);
       let stored: string | null = null;
       try {
-        stored = localStorage.getItem(CURRENT_KEY);
+        stored = readPreference(localStorage, 'currentDeck');
       } catch {
         /* ignore */
       }
@@ -69,7 +74,7 @@ export function AppStateProvider({ children, store: injected }: { children: Reac
   const select = useCallback((id: string | null) => {
     setCurrentId(id);
     try {
-      if (id) localStorage.setItem(CURRENT_KEY, id);
+      if (id) writePreference(localStorage, 'currentDeck', id);
     } catch {
       /* ignore */
     }

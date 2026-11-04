@@ -12,7 +12,7 @@ describe('deck file format', () => {
     const text = serializeDeck(deck, new Date('2026-11-03T12:00:00Z'));
     const json = JSON.parse(text);
     expect(json.formatVersion).toBe(1);
-    expect(json.generator).toBe('open-tabletop-cards');
+    expect(json.generator).toBe('deckwright');
     expect(json.exportedAt).toBe('2026-11-03T12:00:00.000Z');
     expect(parseDeckFile(text)).toEqual(deck);
   });
@@ -54,10 +54,16 @@ describe('deck file format', () => {
     expect(parsed.cards[0].name.en).toBe('Prone');
   });
 
+  it('still imports files written before the rename (generator "open-tabletop-cards")', () => {
+    const old = JSON.parse(serializeDeck(deck));
+    old.generator = 'open-tabletop-cards';
+    expect(parseDeckFile(JSON.stringify(old))).toEqual(deck);
+  });
+
   it('builds file names from the deck name', () => {
-    expect(deckFileName(deck)).toBe('magierzauber-grad-1-3.otc.json');
+    expect(deckFileName(deck)).toBe('magierzauber-grad-1-3.deckwright.json');
     expect(deckFileName({ ...deck, name: 'Größe & Stärke' }, 'pdf')).toBe('grosse-starke.pdf');
-    expect(deckFileName({ ...deck, name: '!!!' })).toBe('deck.otc.json');
+    expect(deckFileName({ ...deck, name: '!!!' })).toBe('deck.deckwright.json');
   });
 
   it('matches the published JSON Schema in docs/', () => {

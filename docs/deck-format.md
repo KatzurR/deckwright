@@ -3,7 +3,7 @@
 Decks werden als JSON-Datei exportiert und importiert (SPEC §7). Das Format ist versioniert und
 dokumentiert, damit andere Werkzeuge Decks erzeugen oder lesen können.
 
-- Dateiendung: `.otc.json` (jede `.json`-Datei wird beim Import akzeptiert)
+- Dateiendung: `.deckwright.json`; vor der Umbenennung `.otc.json` (jede `.json`-Datei wird beim Import akzeptiert)
 - Zeichensatz: UTF-8
 - Maschinenlesbares Schema: [deck-format.schema.json](deck-format.schema.json) (JSON Schema 2020-12, erzeugt aus dem Code mit `npm run schema`)
 - Referenzimplementierung: [src/model/schema.ts](../src/model/schema.ts) und [src/model/deckFile.ts](../src/model/deckFile.ts)
@@ -13,7 +13,7 @@ dokumentiert, damit andere Werkzeuge Decks erzeugen oder lesen können.
 ```json
 {
   "formatVersion": 1,
-  "generator": "open-tabletop-cards",
+  "generator": "deckwright",
   "exportedAt": "2026-11-03T12:00:00.000Z",
   "deck": {
     "id": "6f1c…",
@@ -30,7 +30,7 @@ dokumentiert, damit andere Werkzeuge Decks erzeugen oder lesen können.
 | Feld | Pflicht | Bedeutung |
 |---|---|---|
 | `formatVersion` | ja | Immer `1`. Neuere Versionen werden mit einer Fehlermeldung abgelehnt. |
-| `generator`, `exportedAt` | nein | Informativ. |
+| `generator`, `exportedAt` | nein | Informativ. Die App schreibt `deckwright`; ältere Dateien mit `open-tabletop-cards` werden genauso importiert. |
 | `deck.id` | ja | Beliebige eindeutige Zeichenkette. Existiert beim Import schon ein Deck mit dieser ID, bekommt das importierte Deck eine neue. |
 | `deck.name` | ja | Name des Decks. |
 | `deck.lang` | ja | Kartensprache `de` oder `en`. Beschriftungen und Texte der Karten folgen ihr. |

@@ -1,6 +1,6 @@
 # Benutzerhandbuch
 
-open-tabletop-cards erstellt druckbare Regelkarten im Pokerkartenformat (63 × 88 mm) für Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände der fünften Edition (Regeln 2024). Die App läuft vollständig in deinem Browser auf deinem eigenen Rechner. Es gibt keinen Server, kein Benutzerkonto und keine Verbindung zu externen Diensten.
+Deckwright erstellt druckbare Regelkarten im Pokerkartenformat (63 × 88 mm) für Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände der fünften Edition (Regeln 2024). Die App läuft vollständig in deinem Browser auf deinem eigenen Rechner. Es gibt keinen Server, kein Benutzerkonto und keine Verbindung zu externen Diensten.
 
 Inhalt:
 
@@ -27,8 +27,8 @@ Du brauchst:
 Schritt für Schritt in einem Terminal (Windows: „Eingabeaufforderung“ oder „PowerShell“):
 
 ```bash
-git clone https://github.com/KatzurR/open-tabletop-cards.git
-cd open-tabletop-cards
+git clone https://github.com/KatzurR/deckwright.git
+cd deckwright
 npm install
 npm run dev
 ```
@@ -139,7 +139,7 @@ Zum Schneiden: an den Schnittmarken entlang mit Lineal und Cutter oder einer Sch
 
 Deine Decks liegen in der Datenbank deines Browsers (IndexedDB). Sie bleiben beim Schließen erhalten, gehen aber verloren, wenn du die Browserdaten löschst, in einem anderen Browser oder auf einem anderen Rechner arbeitest oder einen privaten Modus benutzt.
 
-- **Als JSON exportieren** speichert das aktuelle Deck als Datei (z. B. `magierzauber-grad-1-3.otc.json`). Exportiere deine Decks regelmäßig.
+- **Als JSON exportieren** speichert das aktuelle Deck als Datei (z. B. `magierzauber-grad-1-3.deckwright.json`). Exportiere deine Decks regelmäßig.
 - **Deck importieren …** lädt eine solche Datei. Das Deck wird vollständig wiederhergestellt, inklusive aller Karten, beider Sprachen und Einstellungen. Gibt es schon ein Deck mit derselben Kennung, wird das importierte als neues Deck angelegt.
 
 Das Dateiformat ist versioniert und beschrieben in [deck-format.md](deck-format.md), damit auch andere Programme Decks erzeugen können.

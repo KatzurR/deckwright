@@ -1,6 +1,6 @@
 # Third-party notices
 
-The source code of open-tabletop-cards is released under the [MIT License](LICENSE). The repository and the app also contain the following material, which keeps its own license.
+The source code of Deckwright is released under the [MIT License](LICENSE). The repository and the app also contain the following material, which keeps its own license.
 
 ## System Reference Document 5.2.1
 
@@ -11,7 +11,7 @@ The source code of open-tabletop-cards is released under the [MIT License](LICEN
 
 Changes: the SRD texts were split into individual entries and reformatted for cards, tables and sidebars were removed.
 
-open-tabletop-cards is an independent project. It is compatible with fifth edition and is not affiliated with or endorsed by the publisher of the SRD.
+Deckwright is an independent project. It is compatible with fifth edition and is not affiliated with or endorsed by the publisher of the SRD.
 
 ## Icons from game-icons.net
 

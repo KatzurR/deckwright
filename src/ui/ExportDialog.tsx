@@ -9,15 +9,14 @@ import { buildPdf } from '../export/pdf';
 import { renderCardImages, type Progress } from '../export/render';
 import { downloadBlob, zipFiles } from '../export/files';
 import { printSheets } from '../export/PrintSheets';
+import { readPreference, writePreference } from '../storage/preferences';
 import { Check, Field, Modal } from './widgets';
 
 type Format = 'pdf' | 'png' | 'print';
 
-const PAPER_KEY = 'otc.paper';
-
 function defaultPaper(): Paper {
   try {
-    const stored = localStorage.getItem(PAPER_KEY);
+    const stored = readPreference(localStorage, 'paper');
     if (stored === 'a4' || stored === 'letter') return stored;
   } catch {
     /* ignore */
@@ -44,7 +43,7 @@ export function ExportDialog({ deck, laid, selectedIds, onClose }: {
   const choosePaper = (p: Paper) => {
     setPaper(p);
     try {
-      localStorage.setItem(PAPER_KEY, p);
+      writePreference(localStorage, 'paper', p);
     } catch {
       /* ignore */
     }

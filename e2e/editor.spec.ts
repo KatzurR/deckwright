@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
   await page.evaluate(() => new Promise<void>((resolve) => {
-    const req = indexedDB.deleteDatabase('open-tabletop-cards');
+    const req = indexedDB.deleteDatabase('deckwright');
     req.onsuccess = req.onerror = req.onblocked = () => resolve();
   }));
   await page.reload();

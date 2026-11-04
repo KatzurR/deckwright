@@ -6,6 +6,7 @@ import { blankCard } from '../model/templates';
 import { parseDeckFile, DeckFileError } from '../model/deckFile';
 import { readFileAsText } from '../export/files';
 import { setUiLanguage } from '../i18n/ui';
+import { readPreference, writePreference } from '../storage/preferences';
 import { useAppState } from './state';
 import { DeckView } from './DeckView';
 import { CatalogView } from './CatalogView';
@@ -19,8 +20,6 @@ function viewFromHash(): View {
   return h === 'catalog' || h === 'about' ? h : 'decks';
 }
 
-const NOTICE_KEY = 'otc.noticeDismissed';
-
 export function App() {
   const { t, i18n } = useTranslation();
   const app = useAppState();
@@ -29,7 +28,7 @@ export function App() {
   const [editing, setEditing] = useState<{ card: Card; isNew: boolean } | null>(null);
   const [noticeHidden, setNoticeHidden] = useState(() => {
     try {
-      return sessionStorage.getItem(NOTICE_KEY) === '1';
+      return readPreference(sessionStorage, 'noticeDismissed') === '1';
     } catch {
       return false;
     }
@@ -100,7 +99,7 @@ export function App() {
             onClick={() => {
               setNoticeHidden(true);
               try {
-                sessionStorage.setItem(NOTICE_KEY, '1');
+                writePreference(sessionStorage, 'noticeDismissed', '1');
               } catch {
                 /* ignore */
               }

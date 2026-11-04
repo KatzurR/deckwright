@@ -35,7 +35,7 @@ export function AboutView({ uiLang }: { uiLang: Lang }) {
       <p>{t('about.fontsText')} <a href="./licenses/GUST-FONT-LICENSE.txt" target="_blank" rel="noreferrer">{t('about.license')}</a></p>
 
       <h2>{t('about.code')}</h2>
-      <p>{t('about.codeText')} <a href="https://github.com/KatzurR/open-tabletop-cards" target="_blank" rel="noreferrer">github.com/KatzurR/open-tabletop-cards</a></p>
+      <p>{t('about.codeText')} <a href="https://github.com/KatzurR/deckwright" target="_blank" rel="noreferrer">github.com/KatzurR/deckwright</a></p>
     </article>
   );
 }

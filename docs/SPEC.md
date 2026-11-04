@@ -1,10 +1,10 @@
-# Spezifikation: open-tabletop-cards
+# Spezifikation: Deckwright
 
 **Status:** v0.5 · 2026-11-04 · MVP (Phase 1) umgesetzt, Entscheidungen aus der Umsetzung in Abschnitt 11
 
 ## 1. Ziel
 
-open-tabletop-cards ist eine Web-App, mit der Spieler und Spielleiter Regelinhalte der fünften Edition (Regeln 2024) – Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände – als kleine Referenzkarten im Pokerkartenformat gestalten und drucken.
+Deckwright ist eine Web-App, mit der Spieler und Spielleiter Regelinhalte der fünften Edition (Regeln 2024) – Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände – als kleine Referenzkarten im Pokerkartenformat gestalten und drucken.
 
 Eine Karte enthält alles, was am Tisch nötig ist, um die Regel anzuwenden, ohne ins Buch zu schauen.
 

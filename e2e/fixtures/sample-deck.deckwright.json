@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "generator": "open-tabletop-cards",
+  "generator": "deckwright",
   "exportedAt": "2026-11-03T00:00:00.000Z",
   "deck": {
     "id": "e2e-sample-deck",

@@ -37,7 +37,7 @@ export const OPEN5E_DOCUMENT = 'srd-2024';
 export const OPEN5E_ENDPOINTS = ['spells', 'weapons', 'magicitems', 'classes', 'species', 'feats'] as const;
 export type Open5eEndpoint = (typeof OPEN5E_ENDPOINTS)[number];
 
-const USER_AGENT = 'open-tabletop-cards-pipeline';
+const USER_AGENT = 'deckwright-pipeline';
 
 export interface SourceOptions {
   offline: boolean;

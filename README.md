@@ -1,4 +1,4 @@
-# open-tabletop-cards
+# Deckwright
 
 An open-source tool for turning fifth edition (5E) rules content — spells, actions, class features, abilities, items, and conditions — into small, printable reference cards you can keep at the table.
 
@@ -8,7 +8,7 @@ An open-source tool for turning fifth edition (5E) rules content — spells, act
 
 Character sheets get crowded. Flipping through a rulebook mid-combat slows the game down. A stack of small cards — one per spell or ability — keeps the essentials in front of the player: range, duration, components, damage, and a short rules summary.
 
-open-tabletop-cards makes those cards quick to create, consistent in layout, and easy to print.
+Deckwright makes those cards quick to create, consistent in layout, and easy to print.
 
 ## Features
 
@@ -27,8 +27,8 @@ Everything runs in the browser. There is no server, no account and no external s
 Requirements: [Node.js](https://nodejs.org/) 18.18 or newer (tested with 18.19) and Git.
 
 ```bash
-git clone https://github.com/KatzurR/open-tabletop-cards.git
-cd open-tabletop-cards
+git clone https://github.com/KatzurR/deckwright.git
+cd deckwright
 npm install
 npm run dev
 ```
@@ -79,7 +79,7 @@ The source code in this repository is released under the [MIT License](LICENSE).
 | Card icons from [game-icons.net](https://game-icons.net) | CC BY 3.0 ([license](public/licenses/CC-BY-3.0.txt)) |
 | Card font TeX Gyre Schola ([src/render/fonts/](src/render/fonts/)) | GUST Font License ([license](public/licenses/GUST-FONT-LICENSE.txt)) |
 
-open-tabletop-cards is compatible with fifth edition (2024 rules). The only rules content included is the System Reference Document 5.2.1, in its official English and German versions:
+Deckwright is compatible with fifth edition (2024 rules). The only rules content included is the System Reference Document 5.2.1, in its official English and German versions:
 
 > This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
 
@@ -89,7 +89,7 @@ Any other content you enter, for example from books you own, stays in your own f
 
 ## Contributing
 
-Ideas, bug reports and feedback are welcome via [GitHub Issues](https://github.com/KatzurR/open-tabletop-cards/issues).
+Ideas, bug reports and feedback are welcome via [GitHub Issues](https://github.com/KatzurR/deckwright/issues).
 
 ## License
 

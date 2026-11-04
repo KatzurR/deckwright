@@ -5,9 +5,10 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import type { Lang } from '../model/schema';
+import { readPreference, writePreference } from '../storage/preferences';
 
 const de = {
-  app: { title: 'open-tabletop-cards', tagline: 'Regelkarten für die fünfte Edition', compat: 'kompatibel mit der fünften Edition' },
+  app: { title: 'Deckwright', tagline: 'Regelkarten für die fünfte Edition', compat: 'kompatibel mit der fünften Edition' },
   nav: { decks: 'Decks', catalog: 'SRD-Katalog', about: 'Über', uiLanguage: 'Sprache der Oberfläche' },
   common: {
     cancel: 'Abbrechen', save: 'Speichern', delete: 'Löschen', close: 'Schließen', add: 'Hinzufügen', yes: 'Ja', no: 'Nein',
@@ -84,8 +85,8 @@ const de = {
     pngInfo: 'Eine PNG-Datei pro Karte, 300 dpi (744 × 1039 px), dazu eine Textdatei mit der Namensnennung.', sheets_one: '{{count}} Bogen', sheets_other: '{{count}} Bögen',
   },
   about: {
-    title: 'Über open-tabletop-cards',
-    intro: 'open-tabletop-cards erstellt kleine, druckbare Regelkarten (63 × 88 mm) für Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände. Alles läuft lokal in deinem Browser – es gibt keinen Server und keine Konten.',
+    title: 'Über Deckwright',
+    intro: 'Deckwright erstellt kleine, druckbare Regelkarten (63 × 88 mm) für Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände. Alles läuft lokal in deinem Browser – es gibt keinen Server und keine Konten.',
     srd: 'Regelinhalte', icons: 'Symbole', fonts: 'Schrift', code: 'Programmcode',
     iconsText: 'Die Kartensymbole stammen von game-icons.net und stehen unter der Lizenz Creative Commons Namensnennung 3.0:',
     fontsText: 'Die Kartenschrift ist TeX Gyre Schola (GUST e-foundry), lizenziert unter der GUST Font License.',
@@ -97,7 +98,7 @@ const de = {
 type Resources = typeof de;
 
 const en: Resources = {
-  app: { title: 'open-tabletop-cards', tagline: 'Rules reference cards for fifth edition', compat: '5E compatible' },
+  app: { title: 'Deckwright', tagline: 'Rules reference cards for fifth edition', compat: '5E compatible' },
   nav: { decks: 'Decks', catalog: 'SRD catalog', about: 'About', uiLanguage: 'Interface language' },
   common: {
     cancel: 'Cancel', save: 'Save', delete: 'Delete', close: 'Close', add: 'Add', yes: 'Yes', no: 'No',
@@ -174,8 +175,8 @@ const en: Resources = {
     pngInfo: 'One PNG file per card, 300 dpi (744 × 1039 px), plus a text file with the attribution.', sheets_one: '{{count}} sheet', sheets_other: '{{count}} sheets',
   },
   about: {
-    title: 'About open-tabletop-cards',
-    intro: 'open-tabletop-cards creates small printable rules reference cards (63 × 88 mm) for spells, actions, features, items and conditions. Everything runs locally in your browser – there is no server and there are no accounts.',
+    title: 'About Deckwright',
+    intro: 'Deckwright creates small printable rules reference cards (63 × 88 mm) for spells, actions, features, items and conditions. Everything runs locally in your browser – there is no server and there are no accounts.',
     srd: 'Rules content', icons: 'Icons', fonts: 'Typeface', code: 'Source code',
     iconsText: 'The card icons are from game-icons.net, licensed under Creative Commons Attribution 3.0:',
     fontsText: 'The card typeface is TeX Gyre Schola (GUST e-foundry), licensed under the GUST Font License.',
@@ -186,11 +187,9 @@ const en: Resources = {
 
 export const UI_RESOURCES = { de, en };
 
-const STORAGE_KEY = 'otc.uiLanguage';
-
 export function detectUiLanguage(): Lang {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    const stored = readPreference(localStorage, 'uiLanguage');
     if (stored === 'de' || stored === 'en') return stored;
   } catch {
     /* storage unavailable */
@@ -202,7 +201,7 @@ export function detectUiLanguage(): Lang {
 export function setUiLanguage(lang: Lang): void {
   void i18next.changeLanguage(lang);
   try {
-    localStorage.setItem(STORAGE_KEY, lang);
+    writePreference(localStorage, 'uiLanguage', lang);
   } catch {
     /* ignore */
   }

@@ -42,7 +42,7 @@ export const NOTICE_FILE_NAME: Record<Lang, string> = {
 /** Plain-text notice that accompanies exported card images (PNG ZIP). */
 export function noticeText(lang: Lang): string {
   return [
-    'open-tabletop-cards',
+    'Deckwright',
     '',
     SRD_ATTRIBUTION[lang],
     '',

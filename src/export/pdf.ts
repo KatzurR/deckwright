@@ -45,9 +45,9 @@ export function wrapText(text: string, font: Pick<PDFFont, 'widthOfTextAtSize'>,
 export async function buildPdf(images: Uint8Array[], options: PdfOptions): Promise<Uint8Array> {
   const layout = sheetLayout(options.paper, options.bleed);
   const doc = await PDFDocument.create();
-  doc.setTitle(options.title ?? 'open-tabletop-cards');
-  doc.setCreator('open-tabletop-cards');
-  doc.setProducer('open-tabletop-cards (pdf-lib)');
+  doc.setTitle(options.title ?? 'Deckwright');
+  doc.setCreator('Deckwright');
+  doc.setProducer('Deckwright (pdf-lib)');
   doc.setLanguage(options.lang === 'de' ? 'de-DE' : 'en-US');
   const font = await doc.embedFont(StandardFonts.Helvetica);
 
