@@ -4,13 +4,13 @@ Chosen style for all card types (supplement to [SPEC.md](../SPEC.md), section 5)
 
 <img src="grimoire-codex.png" width="320" alt="Example card Fireball in the Grimoire Codex style">
 
-Example: the spell **Feuerball** (Fireball) with German SRD 5.2.1 text and the example profile "Elara · Magierin 5" (Wizard 5, spell save DC 14).
+Example: the spell **Feuerball** (Fireball) with German SRD 5.2.1 text, exported by the app as PNG ("Print & export …" → "PNG images (ZIP)").
 
 | File | Content |
 |---|---|
-| [grimoire-codex.png](grimoire-codex.png) | Reference image, 744 × 1039 px = 63 × 88 mm at 300 dpi |
+| [grimoire-codex.png](grimoire-codex.png) | Reference image rendered by the app, 744 × 1039 px = 63 × 88 mm at 300 dpi |
 
-The flame icon is a placeholder. In the app, the icons come from game-icons.net.
+The medallion shows the icon of the school of evocation, "fireball" by Lorc from game-icons.net (CC BY 3.0, see [THIRD_PARTY_NOTICES.md](../../THIRD_PARTY_NOTICES.md)). The card text is from the SRD 5.2.1 (CC BY 4.0).
 
 ## Structure
 
@@ -40,7 +40,7 @@ The accent colour changes per card type or spell school (SPEC section 5) and aff
 
 ## Typeface
 
-Serif typeface from the Century Schoolbook family. The draft was drawn with **C059** (URW). The app uses the equivalent **TeX Gyre Schola** (GUST Font License, freely distributable; SPEC section 11.1). Sizes at 300 dpi:
+Serif typeface from the Century Schoolbook family. The original draft was drawn with **C059** (URW). The app and the reference image use the equivalent **TeX Gyre Schola** (GUST Font License, freely distributable; SPEC section 11.1). Sizes at 300 dpi:
 
 | Element | Style | Size |
 |---|---|---|
