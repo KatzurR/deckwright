@@ -1,6 +1,6 @@
 # Data pipeline report
 
-Generated 2026-11-04T16:14:05.740Z (offline, cached sources, 4.8 s).
+Generated 2026-11-04T16:21:12.023Z (offline, cached sources, 3.1 s).
 
 Sources: Open5e API v2 (`document.key = srd-2024`) for structure and keys, SRD 5.2.1 PDFs (English and German, Poppler `pdftohtml -xml`) for the rules texts.
 

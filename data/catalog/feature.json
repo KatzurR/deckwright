@@ -311,7 +311,7 @@
      "classKey": "paladin",
      "level": 9
     },
-    "activation": "bonus"
+    "activation": "action"
    }
   },
   {
@@ -1741,7 +1741,7 @@
      "classKey": "rogue",
      "level": 14
     },
-    "activation": "action"
+    "activation": "passive"
    }
   },
   {
@@ -4802,7 +4802,7 @@
      },
      "level": 14
     },
-    "activation": "bonus"
+    "activation": "action"
    }
   },
   {
@@ -5395,7 +5395,7 @@
      },
      "level": 17
     },
-    "activation": "action"
+    "activation": "passive"
    }
   },
   {

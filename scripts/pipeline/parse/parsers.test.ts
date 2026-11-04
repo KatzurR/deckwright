@@ -154,5 +154,8 @@ describe('feature usage heuristics', () => {
       activation: 'passive', recovery: 'short-rest', uses: { en: 'Proficiency Bonus', de: 'Übungsbonus' },
     });
     expect(inferUsage('You have Darkvision.')).toEqual({ activation: 'passive' });
+    // The first mentioned use decides; a generic "take an action" is not an activation.
+    expect(inferUsage('As a Magic action, you can expend one use. … As a Bonus Action, you can also …').activation).toBe('action');
+    expect(inferUsage('The target can do only one of the following: move or take an action or a Bonus Action.').activation).toBe('passive');
   });
 });

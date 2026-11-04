@@ -46,10 +46,20 @@ function prereqLevel(text: string | undefined): string {
 /** Activation, recovery and uses inferred conservatively from the English text. */
 export function inferUsage(en: string): Pick<FeatureData, 'activation' | 'recovery' | 'uses'> {
   const t = en.replace(/\*\*/g, '');
+  // The first way of using the feature mentioned in the text decides ("As a Magic action, …
+  // As a Bonus Action, you can also …" is an action). A generic "take an action" (also said of
+  // other creatures) does not count.
+  const patterns: [FeatureData['activation'], RegExp][] = [
+    ['bonus', /\b(?:as|take) a Bonus Action\b/i],
+    ['reaction', /\b(?:as|take) a Reaction\b/i],
+    ['action', /\b(?:as|take) (?:a|the) Magic action\b|\bas an action\b/i],
+  ];
   let activation: FeatureData['activation'] = 'passive';
-  if (/\b(?:as|take) a Bonus Action\b/i.test(t)) activation = 'bonus';
-  else if (/\b(?:as|take) a Reaction\b/i.test(t)) activation = 'reaction';
-  else if (/\b(?:as|take) (?:a Magic action|an action|the Magic action)\b/i.test(t)) activation = 'action';
+  let first = Infinity;
+  for (const [kind, re] of patterns) {
+    const i = t.search(re);
+    if (i >= 0 && i < first) [activation, first] = [kind, i];
+  }
   let recovery: FeatureData['recovery'];
   if (/\bfinish a Short or Long Rest\b/i.test(t)) recovery = 'short-rest';
   else if (/\bfinish a Long Rest\b/i.test(t)) recovery = 'long-rest';
