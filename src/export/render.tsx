@@ -3,7 +3,8 @@
  */
 import { flushSync } from 'react-dom';
 import { createRoot } from 'react-dom/client';
-import { getFontEmbedCSS, toPng } from 'html-to-image';
+import { toPng } from 'html-to-image';
+import { cardFontEmbedCSS } from './fonts';
 import { CardFace } from '../render/CardFace';
 import type { LaidOutCard } from '../render/measure';
 import { cardPixels, DPI } from './layout';
@@ -39,6 +40,15 @@ export function imageNames(cards: LaidOutCard[]): string[] {
   });
 }
 
+/**
+ * Extra rules for the rendered clone. html-to-image copies every computed style, including the
+ * heights of the text blocks. Firefox rasterises the SVG image with slightly different line
+ * breaks than its live layout, so a paragraph can need one more line than its copied height
+ * and overlap the next one. Letting the blocks grow with their content avoids that; in
+ * Chromium the result is identical.
+ */
+const EXPORT_CSS = '.otc-card__body > *, .otc-card__body li { height: auto !important; block-size: auto !important; }';
+
 export async function renderCardImages(
   cards: LaidOutCard[],
   options: { bleed: number; onProgress?: (p: Progress) => void },
@@ -70,7 +80,7 @@ export async function renderCardImages(
         );
       });
       const node = host.firstElementChild as HTMLElement;
-      fontEmbedCSS ??= await getFontEmbedCSS(node);
+      fontEmbedCSS ??= `${await cardFontEmbedCSS()}\n${EXPORT_CSS}`;
       const dataUrl = await toPng(node, {
         width: node.offsetWidth,
         height: node.offsetHeight,
