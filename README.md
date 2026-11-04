@@ -1,5 +1,7 @@
 # Deckwright
 
+Deckwright was created to support my own pen-and-paper sessions and to make them run more smoothly at the table. That was, and still is, the purpose of this repository.
+
 An open-source tool for turning fifth edition (5E) rules content — spells, actions, class features, abilities, items, and conditions — into small, printable reference cards you can keep at the table.
 
 > **Status:** MVP (phase 1, local use). The web app runs on your own computer; it is not published online yet. See the [user guide](docs/USER_GUIDE.md), the [specification](docs/SPEC.md) and the [architecture overview](docs/ARCHITECTURE.md) for developers.
