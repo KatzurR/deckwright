@@ -1,14 +1,14 @@
-# Deck-Dateiformat (`formatVersion` 1)
+# Deck file format (`formatVersion` 1)
 
-Decks werden als JSON-Datei exportiert und importiert (SPEC §7). Das Format ist versioniert und
-dokumentiert, damit andere Werkzeuge Decks erzeugen oder lesen können.
+Decks are exported and imported as JSON files (SPEC §7). The format is versioned and
+documented, so that other tools can create or read decks.
 
-- Dateiendung: `.deckwright.json`; vor der Umbenennung `.otc.json` (jede `.json`-Datei wird beim Import akzeptiert)
-- Zeichensatz: UTF-8
-- Maschinenlesbares Schema: [deck-format.schema.json](deck-format.schema.json) (JSON Schema 2020-12, erzeugt aus dem Code mit `npm run schema`)
-- Referenzimplementierung: [src/model/schema.ts](../src/model/schema.ts) und [src/model/deckFile.ts](../src/model/deckFile.ts)
+- File extension: `.deckwright.json`; before the rename `.otc.json` (any `.json` file is accepted on import)
+- Character encoding: UTF-8
+- Machine-readable schema: [deck-format.schema.json](deck-format.schema.json) (JSON Schema 2020-12, generated from the code with `npm run schema`)
+- Reference implementation: [src/model/schema.ts](../src/model/schema.ts) and [src/model/deckFile.ts](../src/model/deckFile.ts)
 
-## Aufbau
+## Structure
 
 ```json
 {
@@ -17,7 +17,7 @@ dokumentiert, damit andere Werkzeuge Decks erzeugen oder lesen können.
   "exportedAt": "2026-11-03T12:00:00.000Z",
   "deck": {
     "id": "6f1c…",
-    "name": "Magierzauber Grad 1–3",
+    "name": "Wizard spells levels 1–3",
     "lang": "de",
     "options": { "colorBySchool": true },
     "createdAt": "2026-11-03T10:00:00.000Z",
@@ -27,51 +27,51 @@ dokumentiert, damit andere Werkzeuge Decks erzeugen oder lesen können.
 }
 ```
 
-| Feld | Pflicht | Bedeutung |
+| Field | Required | Meaning |
 |---|---|---|
-| `formatVersion` | ja | Immer `1`. Neuere Versionen werden mit einer Fehlermeldung abgelehnt. |
-| `generator`, `exportedAt` | nein | Informativ. Die App schreibt `deckwright`; ältere Dateien mit `open-tabletop-cards` werden genauso importiert. |
-| `deck.id` | ja | Beliebige eindeutige Zeichenkette. Existiert beim Import schon ein Deck mit dieser ID, bekommt das importierte Deck eine neue. |
-| `deck.name` | ja | Name des Decks. |
-| `deck.lang` | ja | Kartensprache `de` oder `en`. Beschriftungen und Texte der Karten folgen ihr. |
-| `deck.options.colorBySchool` | nein | Zauberkarten in der Farbe ihrer Schule einfärben. |
-| `deck.cards` | ja | Geordnete Liste der Karten (Reihenfolge = Druckreihenfolge). |
+| `formatVersion` | yes | Always `1`. Newer versions are rejected with an error message. |
+| `generator`, `exportedAt` | no | Informative. The app writes `deckwright`; older files with `open-tabletop-cards` are imported the same way. |
+| `deck.id` | yes | Any unique string. If a deck with this ID already exists on import, the imported deck gets a new one. |
+| `deck.name` | yes | Name of the deck. |
+| `deck.lang` | yes | Card language `de` or `en`. The labels and texts of the cards follow it. |
+| `deck.options.colorBySchool` | no | Colour spell cards in the colour of their school. |
+| `deck.cards` | yes | Ordered list of cards (order = print order). |
 
-## Karten
+## Cards
 
-Gemeinsame Felder aller Karten:
+Fields common to all cards:
 
-| Feld | Pflicht | Bedeutung |
+| Field | Required | Meaning |
 |---|---|---|
-| `id` | ja | Eindeutige ID (UUID empfohlen). |
-| `type` | ja | `spell`, `action`, `feature`, `item` oder `condition` |
-| `srdKey` | nein | Verweis auf den SRD-Katalogeintrag, z. B. `srd-2024_fireball` |
-| `name` | ja | Text je Sprache, mindestens eine Sprache nicht leer: `{ "de": "Feuerball", "en": "Fireball" }` |
-| `description` | ja | Regeltext je Sprache (Markdown-Untermenge, siehe unten) |
-| `source` | nein | `srd-5.2.1` oder `custom` |
-| `tags` | nein | Liste freier Schlagwörter |
+| `id` | yes | Unique ID (UUID recommended). |
+| `type` | yes | `spell`, `action`, `feature`, `item` or `condition` |
+| `srdKey` | no | Reference to the SRD catalog entry, e.g. `srd-2024_fireball` |
+| `name` | yes | Text per language, at least one language not empty: `{ "de": "Feuerball", "en": "Fireball" }` |
+| `description` | yes | Rules text per language (Markdown subset, see below) |
+| `source` | no | `srd-5.2.1` or `custom` |
+| `tags` | no | List of free keywords |
 
-Je nach `type` kommt genau ein Objekt mit den typspezifischen Feldern hinzu: `spell`, `action`,
-`feature` oder `item` (Zustände haben keins).
+Depending on `type`, exactly one object with the type-specific fields is added: `spell`, `action`,
+`feature` or `item` (conditions have none).
 
-### Konventionen
+### Conventions
 
-- **Strukturierte Werte sind Schlüssel**, keine Texte: `"school": "evocation"`, `"save": "dex"`,
-  `"types": ["fire"]`. Die App übersetzt sie beim Darstellen in die Kartensprache.
-- **Entfernungen in Fuß** (`feet`, `reach`, `range.normal`/`range.long`). Deutsche Karten zeigen
-  sie in Metern nach der Umrechnung des deutschen SRD: 5 Fuß = 1,5 m, 1 Meile (5280 Fuß) = 1,6 km.
-- **Würfel in englischer Notation**: `"8d6"`, `"1d6 + 4"`. Deutsche Karten zeigen `8W6`.
-- **Freitexte je Sprache** (`{ "de": …, "en": … }`), z. B. Materialkomponente, Auslöser, „Auf höheren Graden“.
+- **Structured values are keys**, not texts: `"school": "evocation"`, `"save": "dex"`,
+  `"types": ["fire"]`. The app translates them into the card language when displaying them.
+- **Distances in feet** (`feet`, `reach`, `range.normal`/`range.long`). German cards show
+  them in metres, converted as in the German SRD: 5 feet = 1.5 m, 1 mile (5280 feet) = 1.6 km.
+- **Dice in English notation**: `"8d6"`, `"1d6 + 4"`. German cards show `8W6`.
+- **Free texts per language** (`{ "de": …, "en": … }`), e.g. material component, trigger, "At higher levels".
 
-### Markdown-Untermenge im Regeltext
+### Markdown subset in the rules text
 
-- Absätze durch eine Leerzeile trennen
-- `**fett**`, `*kursiv*` (auch `_kursiv_`), `***fett kursiv***`
-- Aufzählungen: Zeilen, die mit `- `, `* ` oder `• ` beginnen
+- Separate paragraphs with a blank line
+- `**bold**`, `*italic*` (also `_italic_`), `***bold italic***`
+- Lists: lines that start with `- `, `* ` or `• `
 
-Andere Markdown-Elemente (Überschriften, Tabellen, Links) werden als normaler Text ausgegeben.
+Other Markdown elements (headings, tables, links) are output as plain text.
 
-### Zauber (`spell`)
+### Spell (`spell`)
 
 ```json
 {
@@ -94,19 +94,19 @@ Andere Markdown-Elemente (Überschriften, Tabellen, Links) werden als normaler T
 }
 ```
 
-| Feld | Werte |
+| Field | Values |
 |---|---|
-| `level` | 0 (Zaubertrick) bis 9 |
+| `level` | 0 (cantrip) to 9 |
 | `school` | `abjuration`, `conjuration`, `divination`, `enchantment`, `evocation`, `illusion`, `necromancy`, `transmutation` |
-| `castingTime.unit` | `action`, `bonus`, `reaction`, `minute`, `hour`; `amount` für Minuten/Stunden; `trigger` (Text) bei Reaktionen |
-| `range.kind` | `self`, `touch`, `distance` (mit `feet`), `sight`, `unlimited`, `special` |
-| `components` | `verbal`, `somatic`, `material` (bool); optional `materialText`, `materialCost` (GM), `materialConsumed` |
-| `duration.kind` | `instantaneous`, `round`, `minute`, `hour`, `day` (mit `amount`), `until-dispelled`, `until-dispelled-or-triggered`, `special` |
-| `save` | `str`, `dex`, `con`, `int`, `wis`, `cha` (ohne Zahlenwert) |
+| `castingTime.unit` | `action`, `bonus`, `reaction`, `minute`, `hour`; `amount` for minutes/hours; `trigger` (text) for reactions |
+| `range.kind` | `self`, `touch`, `distance` (with `feet`), `sight`, `unlimited`, `special` |
+| `components` | `verbal`, `somatic`, `material` (bool); optional `materialText`, `materialCost` (GP), `materialConsumed` |
+| `duration.kind` | `instantaneous`, `round`, `minute`, `hour`, `day` (with `amount`), `until-dispelled`, `until-dispelled-or-triggered`, `special` |
+| `save` | `str`, `dex`, `con`, `int`, `wis`, `cha` (without a number) |
 | `damage.types` | `acid`, `bludgeoning`, `cold`, `fire`, `force`, `lightning`, `necrotic`, `piercing`, `poison`, `psychic`, `radiant`, `slashing`, `thunder` |
 | `classes` | `barbarian`, `bard`, `cleric`, `druid`, `fighter`, `monk`, `paladin`, `ranger`, `rogue`, `sorcerer`, `warlock`, `wizard` |
 
-### Aktion (`action`)
+### Action (`action`)
 
 ```json
 {
@@ -120,12 +120,12 @@ Andere Markdown-Elemente (Überschriften, Tabellen, Links) werden als normaler T
 ```
 
 `actionType`: `action`, `bonus`, `reaction`. Optional: `weapon` (`category` `simple`/`martial`,
-`kind` `melee`/`ranged`, `properties` aus `ammunition`, `finesse`, `heavy`, `light`, `loading`,
+`kind` `melee`/`ranged`, `properties` from `ammunition`, `finesse`, `heavy`, `light`, `loading`,
 `reach`, `thrown`, `two-handed`, `versatile`; `ammunition` `arrow`, `bolt`, `firearm-bullet`,
-`sling-bullet`, `needle`), `damage`, `range` (`normal`, `long` in Fuß), `reach` (Fuß),
+`sling-bullet`, `needle`), `damage`, `range` (`normal`, `long` in feet), `reach` (feet),
 `mastery` (`cleave`, `graze`, `nick`, `push`, `sap`, `slow`, `topple`, `vex`), `masteryText`, `trigger`.
 
-### Fähigkeit (`feature`)
+### Feature (`feature`)
 
 ```json
 {
@@ -137,12 +137,12 @@ Andere Markdown-Elemente (Überschriften, Tabellen, Links) werden als normaler T
 }
 ```
 
-`origin.kind`: `class`, `subclass`, `species`, `feat`, `background`, `other`; dazu optional
-`classKey`, `name` (Text, z. B. Unterklasse oder Spezies), `level` (1–20), `featCategory`
+`origin.kind`: `class`, `subclass`, `species`, `feat`, `background`, `other`; plus optionally
+`classKey`, `name` (text, e.g. subclass or species), `level` (1–20), `featCategory`
 (`origin`, `general`, `fighting-style`, `epic-boon`). `activation`: `action`, `bonus`,
 `reaction`, `passive`. `recovery`: `short-rest`, `long-rest`, `none`.
 
-### Gegenstand (`item`)
+### Item (`item`)
 
 ```json
 {
@@ -155,22 +155,22 @@ Andere Markdown-Elemente (Überschriften, Tabellen, Links) werden als normaler T
 ```
 
 `category`: `weapon`, `armor`, `shield`, `ammunition`, `wondrous-item`, `potion`, `ring`, `rod`,
-`scroll`, `staff`, `wand`, `adventuring-gear`, `other`; optional `categoryDetail` (Text).
+`scroll`, `staff`, `wand`, `adventuring-gear`, `other`; optional `categoryDetail` (text).
 `rarity`: `common`, `uncommon`, `rare`, `very-rare`, `legendary`, `artifact`, `varies`;
-optional `rarityText` für gestaffelte Seltenheiten.
+optional `rarityText` for tiered rarities.
 
-### Zustand (`condition`)
+### Condition (`condition`)
 
-Nur die gemeinsamen Felder. Die Effekte stehen als Aufzählung im Regeltext.
+Only the common fields. The effects are listed in the rules text.
 
-## Minimalbeispiel
+## Minimal example
 
 ```json
 {
   "formatVersion": 1,
   "deck": {
-    "id": "mein-deck",
-    "name": "Zustände",
+    "id": "my-deck",
+    "name": "Conditions",
     "lang": "en",
     "createdAt": "2026-11-03T00:00:00Z",
     "updatedAt": "2026-11-03T00:00:00Z",
@@ -181,6 +181,6 @@ Nur die gemeinsamen Felder. Die Effekte stehen als Aufzählung im Regeltext.
 }
 ```
 
-Fehlende optionale Felder werden beim Import mit Standardwerten ergänzt (z. B. `ritual: false`).
-Ungültige Dateien werden vollständig abgelehnt; die Fehlermeldung nennt die betroffenen Felder
-(z. B. `deck.cards.0.spell.level`).
+Missing optional fields are filled in with default values on import (e.g. `ritual: false`).
+Invalid files are rejected completely; the error message names the affected fields
+(e.g. `deck.cards.0.spell.level`).

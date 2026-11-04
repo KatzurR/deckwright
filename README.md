@@ -2,7 +2,7 @@
 
 An open-source tool for turning fifth edition (5E) rules content — spells, actions, class features, abilities, items, and conditions — into small, printable reference cards you can keep at the table.
 
-> **Status:** MVP (phase 1, local use). The web app runs on your own computer; it is not published online yet. See the [user guide](docs/USER_GUIDE.md) (German) and the [specification](docs/SPEC.md).
+> **Status:** MVP (phase 1, local use). The web app runs on your own computer; it is not published online yet. See the [user guide](docs/USER_GUIDE.md) and the [specification](docs/SPEC.md).
 
 ## Why
 

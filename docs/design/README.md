@@ -1,64 +1,64 @@
-# Kartendesign: Grimoire Codex
+# Card design: Grimoire Codex
 
-Gewählter Stil für alle Kartentypen (Ergänzung zu [SPEC.md](../SPEC.md), Abschnitt 5).
+Chosen style for all card types (supplement to [SPEC.md](../SPEC.md), section 5).
 
-<img src="grimoire-codex.png" width="320" alt="Beispielkarte Feuerball im Stil Grimoire Codex">
+<img src="grimoire-codex.png" width="320" alt="Example card Fireball in the Grimoire Codex style">
 
-Beispiel: Zauber **Feuerball** mit deutschem SRD-5.2.1-Text und dem Beispielprofil „Elara · Magierin 5“ (Zauber-SG 14).
+Example: the spell **Feuerball** (Fireball) with German SRD 5.2.1 text and the example profile "Elara · Magierin 5" (Wizard 5, spell save DC 14).
 
-| Datei | Inhalt |
+| File | Content |
 |---|---|
-| [grimoire-codex.png](grimoire-codex.png) | Referenzbild, 744 × 1039 px = 63 × 88 mm bei 300 dpi |
+| [grimoire-codex.png](grimoire-codex.png) | Reference image, 744 × 1039 px = 63 × 88 mm at 300 dpi |
 
-Das Flammensymbol ist ein Platzhalter. In der App kommen die Symbole von game-icons.net.
+The flame icon is a placeholder. In the app, the icons come from game-icons.net.
 
-## Aufbau
+## Structure
 
-Von außen nach innen und von oben nach unten:
+From the outside in and from top to bottom:
 
-1. **Ledereinband**: umlaufendes Band, 2,9 mm breit, dunkelbraun mit Lederstruktur. Außen eine feine Goldlinie.
-2. **Pergament**: Innenfläche mit leichter Wolkenstruktur und Vignette, darin eine feine braune Rahmenlinie.
-3. **Medaillon**: rund, ⌀ 10,5 mm, oben mittig und über den Rand hinausragend. Lederring mit Goldrand, innen Pergament mit Ring in der Akzentfarbe und Typ- bzw. Schulsymbol.
-4. **Kopf**: Name zentriert in der Akzentfarbe, darunter der Untertitel kursiv (z. B. „Hervorrufungszauber 3. Grades“).
-5. **Trenner**: Linie mit Raute in der Akzentfarbe in der Mitte.
-6. **Eigenschaftsblock**: zwei Spalten mit senkrechter Mittellinie, je Feld eine Beschriftung in Versalien (Akzentfarbe) und der Wert darunter, alles zentriert. Bei Zaubern: Zeitaufwand, Reichweite, Komponenten, Wirkungsdauer, Rettungswurf/Angriff, Schaden. Der Materialtext steht als Fußnote (`*`) darunter.
-7. **Regeltext**: linksbündig. „Auf höheren Graden.“ fett kursiv als Einleitung des letzten Absatzes.
-8. **Fußzeile**: links die Klassen bzw. Herkunft, rechts die Quelle, kursiv. Mittig ragt ein Schild aus dem unteren Lederband mit dem Grad (bei Gegenständen: Seltenheit als Kürzel).
+1. **Leather border**: surrounding band, 2.9 mm wide, dark brown with a leather texture. A fine gold line on the outside.
+2. **Parchment**: inner area with a light cloudy texture and vignette, with a fine brown frame line inside.
+3. **Medallion**: round, ⌀ 10.5 mm, top centre and protruding beyond the edge. Leather ring with a gold rim, parchment inside with a ring in the accent colour and the type or school icon.
+4. **Header**: name centred in the accent colour, below it the subtitle in italics (e.g. "Hervorrufungszauber 3. Grades", "Level 3 Evocation").
+5. **Divider**: line with a diamond in the accent colour in the middle.
+6. **Property block**: two columns with a vertical centre line, for each field a label in capitals (accent colour) and the value below it, all centred. For spells: casting time, range, components, duration, saving throw/attack, damage. The material text is a footnote (`*`) below.
+7. **Rules text**: left-aligned. "Auf höheren Graden." ("Using a Higher-Level Spell Slot.") in bold italics as the lead-in of the last paragraph.
+8. **Footer**: on the left the classes or origin, on the right the source, in italics. In the centre, a shield protrudes from the bottom leather band with the level (for items: rarity as an abbreviation).
 
-## Farben
+## Colours
 
-| Rolle | Wert |
+| Role | Value |
 |---|---|
-| Leder | `#4b2a16` |
-| Gold (Linien, Schild-Text) | `#c79a3e` |
-| Pergament | `#efe1bd`, Medaillon innen `#f7ecd2` |
+| Leather | `#4b2a16` |
+| Gold (lines, shield text) | `#c79a3e` |
+| Parchment | `#efe1bd`, medallion inside `#f7ecd2` |
 | Text | `#3b2614` |
-| Linien, Fußnote, Fußzeile | `#6b4523` |
-| Akzent (Zauber, Hervorrufung) | `#8a2a12` |
+| Lines, footnote, footer | `#6b4523` |
+| Accent (spell, evocation) | `#8a2a12` |
 
-Die Akzentfarbe wechselt je Kartentyp bzw. Zauberschule (SPEC Abschnitt 5) und betrifft Name, Beschriftungen, Rauten und den Ring im Medaillon. Leder, Gold und Pergament bleiben für alle Typen gleich.
+The accent colour changes per card type or spell school (SPEC section 5) and affects the name, labels, diamonds and the ring in the medallion. Leather, gold and parchment stay the same for all types.
 
-## Schrift
+## Typeface
 
-Serifenschrift aus der Familie Century Schoolbook. Der Entwurf wurde mit **C059** (URW) gezeichnet. Die App verwendet die gleichwertige **TeX Gyre Schola** (GUST Font License, frei auslieferbar; SPEC Abschnitt 11.1). Größen bei 300 dpi:
+Serif typeface from the Century Schoolbook family. The draft was drawn with **C059** (URW). The app uses the equivalent **TeX Gyre Schola** (GUST Font License, freely distributable; SPEC section 11.1). Sizes at 300 dpi:
 
-| Element | Schnitt | Größe |
+| Element | Style | Size |
 |---|---|---|
-| Name | Bold | 14,4 pt |
-| Untertitel | Italic | 6,2 pt |
-| Beschriftung Eigenschaften | Bold, Versalien, Sperrung | 3,8 pt |
-| Wert Eigenschaften | Roman | 6,5 pt |
-| Regeltext | Roman | 6,0 pt (bei langen Texten bis 4,8 pt) |
-| Fußnote Material | Italic | 4,8 pt |
-| Fußzeile | Italic | 4,6 pt |
-| Grad im Schild | Bold | 7,2 pt |
+| Name | Bold | 14.4 pt |
+| Subtitle | Italic | 6.2 pt |
+| Property label | Bold, capitals, letter-spaced | 3.8 pt |
+| Property value | Roman | 6.5 pt |
+| Rules text | Roman | 6.0 pt (down to 4.8 pt for long texts) |
+| Material footnote | Italic | 4.8 pt |
+| Footer | Italic | 4.6 pt |
+| Level in the shield | Bold | 7.2 pt |
 
-Diese Größen gelten für einen Regeltext, der auf eine Karte passt. Bei längeren Texten greift die Verkleinerung bzw. Folgekarte aus SPEC Abschnitt 5.
+These sizes apply to a rules text that fits on one card. For longer texts, the reduction or continuation card from SPEC section 5 applies.
 
-## Noch zu prüfen
+## Still to check
 
-- **Probedruck:** Die Beschriftung der Eigenschaften (3,8 pt) ist sehr klein. Ein Probedruck soll zeigen, ob sie lesbar bleibt, und die Mindestgröße für den Regeltext bestätigen (vorläufig 4,8 pt, `FONT` in `src/render/paginate.ts`).
+- **Test print:** the property labels (3.8 pt) are very small. A test print should show whether they remain legible and confirm the minimum size of the rules text (provisionally 4.8 pt, `FONT` in `src/render/paginate.ts`).
 
-## Erledigt
+## Done
 
-- **Tinte und Schnitt:** Der Ledereinband reicht bis an den Kartenrand. Auf dem PDF-Bogen liegen die Karten ohne Abstand nebeneinander, die Nachbarkarte wirkt als Beschnitt. Außen bekommt das Raster optional 3 mm Beschnittzugabe (SPEC Abschnitte 8 und 11.1).
+- **Ink and cut:** the leather border extends to the card edge. On the PDF sheet the cards lie next to each other without gaps, and the neighbouring card acts as bleed. On the outside, the grid optionally gets 3 mm bleed (SPEC sections 8 and 11.1).

@@ -1,262 +1,262 @@
-# Spezifikation: Deckwright
+# Specification: Deckwright
 
-**Status:** v0.5 · 2026-11-04 · MVP (Phase 1) umgesetzt, Entscheidungen aus der Umsetzung in Abschnitt 11
+**Status:** v0.5 · 2026-11-04 · MVP (phase 1) implemented, decisions from the implementation in section 11
 
-## 1. Ziel
+## 1. Goal
 
-Deckwright ist eine Web-App, mit der Spieler und Spielleiter Regelinhalte der fünften Edition (Regeln 2024) – Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände – als kleine Referenzkarten im Pokerkartenformat gestalten und drucken.
+Deckwright is a web app with which players and game masters design and print rules content of fifth edition (2024 rules) – spells, actions, features, items and conditions – as small reference cards in poker card size.
 
-Eine Karte enthält alles, was am Tisch nötig ist, um die Regel anzuwenden, ohne ins Buch zu schauen.
+A card contains everything needed at the table to apply the rule without looking it up in the book.
 
-Die Karten sind **allgemeine Regelreferenzen, nicht an einen Charakter gebunden.** Sie zeigen die Werte so, wie sie im Regelwerk stehen (z. B. „Rettungswurf gegen deinen Zauber-SG“, „1W8 Hieb“), nicht die ausgerechneten Werte einer bestimmten Figur. Es gibt kein Charakterprofil und keine charakterabhängigen Zusatzfelder.
+The cards are **general rules references, not tied to a character.** They show the values as they appear in the rules (e.g. "saving throw against your spell save DC", "1d8 Slashing"), not the computed values of a specific character. There is no character profile and there are no character-dependent extra fields.
 
-## 2. Umfang
+## 2. Scope
 
-### 2.1 In der ersten Version (MVP)
+### 2.1 In the first version (MVP)
 
-- Kartentypen: Zauber, Aktion, Fähigkeit, Gegenstand, Zustand (Abschnitt 4)
-- Mitgelieferter SRD-5.2.1-Katalog auf Deutsch und Englisch, durchsuchbar, Karten per Klick übernehmen (Abschnitt 6)
-- Manuelle Eingabe eigener Karten in einem Formular-Editor mit Live-Vorschau
-- Decks: Karten gruppieren, sortieren, duplizieren
-- Speicherung lokal im Browser, Export/Import als JSON-Datei
-- Export als druckfertiges PDF und als PNG
-- Oberfläche und Karten auf Deutsch und Englisch
+- Card types: spell, action, feature, item, condition (section 4)
+- Bundled SRD 5.2.1 catalog in German and English, searchable, cards added with one click (section 6)
+- Manual entry of your own cards in a form editor with live preview
+- Decks: group, sort and duplicate cards
+- Local storage in the browser, export/import as a JSON file
+- Export as a print-ready PDF and as PNG
+- Interface and cards in German and English
 
-### 2.2 Nicht im MVP
+### 2.2 Not in the MVP
 
-- Charakterprofile und daraus berechnete Werte (bewusst ausgeschlossen, siehe Abschnitt 1)
-- Veröffentlichung im Internet und PWA (Phase 2, siehe Abschnitt 3.1)
-- Benutzerkonten, Server, Synchronisation zwischen Geräten
-- Import aus Charakterverwaltungen, virtuellen Spieltischen oder anderen Tools
-- Regeleditionen außer 5e 2024
-- Frei gestaltbare Kartenlayouts (nur vordefinierte Layouts pro Typ)
-- Kartenrückseiten
-- Monsterkarten (Daten wären im SRD vorhanden, späterer Ausbau)
+- Character profiles and values computed from them (deliberately excluded, see section 1)
+- Publication on the internet and PWA (phase 2, see section 3.1)
+- User accounts, server, synchronisation between devices
+- Import from character managers, virtual tabletops or other tools
+- Rules editions other than 5e 2024
+- Freely designable card layouts (only predefined layouts per type)
+- Card backs
+- Monster cards (the data would be in the SRD, later extension)
 
-## 3. Plattform und Architektur
+## 3. Platform and architecture
 
-- Single-Page-Web-App, rein clientseitig
-- Kein Backend und zur Laufzeit keine externen APIs; alle Daten (SRD-Katalog, Schriften, Symbole) werden mit der App ausgeliefert
-- Unterstützte Browser: aktuelle Versionen von Chrome, Firefox, Safari, Edge (Desktop); Tablet soll funktionieren, Smartphone ist nicht Ziel des MVP
+- Single-page web app, purely client-side
+- No backend and no external APIs at runtime; all data (SRD catalog, fonts, icons) is shipped with the app
+- Supported browsers: current versions of Chrome, Firefox, Safari, Edge (desktop); tablets should work, smartphones are not a goal of the MVP
 
-### 3.1 Betrieb: zuerst lokal, später online
+### 3.1 Operation: local first, online later
 
-**Phase 1 (MVP): nur lokal.** Die App läuft auf dem eigenen Rechner und wird nicht veröffentlicht.
+**Phase 1 (MVP): local only.** The app runs on your own computer and is not published.
 
-- Start für die Entwicklung mit `npm install` und `npm run dev`, erreichbar unter `http://localhost:5173`
-- Produktions-Build lokal prüfbar mit `npm run build` und `npm run preview`
-- Der Server lauscht nur auf `localhost`, nicht im Netzwerk
-- Voraussetzung: Node.js (aktuelle LTS-Version); für die Datenpipeline zusätzlich Poppler (`pdftotext`)
-- Die README beschreibt die lokale Installation Schritt für Schritt
+- Start for development with `npm install` and `npm run dev`, available at `http://localhost:5173`
+- Production build can be checked locally with `npm run build` and `npm run preview`
+- The server only listens on `localhost`, not on the network
+- Requirement: Node.js (current LTS version); for the data pipeline also Poppler (`pdftotext`)
+- The README describes the local installation step by step
 
-**Phase 2: online, sobald Phase 1 stabil läuft.** Veröffentlichung als statische Seite (z. B. GitHub Pages), danach optional installierbar und offline nutzbar als PWA. Die Architektur aus Phase 1 bleibt unverändert; es kommen nur Deployment und PWA-Konfiguration hinzu. Damit das ohne Umbau geht, gilt schon in Phase 1:
+**Phase 2: online, as soon as phase 1 runs stably.** Publication as a static site (e.g. GitHub Pages), then optionally installable and usable offline as a PWA. The architecture from phase 1 stays unchanged; only deployment and PWA configuration are added. So that this works without restructuring, the following already applies in phase 1:
 
-- Build erzeugt rein statische Dateien, keine serverseitige Logik
-- Relative Pfade bzw. konfigurierbarer Basis-Pfad (für Hosting in einem Unterverzeichnis)
+- The build produces purely static files, no server-side logic
+- Relative paths or a configurable base path (for hosting in a sub-directory)
 
-### 3.2 Technologie
+### 3.2 Technology
 
-| Bereich | Entscheidung | Begründung |
+| Area | Decision | Reason |
 |---|---|---|
-| Sprache | TypeScript | Datenmodell und Datenpipeline profitieren von Typprüfung |
-| Build | Vite | Standard, schnell, statischer Output |
-| UI | React | Größte Verbreitung, erleichtert Beiträge von außen |
-| Speicherung | IndexedDB über Dexie | Ausreichend für viele Decks, einfache API |
-| Kartenrendering | HTML/CSS mit Maßen in mm | Eine Quelle für Vorschau, Druck und Export |
-| PNG-Export | Rendern der Karten-DOM-Elemente in ein Bild (z. B. html-to-image) mit 300 dpi | Kein Server nötig |
-| PDF-Export | pdf-lib, Karten als 300-dpi-Bilder auf A4/Letter platziert, Schnittmarken als Vektor | Exakte Maße, unabhängig vom Druckdialog des Browsers |
-| Browser-Druck | Druck-CSS mit `@page` | Alternative mit Vektortext |
-| i18n | i18next | Bewährt, unterstützt Pluralformen |
-| Datenpipeline | Node-Skripte in TypeScript, PDF-Text über pdftotext (Poppler) | Läuft nur beim Erzeugen des Katalogs, nicht in der App |
-| Tests | Vitest für Datenmodell und Pipeline, Playwright für Export | Pipeline-Ergebnisse und Druckmaße müssen nachweisbar stimmen |
+| Language | TypeScript | Data model and data pipeline benefit from type checking |
+| Build | Vite | Standard, fast, static output |
+| UI | React | Most widespread, makes outside contributions easier |
+| Storage | IndexedDB via Dexie | Sufficient for many decks, simple API |
+| Card rendering | HTML/CSS with dimensions in mm | One source for preview, print and export |
+| PNG export | Rendering the card DOM elements into an image (e.g. html-to-image) at 300 dpi | No server needed |
+| PDF export | pdf-lib, cards as 300 dpi images placed on A4/Letter, cut marks as vectors | Exact dimensions, independent of the browser's print dialog |
+| Browser print | Print CSS with `@page` | Alternative with vector text |
+| i18n | i18next | Proven, supports plural forms |
+| Data pipeline | Node scripts in TypeScript, PDF text via pdftotext (Poppler) | Only runs when generating the catalog, not in the app |
+| Tests | Vitest for data model and pipeline, Playwright for export | Pipeline results and print dimensions must be demonstrably correct |
 
-## 4. Kartentypen
+## 4. Card types
 
-Alle Karten haben gemeinsame Felder:
+All cards have common fields:
 
-| Feld | Pflicht | Beschreibung |
+| Field | Required | Description |
 |---|---|---|
-| `id` | ja | Eindeutige ID (UUID) |
-| `type` | ja | `spell`, `action`, `feature`, `item`, `condition` |
-| `srdKey` | nein | Verweis auf den SRD-Eintrag, falls aus dem Katalog übernommen |
-| `name` | ja | Titel, je Sprache |
-| `description` | ja | Regeltext je Sprache, Markdown-Untermenge (fett, kursiv, Listen) |
-| `source` | nein | „SRD 5.2.1“ oder „Eigene Eingabe“ |
-| `tags` | nein | Freie Schlagwörter zum Filtern |
+| `id` | yes | Unique ID (UUID) |
+| `type` | yes | `spell`, `action`, `feature`, `item`, `condition` |
+| `srdKey` | no | Reference to the SRD entry, if taken from the catalog |
+| `name` | yes | Title, per language |
+| `description` | yes | Rules text per language, Markdown subset (bold, italic, lists) |
+| `source` | no | "SRD 5.2.1" or "custom entry" |
+| `tags` | no | Free keywords for filtering |
 
-Texte werden pro Sprache gespeichert (`{ "de": "...", "en": "..." }`). Für SRD-Karten liegen beide Sprachen vor; bei eigenen Karten reicht eine.
+Texts are stored per language (`{ "de": "...", "en": "..." }`). For SRD cards both languages are available; for your own cards one is enough.
 
-### 4.1 Zauber (`spell`)
+### 4.1 Spell (`spell`)
 
-| Feld | Beispiel |
+| Field | Example |
 |---|---|
-| Grad | 0 (Zaubertrick) bis 9 |
-| Schule | Hervorrufung |
-| Zeitaufwand | Aktion, Bonusaktion, Reaktion (+ Auslöser), Minuten/Stunden |
-| Ritual | ja/nein |
-| Reichweite | Zahl + Einheit, oder Selbst/Berührung |
-| Komponenten | V, G, M (+ Materialtext, Kosten, verbraucht) |
-| Wirkungsdauer | Sofort, 1 Minute … |
-| Konzentration | ja/nein |
-| Angriff / Rettungswurf | Zauberangriff oder Rettungswurf mit Attribut (ohne Zahlenwert) |
-| Schaden | Würfel + Schadensart |
-| Klassen | Magier, Zauberer |
-| Auf höheren Graden | Text |
+| Level | 0 (cantrip) to 9 |
+| School | Evocation |
+| Casting time | Action, Bonus Action, Reaction (+ trigger), minutes/hours |
+| Ritual | yes/no |
+| Range | number + unit, or Self/Touch |
+| Components | V, S, M (+ material text, cost, consumed) |
+| Duration | Instantaneous, 1 minute … |
+| Concentration | yes/no |
+| Attack / saving throw | spell attack or saving throw with ability (without a number) |
+| Damage | dice + damage type |
+| Classes | Wizard, Sorcerer |
+| At higher levels | text |
 
-### 4.2 Aktion (`action`)
+### 4.2 Action (`action`)
 
-Aktionen ohne Charakterbezug: Waffenangriffe mit einer bestimmten Waffe sowie allgemeine Aktionen (z. B. Ausweichen, Spurt, Ringen, Helfen).
+Actions without reference to a character: weapon attacks with a specific weapon and general actions (e.g. Dodge, Dash, Grapple, Help).
 
-| Feld | Beispiel |
+| Field | Example |
 |---|---|
-| Aktionsart | Aktion, Bonusaktion, Reaktion |
-| Waffe | optional; Werte kommen aus den Waffendaten |
-| Schaden | Waffenwürfel + Schadensart (z. B. 1W8 Hieb; vielseitig 1W10) |
-| Reichweite | 1,5 m; 24/96 m |
-| Eigenschaften | Finesse, Leicht, Vielseitig … |
-| Meisterschaft | z. B. Umstoßen, mit Regeltext |
-| Auslöser | nur bei Reaktionen |
+| Action type | Action, Bonus Action, Reaction |
+| Weapon | optional; values come from the weapon data |
+| Damage | weapon dice + damage type (e.g. 1d8 Slashing; versatile 1d10) |
+| Range | 5 ft.; 80/320 ft. |
+| Properties | Finesse, Light, Versatile … |
+| Mastery | e.g. Topple, with rules text |
+| Trigger | only for reactions |
 
-### 4.3 Fähigkeit (`feature`)
+### 4.3 Feature (`feature`)
 
-Klassen-, Unterklassen-, Spezies-, Hintergrund- und Talentmerkmale.
+Class, subclass, species, background and feat features.
 
-| Feld | Beispiel |
+| Field | Example |
 |---|---|
-| Herkunft | Klasse (Kämpfer, ab Stufe 2), Spezies, Talent … |
-| Aktionsart | Aktion, Bonusaktion, Reaktion, passiv |
-| Nutzungen | wie im Regeltext, z. B. „Anzahl = Übungsbonus“ |
-| Erholung | kurze Rast, lange Rast, keine |
+| Origin | class (Fighter, from level 2), species, feat … |
+| Action type | Action, Bonus Action, Reaction, passive |
+| Uses | as in the rules text, e.g. "number = Proficiency Bonus" |
+| Recovery | Short Rest, Long Rest, none |
 
-### 4.4 Gegenstand (`item`)
+### 4.4 Item (`item`)
 
-| Feld | Beispiel |
+| Field | Example |
 |---|---|
-| Kategorie | Waffe, Rüstung, Wundersamer Gegenstand … |
-| Seltenheit | Gewöhnlich bis Artefakt |
-| Einstimmung | ja/nein, ggf. Bedingung |
-| Ladungen | Anzahl + Wiederaufladung |
+| Category | Weapon, Armor, Wondrous Item … |
+| Rarity | Common to Artifact |
+| Attunement | yes/no, with condition if any |
+| Charges | number + recharge |
 
-### 4.5 Zustand (`condition`)
+### 4.5 Condition (`condition`)
 
-Name und Regeltext, als Aufzählung der Effekte. Keine weiteren Felder.
+Name and rules text, as a list of the effects. No further fields.
 
-## 5. Kartenformat und Layout
+## 5. Card format and layout
 
-- Format: 63 × 88 mm (Pokerkarte), passt in Standard-Kartenhüllen
-- Jeder Kartentyp hat ein festes Layout: Kopfzeile (Name, Typ-Symbol), Eigenschaftsblock, Regeltext, Fußzeile (Quelle, Grad/Seltenheit)
-- Jeder Typ hat eine eigene Akzentfarbe; Zauberkarten optional nach Schule eingefärbt
-- Symbole: game-icons.net (CC BY 3.0, Namensnennung in der App, auf jedem Bogen und im PNG-Export)
-- **Textüberlauf:** Passt der Regeltext nicht, wird die Schrift bis zu einer Mindestgröße verkleinert. Reicht das nicht, entsteht automatisch eine Folgekarte („Name (2/2)“). Der Editor zeigt eine Warnung.
-- Vorschau im Editor entspricht exakt dem Druckergebnis
-- Gestaltung: Stil „Grimoire Codex“, siehe [design/README.md](design/README.md)
+- Format: 63 × 88 mm (poker card), fits standard card sleeves
+- Each card type has a fixed layout: header (name, type icon), property block, rules text, footer (source, level/rarity)
+- Each type has its own accent colour; spell cards optionally coloured by school
+- Icons: game-icons.net (CC BY 3.0, credited in the app, on every sheet and in the PNG export)
+- **Text overflow:** if the rules text does not fit, the font is reduced down to a minimum size. If that is not enough, a continuation card is created automatically ("Name (2/2)"). The editor shows a warning.
+- The preview in the editor matches the printed result exactly
+- Design: style "Grimoire Codex", see [design/README.md](design/README.md)
 
-## 6. Datenquellen
+## 6. Data sources
 
-### 6.1 Mitgelieferter SRD-Katalog
+### 6.1 Bundled SRD catalog
 
-Die App enthält einen fertigen Datensatz aller relevanten SRD-5.2.1-Einträge in Deutsch und Englisch. Er wird von einer Datenpipeline erzeugt, im Repository versioniert und als statische JSON-Dateien ausgeliefert, nicht zur Laufzeit geladen.
+The app contains a ready-made data set of all relevant SRD 5.2.1 entries in German and English. It is produced by a data pipeline, versioned in the repository and shipped as static JSON files, not loaded at runtime.
 
-**Quellen:**
+**Sources:**
 
-1. **Struktur und englische Texte aus der Open5e-API** (`document__key=srd-2024`). Geprüft am 2026-11-03:
+1. **Structure and English texts from the Open5e API** (`document__key=srd-2024`). Checked on 2026-11-03:
 
-   | Endpunkt | Einträge | Bemerkung |
+   | Endpoint | Entries | Remark |
    |---|---|---|
-   | `spells` | 339 | strukturierte Felder (Grad, Schule, Reichweite, Komponenten, Schaden, Rettungswurf …) |
-   | `weapons` | 75 | inkl. Meisterschaften (2024) |
+   | `spells` | 339 | structured fields (level, school, range, components, damage, saving throw …) |
+   | `weapons` | 75 | incl. masteries (2024) |
    | `armor` | 13 | |
-   | `magicitems` | 760 | inkl. ausgeschriebener Varianten („Battleaxe (+1)“ …); die Pipeline fasst sie zu den 258 Einträgen der PDFs zusammen |
-   | `classes` | 24 | 12 Klassen + 12 Unterklassen, mit Merkmalen |
+   | `magicitems` | 760 | incl. spelled-out variants ("Battleaxe (+1)" …); the pipeline merges them into the 258 entries of the PDFs |
+   | `classes` | 24 | 12 classes + 12 subclasses, with features |
    | `species`, `feats`, `backgrounds` | 9 / 17 / 4 | |
-   | `conditions` | **0** | fehlen für 2024 |
+   | `conditions` | **0** | missing for 2024 |
 
-2. **Deutsche Texte aus dem offiziellen deutschen SRD 5.2.1** (PDF, von der Pipeline geladen, siehe [srd/README.md](../srd/README.md)): Name, Beschreibung, „Auf höheren Graden“, Materialtext.
-3. **Zustände** in beiden Sprachen direkt aus den SRD-PDFs, da Open5e sie nicht liefert.
+2. **German texts from the official German SRD 5.2.1** (PDF, downloaded by the pipeline, see [srd/README.md](../srd/README.md)): name, description, "At higher levels", material text.
+3. **Conditions** in both languages directly from the SRD PDFs, because Open5e does not provide them.
 
-Strukturierte Felder (Schule, Aktionsart, Schadensart …) werden als Schlüssel gespeichert und beim Rendern übersetzt; übersetzt bzw. zugeordnet werden nur die Freitexte.
+Structured fields (school, action type, damage type …) are stored as keys and translated when rendering; only the free texts are translated or matched.
 
-### 6.2 Zuordnung Englisch ↔ Deutsch
+### 6.2 Matching English ↔ German
 
-Die deutschen und englischen Einträge haben keine gemeinsame ID, und beide PDFs sind nach dem jeweiligen Namen alphabetisch sortiert. Die Zuordnung erfolgt deshalb in drei Schritten:
+The German and English entries have no common ID, and both PDFs are sorted alphabetically by the respective name. Matching is therefore done in three steps:
 
-1. **Einträge aus dem deutschen PDF zerlegen.** Die Einträge haben einen festen Aufbau. Bei Zaubern: Name, Kopfzeile „‹Schule›zauber N. Grades (Klassen)“, dann die Felder „Zeitaufwand:“, „Reichweite:“, „Komponenten:“, „Wirkungsdauer:“, danach der Regeltext. Eine Stichprobe ergab 347 Blöcke mit „Zeitaufwand:“ im deutschen und 343 mit „Casting Time:“ im englischen SRD. Die PDF-Textextraktion erfolgt im Lesefluss (nicht im Layoutmodus), weil das zweispaltige Layout sonst Zeilen vermischt.
-2. **Automatischer Abgleich über einen Fingerabdruck aus Werten,** die in beiden Sprachen übereinstimmen: Typ, Grad, Schule, Klassenliste, Zeitaufwand, Reichweite (Fuß → Meter), Komponenten, Wirkungsdauer, Konzentration, Ritual, Würfelangaben im Text. Für andere Typen analog (z. B. Gegenstände: Kategorie, Seltenheit, Einstimmung).
-3. **Zuordnungsdatei als verbindliche Quelle.** Das Ergebnis wird in `data/mapping/*.json` geschrieben (`srdKey` → deutscher Name). Eindeutige Treffer werden automatisch eingetragen; mehrdeutige oder fehlende werden im Pipeline-Bericht aufgelistet und von Hand ergänzt. Handeinträge bleiben bei erneutem Lauf erhalten.
+1. **Split the entries from the German PDF.** The entries have a fixed structure. For spells: name, header line "‹Schule›zauber N. Grades (Klassen)", then the fields "Zeitaufwand:", "Reichweite:", "Komponenten:", "Wirkungsdauer:", then the rules text. A sample found 347 blocks with "Zeitaufwand:" in the German and 343 with "Casting Time:" in the English SRD. PDF text extraction is done in reading order (not in layout mode), because the two-column layout would otherwise mix lines.
+2. **Automatic matching via a fingerprint of values** that agree in both languages: type, level, school, class list, casting time, range (feet → metres), components, duration, concentration, ritual, dice in the text. Analogously for other types (e.g. items: category, rarity, attunement).
+3. **Mapping file as the authoritative source.** The result is written to `data/mapping/*.json` (`srdKey` → German name). Unique matches are entered automatically; ambiguous or missing ones are listed in the pipeline report and added by hand. Manual entries are kept on every new run.
 
-Die Pipeline schlägt fehl, wenn ein SRD-Eintrag keine deutsche Zuordnung hat oder ein deutscher Eintrag doppelt zugeordnet ist. Ein Test prüft die Gesamtzahlen je Typ gegen beide PDFs.
+The pipeline fails if an SRD entry has no German assignment or a German entry is assigned twice. A test checks the totals per type against both PDFs.
 
-### 6.3 Katalog in der App
+### 6.3 Catalog in the app
 
-- Suche nach Name (in beiden Sprachen), Filter nach Typ, Zaubergrad, Schule, Klasse
-- Mehrfachauswahl, Übernahme in ein Deck
-- Übernommene Karten behalten den `srdKey` und sind danach normal editierbar
+- Search by name (in both languages), filter by type, spell level, school, class
+- Multiple selection, adding to a deck
+- Added cards keep the `srdKey` and are normally editable afterwards
 
-### 6.4 Manuelle Eingabe
+### 6.4 Manual entry
 
-- Formular pro Kartentyp mit den Feldern aus Abschnitt 4
-- Live-Vorschau neben dem Formular
-- Pflichtfelder werden validiert
+- Form per card type with the fields from section 4
+- Live preview next to the form
+- Required fields are validated
 
-## 7. Decks und Speicherung
+## 7. Decks and storage
 
-- Ein Deck ist eine benannte, geordnete Liste von Karten (z. B. „Magierzauber Grad 1–3“)
-- Karten können zwischen Decks kopiert werden
-- Speicherung automatisch in IndexedDB
-- Export eines Decks als JSON-Datei; Import derselben Datei stellt das Deck vollständig wieder her
-- Das JSON-Format ist versioniert (`formatVersion`) und dokumentiert, damit andere Tools es erzeugen können
-- Hinweis in der App, dass Browserdaten verloren gehen können und regelmäßiger Export empfohlen wird
+- A deck is a named, ordered list of cards (e.g. "Wizard spells levels 1–3")
+- Cards can be copied between decks
+- Stored automatically in IndexedDB
+- Export of a deck as a JSON file; importing the same file restores the deck completely
+- The JSON format is versioned (`formatVersion`) and documented, so that other tools can produce it
+- Notice in the app that browser data can be lost and that regular export is recommended
 
-## 8. Export und Druck
+## 8. Export and print
 
-| Format | Beschreibung |
+| Format | Description |
 |---|---|
-| PDF-Bogen | A4 oder US Letter, 3 × 3 Karten pro Seite, Schnittmarken, optional 3 mm Beschnittzugabe |
-| PNG | Eine Datei pro Karte, 300 dpi (744 × 1039 px), als ZIP für ein ganzes Deck |
-| Browser-Druck | Direkter Druck mit Druck-CSS, gleiche Anordnung wie PDF |
+| PDF sheet | A4 or US Letter, 3 × 3 cards per page, cut marks, optional 3 mm bleed |
+| PNG | One file per card, 300 dpi (744 × 1039 px), as a ZIP for a whole deck |
+| Browser print | Direct printing with print CSS, same arrangement as the PDF |
 
-- Exportiert wird ein ganzes Deck oder eine Auswahl
-- Druckmaße müssen bei 100 % Skalierung exakt stimmen
+- A whole deck or a selection is exported
+- Print dimensions must be exact at 100 % scaling
 
-## 9. Sprache
+## 9. Language
 
-- Oberfläche vollständig auf Deutsch und Englisch, umschaltbar, Standard nach Browsersprache
-- Jedes Deck hat eine Kartensprache; Beschriftungen (z. B. „Reichweite“ / „Range“) und Texte folgen ihr, unabhängig von der Oberflächensprache
-- Begriffe in deutschen Karten folgen der Terminologie des offiziellen deutschen SRD 5.2.1
-- Längenangaben: Deutsch in Metern, Englisch in Fuß, entsprechend der jeweiligen SRD-Fassung
+- Interface fully in German and English, switchable, default by browser language
+- Each deck has a card language; labels (e.g. "Reichweite" / "Range") and texts follow it, independently of the interface language
+- Terms on German cards follow the terminology of the official German SRD 5.2.1
+- Lengths: German in metres, English in feet, according to the respective SRD version
 
-## 10. Rechtliches
+## 10. Legal
 
-- Code: MIT-Lizenz
-- Regelinhalte ausschließlich aus dem SRD 5.2.1 (CC BY 4.0), offizielle deutsche und englische Fassung, siehe [srd/README.md](../srd/README.md)
-- Die vorgeschriebene Namensnennungserklärung erscheint in der App (Über-Seite) und auf jedem PDF- und Druckbogen, in der Sprache des Decks
-- CC BY 4.0 verlangt einen Hinweis auf Änderungen: „Änderungen: Die SRD-Texte wurden in einzelne Einträge aufgeteilt …“ (`SRD_CHANGES` in `src/model/legal.ts`). Er steht zusammen mit der Namensnennung der Symbole im gegenüberliegenden Rand jedes Bogens, auf der Über-Seite und in der README
-- Der PNG-Export (ZIP) enthält eine Textdatei mit Namensnennung, Änderungshinweis und Symbol-Namensnennung (`NAMENSNENNUNG.txt` / `ATTRIBUTION.txt`)
-- Die Katalogdaten stehen unter CC BY 4.0, nicht unter MIT ([data/catalog/LICENSE.md](../data/catalog/LICENSE.md)); Übersicht aller Fremdlizenzen in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
-- Laut Lizenzhinweis dürfen keine weiteren Verweise auf den Herausgeber erscheinen; erlaubt ist „kompatibel mit der fünften Edition“ / „5E compatible“
-- Keine Inhalte aus anderen Büchern im Repository
+- Code: MIT License
+- Rules content exclusively from the SRD 5.2.1 (CC BY 4.0), official German and English version, see [srd/README.md](../srd/README.md)
+- The required attribution statement appears in the app (About page) and on every PDF and print sheet, in the language of the deck
+- CC BY 4.0 requires a notice of changes: "Changes: the SRD texts were split into individual entries …" (`SRD_CHANGES` in `src/model/legal.ts`). It appears together with the icon credits in the opposite margin of every sheet, on the About page and in the README
+- The PNG export (ZIP) contains a text file with the attribution, the change note and the icon credits (`NAMENSNENNUNG.txt` / `ATTRIBUTION.txt`)
+- The catalog data is licensed under CC BY 4.0, not MIT ([data/catalog/LICENSE.md](../data/catalog/LICENSE.md)); overview of all third-party licenses in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
+- According to the license notice, no further references to the publisher may appear; "kompatibel mit der fünften Edition" / "5E compatible" is allowed
+- No content from other books in the repository
 
-## 11. Offene Fragen
+## 11. Open questions
 
-### 11.1 Entschieden
+### 11.1 Decided
 
-1. **Schrift:** TeX Gyre Schola (GUST Font License) statt C059. Sie gehört zur selben Familie (Century Schoolbook) und darf ohne Einschränkung mit der App ausgeliefert werden. Lizenz: `public/licenses/GUST-FONT-LICENSE.txt`.
-2. **Beschnitt:** Die Karten liegen auf dem Bogen ohne Abstand nebeneinander. Da der Ledereinband an allen Kanten gleich ist, wirkt die Nachbarkarte als Beschnitt. Nur das 3 × 3-Raster bekommt außen 3 mm Beschnittzugabe. So passt der Beschnitt auch auf US Letter.
-3. **SRD-Namensnennung auf dem Bogen:** im größeren Rand außerhalb der Schnittmarken (A4 unten, US Letter links, gedreht). Änderungshinweis und Symbol-Namensnennung stehen gespiegelt im gegenüberliegenden Rand (A4 oben, US Letter rechts), weil bei US Letter mit Beschnitt nur eine Zeile Platz hat.
-4. **Texturen** (Leder, Pergament) als erzeugte PNG-Dateien (`npm run textures`), weil SVG-`feTurbulence` im 300-dpi-Export schwarz gerendert wird.
-5. **Zeilenhöhe** in ganzen CSS-Pixeln, sonst werden die Zeilenabstände im Export ungleichmäßig.
-6. **Magische Gegenstände:** Open5e-Varianten („Battleaxe (+1)“, „Battleaxe (+2)“ …) werden zu einem Eintrag je PDF-Eintrag zusammengefasst („Waffe +1, +2 oder +3“).
-7. **Nicht im Katalog:** die 4 Hintergründe und gewöhnliche Ausrüstung (keine eigenen Kartentypen im MVP).
-8. **Einheiten:** Das deutsche SRD rechnet 5 Fuß = 1,5 m und 1 Meile = 1,6 km. Gespeichert wird in Fuß, die deutsche Karte rechnet beim Rendern um.
-9. **Textextraktion:** Poppler `pdftohtml -xml` statt `pdftotext`, weil die XML-Ausgabe Schriftart, Fett/Kursiv und Position behält. Damit lassen sich Überschriften, fette Einleitungen und Tabellen zuverlässig erkennen. Klassentabellen und Infokästen („Einen Schwur brechen“) werden entfernt, weil sie nicht zu einem einzelnen Merkmal gehören.
-10. **Kartenbilder in Firefox:** Die eingebettete Kartenschrift für den 300-dpi-Export erzeugt die App selbst (`src/export/fonts.ts`), weil html-to-image die Schriftfamilie in Firefox nicht lesen kann. Firefox bricht Zeilen im Bildexport minimal anders um als in der Ansicht; damit sich Absätze dabei nicht überlappen, wachsen die Textblöcke im Export mit ihrem Inhalt.
-11. **Textüberlauf:** Regeltext 6,0 pt, Verkleinerung in Schritten von 0,2 pt bis 4,8 pt, danach Folgekarten. Die Mindestgröße ist vorläufig, siehe 11.2.
+1. **Typeface:** TeX Gyre Schola (GUST Font License) instead of C059. It belongs to the same family (Century Schoolbook) and may be shipped with the app without restriction. License: `public/licenses/GUST-FONT-LICENSE.txt`.
+2. **Bleed:** the cards lie on the sheet next to each other without gaps. Because the leather border is the same on all edges, the neighbouring card acts as bleed. Only the 3 × 3 grid gets 3 mm bleed on the outside. This way the bleed also fits on US Letter.
+3. **SRD attribution on the sheet:** in the larger margin outside the cut marks (A4 bottom, US Letter left, rotated). The change note and the icon credits are mirrored in the opposite margin (A4 top, US Letter right), because on US Letter with bleed there is only room for one line.
+4. **Textures** (leather, parchment) as generated PNG files (`npm run textures`), because SVG `feTurbulence` renders black in the 300 dpi export.
+5. **Line height** in whole CSS pixels, otherwise the line spacing becomes uneven in the export.
+6. **Magic items:** Open5e variants ("Battleaxe (+1)", "Battleaxe (+2)" …) are merged into one entry per PDF entry ("Weapon, +1, +2, or +3").
+7. **Not in the catalog:** the 4 backgrounds and mundane equipment (no card types of their own in the MVP).
+8. **Units:** the German SRD uses 5 feet = 1.5 m and 1 mile = 1.6 km. Values are stored in feet; the German card converts when rendering.
+9. **Text extraction:** Poppler `pdftohtml -xml` instead of `pdftotext`, because the XML output keeps the font, bold/italic and position. This makes headings, bold lead-ins and tables reliably detectable. Class tables and sidebars ("Breaking Your Oath") are removed, because they do not belong to a single feature.
+10. **Card images in Firefox:** the app creates the embedded card font for the 300 dpi export itself (`src/export/fonts.ts`), because html-to-image cannot read the font family in Firefox. Firefox breaks lines in the image export slightly differently than in the view; so that paragraphs do not overlap, the text blocks grow with their content in the export.
+11. **Text overflow:** rules text 6.0 pt, reduced in steps of 0.2 pt down to 4.8 pt, then continuation cards. The minimum size is provisional, see 11.2.
 
-### 11.2 Offen
+### 11.2 Open
 
-1. **Probedruck:** Lesbarkeit der Beschriftungen (3,8 pt) und der Mindestgröße des Regeltexts (4,8 pt) an einem echten Druck bestätigen (`FONT` in `src/render/paginate.ts`).
-2. **Aus dem Text abgeleitete Felder:** Aktionsart, Erholung und Nutzungen von Fähigkeiten werden aus dem englischen Regeltext erschlossen (`inferUsage` in `scripts/pipeline/build/features.ts`). Stichproben sind korrekt, eine vollständige Durchsicht fehlt.
-3. **Tabellen mit ungewöhnlichem Satz:** Bei wenigen Einträgen steht der Schlüssel einer Tabellenzeile senkrecht mittig neben mehrzeiligem Text (Regenbogenwand) oder Wörter sind in der PDF-Extraktion vertauscht (Amulett der Ebenen). Der Text ist vollständig, die Gliederung aber unsauber. Lösung: Handkorrektur im Editor oder eine Sonderbehandlung in der Pipeline.
-4. **Browser:** Automatisch getestet werden Chromium und Firefox (alle Ende-zu-Ende-Tests). Safari (WebKit) und Edge sind noch von Hand zu prüfen, vor allem der Browser-Druck.
+1. **Test print:** confirm the legibility of the labels (3.8 pt) and of the minimum size of the rules text (4.8 pt) on a real print (`FONT` in `src/render/paginate.ts`).
+2. **Fields derived from the text:** action type, recovery and uses of features are inferred from the English rules text (`inferUsage` in `scripts/pipeline/build/features.ts`). Samples are correct; a complete review is missing.
+3. **Tables with unusual typesetting:** in a few entries the key of a table row stands vertically centred next to multi-line text (Prismatic Wall), or words are swapped in the PDF extraction (Amulet of the Planes). The text is complete, but the structure is untidy. Solution: manual correction in the editor or special handling in the pipeline.
+4. **Browsers:** Chromium and Firefox are tested automatically (all end-to-end tests). Safari (WebKit) and Edge still have to be checked by hand, especially browser print.
 
-Neue Fragen aus der Umsetzung werden hier gesammelt.
+New questions from the implementation are collected here.

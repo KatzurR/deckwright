@@ -1,30 +1,32 @@
-# Benutzerhandbuch
+# User guide
 
-Deckwright erstellt druckbare Regelkarten im Pokerkartenformat (63 × 88 mm) für Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände der fünften Edition (Regeln 2024). Die App läuft vollständig in deinem Browser auf deinem eigenen Rechner. Es gibt keinen Server, kein Benutzerkonto und keine Verbindung zu externen Diensten.
+Deckwright creates printable rules cards in poker size (63 × 88 mm) for spells, actions, features, items and conditions of fifth edition (2024 rules). The app runs entirely in your browser on your own computer. There is no server, no user account and no connection to external services.
 
-Inhalt:
+This guide uses the labels of the English interface. The interface can also be switched to German (see [section 2](#2-overview)).
+
+Contents:
 
 1. [Installation](#1-installation)
-2. [Überblick](#2-überblick)
+2. [Overview](#2-overview)
 3. [Decks](#3-decks)
-4. [Karten aus dem SRD-Katalog](#4-karten-aus-dem-srd-katalog)
-5. [Eigene Karten und Karten bearbeiten](#5-eigene-karten-und-karten-bearbeiten)
-6. [Drucken und Exportieren](#6-drucken-und-exportieren)
-7. [Sichern und Weitergeben (JSON)](#7-sichern-und-weitergeben-json)
-8. [Sprachen](#8-sprachen)
+4. [Cards from the SRD catalog](#4-cards-from-the-srd-catalog)
+5. [Your own cards and editing cards](#5-your-own-cards-and-editing-cards)
+6. [Printing and exporting](#6-printing-and-exporting)
+7. [Backing up and sharing (JSON)](#7-backing-up-and-sharing-json)
+8. [Languages](#8-languages)
 9. [Tests](#9-tests)
-10. [Katalog neu erzeugen (für Entwickler)](#10-katalog-neu-erzeugen-für-entwickler)
-11. [Probleme und Lösungen](#11-probleme-und-lösungen)
+10. [Regenerating the catalog (for developers)](#10-regenerating-the-catalog-for-developers)
+11. [Problems and solutions](#11-problems-and-solutions)
 
 ## 1. Installation
 
-Du brauchst:
+You need:
 
-- **Node.js** ab Version 18.18 (https://nodejs.org, die LTS-Version genügt). Prüfen mit `node -v`.
-- **Git** zum Herunterladen des Projekts (alternativ das ZIP von GitHub).
-- Einen aktuellen Browser: Chrome, Edge, Firefox oder Safari.
+- **Node.js** version 18.18 or newer (https://nodejs.org, the LTS version is fine). Check with `node -v`.
+- **Git** to download the project (alternatively the ZIP from GitHub).
+- A current browser: Chrome, Edge, Firefox or Safari.
 
-Schritt für Schritt in einem Terminal (Windows: „Eingabeaufforderung“ oder „PowerShell“):
+Step by step in a terminal (Windows: "Command Prompt" or "PowerShell"):
 
 ```bash
 git clone https://github.com/KatzurR/deckwright.git
@@ -33,162 +35,162 @@ npm install
 npm run dev
 ```
 
-`npm install` lädt einmalig die benötigten Bibliotheken herunter (einige Minuten). `npm run dev` startet die App. Öffne dann im Browser **http://localhost:5173**. Die App ist nur auf deinem Rechner erreichbar, nicht im Netzwerk.
+`npm install` downloads the required libraries once (a few minutes). `npm run dev` starts the app. Then open **http://localhost:5173** in your browser. The app can only be reached from your own computer, not from the network.
 
-Beenden: im Terminal `Strg + C`. Beim nächsten Mal genügt `npm run dev` im Projektordner.
+To stop it: press `Ctrl + C` in the terminal. Next time, `npm run dev` in the project folder is enough.
 
-Optional, als fertiger Build: `npm run build` und danach `npm run preview` (http://localhost:4173).
+Optionally, as a finished build: `npm run build` followed by `npm run preview` (http://localhost:4173).
 
-## 2. Überblick
+## 2. Overview
 
-Oben findest du drei Bereiche:
+At the top you find three areas:
 
-- **Decks** – deine Kartenstapel, die Karten darin und alle Funktionen zum Drucken und Exportieren
-- **SRD-Katalog** – alle mitgelieferten Regeleinträge aus dem SRD 5.2.1, auf Deutsch und Englisch
-- **Über** – Lizenzen und die vorgeschriebene Namensnennung
+- **Decks** – your card stacks, the cards in them and all functions for printing and exporting
+- **SRD catalog** – all bundled rules entries from the SRD 5.2.1, in German and English
+- **About** – licenses and the required attribution
 
-Rechts oben stellst du die **Sprache der Oberfläche** ein (Deutsch oder Englisch). Beim ersten Start richtet sie sich nach der Sprache deines Browsers.
+At the top right you set the **Interface language** (English or German). On the first start it follows the language of your browser.
 
-Der gelbe Hinweis erinnert daran, dass deine Decks nur im Browser gespeichert sind (siehe [Abschnitt 7](#7-sichern-und-weitergeben-json)). Mit **Verstanden** blendest du ihn aus.
+The yellow notice reminds you that your decks are only stored in the browser (see [section 7](#7-backing-up-and-sharing-json)). **Got it** hides it.
 
 ## 3. Decks
 
-Ein Deck ist eine benannte, geordnete Liste von Karten, z. B. „Magierzauber Grad 1–3“ oder „Kämpfer Stufe 5“.
+A deck is a named, ordered list of cards, for example "Wizard spells levels 1–3" or "Fighter level 5".
 
-- **Neues Deck** legt ein leeres Deck an. Den Namen änderst du direkt im Namensfeld.
-- **Kartensprache**: Deutsch oder Englisch. Sie bestimmt Texte und Beschriftungen der Karten, unabhängig von der Sprache der Oberfläche.
-- **Zauber nach Schule einfärben**: Zauberkarten bekommen die Akzentfarbe ihrer Schule statt der einheitlichen Zauberfarbe.
-- **Sortieren**: nach Name, nach Typ oder nach Typ und Grad.
-- **Deck duplizieren** und **Deck löschen** (mit Rückfrage).
+- **New deck** creates an empty deck. You change its name directly in the name field.
+- **Card language**: German or English. It determines the texts and labels of the cards, independently of the interface language.
+- **Colour spells by school**: spell cards get the accent colour of their school instead of the common spell colour.
+- **Sort**: by name, by type, or by type and level.
+- **Duplicate deck** and **Delete deck** (with confirmation).
 
-Mit den Karten eines Decks:
+With the cards of a deck:
 
-- **Kartenbild anklicken** öffnet den Editor ([Abschnitt 5](#5-eigene-karten-und-karten-bearbeiten)).
-- Das **Kästchen** unter der Karte wählt sie aus. Mit **Alle auswählen** und **Auswahl aufheben** steuerst du die Auswahl.
-- Für die Auswahl gibt es **Duplizieren**, **Löschen** und **In Deck kopieren …** (in ein anderes Deck).
-- **Reihenfolge**: Karte mit der Maus an die neue Stelle ziehen, oder mit den Pfeilen **‹** (nach vorne) und **›** (nach hinten) verschieben.
-- Eine Markierung wie **+2** heißt: Der Text ist zu lang für eine Karte, beim Drucken entstehen zwei Folgekarten „Name (2/3)“ und „Name (3/3)“.
+- **Clicking the card image** opens the editor ([section 5](#5-your-own-cards-and-editing-cards)).
+- The **checkbox** below the card selects it. **Select all** and **Clear selection** control the selection.
+- For the selection there are **Duplicate**, **Delete** and **Copy to deck …** (into another deck).
+- **Order**: drag a card with the mouse to its new position, or move it with the arrows **‹** (**Move forward**) and **›** (**Move back**).
+- A marker such as **+2** means: the text is too long for one card, and printing creates two continuation cards "Name (2/3)" and "Name (3/3)".
 
-Alle Änderungen werden sofort automatisch gespeichert.
+All changes are saved automatically right away.
 
-## 4. Karten aus dem SRD-Katalog
+## 4. Cards from the SRD catalog
 
-Der Katalog enthält 978 Einträge aus dem System Reference Document 5.2.1, jeweils auf Deutsch und Englisch:
+The catalog contains 978 entries from the System Reference Document 5.2.1, each in German and English:
 
-| Typ | Anzahl | Inhalt |
+| Type | Count | Content |
 |---|---|---|
-| Zauber | 339 | alle Zauber |
-| Aktion | 50 | 12 Aktionen aus dem Regelglossar (Angreifen, Ausweichen …) und 38 Waffenangriffe |
-| Fähigkeit | 316 | Klassen- und Unterklassenmerkmale, Klassenoptionen (z. B. Metamagie), Merkmale der Spezies, Talente |
-| Gegenstand | 258 | magische Gegenstände |
-| Zustand | 15 | alle Zustände |
+| Spell | 339 | all spells |
+| Action | 50 | 12 actions from the rules glossary (Attack, Dodge …) and 38 weapon attacks |
+| Feature | 316 | class and subclass features, class options (e.g. Metamagic), species traits, feats |
+| Item | 258 | magic items |
+| Condition | 15 | all conditions |
 
-Hintergründe und gewöhnliche Ausrüstung sind nicht enthalten.
+Backgrounds and mundane equipment are not included.
 
-So übernimmst du Karten:
+How to add cards:
 
-1. **SRD-Katalog** öffnen, oder im Deck auf **Aus dem Katalog** klicken.
-2. **Suchen**: Das Suchfeld findet deutsche und englische Namen („Feuerball“ und „Fireball“ liefern denselben Zauber). Groß- und Kleinschreibung und Umlaute spielen keine Rolle.
-3. **Filtern** nach Typ, Grad, Schule und Klasse. **Filter zurücksetzen** hebt alle Filter auf.
-4. **Auswählen**: Einträge anklicken. Mit der Maus über einem Eintrag siehst du rechts die fertige Karte in der Kartensprache des Zieldecks. **Alle Treffer auswählen** wählt alles, was die aktuelle Suche findet. Die Auswahl bleibt erhalten, wenn du weitersuchst.
-5. Unter **Übernehmen in** das Zieldeck wählen (oder **+ neues Deck**) und auf **N Karten übernehmen** klicken.
+1. Open the **SRD catalog**, or click **From the catalog** in the deck.
+2. **Search**: the search field finds German and English names ("Feuerball" and "Fireball" return the same spell). Upper and lower case and umlauts do not matter.
+3. **Filter** by type, level, school and class. **Reset filters** clears all filters.
+4. **Select**: click entries. When you hover over an entry with the mouse, the finished card appears on the right in the card language of the target deck. **Select all matches** selects everything the current search finds. The selection is kept when you search again.
+5. Under **Add to**, choose the target deck (or **+ new deck**) and click **Add N cards**.
 
-Übernommene Karten behalten ihren Verweis auf den SRD-Eintrag (sichtbar im Editor als „SRD-Verweis“) und lassen sich danach wie eigene Karten bearbeiten.
+Added cards keep their reference to the SRD entry (shown in the editor as "SRD reference") and can be edited afterwards like your own cards.
 
-## 5. Eigene Karten und Karten bearbeiten
+## 5. Your own cards and editing cards
 
-Im Deck wählst du unter **Neue Karte** den Kartentyp. Der Editor zeigt links das Formular und rechts die **Vorschau in Originalgröße**. Sie entspricht exakt dem Druck.
+In the deck, choose the card type under **New card**. The editor shows the form on the left and the **Preview (actual size)** on the right. It matches the print exactly.
 
-- **Texte bearbeiten auf**: Jede Karte kann Texte in beiden Sprachen haben. Hier wählst du, welche Sprache du gerade bearbeitest. Fehlt der Text in der Kartensprache des Decks, zeigt die Karte die andere Sprache, und das Deck weist darauf hin.
-- **Pflichtfelder**: Name und Regeltext müssen in mindestens einer Sprache ausgefüllt sein. Fehlerhafte Felder werden beim Speichern markiert.
-- **Regeltext**: Absätze durch eine Leerzeile trennen. `**fett**`, `*kursiv*`, Listen mit `- ` am Zeilenanfang. Eine fette Einleitung wie `**Auf höheren Graden.** …` wird als Zwischenüberschrift gesetzt.
-- **Felder je Typ**: bei Zaubern z. B. Grad, Schule, Zeitaufwand, Reichweite, Komponenten, Wirkungsdauer, Schaden. Bei Aktionen kannst du unter **Waffe (Werte übernehmen)** eine SRD-Waffe wählen, dann werden Schaden, Eigenschaften und Meisterschaft eingetragen.
-- **Entfernungen** gibst du in der Einheit der Kartensprache ein: in Metern bei deutschen, in Fuß bei englischen Karten. Gespeichert wird in Fuß; die andere Sprache rechnet nach dem deutschen SRD um (1,5 m je 5 Fuß, 1,6 km je Meile).
-- **Textlänge**: Unter der Vorschau steht, ob der Text passt. Ist er zu lang, wird die Schrift von 6,0 pt bis auf 4,8 pt verkleinert. Reicht das nicht, entstehen automatisch Folgekarten.
+- **Edit texts in**: every card can have texts in both languages. Here you choose which language you are editing. If the text is missing in the card language of the deck, the card shows the other language, and the deck points this out.
+- **Required fields**: name and rules text must be filled in in at least one language. Invalid fields are highlighted when you save.
+- **Rules text**: separate paragraphs with a blank line. `**bold**`, `*italic*`, lists with `- ` at the start of a line. A bold lead-in such as `**Using a Higher-Level Spell Slot.** …` is set as a subheading.
+- **Fields per type**: for spells, for example, level, school, casting time, range, components, duration, damage. For actions, you can choose an SRD weapon under **Weapon (take values)**; damage, properties and mastery are then filled in.
+- **Distances** are entered in the unit of the card language: in metres for German cards, in feet for English cards. They are stored in feet; the other language is converted as in the German SRD (1.5 m per 5 feet, 1.6 km per mile).
+- **Text length**: below the preview you see whether the text fits. If it is too long, the font is reduced from 6.0 pt down to 4.8 pt. If that is not enough, continuation cards are created automatically.
 
-**Speichern** übernimmt die Änderungen, **Abbrechen** verwirft sie (mit Rückfrage).
+**Save** applies the changes, **Cancel** discards them (with confirmation).
 
-## 6. Drucken und Exportieren
+## 6. Printing and exporting
 
-Im Deck öffnet **Drucken & Export …** den Exportdialog.
+In the deck, **Print & export …** opens the export dialog.
 
-**Umfang**: das ganze Deck oder nur die ausgewählten Karten. Folgekarten werden automatisch mitgedruckt.
+**Scope**: the whole deck or only the selected cards. Continuation cards are printed automatically.
 
-**Formate**:
+**Formats**:
 
-| Format | Ergebnis |
+| Format | Result |
 |---|---|
-| **PDF-Bogen** | PDF mit 3 × 3 Karten je Seite, Schnittmarken und am Rand der SRD-Namensnennung, dem Änderungshinweis und der Namensnennung der Symbole. Papier A4 oder US Letter. |
-| **PNG-Bilder (ZIP)** | eine PNG-Datei je Karte, 744 × 1039 px (300 dpi), gepackt als ZIP zusammen mit einer Textdatei mit der Namensnennung (`NAMENSNENNUNG.txt` bzw. `ATTRIBUTION.txt`), z. B. für Druckdienste oder digitale Spieltische. Wenn du die Bilder weitergibst, gib die Namensnennung mit. |
-| **Direkt drucken (Browser)** | öffnet den Druckdialog des Browsers mit derselben Anordnung wie im PDF |
+| **PDF sheets** | PDF with 3 × 3 cards per page, cut marks and, in the margin, the SRD attribution, the change note and the icon credits. Paper A4 or US Letter. |
+| **PNG images (ZIP)** | one PNG file per card, 744 × 1039 px (300 dpi), packed as a ZIP together with a text file containing the attribution (`NAMENSNENNUNG.txt` or `ATTRIBUTION.txt`), for example for print services or virtual tabletops. If you pass the images on, include the attribution. |
+| **Print directly (browser)** | opens the browser's print dialog with the same arrangement as the PDF |
 
-**3 mm Beschnittzugabe** (nur PDF): Der Ledereinband der Karten reicht 3 mm über die Schnittkante hinaus. Das ist für Druckereien und randlosen Druck gedacht, damit beim Schneiden kein weißer Rand bleibt. Für den Heimdrucker ist es nicht nötig.
+**3 mm bleed** (PDF only): the leather border of the cards extends 3 mm beyond the cut line. This is meant for print shops and borderless printing, so that no white edge remains after cutting. A home printer does not need it.
 
-### Richtig drucken: 100 %
+### Printing correctly: 100 %
 
-Damit die Karten genau 63 × 88 mm groß werden und in Standard-Kartenhüllen passen:
+So that the cards are exactly 63 × 88 mm and fit into standard card sleeves:
 
-1. Im Druckdialog **„Tatsächliche Größe“**, **„100 %“** bzw. **„Keine Skalierung“** wählen, **nicht „An Seite anpassen“**.
-2. Papierformat im Drucker passend zum PDF einstellen (A4 oder Letter).
-3. Beim Browser-Druck die Kopf- und Fußzeilen des Browsers abschalten und die Ränder auf „Keine“ oder „Standard“ lassen. Die App gibt die Seitengröße selbst vor.
-4. Nach dem ersten Druck nachmessen: Eine Karte muss 63 mm breit und 88 mm hoch sein.
+1. In the print dialog, choose **"Actual size"**, **"100 %"** or **"No scaling"**, **not "Fit to page"**.
+2. Set the paper size in the printer to match the PDF (A4 or Letter).
+3. For browser printing, turn off the browser's headers and footers and leave the margins at "None" or "Default". The app sets the page size itself.
+4. Measure after the first print: a card must be 63 mm wide and 88 mm high.
 
-Zum Schneiden: an den Schnittmarken entlang mit Lineal und Cutter oder einer Schneidemaschine. Die Karten liegen ohne Abstand nebeneinander, ein Schnitt trennt also zwei Karten.
+Cutting: along the cut marks with a ruler and a craft knife, or with a paper cutter. The cards lie next to each other without gaps, so one cut separates two cards.
 
-## 7. Sichern und Weitergeben (JSON)
+## 7. Backing up and sharing (JSON)
 
-Deine Decks liegen in der Datenbank deines Browsers (IndexedDB). Sie bleiben beim Schließen erhalten, gehen aber verloren, wenn du die Browserdaten löschst, in einem anderen Browser oder auf einem anderen Rechner arbeitest oder einen privaten Modus benutzt.
+Your decks are stored in your browser's database (IndexedDB). They are kept when you close the browser, but they are lost if you clear the browser data, work in a different browser or on a different computer, or use a private window.
 
-- **Als JSON exportieren** speichert das aktuelle Deck als Datei (z. B. `magierzauber-grad-1-3.deckwright.json`). Exportiere deine Decks regelmäßig.
-- **Deck importieren …** lädt eine solche Datei. Das Deck wird vollständig wiederhergestellt, inklusive aller Karten, beider Sprachen und Einstellungen. Gibt es schon ein Deck mit derselben Kennung, wird das importierte als neues Deck angelegt.
+- **Export as JSON** saves the current deck as a file (for example `wizard-spells-levels-1-3.deckwright.json`). Export your decks regularly.
+- **Import deck …** loads such a file. The deck is restored completely, including all cards, both languages and settings. If a deck with the same ID already exists, the imported one is created as a new deck.
 
-Das Dateiformat ist versioniert und beschrieben in [deck-format.md](deck-format.md), damit auch andere Programme Decks erzeugen können.
+The file format is versioned and described in [deck-format.md](deck-format.md), so that other programs can create decks too.
 
-## 8. Sprachen
+## 8. Languages
 
-- **Oberfläche** und **Karten** haben getrennte Spracheinstellungen. So kannst du z. B. mit deutscher Oberfläche englische Karten drucken.
-- Deutsche Karten verwenden die Begriffe des offiziellen deutschen SRD 5.2.1 („Zeitaufwand“, „Wirkungsdauer“, „Bonusaktion“ …), Würfel als „W“ (2W6) und Entfernungen in Metern.
-- Englische Karten verwenden Fuß und Meilen.
+- The **interface** and the **cards** have separate language settings. For example, you can print English cards with a German interface.
+- German cards use the terms of the official German SRD 5.2.1 ("Zeitaufwand", "Wirkungsdauer", "Bonusaktion" …), dice as "W" (2W6) and distances in metres.
+- English cards use feet and miles.
 
 ## 9. Tests
 
-Für Entwickler und zur Kontrolle nach Änderungen:
+For developers and as a check after changes:
 
 ```bash
-npm test                          # Unit- und Integrationstests (Vitest)
-npx playwright install chromium firefox   # einmalig: Testbrowser installieren
-npm run test:e2e                          # Ende-zu-Ende-Tests in Chromium und Firefox (Playwright)
-npm run test:e2e -- --project=chromium    # nur in einem Browser
+npm test                          # unit and integration tests (Vitest)
+npx playwright install chromium firefox   # once: install the test browsers
+npm run test:e2e                          # end-to-end tests in Chromium and Firefox (Playwright)
+npm run test:e2e -- --project=chromium    # in one browser only
 ```
 
-- `npm test` prüft Datenmodell, Einheiten, Kartenrendering, Textumbruch, PDF- und PNG-Erzeugung, Speicherung und die Datenpipeline. Dazu gehört, dass die Gesamtzahlen je Kartentyp in beiden PDFs übereinstimmen und alle Katalogkarten in beiden Sprachen vorliegen. Der Pipeline-Test läuft nur, wenn `data/cache/` vorhanden ist (nach einem Lauf von `npm run pipeline`), sonst wird er übersprungen.
-- `npm run test:e2e` startet die App und prüft im Browser den Katalog (Suchen, Filtern, Übernehmen), den Editor, das Umsortieren per Drag & Drop, die exakten Maße von PDF, PNG und Browser-Druck sowie den JSON-Export und -Import.
+- `npm test` checks the data model, units, card rendering, line breaking, PDF and PNG generation, storage and the data pipeline. This includes that the totals per card type match in both PDFs and that all catalog cards exist in both languages. The pipeline test only runs if `data/cache/` exists (after a run of `npm run pipeline`); otherwise it is skipped.
+- `npm run test:e2e` starts the app and checks in the browser the catalog (search, filter, add), the editor, reordering by drag & drop, the exact dimensions of PDF, PNG and browser print, and the JSON export and import.
 
-## 10. Katalog neu erzeugen (für Entwickler)
+## 10. Regenerating the catalog (for developers)
 
-Der Katalog liegt fertig im Repository (`data/catalog/`). Neu erzeugen musst du ihn nur, wenn du die Pipeline änderst.
+The catalog is part of the repository (`data/catalog/`). You only need to regenerate it if you change the pipeline.
 
-Zusätzlich nötig: **Poppler** (`pdftohtml`). Debian/Ubuntu: `sudo apt install poppler-utils`, macOS: `brew install poppler`.
+You also need **Poppler** (`pdftohtml`). Debian/Ubuntu: `sudo apt install poppler-utils`, macOS: `brew install poppler`.
 
 ```bash
-npm run pipeline          # lädt Open5e-Daten und (beim ersten Lauf) beide SRD-PDFs nach srd/, schreibt data/catalog
-npm run pipeline:offline  # dasselbe aus dem Zwischenspeicher data/cache
+npm run pipeline          # downloads Open5e data and (on the first run) both SRD PDFs into srd/, writes data/catalog
+npm run pipeline:offline  # the same from the cache in data/cache
 ```
 
-Ergebnis:
+Result:
 
-- `data/catalog/<typ>.json` – die Karten
-- `data/mapping/<typ>.json` – Zuordnung englischer Schlüssel → deutscher Eintrag. Einträge mit `"manual": true` sind von Hand gesetzt und bleiben bei jedem Lauf erhalten.
-- `data/pipeline-report.md` – Bericht mit Zahlen, Zuordnungen und Warnungen
+- `data/catalog/<type>.json` – the cards
+- `data/mapping/<type>.json` – assignment of English keys → German entry. Entries with `"manual": true` were set by hand and are kept on every run.
+- `data/pipeline-report.md` – report with counts, assignments and warnings
 
-Die Pipeline bricht ab, wenn ein Eintrag keine deutsche Zuordnung hat oder ein deutscher Eintrag doppelt vergeben ist. Dann im Bericht nachsehen und in der Mapping-Datei einen Handeintrag ergänzen.
+The pipeline stops if an entry has no German assignment or a German entry is assigned twice. In that case, check the report and add a manual entry to the mapping file.
 
-## 11. Probleme und Lösungen
+## 11. Problems and solutions
 
-| Problem | Lösung |
+| Problem | Solution |
 |---|---|
-| `npm run dev` meldet „Port 5173 is already in use“ | Die App läuft schon in einem anderen Terminal; dort beenden oder einfach den offenen Browser-Tab nutzen. |
-| Gedruckte Karten sind zu klein oder zu groß | Im Druckdialog 100 % / „Tatsächliche Größe“ wählen (siehe [Abschnitt 6](#richtig-drucken-100-)). |
-| Decks sind verschwunden | Browserdaten wurden gelöscht, oder du nutzt einen anderen Browser oder ein anderes Profil. Letzten JSON-Export importieren. |
-| Der Katalog zeigt „noch nicht erzeugt“ | `data/catalog/` fehlt (z. B. unvollständige Kopie). Repository neu klonen oder `npm run pipeline` ausführen. |
-| Eine Karte zeigt englischen Text in einem deutschen Deck | Die Karte hat keinen deutschen Text. Im Editor unter „Texte bearbeiten auf: Deutsch“ ergänzen. |
+| `npm run dev` reports "Port 5173 is already in use" | The app is already running in another terminal; stop it there or simply use the open browser tab. |
+| Printed cards are too small or too large | Choose 100 % / "Actual size" in the print dialog (see [section 6](#printing-correctly-100-)). |
+| Decks have disappeared | The browser data was cleared, or you are using a different browser or profile. Import your last JSON export. |
+| The catalog shows "has not been generated yet" | `data/catalog/` is missing (for example an incomplete copy). Clone the repository again or run `npm run pipeline`. |
+| A card shows English text in a German deck | The card has no German text. Add it in the editor under "Edit texts in: German". |

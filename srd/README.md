@@ -1,21 +1,21 @@
-# SRD 5.2.1 – Quelldokumente
+# SRD 5.2.1 – source documents
 
-Die Datenpipeline liest das System Reference Document 5.2.1 (Regeln 5e 2024) in den offiziellen Fassungen. Die PDFs liegen **nicht im Repository**: `npm run pipeline` lädt sie beim ersten Lauf von den offiziellen Adressen in diesen Ordner (von Git ignoriert) und prüft die SHA-256-Prüfsumme (`SRD_SOURCES` in [scripts/pipeline/sources.ts](../scripts/pipeline/sources.ts)). Ändert der Herausgeber eine Datei, bricht die Pipeline mit einem Hinweis ab.
+The data pipeline reads the System Reference Document 5.2.1 (5e 2024 rules) in its official versions. The PDFs are **not in the repository**: on the first run, `npm run pipeline` downloads them from the official addresses into this folder (ignored by Git) and checks the SHA-256 checksum (`SRD_SOURCES` in [scripts/pipeline/sources.ts](../scripts/pipeline/sources.ts)). If the publisher changes a file, the pipeline stops with a notice.
 
-| Datei | Sprache | Seiten | Quelle | SHA-256 |
+| File | Language | Pages | Source | SHA-256 |
 |---|---|---|---|---|
-| `SRD_CC_v5.2.1_DE.pdf` | Deutsch | 412 | https://media.dndbeyond.com/compendium-images/srd/5.2/DE_SRD_CC_v5.2.1.pdf | `f06989dc…bc5e3d87` |
-| `SRD_CC_v5.2.1_EN.pdf` | Englisch | 364 | https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf | `8974902d…bbe8a65b` |
+| `SRD_CC_v5.2.1_DE.pdf` | German | 412 | https://media.dndbeyond.com/compendium-images/srd/5.2/DE_SRD_CC_v5.2.1.pdf | `f06989dc…bc5e3d87` |
+| `SRD_CC_v5.2.1_EN.pdf` | English | 364 | https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf | `8974902d…bbe8a65b` |
 
-Stand 2026-11-03. Übersicht aller Fassungen: https://www.dndbeyond.com/srd
+As of 2026-11-03. Overview of all versions: https://www.dndbeyond.com/srd
 
-Die Dateien werden unverändert verwendet. Sie dienen als Quelle, um strukturierte Kartendaten (Zauber, Zustände, Fähigkeiten …) zu extrahieren, insbesondere die deutschen Texte, die über die Open5e-API nicht verfügbar sind.
+The files are used unchanged. They serve as the source for extracting structured card data (spells, conditions, features …), in particular the German texts, which are not available through the Open5e API.
 
-## Lizenz und Namensnennung
+## License and attribution
 
-Beide Dokumente stehen unter CC BY 4.0. Jedes Werk, das Inhalte daraus verwendet, muss die folgende Erklärung enthalten. Andere Verweise auf den Herausgeber sind laut Lizenzhinweis nicht erlaubt.
+Both documents are licensed under CC BY 4.0. Every work that uses content from them must include the following statement. According to the license notice, other references to the publisher are not allowed.
 
-**Deutsch:**
+**German** (official German attribution, quoted unchanged):
 
 > Dieses Werk enthält Material aus dem Systemreferenzdokument 5.2.1 („SRD 5.2.1“) von Wizards of the Coast LLC, verfügbar unter https://www.dndbeyond.com/srd. Das SRD 5.2.1 ist lizenziert gemäß Creative Commons Namensnennung 4.0 International Public License (verfügbar unter https://creativecommons.org/licenses/by/4.0/legalcode.de).
 
