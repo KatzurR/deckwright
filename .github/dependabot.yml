@@ -8,8 +8,16 @@ updates:
     cooldown:
       default-days: 7
     open-pull-requests-limit: 5
+    ignore:
+      # the Node types follow the Node version in .nvmrc (24); raise them together with Node
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
-      # minor and patch updates in one pull request; major updates one by one
+      # React, React DOM and their types only work in matching versions: one pull request,
+      # including major updates (a dependency goes into the first group that matches)
+      react:
+        patterns: ["react", "react-dom", "@types/react", "@types/react-dom"]
+      # all other minor and patch updates in one pull request; major updates one by one
       npm-minor-and-patch:
         update-types: [minor, patch]
 
