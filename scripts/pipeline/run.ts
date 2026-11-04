@@ -1,7 +1,7 @@
 /**
  * Data pipeline (SPEC §6): builds the SRD 5.2.1 catalog in German and English.
  *
- *   npm run pipeline            download Open5e, extract the PDFs, build data/catalog
+ *   npm run pipeline            download Open5e (and the SRD PDFs if missing), extract the PDFs, build data/catalog
  *   npm run pipeline:offline    same, but only from data/cache
  *
  * Outputs: data/catalog/<type>.json, data/mapping/<type>.json, data/pipeline-report.md.
@@ -21,7 +21,7 @@ import { addCards, emptyDict } from './concepts';
 import { makeDoc } from './doc';
 import { writeMapping } from './mapping';
 import { renderReport } from './report';
-import { loadOpen5e, loadPdf, ROOT, type SourceOptions } from './sources';
+import { ensureSrdPdf, loadOpen5e, loadPdf, ROOT, type SourceOptions } from './sources';
 
 export const CATALOG_DIR = join(ROOT, 'data', 'catalog');
 export const REPORT_FILE = join(ROOT, 'data', 'pipeline-report.md');
@@ -62,6 +62,7 @@ export async function buildCatalog(opts: SourceOptions): Promise<BuiltType[]> {
     loadOpen5e('species', opts),
     loadOpen5e('feats', opts),
   ]);
+  await Promise.all([ensureSrdPdf('en', opts), ensureSrdPdf('de', opts)]);
   log('Parsing PDFs …');
   const en = makeDoc('en', loadPdf('en', opts).lines);
   const de = makeDoc('de', loadPdf('de', opts).lines);

@@ -1,15 +1,15 @@
 # SRD 5.2.1 – Quelldokumente
 
-Dieser Ordner enthält das System Reference Document 5.2.1 (Regeln 5e 2024) in den offiziellen Fassungen:
+Die Datenpipeline liest das System Reference Document 5.2.1 (Regeln 5e 2024) in den offiziellen Fassungen. Die PDFs liegen **nicht im Repository**: `npm run pipeline` lädt sie beim ersten Lauf von den offiziellen Adressen in diesen Ordner (von Git ignoriert) und prüft die SHA-256-Prüfsumme (`SRD_SOURCES` in [scripts/pipeline/sources.ts](../scripts/pipeline/sources.ts)). Ändert der Herausgeber eine Datei, bricht die Pipeline mit einem Hinweis ab.
 
-| Datei | Sprache | Seiten | Quelle |
-|---|---|---|---|
-| `SRD_CC_v5.2.1_DE.pdf` | Deutsch | 412 | https://media.dndbeyond.com/compendium-images/srd/5.2/DE_SRD_CC_v5.2.1.pdf |
-| `SRD_CC_v5.2.1_EN.pdf` | Englisch | 364 | https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf |
+| Datei | Sprache | Seiten | Quelle | SHA-256 |
+|---|---|---|---|---|
+| `SRD_CC_v5.2.1_DE.pdf` | Deutsch | 412 | https://media.dndbeyond.com/compendium-images/srd/5.2/DE_SRD_CC_v5.2.1.pdf | `f06989dc…bc5e3d87` |
+| `SRD_CC_v5.2.1_EN.pdf` | Englisch | 364 | https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf | `8974902d…bbe8a65b` |
 
-Abgerufen am 2026-11-03. Übersicht aller Fassungen: https://www.dndbeyond.com/srd
+Stand 2026-11-03. Übersicht aller Fassungen: https://www.dndbeyond.com/srd
 
-Die Dateien sind unverändert. Sie dienen als Quelle, um strukturierte Kartendaten (Zauber, Zustände, Fähigkeiten …) zu extrahieren, insbesondere die deutschen Texte, die über die Open5e-API nicht verfügbar sind.
+Die Dateien werden unverändert verwendet. Sie dienen als Quelle, um strukturierte Kartendaten (Zauber, Zustände, Fähigkeiten …) zu extrahieren, insbesondere die deutschen Texte, die über die Open5e-API nicht verfügbar sind.
 
 ## Lizenz und Namensnennung
 

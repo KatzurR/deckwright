@@ -171,7 +171,7 @@ Der Katalog liegt fertig im Repository (`data/catalog/`). Neu erzeugen musst du 
 Zusätzlich nötig: **Poppler** (`pdftohtml`). Debian/Ubuntu: `sudo apt install poppler-utils`, macOS: `brew install poppler`.
 
 ```bash
-npm run pipeline          # lädt Open5e-Daten, liest beide SRD-PDFs, schreibt data/catalog
+npm run pipeline          # lädt Open5e-Daten und (beim ersten Lauf) beide SRD-PDFs nach srd/, schreibt data/catalog
 npm run pipeline:offline  # dasselbe aus dem Zwischenspeicher data/cache
 ```
 

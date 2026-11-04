@@ -9,7 +9,6 @@ Beispiel: Zauber **Feuerball** mit deutschem SRD-5.2.1-Text und dem Beispielprof
 | Datei | Inhalt |
 |---|---|
 | [grimoire-codex.png](grimoire-codex.png) | Referenzbild, 744 × 1039 px = 63 × 88 mm bei 300 dpi |
-| [grimoire-codex.xcf](grimoire-codex.xcf) | GIMP-3-Quelldatei mit benannten Ebenen und bearbeitbaren Textebenen |
 
 Das Flammensymbol ist ein Platzhalter. In der App kommen die Symbole von game-icons.net.
 

@@ -171,7 +171,7 @@ Die App enthält einen fertigen Datensatz aller relevanten SRD-5.2.1-Einträge i
    | `species`, `feats`, `backgrounds` | 9 / 17 / 4 | |
    | `conditions` | **0** | fehlen für 2024 |
 
-2. **Deutsche Texte aus dem offiziellen deutschen SRD 5.2.1** ([srd/SRD_CC_v5.2.1_DE.pdf](../srd/SRD_CC_v5.2.1_DE.pdf)): Name, Beschreibung, „Auf höheren Graden“, Materialtext.
+2. **Deutsche Texte aus dem offiziellen deutschen SRD 5.2.1** (PDF, von der Pipeline geladen, siehe [srd/README.md](../srd/README.md)): Name, Beschreibung, „Auf höheren Graden“, Materialtext.
 3. **Zustände** in beiden Sprachen direkt aus den SRD-PDFs, da Open5e sie nicht liefert.
 
 Strukturierte Felder (Schule, Aktionsart, Schadensart …) werden als Schlüssel gespeichert und beim Rendern übersetzt; übersetzt bzw. zugeordnet werden nur die Freitexte.

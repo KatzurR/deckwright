@@ -11,10 +11,11 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import type { CardType } from '../../src/model/schema';
 import { EXPECTED_COUNTS } from './expected';
 import { buildCatalog, catalogFile, type BuiltType } from './run';
-import { CACHE, hasPoppler, OPEN5E_ENDPOINTS, ROOT } from './sources';
+import { CACHE, hasPoppler, OPEN5E_ENDPOINTS, ROOT, SRD_PDF } from './sources';
 
 const haveOpen5e = OPEN5E_ENDPOINTS.every((e) => existsSync(join(CACHE, 'open5e', `${e}.json`)));
-const havePdfText = ['de', 'en'].every((l) => existsSync(join(CACHE, `srd-${l}.xml`))) || hasPoppler();
+// The test runs offline: it needs the extracted PDF text, or the PDFs (downloaded by `npm run pipeline`) and Poppler.
+const havePdfText = (['de', 'en'] as const).every((l) => existsSync(join(CACHE, `srd-${l}.xml`)) || (existsSync(SRD_PDF[l]) && hasPoppler()));
 
 /** Report count keys that hold the number of entries found in each PDF, per type. */
 const PDF_COUNT_KEYS: Record<CardType, [string, string][]> = {

@@ -47,7 +47,7 @@ The SRD catalog is part of the repository (`data/catalog/`), so you do not need 
 | `npm run build` / `npm run preview` | Type check, production build, local preview |
 | `npm test` | Unit and integration tests (Vitest): data model, rendering, export, data pipeline |
 | `npm run test:e2e` | End-to-end tests (Playwright) in Chromium and Firefox: catalog, editor, drag & drop, PDF/PNG/print dimensions, JSON round trip. Once: `npx playwright install chromium firefox` |
-| `npm run pipeline` | Rebuild the SRD catalog from Open5e and both SRD PDFs (needs Poppler and network) |
+| `npm run pipeline` | Rebuild the SRD catalog from Open5e and both SRD PDFs (needs Poppler and network; downloads the PDFs into `srd/` on the first run, see [srd/README.md](srd/README.md)) |
 | `npm run pipeline:offline` | Same, from the cached sources in `data/cache/` |
 | `npm run schema` | Regenerate the JSON schema of the deck format |
 | `npm run textures` | Regenerate the card textures (PNG) |
@@ -75,7 +75,7 @@ The source code in this repository is released under the [MIT License](LICENSE).
 
 | Part | License |
 |---|---|
-| Rules content: SRD 5.2.1 PDFs ([srd/](srd/)) and the catalog derived from them ([data/catalog/](data/catalog/)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([details](data/catalog/LICENSE.md)) |
+| Rules content: the catalog derived from the SRD 5.2.1 ([data/catalog/](data/catalog/)); the PDFs themselves are not in the repository, the pipeline downloads them ([srd/](srd/README.md)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([details](data/catalog/LICENSE.md)) |
 | Card icons from [game-icons.net](https://game-icons.net) | CC BY 3.0 ([license](public/licenses/CC-BY-3.0.txt)) |
 | Card font TeX Gyre Schola ([src/render/fonts/](src/render/fonts/)) | GUST Font License ([license](public/licenses/GUST-FONT-LICENSE.txt)) |
 
