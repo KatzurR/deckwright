@@ -89,7 +89,7 @@ Any other content you enter, for example from books you own, stays in your own f
 
 ## Contributing
 
-Ideas, bug reports and feedback are welcome via [GitHub Issues](https://github.com/KatzurR/deckwright/issues).
+Ideas, bug reports and feedback are welcome via [GitHub Issues](https://github.com/KatzurR/deckwright/issues). Before you open a pull request, please read [CONTRIBUTING.md](CONTRIBUTING.md) – in particular the rule that only SRD 5.2.1 content and no trademarks may be added. Everyone taking part follows the [Code of Conduct](CODE_OF_CONDUCT.md). Security problems are reported privately, see [SECURITY.md](SECURITY.md).
 
 ## License
 
