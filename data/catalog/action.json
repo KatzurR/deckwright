@@ -1,0 +1,1717 @@
+{
+ "formatVersion": 1,
+ "type": "action",
+ "source": "srd-5.2.1",
+ "entries": [
+  {
+   "id": "srd-2024_action_attack",
+   "srdKey": "srd-2024_action_attack",
+   "name": {
+    "de": "Angriff",
+    "en": "Attack"
+   },
+   "description": {
+    "de": "Wenn du die Angriffsaktion ausführst, kannst du einen Angriffswurf mit einer Waffe oder einem waffenlosen Angriff ausführen.\n\n**Waffen an- und ablegen:** Wenn du einen Angriff ausführst, kannst du als Teil dieser Aktion eine Waffe an- oder ablegen. Tu dies entweder vor oder nach dem Angriff. Wenn du eine Waffe vor dem Angriff anlegst, musst du sie bei diesem Angriff nicht zwangsläufig verwenden. Zum Anlegen einer Waffe gehört es, sie aus einer Scheide zu ziehen oder sie aufzuheben. Zum Ablegen einer Waffe gehört es, sie in eine Scheide zu stecken, sie zu verstauen oder fallenzulassen.\n\n**Bewegung zwischen Angriffen:** Wenn du dich in deinem Zug bewegst und ein Merkmal wie Zusätzlicher Angriff hast, das dir mehr als einen Angriff als Teil der Angriffsaktion gewährt, kannst du die Bewegung teilweise oder ganz nutzen, um dich zwischen deinen Angriffen zu bewegen.",
+    "en": "When you take the Attack action, you can make one attack roll with a weapon or an Unarmed Strike.\n\n**Equipping and Unequipping Weapons.** You can either equip or unequip one weapon when you make an attack as part of this action. You do so either before or after the attack. If you equip a weapon before an attack, you don’t need to use it for that attack. Equipping a weapon includes drawing it from a sheath or picking it up. Unequipping a weapon includes sheathing, stowing, or dropping it.\n\n**Moving between Attacks.** If you move on your turn and have a feature, such as Extra Attack, that gives you more than one attack as part of the Attack action, you can use some or all of that movement to move between those attacks."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_battleaxe",
+   "srdKey": "srd-2024_battleaxe",
+   "name": {
+    "de": "Streitaxt",
+    "en": "Battleaxe"
+   },
+   "description": {
+    "de": "**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.",
+    "en": "**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_battleaxe",
+     "category": "martial",
+     "kind": "melee",
+     "versatileDice": "1d10",
+     "properties": [
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "topple",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie zu einem Konstitutionsrettungswurf (SG 8 plus Attributsmodifikator für den Angriffswurf plus dein Übungsbonus) zwingen. Misslingt der Wurf, so wird die Kreatur umgestoßen und hat den Zustand Liegend.",
+     "en": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_blowgun",
+   "srdKey": "srd-2024_blowgun",
+   "name": {
+    "de": "Blasrohr",
+    "en": "Blowgun"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Laden:** Du kannst mit einer Aktion, Bonusaktion oder Reaktion immer nur ein Geschoss aus einer Waffe mit der Eigenschaft Laden abfeuern, egal, wie viele Angriffe dir zur Verfügung stehen.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Loading.** You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_blowgun",
+     "category": "martial",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "loading"
+     ],
+     "ammunition": "needle"
+    },
+    "damage": {
+     "dice": "1",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 25,
+     "long": 100
+    },
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_club",
+   "srdKey": "srd-2024_club",
+   "name": {
+    "de": "Knüppel",
+    "en": "Club"
+   },
+   "description": {
+    "de": "**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.",
+    "en": "**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_club",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "light"
+     ]
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_dagger",
+   "srdKey": "srd-2024_dagger",
+   "name": {
+    "de": "Dolch",
+    "en": "Dagger"
+   },
+   "description": {
+    "de": "**Finesse:** Wenn du mit Finesse-Waffen angreifst, hast du bei Angriffs- und Schadenswürfen die Wahl zwischen deinem Stärke- und deinem Geschicklichkeitsmodifikator. Du musst allerdings bei beiden Würfen denselben Modifikator verwenden.\n\n**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.\n\n**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Finesse.** When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.\n\n**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.\n\n**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_dagger",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "finesse",
+      "light",
+      "thrown"
+     ]
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 20,
+     "long": 60
+    },
+    "reach": 5,
+    "mastery": "nick",
+    "masteryText": {
+     "de": "Wenn du den zusätzlichen Angriff der Eigenschaft Leicht ausführst, kannst du dies als Teil der Angriffsaktion statt als Bonusaktion tun. Du kannst diesen zusätzlichen Angriff nur einmal pro Zug ausführen.",
+     "en": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_dart",
+   "srdKey": "srd-2024_dart",
+   "name": {
+    "de": "Wurfpfeil",
+    "en": "Dart"
+   },
+   "description": {
+    "de": "**Finesse:** Wenn du mit Finesse-Waffen angreifst, hast du bei Angriffs- und Schadenswürfen die Wahl zwischen deinem Stärke- und deinem Geschicklichkeitsmodifikator. Du musst allerdings bei beiden Würfen denselben Modifikator verwenden.\n\n**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Finesse.** When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.\n\n**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_dart",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "finesse",
+      "thrown"
+     ]
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 20,
+     "long": 60
+    },
+    "reach": 5,
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_dash",
+   "srdKey": "srd-2024_action_dash",
+   "name": {
+    "de": "Spurt",
+    "en": "Dash"
+   },
+   "description": {
+    "de": "Wenn du die Spurt-Aktion ausführst, erhältst du für diesen Zug zusätzliche Bewegung. Dieser Zuwachs entspricht der Höhe deiner Bewegungsrate einschließlich relevanter Modifikatoren. Beispiel: Bei einer Bewegungsrate von neun Metern kannst du dich mit einem Spurt insgesamt bis zu 18 Meter weit bewegen. Wird deine Bewegungsrate von neun Metern auf 4,5 Meter verringert, so kannst du dich mit einem Spurt bis zu neun Meter weit bewegen.\n\nWenn du eine besondere Bewegungsrate wie eine Flugbewegungsrate oder eine Schwimmbewegungsrate hast, kannst du diese statt deiner normalen Bewegungsrate bei der Spurt-Aktion verwenden. Du wählst bei jeder Spurt-Aktion aus, welche Bewegungsrate du verwendest. Siehe auch „Bewegungsrate“.",
+    "en": "When you take the Dash action, you gain extra movement for the current turn. The increase equals your Speed after applying any modifiers. With a Speed of 30 feet, for example, you can move up to 60 feet on your turn if you Dash. If your Speed of 30 feet is reduced to 15 feet, you can move up to 30 feet this turn if you Dash.\n\nIf you have a special speed, such as a Fly Speed or Swim Speed, you can use that speed instead of your Speed when you take this action. You choose which speed to use each time you take it. See also “Speed.”"
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_action_disengage",
+   "srdKey": "srd-2024_action_disengage",
+   "name": {
+    "de": "Rückzug",
+    "en": "Disengage"
+   },
+   "description": {
+    "de": "Wenn du die Rückzug-Aktion ausführst, provoziert deine Bewegung in diesem Zug keine Gelegenheitsangriffe.",
+    "en": "If you take the Disengage action, your movement doesn’t provoke Opportunity Attacks for the rest of the current turn."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_action_dodge",
+   "srdKey": "srd-2024_action_dodge",
+   "name": {
+    "de": "Ausweichen",
+    "en": "Dodge"
+   },
+   "description": {
+    "de": "Die Ausweichaktion bietet dir die folgenden Vorzüge: Bis zum Beginn deines nächsten Zugs ist jeder Angriffswurf gegen dich im Nachteil, sofern du den Angreifer sehen kannst, und du bist bei Geschicklichkeitsrettungswürfen im Vorteil.\n\nDu verlierst diese Vorzüge, wenn du kampfunfähig bist oder deine Bewegungsrate 0 beträgt.",
+    "en": "If you take the Dodge action, you gain the following benefits: until the start of your next turn, any attack roll made against you has Disadvantage if you can see the attacker, and you make Dexterity saving throws with Advantage.\n\nYou lose these benefits if you have the Incapacitated condition or if your Speed is 0."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_flail",
+   "srdKey": "srd-2024_flail",
+   "name": {
+    "de": "Flegel",
+    "en": "Flail"
+   },
+   "description": {
+    "de": "Wenn du die Angriffsaktion ausführst, kannst du einen Angriffswurf mit einer Waffe oder einem waffenlosen Angriff ausführen.",
+    "en": "When you take the Attack action, you can make one attack roll with a weapon or an Unarmed Strike."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_flail",
+     "category": "martial",
+     "kind": "melee",
+     "properties": []
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "sap",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, ist diese Kreatur bei ihrem nächsten Angriffswurf vor Beginn deines nächsten Zugs im Nachteil.",
+     "en": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_glaive",
+   "srdKey": "srd-2024_glaive",
+   "name": {
+    "de": "Glefe",
+    "en": "Glaive"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Weitreichend:** Bei Waffen mit der Eigenschaft Weitreichend ist die normale Angriffsreichweite um 1,5 Meter erhöht. Dies gilt auch bei Gelegenheitsangriffen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Reach.** A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attacks with it.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_glaive",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "reach",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "1d10",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 10,
+    "mastery": "graze",
+    "masteryText": {
+     "de": "Wenn dein Angriffswurf mit dieser Waffe eine Kreatur verfehlt, kannst du der Kreatur Schaden in Höhe des Attributsmodifikators zufügen, den du für den Angriffswurf verwendet hast. Die Schadensart entspricht der Waffe. Der Schaden kann nur durch Erhöhen des Attributsmodifikators erhöht werden.",
+     "en": "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_greataxe",
+   "srdKey": "srd-2024_greataxe",
+   "name": {
+    "de": "Zweihandaxt",
+    "en": "Greataxe"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_greataxe",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "1d12",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "cleave",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit einem Nahkampfangriffswurf triffst, den du mit dieser Waffe ausführst, kannst du mit der Waffe einen weiteren Nahkampfangriff auf eine zweite Kreatur im Abstand von bis zu 1,5 Metern von der ersten ausführen, sofern die zweite sich ebenfalls in Reichweite befindet. Bei einem Treffer erleidet die Kreatur den Waffenschaden. Du fügst dem Schaden jedoch nicht deinen Attributsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist. Du kannst diesen zusätzlichen Angriff nur einmal pro Zug ausführen.",
+     "en": "If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon’s damage, but don’t add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_greatclub",
+   "srdKey": "srd-2024_greatclub",
+   "name": {
+    "de": "Zweihandknüppel",
+    "en": "Greatclub"
+   },
+   "description": {
+    "de": "**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_greatclub",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "push",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie bis zu drei Meter weit in gerader Linie von dir wegstoßen, sofern sie von höchstens großer Größe ist.",
+     "en": "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_greatsword",
+   "srdKey": "srd-2024_greatsword",
+   "name": {
+    "de": "Zweihandschwert",
+    "en": "Greatsword"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_greatsword",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "2d6",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "graze",
+    "masteryText": {
+     "de": "Wenn dein Angriffswurf mit dieser Waffe eine Kreatur verfehlt, kannst du der Kreatur Schaden in Höhe des Attributsmodifikators zufügen, den du für den Angriffswurf verwendet hast. Die Schadensart entspricht der Waffe. Der Schaden kann nur durch Erhöhen des Attributsmodifikators erhöht werden.",
+     "en": "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_halberd",
+   "srdKey": "srd-2024_halberd",
+   "name": {
+    "de": "Hellebarde",
+    "en": "Halberd"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Weitreichend:** Bei Waffen mit der Eigenschaft Weitreichend ist die normale Angriffsreichweite um 1,5 Meter erhöht. Dies gilt auch bei Gelegenheitsangriffen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Reach.** A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attacks with it.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_halberd",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "reach",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "1d10",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 10,
+    "mastery": "cleave",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit einem Nahkampfangriffswurf triffst, den du mit dieser Waffe ausführst, kannst du mit der Waffe einen weiteren Nahkampfangriff auf eine zweite Kreatur im Abstand von bis zu 1,5 Metern von der ersten ausführen, sofern die zweite sich ebenfalls in Reichweite befindet. Bei einem Treffer erleidet die Kreatur den Waffenschaden. Du fügst dem Schaden jedoch nicht deinen Attributsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist. Du kannst diesen zusätzlichen Angriff nur einmal pro Zug ausführen.",
+     "en": "If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon’s damage, but don’t add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_hand-crossbow",
+   "srdKey": "srd-2024_hand-crossbow",
+   "name": {
+    "de": "Handarmbrust",
+    "en": "Hand Crossbow"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.\n\n**Laden:** Du kannst mit einer Aktion, Bonusaktion oder Reaktion immer nur ein Geschoss aus einer Waffe mit der Eigenschaft Laden abfeuern, egal, wie viele Angriffe dir zur Verfügung stehen.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.\n\n**Loading.** You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_hand-crossbow",
+     "category": "martial",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "light",
+      "loading"
+     ],
+     "ammunition": "bolt"
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 30,
+     "long": 120
+    },
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_handaxe",
+   "srdKey": "srd-2024_handaxe",
+   "name": {
+    "de": "Beil",
+    "en": "Handaxe"
+   },
+   "description": {
+    "de": "**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.\n\n**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.\n\n**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_handaxe",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "light",
+      "thrown"
+     ]
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "slashing"
+     ]
+    },
+    "range": {
+     "normal": 20,
+     "long": 60
+    },
+    "reach": 5,
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_heavy-crossbow",
+   "srdKey": "srd-2024_heavy-crossbow",
+   "name": {
+    "de": "Schwere Armbrust",
+    "en": "Heavy Crossbow"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Laden:** Du kannst mit einer Aktion, Bonusaktion oder Reaktion immer nur ein Geschoss aus einer Waffe mit der Eigenschaft Laden abfeuern, egal, wie viele Angriffe dir zur Verfügung stehen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Loading.** You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_heavy-crossbow",
+     "category": "martial",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "heavy",
+      "loading",
+      "two-handed"
+     ],
+     "ammunition": "bolt"
+    },
+    "damage": {
+     "dice": "1d10",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 100,
+     "long": 400
+    },
+    "mastery": "push",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie bis zu drei Meter weit in gerader Linie von dir wegstoßen, sofern sie von höchstens großer Größe ist.",
+     "en": "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_help",
+   "srdKey": "srd-2024_action_help",
+   "name": {
+    "de": "Helfen",
+    "en": "Help"
+   },
+   "description": {
+    "de": "Wenn du die Helfen-Aktion ausführst, vollziehst du eine der folgenden Handlungen:\n\n**Einen Attributswurf unterstützen:** Wähle eine deiner Übungen in einer Fertigkeit oder im Umgang mit Werkzeug sowie einen Verbündeten aus, der dir nahe genug ist, dass du ihn verbal oder physisch unterstützen kannst, wenn er einen Attributswurf ausführt. Der Verbündete ist bei seinem nächsten Attributswurf mit der ausgewählten Fertigkeit oder dem ausgewählten Werkzeug im Vorteil. Dieser Vorzug gilt nur, wenn der Verbündete ihn vor Beginn deines nächsten Zugs einsetzt. Der SL entscheidet, ob deine Hilfe möglich ist.\n\n**Einen Angriffswurf unterstützen:** Du lenkst einen Gegner im Abstand von bis zu 1,5 Metern von dir vorübergehend ab, sodass der nächste Angriffswurf eines deiner Verbündeten gegen ihn im Vorteil ist. Dieser Vorzug gilt nur, wenn der Verbündete ihn vor Beginn deines nächsten Zugs einsetzt.",
+    "en": "When you take the Help action, you do one of the following.\n\n**Assist an Ability Check.** Choose one of your skill or tool proficiencies and one ally who is near enough for you to assist verbally or physically when they make an ability check. That ally has Advantage on the next ability check they make with the chosen skill or tool. This benefit expires if the ally doesn’t use it before the start of your next turn. The GM has final say on whether your assistance is possible.\n\n**Assist an Attack Roll.** You momentarily distract an enemy within 5 feet of you, giving Advantage to the next attack roll by one of your allies against that enemy. This benefit expires at the start of your next turn."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_action_hide",
+   "srdKey": "srd-2024_action_hide",
+   "name": {
+    "de": "Verstecken",
+    "en": "Hide"
+   },
+   "description": {
+    "de": "Mit der Verstecken-Aktion versuchst du dich zu verbergen. Dazu musst du einen SG-15-Geschicklichkeitswurf (Heimlichkeit) bestehen, während du entweder komplett verschleiert bist oder dich hinter Dreivierteldeckung oder vollständiger Deckung befindest. Außerdem darfst du dich nicht in der Sichtlinie von Gegnern befinden: Kannst du eine Kreatur sehen, so kannst du beurteilen, ob sie dich ebenfalls sehen kann.\n\nBei einem Erfolg hast du den Zustand Unsichtbar, solange du versteckt bist. Notiere das Gesamtergebnis deines Wurfs – es dient als SG für Kreaturen, die versuchen, dich mit einem Weisheitswurf (Wahrnehmung) aufzuspüren.\n\nDu hörst sofort auf, versteckt zu sein, wenn eines der folgenden Ereignisse eintritt: Du machst ein Geräusch, das lauter als ein Flüstern ist, ein Gegner spürt dich auf, du führst einen Angriffswurf aus, oder du wirkst einen Zauber mit Verbalkomponente.",
+    "en": "With the Hide action, you try to hide yourself. To do so, you must succeed on a DC 15 Dexterity (Stealth) check while you’re Heavily Obscured or behind Three-Quarters Cover or Total Cover, and you must be out of any enemy’s line of sight; if you can see a creature, you can discern whether it can see you.\n\nOn a successful check, you have the Invisible condition while hidden. Make note of your check’s total, which is the DC for a creature to find you with a Wisdom (Perception) check.\n\nYou stop being hidden immediately after any of the following occurs: you make a sound louder than a whisper, an enemy finds you, you make an attack roll, or you cast a spell with a Verbal component."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_action_influence",
+   "srdKey": "srd-2024_action_influence",
+   "name": {
+    "de": "Beeinflussen",
+    "en": "Influence"
+   },
+   "description": {
+    "de": "Mit der Beeinflussen-Aktion kannst du ein Monster zu etwas drängen. Beschreibe oder stelle rollenspielerisch dar, wie du mit dem Monster kommunizierst. Versuchst du, es zu täuschen, einzuschüchtern, zu amüsieren oder zu überreden? Der SL bestimmt dann, ob das Monster bereitwillig, nicht bereitwillig oder zögerlich auf deine Interaktion reagiert. Daraus ergibt sich, ob ein Attributswurf erforderlich ist, wie unten erläutert.\n\n**Bereitwillig:** Wenn deine Beeinflussung mit den Interessen des Monsters übereinstimmt, ist kein Attributswurf erforderlich: Das Monster kommt deinen Wünschen auf seine Art nach.\n\n**Nicht bereitwillig:** Wenn deine Beeinflussung mit den Interessen oder der Gesinnung des Monsters in Konflikt steht, ist kein Attributswurf erforderlich: Das Monster kommt deinen Wünschen nicht nach.\n\n**Zögerlich:** Wenn du das Monster zu etwas bewegen willst, was es nicht unbedingt tun will, musst du einen Attributswurf ausführen, der von der Haltung des Monsters betroffen ist: Gleichgültig, freundlich gesinnt oder feindlich gesinnt, wie jeweils in diesem Glossar definiert. In der Tabelle „Attributswürfe zum Beeinflussen“ findest du Vorschläge, welcher Attributswurf je nach deiner Interaktion mit dem Monster auszuführen ist. Der SL wählt den Attributswurf aus. Dieser hat einen Standard-SG in Höhe von 15 oder dem Intelligenzwert des Monsters, je nachdem, welcher Wert höher ist. Bei einem Erfolg tut das Monster, was du willst. Misslingt der Wurf, so musst du 24 Stunden (oder eine Dauer nach Vorgabe des SL) abwarten, ehe du erneut versuchen kannst, es auf diese Art zu beeinflussen.\n\n- **Charismawurf:** Ein Monster amüsieren\n- (Auftreten)\n- **Charismawurf:** Ein Monster einschüchtern\n- (Einschüchtern)\n- **Charismawurf:** Ein Monster täuschen,\n- **(Täuschen):** das dich versteht\n- **Charismawurf:** Ein Monster überzeugen,\n- **(Überzeugen):** das dich versteht\n- **Weisheitswurf:** Ein Tier oder eine Monstrosität\n- **(Mit Tieren umgehen):** sanft überreden",
+    "en": "With the Influence action, you urge a monster to do something. Describe or roleplay how you’re communicating with the monster. Are you trying to deceive, intimidate, amuse, or gently persuade? The GM then determines whether the monster feels willing, unwilling, or hesitant due to your interaction; this determination establishes whether an ability check is necessary, as explained below.\n\n**Willing.** If your urging aligns with the monster’s desires, no ability check is necessary; the monster fulfills your request in a way it prefers.\n\n**Unwilling.** If your urging is repugnant to the monster or counter to its alignment, no ability check is necessary; it doesn’t comply.\n\n**Hesitant.** If you urge the monster to do something that it is hesitant to do, you must make an ability check, which is affected by the monster’s attitude: Indifferent, Friendly, or Hostile, each of which is defined in this glossary. The Influence Checks table suggests which ability check to make based on how you’re interacting with the monster. The GM chooses the check, which has a default DC equal to 15 or the monster’s Intelligence score, whichever is higher. On a successful check, the monster does as urged. On a failed check, you must wait 24 hours (or a duration set by the GM) before urging it in the same way again.\n\n- **Charisma (Deception):** Deceiving a monster that understands you\n- **Charisma (Intimidation):** Intimidating a monster\n- **Charisma (Performance):** Amusing a monster\n- **Charisma (Persuasion):** Persuading a monster that understands you\n- **Wisdom (Animal Handling):** Gently coaxing a Beast or Monstrosity"
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_javelin",
+   "srdKey": "srd-2024_javelin",
+   "name": {
+    "de": "Wurfspeer",
+    "en": "Javelin"
+   },
+   "description": {
+    "de": "**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_javelin",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "thrown"
+     ]
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 30,
+     "long": 120
+    },
+    "reach": 5,
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_lance",
+   "srdKey": "srd-2024_lance",
+   "name": {
+    "de": "Lanze",
+    "en": "Lance"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Weitreichend:** Bei Waffen mit der Eigenschaft Weitreichend ist die normale Angriffsreichweite um 1,5 Meter erhöht. Dies gilt auch bei Gelegenheitsangriffen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Reach.** A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attacks with it.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_lance",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "reach",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "1d10",
+     "types": [
+      "piercing"
+     ]
+    },
+    "reach": 10,
+    "mastery": "topple",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie zu einem Konstitutionsrettungswurf (SG 8 plus Attributsmodifikator für den Angriffswurf plus dein Übungsbonus) zwingen. Misslingt der Wurf, so wird die Kreatur umgestoßen und hat den Zustand Liegend.",
+     "en": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_light-crossbow",
+   "srdKey": "srd-2024_light-crossbow",
+   "name": {
+    "de": "Leichte Armbrust",
+    "en": "Light Crossbow"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Laden:** Du kannst mit einer Aktion, Bonusaktion oder Reaktion immer nur ein Geschoss aus einer Waffe mit der Eigenschaft Laden abfeuern, egal, wie viele Angriffe dir zur Verfügung stehen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Loading.** You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_light-crossbow",
+     "category": "simple",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "loading",
+      "two-handed"
+     ],
+     "ammunition": "bolt"
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 80,
+     "long": 320
+    },
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_light-hammer",
+   "srdKey": "srd-2024_light-hammer",
+   "name": {
+    "de": "Leichter Hammer",
+    "en": "Light Hammer"
+   },
+   "description": {
+    "de": "**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.\n\n**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative.\n\n**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_light-hammer",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "light",
+      "thrown"
+     ]
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "range": {
+     "normal": 20,
+     "long": 60
+    },
+    "reach": 5,
+    "mastery": "nick",
+    "masteryText": {
+     "de": "Wenn du den zusätzlichen Angriff der Eigenschaft Leicht ausführst, kannst du dies als Teil der Angriffsaktion statt als Bonusaktion tun. Du kannst diesen zusätzlichen Angriff nur einmal pro Zug ausführen.",
+     "en": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_longbow",
+   "srdKey": "srd-2024_longbow",
+   "name": {
+    "de": "Langbogen",
+    "en": "Longbow"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_longbow",
+     "category": "martial",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "heavy",
+      "two-handed"
+     ],
+     "ammunition": "arrow"
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 150,
+     "long": 600
+    },
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_longsword",
+   "srdKey": "srd-2024_longsword",
+   "name": {
+    "de": "Langschwert",
+    "en": "Longsword"
+   },
+   "description": {
+    "de": "**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.",
+    "en": "**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_longsword",
+     "category": "martial",
+     "kind": "melee",
+     "versatileDice": "1d10",
+     "properties": [
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "sap",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, ist diese Kreatur bei ihrem nächsten Angriffswurf vor Beginn deines nächsten Zugs im Nachteil.",
+     "en": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_mace",
+   "srdKey": "srd-2024_mace",
+   "name": {
+    "de": "Streitkolben",
+    "en": "Mace"
+   },
+   "description": {
+    "de": "Wenn du die Angriffsaktion ausführst, kannst du einen Angriffswurf mit einer Waffe oder einem waffenlosen Angriff ausführen.",
+    "en": "When you take the Attack action, you can make one attack roll with a weapon or an Unarmed Strike."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_mace",
+     "category": "simple",
+     "kind": "melee",
+     "properties": []
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "sap",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, ist diese Kreatur bei ihrem nächsten Angriffswurf vor Beginn deines nächsten Zugs im Nachteil.",
+     "en": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_magic",
+   "srdKey": "srd-2024_action_magic",
+   "name": {
+    "de": "Magie",
+    "en": "Magic"
+   },
+   "description": {
+    "de": "Wenn du eine magische Aktion ausführst, wirkst du einen Zauber mit dem Zeitaufwand von einer Aktion oder verwendest ein Merkmal oder einen magischen Gegenstand, bei dem eine magische Aktion zum Aktivieren erforderlich ist.\n\nWenn du einen Zauber wirkst, dessen Zeitaufwand mindestens eine Minute beträgt, musst du die magische Aktion in jedem Zug während des Zeitaufwands ausführen und währenddessen deine Konzentration aufrechterhalten. Wird deine Konzentration unterbrochen, so misslingt der Zauber. In diesem Fall wird der Zauberplatz nicht verbraucht. Siehe auch „Konzentration“.",
+    "en": "When you take the Magic action, you cast a spell that has a casting time of an action or use a feature or magic item that requires a Magic action to be activated.\n\nIf you cast a spell that has a casting time of 1 minute or longer, you must take the Magic action on each turn of that casting, and you must maintain Concentration while you do so. If your Concentration is broken, the spell fails, but you don’t expend a spell slot. See also “Concentration.”"
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_maul",
+   "srdKey": "srd-2024_maul",
+   "name": {
+    "de": "Zweihandhammer",
+    "en": "Maul"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_maul",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "2d6",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "topple",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie zu einem Konstitutionsrettungswurf (SG 8 plus Attributsmodifikator für den Angriffswurf plus dein Übungsbonus) zwingen. Misslingt der Wurf, so wird die Kreatur umgestoßen und hat den Zustand Liegend.",
+     "en": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_morningstar",
+   "srdKey": "srd-2024_morningstar",
+   "name": {
+    "de": "Morgenstern",
+    "en": "Morningstar"
+   },
+   "description": {
+    "de": "Wenn du die Angriffsaktion ausführst, kannst du einen Angriffswurf mit einer Waffe oder einem waffenlosen Angriff ausführen.",
+    "en": "When you take the Attack action, you can make one attack roll with a weapon or an Unarmed Strike."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_morningstar",
+     "category": "martial",
+     "kind": "melee",
+     "properties": []
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "piercing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "sap",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, ist diese Kreatur bei ihrem nächsten Angriffswurf vor Beginn deines nächsten Zugs im Nachteil.",
+     "en": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_musket",
+   "srdKey": "srd-2024_musket",
+   "name": {
+    "de": "Muskete",
+    "en": "Musket"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Laden:** Du kannst mit einer Aktion, Bonusaktion oder Reaktion immer nur ein Geschoss aus einer Waffe mit der Eigenschaft Laden abfeuern, egal, wie viele Angriffe dir zur Verfügung stehen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Loading.** You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_musket",
+     "category": "martial",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "loading",
+      "two-handed"
+     ],
+     "ammunition": "firearm-bullet"
+    },
+    "damage": {
+     "dice": "1d12",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 40,
+     "long": 120
+    },
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_pike",
+   "srdKey": "srd-2024_pike",
+   "name": {
+    "de": "Pike",
+    "en": "Pike"
+   },
+   "description": {
+    "de": "**Schwer:** Du bist bei Angriffswürfen mit schweren Waffen im Nachteil, wenn du bei Nahkampfwaffen einen Stärkewert von weniger als 13 und bei Fernkampfwaffen einen Geschicklichkeitswert von weniger als 13 hast.\n\n**Weitreichend:** Bei Waffen mit der Eigenschaft Weitreichend ist die normale Angriffsreichweite um 1,5 Meter erhöht. Dies gilt auch bei Gelegenheitsangriffen.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.",
+    "en": "**Heavy.** You have Disadvantage on attack rolls with a Heavy weapon if it’s a Melee weapon and your Strength score isn’t at least 13 or if it’s a Ranged weapon and your Dexterity score isn’t at least 13.\n\n**Reach.** A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attacks with it.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_pike",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "heavy",
+      "reach",
+      "two-handed"
+     ]
+    },
+    "damage": {
+     "dice": "1d10",
+     "types": [
+      "piercing"
+     ]
+    },
+    "reach": 10,
+    "mastery": "push",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie bis zu drei Meter weit in gerader Linie von dir wegstoßen, sofern sie von höchstens großer Größe ist.",
+     "en": "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_pistol",
+   "srdKey": "srd-2024_pistol",
+   "name": {
+    "de": "Pistole",
+    "en": "Pistol"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Laden:** Du kannst mit einer Aktion, Bonusaktion oder Reaktion immer nur ein Geschoss aus einer Waffe mit der Eigenschaft Laden abfeuern, egal, wie viele Angriffe dir zur Verfügung stehen.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Loading.** You can fire only one piece of ammunition from a Loading weapon when you use an action, a Bonus Action, or a Reaction to fire it, regardless of the number of attacks you can normally make.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_pistol",
+     "category": "martial",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "loading"
+     ],
+     "ammunition": "firearm-bullet"
+    },
+    "damage": {
+     "dice": "1d10",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 30,
+     "long": 90
+    },
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_quarterstaff",
+   "srdKey": "srd-2024_quarterstaff",
+   "name": {
+    "de": "Kampfstab",
+    "en": "Quarterstaff"
+   },
+   "description": {
+    "de": "**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.",
+    "en": "**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_quarterstaff",
+     "category": "simple",
+     "kind": "melee",
+     "versatileDice": "1d8",
+     "properties": [
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "topple",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie zu einem Konstitutionsrettungswurf (SG 8 plus Attributsmodifikator für den Angriffswurf plus dein Übungsbonus) zwingen. Misslingt der Wurf, so wird die Kreatur umgestoßen und hat den Zustand Liegend.",
+     "en": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_rapier",
+   "srdKey": "srd-2024_rapier",
+   "name": {
+    "de": "Rapier",
+    "en": "Rapier"
+   },
+   "description": {
+    "de": "**Finesse:** Wenn du mit Finesse-Waffen angreifst, hast du bei Angriffs- und Schadenswürfen die Wahl zwischen deinem Stärke- und deinem Geschicklichkeitsmodifikator. Du musst allerdings bei beiden Würfen denselben Modifikator verwenden.",
+    "en": "**Finesse.** When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_rapier",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "finesse"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "piercing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_ready",
+   "srdKey": "srd-2024_action_ready",
+   "name": {
+    "de": "Vorbereiten",
+    "en": "Ready"
+   },
+   "description": {
+    "de": "Du führst die Vorbereiten-Aktion aus, um auf bestimmte Umstände zu warten, ehe du handelst. Dazu führst du in deinem Zug diese Aktion aus, die dich dann vor Beginn deines nächstes Zugs handeln lässt, indem du deine Reaktion ausführst.\n\nZunächst musst du festlegen, welcher wahrnehmbare Umstand deine Reaktion auslösen soll. Dann legst du fest, welche Handlung du vollziehen willst, wenn der Umstand eintritt. Dies kann eine Aktion, aber auch eine Bewegung bis zum vollen Umfang deiner Bewegungsrate sein. Beispiel: „Wenn der Kultist die Falltür betritt, bediene ich den Hebel, der sie öffnet“. Oder: „Wenn der Zombie sich neben mich stellt, bewege ich mich weg.“\n\nWenn der Auslöser eintritt, kannst du entweder deine Reaktion unmittelbar danach ausführen oder den Auslöser ignorieren.\n\nBereitest du einen Zauberspruch vor, so wirkst du ihn wie gewohnt (und verbrauchst dabei die erforderlichen Ressourcen), setzt seinen Effekt aber erst dann mit deiner Reaktion frei, wenn der Auslöser eintritt. Es können nur Zauber mit einem Zeitaufwand von einer Aktion vorbereitet werden, und das Aufrechterhalten ihrer Magie erfordert Konzentration, die du bis zum Beginn deines nächsten Zugs aufrechterhalten kannst. Wenn deine Konzentration unterbrochen wird, misslingt der Zauber.",
+    "en": "You take the Ready action to wait for a particular circumstance before you act. To do so, you take this action on your turn, which lets you act by taking a Reaction before the start of your next turn.\n\nFirst, you decide what perceivable circumstance will trigger your Reaction. Then, you choose the action you will take in response to that trigger, or you choose to move up to your Speed in response to it. Examples include “If the cultist steps on the trapdoor, I’ll pull the lever that opens it,” and “If the zombie steps next to me, I move away.”\n\nWhen the trigger occurs, you can either take your Reaction right after the trigger finishes or ignore the trigger.\n\nWhen you Ready a spell, you cast it as normal (expending any resources used to cast it) but hold its energy, which you release with your Reaction when the trigger occurs. To be readied, a spell must have a casting time of an action, and holding on to the spell’s magic requires Concentration, which you can maintain up to the start of your next turn. If your Concentration is broken, the spell dissipates without taking effect."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_scimitar",
+   "srdKey": "srd-2024_scimitar",
+   "name": {
+    "de": "Krummsäbel",
+    "en": "Scimitar"
+   },
+   "description": {
+    "de": "**Finesse:** Wenn du mit Finesse-Waffen angreifst, hast du bei Angriffs- und Schadenswürfen die Wahl zwischen deinem Stärke- und deinem Geschicklichkeitsmodifikator. Du musst allerdings bei beiden Würfen denselben Modifikator verwenden.\n\n**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.",
+    "en": "**Finesse.** When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.\n\n**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_scimitar",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "finesse",
+      "light"
+     ]
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "nick",
+    "masteryText": {
+     "de": "Wenn du den zusätzlichen Angriff der Eigenschaft Leicht ausführst, kannst du dies als Teil der Angriffsaktion statt als Bonusaktion tun. Du kannst diesen zusätzlichen Angriff nur einmal pro Zug ausführen.",
+     "en": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_search",
+   "srdKey": "srd-2024_action_search",
+   "name": {
+    "de": "Suchen",
+    "en": "Search"
+   },
+   "description": {
+    "de": "Wenn du die Suchen-Aktion ausführst, führst du einen Weisheitswurf aus, um etwas zu finden oder zu erfahren, was nicht offenkundig ist. In der Tabelle „Suchen“ findest du Vorschläge, welche Fertigkeiten bei dieser Aktion gelten – je nachdem, was du finden willst.\n\n- **Heilkunde:** Krankheit oder Todesursache einer Kreatur\n- **Motiv erkennen:** Geisteszustand einer Kreatur\n- **Überlebenskunst:** Spuren oder Nahrung\n- **Wahrnehmung:** Verborgene Kreatur/verborgener Gegenstand",
+    "en": "When you take the Search action, you make a Wisdom check to discern something that isn’t obvious. The Search table suggests which skills are applicable when you take this action, depending on what you’re trying to detect.\n\n- **Insight:** Creature’s state of mind\n- **Medicine:** Creature’s ailment or cause of death\n- **Perception:** Concealed creature or object\n- **Survival:** Tracks or food"
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_shortbow",
+   "srdKey": "srd-2024_shortbow",
+   "name": {
+    "de": "Kurzbogen",
+    "en": "Shortbow"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Zweihändig:** Waffen mit der Eigenschaft Zweihändig müssen mit zwei Händen geführt werden.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Two-Handed.** A Two-Handed weapon requires two hands when you attack with it.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_shortbow",
+     "category": "simple",
+     "kind": "ranged",
+     "properties": [
+      "ammunition",
+      "two-handed"
+     ],
+     "ammunition": "arrow"
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 80,
+     "long": 320
+    },
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_shortsword",
+   "srdKey": "srd-2024_shortsword",
+   "name": {
+    "de": "Kurzschwert",
+    "en": "Shortsword"
+   },
+   "description": {
+    "de": "**Finesse:** Wenn du mit Finesse-Waffen angreifst, hast du bei Angriffs- und Schadenswürfen die Wahl zwischen deinem Stärke- und deinem Geschicklichkeitsmodifikator. Du musst allerdings bei beiden Würfen denselben Modifikator verwenden.\n\n**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.",
+    "en": "**Finesse.** When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.\n\n**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_shortsword",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "finesse",
+      "light"
+     ]
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "piercing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "vex",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, bist du beim nächsten Angriffswurf gegen diese Kreatur vor Ende deines nächsten Zugs im Vorteil.",
+     "en": "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_sickle",
+   "srdKey": "srd-2024_sickle",
+   "name": {
+    "de": "Sichel",
+    "en": "Sickle"
+   },
+   "description": {
+    "de": "**Leicht:** Wenn du in deinem Zug die Angriffsaktion ausführst und mit einer leichten Waffe angreifst, kannst du später im selben Zug als Bonusaktion einen zusätzlichen Angriff ausführen. Dieser zusätzliche Angriff muss mit einer anderen leichten Waffe ausgeführt werden, und du kannst dem Schaden des zusätzlichen Angriffs nicht deinen Attributsmodifikator hinzufügen, sofern dieser Modifikator nicht negativ ist. Beispiel: Du kannst mit einem Kurzschwert in der einen Hand und einem Dolch in der anderen angreifen, indem du die Angriffsaktion und eine Bonusaktion ausführst. Du fügst dem Schadenswurf der Bonusaktion jedoch nicht deinen Stärke- oder Geschicklichkeitsmodifikator hinzu, sofern dieser Modifikator nicht negativ ist.",
+    "en": "**Light.** When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative. For example, you can attack with a Shortsword in one hand and a Dagger in the other using the Attack action and a Bonus Action, but you don’t add your Strength or Dexterity modifier to the damage roll of the Bonus Action unless that modifier is negative."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_sickle",
+     "category": "simple",
+     "kind": "melee",
+     "properties": [
+      "light"
+     ]
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "nick",
+    "masteryText": {
+     "de": "Wenn du den zusätzlichen Angriff der Eigenschaft Leicht ausführst, kannst du dies als Teil der Angriffsaktion statt als Bonusaktion tun. Du kannst diesen zusätzlichen Angriff nur einmal pro Zug ausführen.",
+     "en": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_sling",
+   "srdKey": "srd-2024_sling",
+   "name": {
+    "de": "Schleuder",
+    "en": "Sling"
+   },
+   "description": {
+    "de": "**Geschosse:** Du kannst Waffen mit der Eigenschaft Geschosse nur für Fernkampfangriffe verwenden, wenn du über entsprechende Geschosse verfügst. Die Art der erforderlichen Geschosse ist jeweils bei der Reichweite der Waffe angegeben. Jeder Angriff verbraucht ein Geschoss. Es ist Teil des Angriffs, die Waffe mit Geschossen zu laden (bei Einhandwaffen muss dazu eine Hand frei sein). Nach einem Kampf kannst du eine Minute damit verbringen, die Hälfte der Geschosse (abgerundet) zu bergen, die du im Kampf verbraucht hast. Der Rest geht verloren.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Ammunition.** You can use a weapon that has the Ammunition property to make a ranged attack only if you have ammunition to fire from it. The type of ammunition required is specified with the weapon’s range. Each attack expends one piece of ammunition. Drawing the ammunition is part of the attack (you need a free hand to load a one-handed weapon). After a fight, you can spend 1 minute to recover half the ammunition (round down) you used in the fight; the rest is lost.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_sling",
+     "category": "simple",
+     "kind": "ranged",
+     "properties": [
+      "ammunition"
+     ],
+     "ammunition": "sling-bullet"
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "range": {
+     "normal": 30,
+     "long": 120
+    },
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_spear",
+   "srdKey": "srd-2024_spear",
+   "name": {
+    "de": "Speer",
+    "en": "Spear"
+   },
+   "description": {
+    "de": "**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_spear",
+     "category": "simple",
+     "kind": "melee",
+     "versatileDice": "1d8",
+     "properties": [
+      "thrown",
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d6",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 20,
+     "long": 60
+    },
+    "reach": 5,
+    "mastery": "sap",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, ist diese Kreatur bei ihrem nächsten Angriffswurf vor Beginn deines nächsten Zugs im Nachteil.",
+     "en": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_study",
+   "srdKey": "srd-2024_action_study",
+   "name": {
+    "de": "Studieren",
+    "en": "Study"
+   },
+   "description": {
+    "de": "Wenn du die Studieren-Aktion ausführst, führst du einen Intelligenzwurf aus, um deine Erinnerung, ein Buch, einen Hinweis oder eine andere Wissensquelle zu studieren und Erkenntnisse über wichtige Informationen zu erzielen.\n\nDie Tabelle „Wissensgebiete“ enthält Vorschläge, welche Fertigkeiten zu den verschiedenen Wissensgebieten passen.\n\n- **Arkane:** Zauber, magische Gegenstände,\n- **Kunde:** mystische Symbole, magische Traditionen, Existenzebenen und bestimmte Kreaturen (Aberrationen, Elementare, Feenwesen, Konstrukte und Monstrositäten)\n- **Geschichte:** Historische Ereignisse und Völker, vergangene Zivilisationen, Kriege und bestimmte Kreaturen (Riesen und Humanoiden).\n- **Nachfor-:** Fallen, Geheimschriften, Rätsel und\n- **schungen:** Apparaturen\n- **Naturkunde Gelände, Flora, Wetter und bestimmte:** Kreaturen (Drachen, Pflanzen, Schlicke, Tiere)\n- **Religion:** Gottheiten, religiöse Hierarchien und Riten, heilige Symbole, Kulte und bestimmte Kreaturen (celestische Wesen, Unholde und Untote)",
+    "en": "When you take the Study action, you make an Intelligence check to study your memory, a book, a clue, or another source of knowledge and call to mind an important piece of information about it.\n\nThe Areas of Knowledge table suggests which skills are applicable to various areas of knowledge.\n\n- **Arcana:** Spells, magic items, eldritch symbols, magical traditions, planes of existence, and certain creatures (Aberrations, Constructs, Elementals, Fey, and Monstrosities)\n- **History:** Historic events and people, ancient civilizations, wars, and certain creatures (Giants and Humanoids)\n- Investigation Traps, ciphers, riddles, and gadgetry\n- **Nature:** Terrain, flora, weather, and certain creatures (Beasts, Dragons, Oozes, and Plants)\n- **Religion:** Deities, religious hierarchies and rites, holy symbols, cults, and certain creatures (Celestials, Fiends, and Undead)"
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_trident",
+   "srdKey": "srd-2024_trident",
+   "name": {
+    "de": "Dreizack",
+    "en": "Trident"
+   },
+   "description": {
+    "de": "**Wurfwaffe:** Waffen mit der Eigenschaft Wurfwaffe können geworfen werden, um Fernkampfangriffe auszuführen, und sie können als Teil des Angriffs gezogen werden. Wenn es sich um eine Nahkampfwaffe handelt, die du wirfst, verwendest du bei Angriffs- und Schadenswürfen den gleichen Attributsmodifikator wie bei Nahkampfangriffen mit der Waffe.\n\n**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.\n\n**Reichweite:** Die Reichweite von Fernkampfwaffen ist nach den Eigenschaften Geschosse oder Wurfwaffe aufgeführt. Sie umfasst zwei Werte: Der erste ist die Grundreichweite der Waffe in Metern, der zweite die Maximalreichweite. Wenn du ein Ziel außerhalb der Grundreichweite angreifst, bist du beim Angriffswurf im Nachteil. Du kannst keine Ziele außerhalb der Maximalreichweite angreifen.",
+    "en": "**Thrown.** If a weapon has the Thrown property, you can throw the weapon to make a ranged attack, and you can draw that weapon as part of the attack. If the weapon is a Melee weapon, use the same ability modifier for the attack and damage rolls that you use for a melee attack with that weapon.\n\n**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack.\n\n**Range.** A Range weapon has a range in parentheses after the Ammunition or Thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second is the weapon’s long range. When attacking a target beyond normal range, you have Disadvantage on the attack roll. You can’t attack a target beyond the long range."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_trident",
+     "category": "martial",
+     "kind": "melee",
+     "versatileDice": "1d10",
+     "properties": [
+      "thrown",
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "piercing"
+     ]
+    },
+    "range": {
+     "normal": 20,
+     "long": 60
+    },
+    "reach": 5,
+    "mastery": "topple",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie zu einem Konstitutionsrettungswurf (SG 8 plus Attributsmodifikator für den Angriffswurf plus dein Übungsbonus) zwingen. Misslingt der Wurf, so wird die Kreatur umgestoßen und hat den Zustand Liegend.",
+     "en": "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_action_utilize",
+   "srdKey": "srd-2024_action_utilize",
+   "name": {
+    "de": "Verwenden",
+    "en": "Utilize"
+   },
+   "description": {
+    "de": "Normalerweise interagierst du im Rahmen einer anderen Aktion mit Gegenständen – wenn du beispielsweise im Rahmen der Angriffsaktion das Schwert ziehst. Wenn eine Aktion erforderlich ist, um einen Gegenstand zu verwenden, führst du die Verwenden-Aktion aus.",
+    "en": "You normally interact with an object while doing something else, such as when you draw a sword as part of the Attack action. When an object requires an action for its use, you take the Utilize action."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action"
+   }
+  },
+  {
+   "id": "srd-2024_war-pick",
+   "srdKey": "srd-2024_war-pick",
+   "name": {
+    "de": "Kriegspicke",
+    "en": "War Pick"
+   },
+   "description": {
+    "de": "**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.",
+    "en": "**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_war-pick",
+     "category": "martial",
+     "kind": "melee",
+     "versatileDice": "1d10",
+     "properties": [
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "piercing"
+     ]
+    },
+    "reach": 5,
+    "mastery": "sap",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, ist diese Kreatur bei ihrem nächsten Angriffswurf vor Beginn deines nächsten Zugs im Nachteil.",
+     "en": "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_warhammer",
+   "srdKey": "srd-2024_warhammer",
+   "name": {
+    "de": "Kriegshammer",
+    "en": "Warhammer"
+   },
+   "description": {
+    "de": "**Vielseitig:** Waffen mit der Eigenschaft Vielseitig können mit einer Hand oder mit zwei Händen geführt werden. Mit der Eigenschaft wird ein Schadenswert in Klammern genannt. Diesen Schaden bewirkt die Waffe, wenn sie mit zwei Händen geführt wird, um einen Nahkampfangriff auszuführen.",
+    "en": "**Versatile.** A Versatile weapon can be used with one or two hands. A damage value in parentheses appears with the property. The weapon deals that damage when used with two hands to make a melee attack."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_warhammer",
+     "category": "martial",
+     "kind": "melee",
+     "versatileDice": "1d10",
+     "properties": [
+      "versatile"
+     ]
+    },
+    "damage": {
+     "dice": "1d8",
+     "types": [
+      "bludgeoning"
+     ]
+    },
+    "reach": 5,
+    "mastery": "push",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst, kannst du sie bis zu drei Meter weit in gerader Linie von dir wegstoßen, sofern sie von höchstens großer Größe ist.",
+     "en": "If you hit a creature with this weapon, you can push the creature up to 10 feet straight away from yourself if it is Large or smaller."
+    }
+   }
+  },
+  {
+   "id": "srd-2024_whip",
+   "srdKey": "srd-2024_whip",
+   "name": {
+    "de": "Peitsche",
+    "en": "Whip"
+   },
+   "description": {
+    "de": "**Finesse:** Wenn du mit Finesse-Waffen angreifst, hast du bei Angriffs- und Schadenswürfen die Wahl zwischen deinem Stärke- und deinem Geschicklichkeitsmodifikator. Du musst allerdings bei beiden Würfen denselben Modifikator verwenden.\n\n**Weitreichend:** Bei Waffen mit der Eigenschaft Weitreichend ist die normale Angriffsreichweite um 1,5 Meter erhöht. Dies gilt auch bei Gelegenheitsangriffen.",
+    "en": "**Finesse.** When making an attack with a Finesse weapon, use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls.\n\n**Reach.** A Reach weapon adds 5 feet to your reach when you attack with it, as well as when determining your reach for Opportunity Attacks with it."
+   },
+   "source": "srd-5.2.1",
+   "type": "action",
+   "action": {
+    "actionType": "action",
+    "weapon": {
+     "key": "srd-2024_whip",
+     "category": "martial",
+     "kind": "melee",
+     "properties": [
+      "finesse",
+      "reach"
+     ]
+    },
+    "damage": {
+     "dice": "1d4",
+     "types": [
+      "slashing"
+     ]
+    },
+    "reach": 10,
+    "mastery": "slow",
+    "masteryText": {
+     "de": "Wenn du eine Kreatur mit dieser Waffe triffst und ihr Schaden zufügst, kannst du ihre Bewegungsrate bis zum Beginn deines nächsten Zugs um drei Meter verringern. Wird die Kreatur mehrfach von Waffen mit dieser Eigenschaft getroffen, so wird ihre Bewegungsrate dennoch nur um drei Meter verringert.",
+     "en": "If you hit a creature with this weapon and deal damage to it, you can reduce its Speed by 10 feet until the start of your next turn. If the creature is hit more than once by weapons that have this property, the Speed reduction doesn’t exceed 10 feet."
+    }
+   }
+  }
+ ]
+}

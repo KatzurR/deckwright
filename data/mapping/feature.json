@@ -1,0 +1,982 @@
+{
+  "srd-2024_ability-score-improvement": {
+    "de": "Talent: Attributswerterhöhung"
+  },
+  "srd-2024_alert": {
+    "de": "Talent: Wachsam"
+  },
+  "srd-2024_archery": {
+    "de": "Talent: Bogenschießen"
+  },
+  "srd-2024_barbarian_ability-score-improvement": {
+    "de": "Barbar: Attributswerterhöhung"
+  },
+  "srd-2024_barbarian_brutal-strike": {
+    "de": "Barbar: Brutaler Hieb"
+  },
+  "srd-2024_barbarian_danger-sense": {
+    "de": "Barbar: Gefahrengespür"
+  },
+  "srd-2024_barbarian_epic-boon": {
+    "de": "Barbar: Epische Gabe"
+  },
+  "srd-2024_barbarian_extra-attack": {
+    "de": "Barbar: Zusätzlicher Angriff"
+  },
+  "srd-2024_barbarian_fast-movement": {
+    "de": "Barbar: Schnelle Bewegung"
+  },
+  "srd-2024_barbarian_feral-instinct": {
+    "de": "Barbar: Wilder Instinkt"
+  },
+  "srd-2024_barbarian_improved-brutal-strike-13": {
+    "de": "Barbar: Verbesserter Brutaler Hieb (13. Stufe)"
+  },
+  "srd-2024_barbarian_improved-brutal-strike-17": {
+    "de": "Barbar: Verbesserter Brutaler Hieb (17. Stufe)"
+  },
+  "srd-2024_barbarian_indomitable-might": {
+    "de": "Barbar: Unbändige Stärke"
+  },
+  "srd-2024_barbarian_instinctive-pounce": {
+    "de": "Barbar: Instinktiver Sprung"
+  },
+  "srd-2024_barbarian_persistent-rage": {
+    "de": "Barbar: Anhaltender Kampfrausch"
+  },
+  "srd-2024_barbarian_primal-champion": {
+    "de": "Barbar: Meister der Wildnis"
+  },
+  "srd-2024_barbarian_primal-knowledge": {
+    "de": "Barbar: Urwissen"
+  },
+  "srd-2024_barbarian_rage": {
+    "de": "Barbar: Kampfrausch"
+  },
+  "srd-2024_barbarian_reckless-attack": {
+    "de": "Barbar: Rücksichtsloser Angriff"
+  },
+  "srd-2024_barbarian_relentless-rage": {
+    "de": "Barbar: Unerbittlicher Kampfrausch"
+  },
+  "srd-2024_barbarian_unarmored-defense": {
+    "de": "Barbar: Ungerüstete Verteidigung"
+  },
+  "srd-2024_barbarian_weapon-mastery": {
+    "de": "Barbar: Waffenbeherrschung"
+  },
+  "srd-2024_bard_ability-score-improvement": {
+    "de": "Barde: Attributswerterhöhung"
+  },
+  "srd-2024_bard_bardic-inspiration": {
+    "de": "Barde: Bardische Inspiration"
+  },
+  "srd-2024_bard_countercharm": {
+    "de": "Barde: Bannlied"
+  },
+  "srd-2024_bard_epic-boon": {
+    "de": "Barde: Epische Gabe"
+  },
+  "srd-2024_bard_expertise": {
+    "de": "Barde: Expertise"
+  },
+  "srd-2024_bard_font-of-inspiration": {
+    "de": "Barde: Quelle der Inspiration"
+  },
+  "srd-2024_bard_jack-of-all-trades": {
+    "de": "Barde: Alleskönner"
+  },
+  "srd-2024_bard_magical-secrets": {
+    "de": "Barde: Magische Geheimnisse"
+  },
+  "srd-2024_bard_spellcasting": {
+    "de": "Barde: Zauberwirken"
+  },
+  "srd-2024_bard_superior-inspiration": {
+    "de": "Barde: Überlegene Inspiration"
+  },
+  "srd-2024_bard_words-of-creation": {
+    "de": "Barde: Worte der Schöpfung"
+  },
+  "srd-2024_boon-of-combat-prowess": {
+    "de": "Talent: Gabe der Kampffertigkeit"
+  },
+  "srd-2024_boon-of-dimensional-travel": {
+    "de": "Talent: Gabe des Dimensionsreisens"
+  },
+  "srd-2024_boon-of-fate": {
+    "de": "Talent: Gabe des Schicksals"
+  },
+  "srd-2024_boon-of-irresistible-offense": {
+    "de": "Talent: Gabe des Unwiderstehlichen Angriffs"
+  },
+  "srd-2024_boon-of-spell-recall": {
+    "de": "Talent: Gabe der Zaubererinnerung"
+  },
+  "srd-2024_boon-of-the-night-spirit": {
+    "de": "Talent: Gabe des Nachtgeists"
+  },
+  "srd-2024_boon-of-truesight": {
+    "de": "Talent: Gabe des Wahren Blicks"
+  },
+  "srd-2024_champion_additional-fighting-style": {
+    "de": "Champion: Weiterer Kampfstil"
+  },
+  "srd-2024_champion_heroic-warrior": {
+    "de": "Champion: Heldenhafter Krieger"
+  },
+  "srd-2024_champion_improved-critical": {
+    "de": "Champion: Verbesserter kritischer Treffer"
+  },
+  "srd-2024_champion_remarkable-athlete": {
+    "de": "Champion: Bemerkenswerter Athlet"
+  },
+  "srd-2024_champion_superior-critical": {
+    "de": "Champion: Überlegener kritischer Treffer"
+  },
+  "srd-2024_champion_survivor": {
+    "de": "Champion: Der Überlebende"
+  },
+  "srd-2024_circle-of-the-land_circle-of-the-land-spells": {
+    "de": "Zirkel des Landes: Zirkelzauber des Landes"
+  },
+  "srd-2024_circle-of-the-land_lands-aid": {
+    "de": "Zirkel des Landes: Beistand des Landes"
+  },
+  "srd-2024_circle-of-the-land_natural-recovery": {
+    "de": "Zirkel des Landes: Natürliche Erholung"
+  },
+  "srd-2024_circle-of-the-land_natures-sanctuary": {
+    "de": "Zirkel des Landes: Heiligtum der Natur"
+  },
+  "srd-2024_circle-of-the-land_natures-ward": {
+    "de": "Zirkel des Landes: Schutz der Natur"
+  },
+  "srd-2024_cleric_ability-score-improvement": {
+    "de": "Kleriker: Attributswerterhöhung"
+  },
+  "srd-2024_cleric_blessed-strikes": {
+    "de": "Kleriker: Gesegnete Schläge"
+  },
+  "srd-2024_cleric_channel-divinity": {
+    "de": "Kleriker: Göttliche Macht fokussieren"
+  },
+  "srd-2024_cleric_divine-intervention": {
+    "de": "Kleriker: Göttliche Intervention"
+  },
+  "srd-2024_cleric_divine-order": {
+    "de": "Kleriker: Göttliche Ordnung"
+  },
+  "srd-2024_cleric_epic-boon": {
+    "de": "Kleriker: Epische Gabe"
+  },
+  "srd-2024_cleric_greater-divine-intervention": {
+    "de": "Kleriker: Mächtige Göttliche Intervention"
+  },
+  "srd-2024_cleric_improved-blessed-strikes": {
+    "de": "Kleriker: Verbesserte Gesegnete Schläge"
+  },
+  "srd-2024_cleric_sear-undead": {
+    "de": "Kleriker: Untote versengen"
+  },
+  "srd-2024_cleric_spellcasting": {
+    "de": "Kleriker: Zauberwirken"
+  },
+  "srd-2024_college-of-lore_bonus-proficiencies": {
+    "de": "Schule des Wissens: Zusätzliches Wissen"
+  },
+  "srd-2024_college-of-lore_cutting-words": {
+    "de": "Schule des Wissens: Schneidende Worte"
+  },
+  "srd-2024_college-of-lore_magical-discoveries": {
+    "de": "Schule des Wissens: Magische Entdeckungen"
+  },
+  "srd-2024_college-of-lore_peerless-skill": {
+    "de": "Schule des Wissens: Grenzenlose Begabung"
+  },
+  "srd-2024_defense": {
+    "de": "Talent: Verteidigung"
+  },
+  "srd-2024_draconic-sorcery_draconic-resilience": {
+    "de": "Drakonische Zauberei: Drakonische Widerstandskraft"
+  },
+  "srd-2024_draconic-sorcery_draconic-spells": {
+    "de": "Drakonische Zauberei: Drakonische Zauber"
+  },
+  "srd-2024_draconic-sorcery_dragon-companion": {
+    "de": "Drakonische Zauberei: Drachengefährte"
+  },
+  "srd-2024_draconic-sorcery_dragon-wings": {
+    "de": "Drakonische Zauberei: Drachenflügel"
+  },
+  "srd-2024_draconic-sorcery_elemental-affinity": {
+    "de": "Drakonische Zauberei: Elementare Affinität"
+  },
+  "srd-2024_dragonborn_breath-weapon": {
+    "de": "Drachenblütiger: Odemwaffe"
+  },
+  "srd-2024_dragonborn_damage-resistance": {
+    "de": "Drachenblütiger: Schadensresistenz"
+  },
+  "srd-2024_dragonborn_darkvision": {
+    "de": "Drachenblütiger: Dunkelsicht"
+  },
+  "srd-2024_dragonborn_draconic-ancestry": {
+    "de": "Drachenblütiger: Drakonische Abstammung"
+  },
+  "srd-2024_dragonborn_draconic-flight": {
+    "de": "Drachenblütiger: Drakonischer Flug"
+  },
+  "srd-2024_druid_ability-score-improvement": {
+    "de": "Druide: Attributswerterhöhung"
+  },
+  "srd-2024_druid_archdruid": {
+    "de": "Druide: Erzdruide"
+  },
+  "srd-2024_druid_beast-spells": {
+    "de": "Druide: In Tiergestalt zaubern"
+  },
+  "srd-2024_druid_druidic": {
+    "de": "Druide: Druidisch"
+  },
+  "srd-2024_druid_elemental-fury": {
+    "de": "Druide: Elementare Wut"
+  },
+  "srd-2024_druid_epic-boon": {
+    "de": "Druide: Epische Gabe"
+  },
+  "srd-2024_druid_improved-elemental-fury": {
+    "de": "Druide: Verbesserte Elementare Wut"
+  },
+  "srd-2024_druid_primal-order": {
+    "de": "Druide: Urtümliche Ordnung"
+  },
+  "srd-2024_druid_spellcasting": {
+    "de": "Druide: Zauberwirken"
+  },
+  "srd-2024_druid_wild-companion": {
+    "de": "Druide: Wilder Gefährte"
+  },
+  "srd-2024_druid_wild-resurgence": {
+    "de": "Druide: Wilde Wiederkehr"
+  },
+  "srd-2024_druid_wild-shape": {
+    "de": "Druide: Tiergestalt"
+  },
+  "srd-2024_dwarf_darkvision": {
+    "de": "Zwerg: Dunkelsicht"
+  },
+  "srd-2024_dwarf_dwarven-resilience": {
+    "de": "Zwerg: Zwergische Unverwüstlichkeit"
+  },
+  "srd-2024_dwarf_dwarven-toughness": {
+    "de": "Zwerg: Zwergische Zähigkeit"
+  },
+  "srd-2024_dwarf_stonecunning": {
+    "de": "Zwerg: Steingespür"
+  },
+  "srd-2024_elf_darkvision": {
+    "de": "Elf: Dunkelsicht"
+  },
+  "srd-2024_elf_elven-lineage": {
+    "de": "Elf: Elfische Abstammung"
+  },
+  "srd-2024_elf_fey-ancestry": {
+    "de": "Elf: Feenblut"
+  },
+  "srd-2024_elf_keen-senses": {
+    "de": "Elf: Scharfe Sinne"
+  },
+  "srd-2024_elf_trance": {
+    "de": "Elf: Trance"
+  },
+  "srd-2024_evoker_empowered-evocation": {
+    "de": "Hervorrufer: Mächtige Hervorrufung"
+  },
+  "srd-2024_evoker_evocation-savant": {
+    "de": "Hervorrufer: Gelehrter der Hervorrufungsmagie"
+  },
+  "srd-2024_evoker_overchannel": {
+    "de": "Hervorrufer: Überladen"
+  },
+  "srd-2024_evoker_potent-cantrip": {
+    "de": "Hervorrufer: Kraftvoller Zaubertrick"
+  },
+  "srd-2024_evoker_sculpt-spells": {
+    "de": "Hervorrufer: Zauber formen"
+  },
+  "srd-2024_fiend-patron_dark-ones-blessing": {
+    "de": "Unhold-Schutzherr: Segen des Dunklen Meisters"
+  },
+  "srd-2024_fiend-patron_dark-ones-own-luck": {
+    "de": "Unhold-Schutzherr: Schicksal des Dunklen Meisters"
+  },
+  "srd-2024_fiend-patron_fiend-spells": {
+    "de": "Unhold-Schutzherr: Unhold-Zauber"
+  },
+  "srd-2024_fiend-patron_fiendish-resilience": {
+    "de": "Unhold-Schutzherr: Widerstandskraft des Unholds"
+  },
+  "srd-2024_fiend-patron_hurl-through-hell": {
+    "de": "Unhold-Schutzherr: Schlund des Wahnsinns"
+  },
+  "srd-2024_fighter_ability-score-improvement": {
+    "de": "Kämpfer: Attributswerterhöhung"
+  },
+  "srd-2024_fighter_action-surge": {
+    "de": "Kämpfer: Tatendrang"
+  },
+  "srd-2024_fighter_epic-boon": {
+    "de": "Kämpfer: Epische Gabe"
+  },
+  "srd-2024_fighter_extra-attack": {
+    "de": "Kämpfer: Zusätzlicher Angriff"
+  },
+  "srd-2024_fighter_fighting-style": {
+    "de": "Kämpfer: Kampfstil"
+  },
+  "srd-2024_fighter_indomitable": {
+    "de": "Kämpfer: Unbeugsamkeit"
+  },
+  "srd-2024_fighter_second-wind": {
+    "de": "Kämpfer: Durchschnaufen"
+  },
+  "srd-2024_fighter_studied-attacks": {
+    "de": "Kämpfer: Angriffsstudien"
+  },
+  "srd-2024_fighter_tactical-master": {
+    "de": "Kämpfer: Taktischer Meister"
+  },
+  "srd-2024_fighter_tactical-mind": {
+    "de": "Kämpfer: Taktisches Verständnis"
+  },
+  "srd-2024_fighter_tactical-shift": {
+    "de": "Kämpfer: Taktikwechsel"
+  },
+  "srd-2024_fighter_three-extra-attacks": {
+    "de": "Kämpfer: Drei zusätzliche Angriffe"
+  },
+  "srd-2024_fighter_two-extra-attacks": {
+    "de": "Kämpfer: Zwei zusätzliche Angriffe"
+  },
+  "srd-2024_fighter_weapon-mastery": {
+    "de": "Kämpfer: Waffenbeherrschung"
+  },
+  "srd-2024_gnome_darkvision": {
+    "de": "Gnom: Dunkelsicht"
+  },
+  "srd-2024_gnome_forest-gnome": {
+    "de": "Gnom: Waldgnom"
+  },
+  "srd-2024_gnome_gnomish-cunning": {
+    "de": "Gnom: Gnomische Gerissenheit"
+  },
+  "srd-2024_gnome_gnomish-lineage": {
+    "de": "Gnom: Gnomische Abstammung"
+  },
+  "srd-2024_gnome_rock-gnome": {
+    "de": "Gnom: Felsengnom"
+  },
+  "srd-2024_goliath_clouds-jaunt-cloud-giant": {
+    "de": "Goliath: Wolkensprung (Wolkenriese)"
+  },
+  "srd-2024_goliath_fires-burn-fire-giant": {
+    "de": "Goliath: Feuersbrunst (Feuerriese)"
+  },
+  "srd-2024_goliath_frosts-chill-frost-giant": {
+    "de": "Goliath: Eiseskälte (Frostriese)"
+  },
+  "srd-2024_goliath_giant-ancestry": {
+    "de": "Goliath: Riesische Abstammung"
+  },
+  "srd-2024_goliath_hills-tumble-hill-giant": {
+    "de": "Goliath: Hügelsturz (Hügelriese)"
+  },
+  "srd-2024_goliath_large-form": {
+    "de": "Goliath: Große Gestalt"
+  },
+  "srd-2024_goliath_powerful-build": {
+    "de": "Goliath: Kräftiger Körperbau"
+  },
+  "srd-2024_goliath_stones-endurance-stone-giant": {
+    "de": "Goliath: Felsenfestigkeit (Steinriese)"
+  },
+  "srd-2024_goliath_storms-thunder-storm-giant": {
+    "de": "Goliath: Sturmdonner (Sturmriese)"
+  },
+  "srd-2024_grappler": {
+    "de": "Talent: Ringer"
+  },
+  "srd-2024_great-weapon-fighting": {
+    "de": "Talent: Kampf mit großen Waffen",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_halfling_brave": {
+    "de": "Halbling: Tapferkeit"
+  },
+  "srd-2024_halfling_halfling-nimbleness": {
+    "de": "Halbling: Halblingsgewandtheit",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_halfling_luck": {
+    "de": "Halbling: Halblingsglück",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_halfling_naturally-stealthy": {
+    "de": "Halbling: Angeborene Verstohlenheit",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_human_resourceful": {
+    "de": "Mensch: Einfallsreich"
+  },
+  "srd-2024_human_skillful": {
+    "de": "Mensch: Geschickt",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_human_versatile": {
+    "de": "Mensch: Vielseitig",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_hunter_defensive-tactics": {
+    "de": "Jäger: Defensive Taktiken"
+  },
+  "srd-2024_hunter_hunters-lore": {
+    "de": "Jäger: Jägerkunde"
+  },
+  "srd-2024_hunter_hunters-prey": {
+    "de": "Jäger: Beute des Jägers"
+  },
+  "srd-2024_hunter_superior-hunters-defense": {
+    "de": "Jäger: Verteidigung des überlegenen Jägers"
+  },
+  "srd-2024_hunter_superior-hunters-prey": {
+    "de": "Jäger: Beute des überlegenen Jägers"
+  },
+  "srd-2024_life-domain_blessed-healer": {
+    "de": "Domäne des Lebens: Gesegneter Heiler"
+  },
+  "srd-2024_life-domain_disciple-of-life": {
+    "de": "Domäne des Lebens: Jünger des Lebens"
+  },
+  "srd-2024_life-domain_life-domain-spells": {
+    "de": "Domäne des Lebens: Domänenzauber des Lebens"
+  },
+  "srd-2024_life-domain_preserve-life": {
+    "de": "Domäne des Lebens: Leben erhalten"
+  },
+  "srd-2024_life-domain_supreme-healing": {
+    "de": "Domäne des Lebens: Höchste Heilung"
+  },
+  "srd-2024_magic-initiate": {
+    "de": "Talent: Eingeweihter der Magie"
+  },
+  "srd-2024_monk_ability-score-improvement": {
+    "de": "Mönch: Attributswerterhöhung"
+  },
+  "srd-2024_monk_acrobatic-movement": {
+    "de": "Mönch: Akrobatische Bewegung"
+  },
+  "srd-2024_monk_body-and-mind": {
+    "de": "Mönch: Körper und Geist"
+  },
+  "srd-2024_monk_deflect-attacks": {
+    "de": "Mönch: Angriffe umleiten"
+  },
+  "srd-2024_monk_deflect-energy": {
+    "de": "Mönch: Energie umleiten"
+  },
+  "srd-2024_monk_disciplined-survivor": {
+    "de": "Mönch: Der disziplinierte Überlebende"
+  },
+  "srd-2024_monk_empowered-strikes": {
+    "de": "Mönch: Mächtige Schläge"
+  },
+  "srd-2024_monk_epic-boon": {
+    "de": "Mönch: Epische Gabe"
+  },
+  "srd-2024_monk_evasion": {
+    "de": "Mönch: Entrinnen"
+  },
+  "srd-2024_monk_extra-attack": {
+    "de": "Mönch: Zusätzlicher Angriff"
+  },
+  "srd-2024_monk_heightened-focus": {
+    "de": "Mönch: Erhöhter Fokus"
+  },
+  "srd-2024_monk_martial-arts": {
+    "de": "Mönch: Kampfkünste"
+  },
+  "srd-2024_monk_monks-focus": {
+    "de": "Mönch: Mönchsfokus"
+  },
+  "srd-2024_monk_perfect-focus": {
+    "de": "Mönch: Perfekter Fokus"
+  },
+  "srd-2024_monk_self-restoration": {
+    "de": "Mönch: Selbstwiederherstellung"
+  },
+  "srd-2024_monk_slow-fall": {
+    "de": "Mönch: Sturz abfedern"
+  },
+  "srd-2024_monk_stunning-strike": {
+    "de": "Mönch: Betäubender Schlag"
+  },
+  "srd-2024_monk_superior-defense": {
+    "de": "Mönch: Überlegene Verteidigung"
+  },
+  "srd-2024_monk_unarmored-defense": {
+    "de": "Mönch: Ungerüstete Verteidigung"
+  },
+  "srd-2024_monk_unarmored-movement": {
+    "de": "Mönch: Ungerüstete Bewegung"
+  },
+  "srd-2024_monk_uncanny-metabolism": {
+    "de": "Mönch: Unglaublicher Stoffwechsel"
+  },
+  "srd-2024_oath-of-devotion_aura-of-devotion": {
+    "de": "Schwur der Hingabe: Aura der Hingabe"
+  },
+  "srd-2024_oath-of-devotion_holy-nimbus": {
+    "de": "Schwur der Hingabe: Heiliger Nimbus"
+  },
+  "srd-2024_oath-of-devotion_oath-of-devotion-spells": {
+    "de": "Schwur der Hingabe: Schwurzauber der Hingabe"
+  },
+  "srd-2024_oath-of-devotion_sacred-weapon": {
+    "de": "Schwur der Hingabe: Heilige Waffe"
+  },
+  "srd-2024_oath-of-devotion_smite-of-protection": {
+    "de": "Schwur der Hingabe: Schützendes Niederstrecken"
+  },
+  "srd-2024_orc_adrenaline-rush": {
+    "de": "Ork: Adrenalinrausch"
+  },
+  "srd-2024_orc_darkvision": {
+    "de": "Ork: Dunkelsicht"
+  },
+  "srd-2024_orc_relentless-endurance": {
+    "de": "Ork: Durchhaltevermögen"
+  },
+  "srd-2024_paladin_ability-score-improvement": {
+    "de": "Paladin: Attributswerterhöhung"
+  },
+  "srd-2024_paladin_abjure-foes": {
+    "de": "Paladin: Gegner verdammen"
+  },
+  "srd-2024_paladin_aura-expansion": {
+    "de": "Paladin: Aura-Ausdehnung"
+  },
+  "srd-2024_paladin_aura-of-courage": {
+    "de": "Paladin: Aura der Tapferkeit"
+  },
+  "srd-2024_paladin_aura-of-protection": {
+    "de": "Paladin: Aura des Schutzes"
+  },
+  "srd-2024_paladin_channel-divinity": {
+    "de": "Paladin: Göttliche Macht fokussieren"
+  },
+  "srd-2024_paladin_epic-boon": {
+    "de": "Paladin: Epische Gabe"
+  },
+  "srd-2024_paladin_extra-attack": {
+    "de": "Paladin: Zusätzlicher Angriff"
+  },
+  "srd-2024_paladin_faithful-steed": {
+    "de": "Paladin: Treues Reittier"
+  },
+  "srd-2024_paladin_fighting-style": {
+    "de": "Paladin: Kampfstil"
+  },
+  "srd-2024_paladin_lay-on-hands": {
+    "de": "Paladin: Handauflegen"
+  },
+  "srd-2024_paladin_paladins-smite": {
+    "de": "Paladin: Paladin-Niederstrecken"
+  },
+  "srd-2024_paladin_radiant-strikes": {
+    "de": "Paladin: Gleißende Schläge"
+  },
+  "srd-2024_paladin_restoring-touch": {
+    "de": "Paladin: Erquickende Berührung"
+  },
+  "srd-2024_paladin_spellcasting": {
+    "de": "Paladin: Zauberwirken"
+  },
+  "srd-2024_paladin_weapon-mastery": {
+    "de": "Paladin: Waffenbeherrschung"
+  },
+  "srd-2024_path-of-the-berserker_frenzy": {
+    "de": "Pfad des Berserkers: Raserei"
+  },
+  "srd-2024_path-of-the-berserker_intimidating-presence": {
+    "de": "Pfad des Berserkers: Einschüchternde Präsenz"
+  },
+  "srd-2024_path-of-the-berserker_mindless-rage": {
+    "de": "Pfad des Berserkers: Geistloser Kampfrausch"
+  },
+  "srd-2024_path-of-the-berserker_retaliation": {
+    "de": "Pfad des Berserkers: Vergeltung"
+  },
+  "srd-2024_ranger_ability-score-improvement": {
+    "de": "Waldläufer: Attributswerterhöhung"
+  },
+  "srd-2024_ranger_deft-explorer": {
+    "de": "Waldläufer: Geschickte Erkundung"
+  },
+  "srd-2024_ranger_epic-boon": {
+    "de": "Waldläufer: Epische Gabe"
+  },
+  "srd-2024_ranger_expertise": {
+    "de": "Waldläufer: Expertise"
+  },
+  "srd-2024_ranger_extra-attack": {
+    "de": "Waldläufer: Zusätzlicher Angriff"
+  },
+  "srd-2024_ranger_favored-enemy": {
+    "de": "Waldläufer: Erzfeind"
+  },
+  "srd-2024_ranger_feral-senses": {
+    "de": "Waldläufer: Wildes Gespür"
+  },
+  "srd-2024_ranger_fighting-style": {
+    "de": "Waldläufer: Kampfstil"
+  },
+  "srd-2024_ranger_foe-slayer": {
+    "de": "Waldläufer: Feindestöter"
+  },
+  "srd-2024_ranger_natures-veil": {
+    "de": "Waldläufer: Naturschleier"
+  },
+  "srd-2024_ranger_precise-hunter": {
+    "de": "Waldläufer: Präziser Jäger"
+  },
+  "srd-2024_ranger_relentless-hunter": {
+    "de": "Waldläufer: Unermüdlicher Jäger"
+  },
+  "srd-2024_ranger_roving": {
+    "de": "Waldläufer: Vagabund"
+  },
+  "srd-2024_ranger_spellcasting": {
+    "de": "Waldläufer: Zauberwirken"
+  },
+  "srd-2024_ranger_tireless": {
+    "de": "Waldläufer: Unermüdlichkeit"
+  },
+  "srd-2024_ranger_weapon-mastery": {
+    "de": "Waldläufer: Waffenbeherrschung"
+  },
+  "srd-2024_rogue_ability-score-improvement": {
+    "de": "Schurke: Attributswerterhöhung"
+  },
+  "srd-2024_rogue_cunning-action": {
+    "de": "Schurke: Raffinierte Aktion"
+  },
+  "srd-2024_rogue_cunning-strike": {
+    "de": "Schurke: Raffinierter Schlag"
+  },
+  "srd-2024_rogue_devious-strikes": {
+    "de": "Schurke: Hinterhältige Schläge"
+  },
+  "srd-2024_rogue_elusive": {
+    "de": "Schurke: Schwer zu fassen"
+  },
+  "srd-2024_rogue_epic-boon": {
+    "de": "Schurke: Epische Gabe"
+  },
+  "srd-2024_rogue_evasion": {
+    "de": "Schurke: Entrinnen"
+  },
+  "srd-2024_rogue_expertise": {
+    "de": "Schurke: Expertise",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_rogue_improved-cunning-strike": {
+    "de": "Schurke: Verbesserter Raffinierter Schlag"
+  },
+  "srd-2024_rogue_reliable-talent": {
+    "de": "Schurke: Verlässliches Talent"
+  },
+  "srd-2024_rogue_slippery-mind": {
+    "de": "Schurke: Entschlüpfender Geist"
+  },
+  "srd-2024_rogue_sneak-attack": {
+    "de": "Schurke: Hinterhältiger Angriff"
+  },
+  "srd-2024_rogue_steady-aim": {
+    "de": "Schurke: Zielsicher"
+  },
+  "srd-2024_rogue_stroke-of-luck": {
+    "de": "Schurke: Glückstreffer"
+  },
+  "srd-2024_rogue_thieves-cant": {
+    "de": "Schurke: Diebessprache",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_rogue_uncanny-dodge": {
+    "de": "Schurke: Unglaubliches Ausweichen"
+  },
+  "srd-2024_rogue_weapon-mastery": {
+    "de": "Schurke: Waffenbeherrschung"
+  },
+  "srd-2024_savage-attacker": {
+    "de": "Talent: Wilder Angreifer",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_skilled": {
+    "de": "Talent: Begabt",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_sorcerer_ability-score-improvement": {
+    "de": "Zauberer: Attributswerterhöhung"
+  },
+  "srd-2024_sorcerer_arcane-apotheosis": {
+    "de": "Zauberer: Arkane Vergöttlichung"
+  },
+  "srd-2024_sorcerer_careful-spell": {
+    "de": "Zauberer: Bedachter Zauber"
+  },
+  "srd-2024_sorcerer_distant-spell": {
+    "de": "Zauberer: Weitreichender Zauber"
+  },
+  "srd-2024_sorcerer_empowered-spell": {
+    "de": "Zauberer: Mächtiger Zauber"
+  },
+  "srd-2024_sorcerer_epic-boon": {
+    "de": "Zauberer: Epische Gabe"
+  },
+  "srd-2024_sorcerer_extended-spell": {
+    "de": "Zauberer: Verlängerter Zauber"
+  },
+  "srd-2024_sorcerer_font-of-magic": {
+    "de": "Zauberer: Quelle der Magie"
+  },
+  "srd-2024_sorcerer_heightened-spell": {
+    "de": "Zauberer: Konzentrierter Zauber"
+  },
+  "srd-2024_sorcerer_innate-sorcery": {
+    "de": "Zauberer: Intuitive Zauberei"
+  },
+  "srd-2024_sorcerer_metamagic": {
+    "de": "Zauberer: Metamagie"
+  },
+  "srd-2024_sorcerer_quickened-spell": {
+    "de": "Zauberer: Beschleunigter Zauber"
+  },
+  "srd-2024_sorcerer_seeking-spell": {
+    "de": "Zauberer: Zielsuchzauber",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_sorcerer_sorcerous-restoration": {
+    "de": "Zauberer: Zaubereiauffrischung"
+  },
+  "srd-2024_sorcerer_sorcery-incarnate": {
+    "de": "Zauberer: Zauberei-Inkarnat"
+  },
+  "srd-2024_sorcerer_spellcasting": {
+    "de": "Zauberer: Zauberwirken"
+  },
+  "srd-2024_sorcerer_subtle-spell": {
+    "de": "Zauberer: Subtiler Zauber",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_sorcerer_transmuted-spell": {
+    "de": "Zauberer: Verwandelter Zauber",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_sorcerer_twinned-spell": {
+    "de": "Zauberer: Gespiegelter Zauber"
+  },
+  "srd-2024_thief_fast-hands": {
+    "de": "Dieb: Flinke Finger"
+  },
+  "srd-2024_thief_second-story-work": {
+    "de": "Dieb: Kletteraffe"
+  },
+  "srd-2024_thief_supreme-sneak": {
+    "de": "Dieb: Außerordentliches Schleichen"
+  },
+  "srd-2024_thief_thiefs-reflexes": {
+    "de": "Dieb: Reflexe eines Diebes"
+  },
+  "srd-2024_thief_use-magic-device": {
+    "de": "Dieb: Magischen Gegenstand verwenden"
+  },
+  "srd-2024_tiefling_darkvision": {
+    "de": "Tiefling: Dunkelsicht"
+  },
+  "srd-2024_tiefling_fiendish-legacy": {
+    "de": "Tiefling: Unholdisches Erbe"
+  },
+  "srd-2024_tiefling_otherworldly-presence": {
+    "de": "Tiefling: Außerweltliche Präsenz"
+  },
+  "srd-2024_two-weapon-fighting": {
+    "de": "Talent: Zwei-Waffen-Kampf",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_warlock_ability-score-improvement": {
+    "de": "Hexenmeister: Attributswerterhöhung"
+  },
+  "srd-2024_warlock_agonizing-blast": {
+    "de": "Hexenmeister: Qualvoller Strahl"
+  },
+  "srd-2024_warlock_armor-of-shadows": {
+    "de": "Hexenmeister: Schattenrüstung"
+  },
+  "srd-2024_warlock_ascendant-step": {
+    "de": "Hexenmeister: Aufsteigender Schritt"
+  },
+  "srd-2024_warlock_contact-patron": {
+    "de": "Hexenmeister: Schutzherrn kontaktieren"
+  },
+  "srd-2024_warlock_devils-sight": {
+    "de": "Hexenmeister: Teufelssicht"
+  },
+  "srd-2024_warlock_devouring-blade": {
+    "de": "Hexenmeister: Verschlingende Klinge"
+  },
+  "srd-2024_warlock_eldritch-invocations": {
+    "de": "Hexenmeister: Schauerliche Anrufungen"
+  },
+  "srd-2024_warlock_eldritch-master": {
+    "de": "Hexenmeister: Mystischer Meister"
+  },
+  "srd-2024_warlock_eldritch-mind": {
+    "de": "Hexenmeister: Schauerlicher Verstand"
+  },
+  "srd-2024_warlock_eldritch-smite": {
+    "de": "Hexenmeister: Schauerliches Niederstrecken"
+  },
+  "srd-2024_warlock_eldritch-spear": {
+    "de": "Hexenmeister: Unheimlicher Speer",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_warlock_epic-boon": {
+    "de": "Hexenmeister: Epische Gabe"
+  },
+  "srd-2024_warlock_fiendish-vigor": {
+    "de": "Hexenmeister: Unholdische Vitalität"
+  },
+  "srd-2024_warlock_gaze-of-two-minds": {
+    "de": "Hexenmeister: Gedankenblick"
+  },
+  "srd-2024_warlock_gift-of-the-depths": {
+    "de": "Hexenmeister: Gabe der Tiefen"
+  },
+  "srd-2024_warlock_gift-of-the-protectors": {
+    "de": "Hexenmeister: Gabe der Beschützer"
+  },
+  "srd-2024_warlock_investment-of-the-chain-master": {
+    "de": "Hexenmeister: Gabe des Kettenmeisters"
+  },
+  "srd-2024_warlock_lessons-of-the-first-ones": {
+    "de": "Hexenmeister: Lektionen der Ältesten"
+  },
+  "srd-2024_warlock_lifedrinker": {
+    "de": "Hexenmeister: Lebenstrinker"
+  },
+  "srd-2024_warlock_magical-cunning": {
+    "de": "Hexenmeister: Magische Raffinesse"
+  },
+  "srd-2024_warlock_mask-of-many-faces": {
+    "de": "Hexenmeister: Maske der vielen Gesichter"
+  },
+  "srd-2024_warlock_master-of-myriad-forms": {
+    "de": "Hexenmeister: Meister der myriaden Formen"
+  },
+  "srd-2024_warlock_misty-visions": {
+    "de": "Hexenmeister: Neblige Visionen"
+  },
+  "srd-2024_warlock_mystic-arcanum": {
+    "de": "Hexenmeister: Mystisches Arkanum"
+  },
+  "srd-2024_warlock_one-with-shadows": {
+    "de": "Hexenmeister: Mit den Schatten verschmelzen"
+  },
+  "srd-2024_warlock_otherworldly-leap": {
+    "de": "Hexenmeister: Außerweltlicher Sprung"
+  },
+  "srd-2024_warlock_pact-magic": {
+    "de": "Hexenmeister: Paktmagie"
+  },
+  "srd-2024_warlock_pact-of-the-blade": {
+    "de": "Hexenmeister: Pakt der Klinge"
+  },
+  "srd-2024_warlock_pact-of-the-chain": {
+    "de": "Hexenmeister: Pakt der Kette"
+  },
+  "srd-2024_warlock_pact-of-the-tome": {
+    "de": "Hexenmeister: Pakt des Buches"
+  },
+  "srd-2024_warlock_repelling-blast": {
+    "de": "Hexenmeister: Zurückdrängender Strahl",
+    "manual": true,
+    "note": "Same class/level (or category) and no distinguishing rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_warlock_thirsting-blade": {
+    "de": "Hexenmeister: Dürstende Klinge"
+  },
+  "srd-2024_warlock_visions-of-distant-realms": {
+    "de": "Hexenmeister: Visionen von fernen Gefilden"
+  },
+  "srd-2024_warlock_whispers-of-the-grave": {
+    "de": "Hexenmeister: Grabesflüstern"
+  },
+  "srd-2024_warlock_witch-sight": {
+    "de": "Hexenmeister: Hexensicht"
+  },
+  "srd-2024_warrior-of-the-open-hand_fleet-step": {
+    "de": "Krieger der Offenen Hand: Flinker Schritt"
+  },
+  "srd-2024_warrior-of-the-open-hand_open-hand-technique": {
+    "de": "Krieger der Offenen Hand: Technik der Offenen Hand"
+  },
+  "srd-2024_warrior-of-the-open-hand_quivering-palm": {
+    "de": "Krieger der Offenen Hand: Vibrierende Handfläche"
+  },
+  "srd-2024_warrior-of-the-open-hand_wholeness-of-body": {
+    "de": "Krieger der Offenen Hand: Unversehrtheit des Körpers"
+  },
+  "srd-2024_wizard_ability-score-improvement": {
+    "de": "Magier: Attributswerterhöhung"
+  },
+  "srd-2024_wizard_arcane-recovery": {
+    "de": "Magier: Arkane Erholung"
+  },
+  "srd-2024_wizard_epic-boon": {
+    "de": "Magier: Epische Gabe"
+  },
+  "srd-2024_wizard_memorize-spell": {
+    "de": "Magier: Zauber auswendig lernen"
+  },
+  "srd-2024_wizard_ritual-adept": {
+    "de": "Magier: Ritual-Adept"
+  },
+  "srd-2024_wizard_scholar": {
+    "de": "Magier: Gelehrter"
+  },
+  "srd-2024_wizard_signature-spells": {
+    "de": "Magier: Lieblingszauber"
+  },
+  "srd-2024_wizard_spell-mastery": {
+    "de": "Magier: Zaubermeisterschaft"
+  },
+  "srd-2024_wizard_spellcasting": {
+    "de": "Magier: Zauberwirken"
+  }
+}

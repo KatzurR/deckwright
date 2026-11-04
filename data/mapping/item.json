@@ -1,0 +1,812 @@
+{
+  "srd-2024_adamantine-armor": {
+    "de": "Adamantrüstung"
+  },
+  "srd-2024_ammunition-of-slaying": {
+    "de": "Geschoss des Tötens"
+  },
+  "srd-2024_ammunition-plus-1-2-3": {
+    "de": "Geschoss +1, +2 oder +3"
+  },
+  "srd-2024_amulet-of-health": {
+    "de": "Amulett der Gesundheit"
+  },
+  "srd-2024_amulet-of-proof-against-detection-and-location": {
+    "de": "Amulett des Schutzes gegen Ortung und Ausspähung",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_amulet-of-the-planes": {
+    "de": "Amulett der Ebenen"
+  },
+  "srd-2024_animated-shield": {
+    "de": "Belebter Schild"
+  },
+  "srd-2024_apparatus-of-the-crab": {
+    "de": "Apparat der Krabbe"
+  },
+  "srd-2024_armor-of-invulnerability": {
+    "de": "Rüstung der Unverwundbarkeit"
+  },
+  "srd-2024_armor-of-resistance": {
+    "de": "Rüstung der Resistenz"
+  },
+  "srd-2024_armor-of-vulnerability": {
+    "de": "Rüstung der Verwundbarkeit"
+  },
+  "srd-2024_armor-plus-1-2-3": {
+    "de": "Rüstung +1, +2 oder +3"
+  },
+  "srd-2024_arrow-catching-shield": {
+    "de": "Pfeilfangender Schild"
+  },
+  "srd-2024_bag-of-beans": {
+    "de": "Bohnenbeutel"
+  },
+  "srd-2024_bag-of-devouring": {
+    "de": "Fraßbeutel"
+  },
+  "srd-2024_bag-of-holding": {
+    "de": "Nimmervoller Beutel"
+  },
+  "srd-2024_bag-of-tricks": {
+    "de": "Trickbeutel"
+  },
+  "srd-2024_bead-of-force": {
+    "de": "Perle der Kraft"
+  },
+  "srd-2024_bead-of-nourishment": {
+    "de": "Perle der Ernährung"
+  },
+  "srd-2024_belt-of-dwarvenkind": {
+    "de": "Zwergischer Gürtel"
+  },
+  "srd-2024_belt-of-giant-strength": {
+    "de": "Gürtel der Riesenstärke"
+  },
+  "srd-2024_berserker-axe": {
+    "de": "Berserkeraxt"
+  },
+  "srd-2024_boots-of-elvenkind": {
+    "de": "Stiefel der Elfen"
+  },
+  "srd-2024_boots-of-levitation": {
+    "de": "Stiefel des Schwebens"
+  },
+  "srd-2024_boots-of-speed": {
+    "de": "Stiefel der Geschwindigkeit"
+  },
+  "srd-2024_boots-of-striding-and-springing": {
+    "de": "Stiefel des Schreitens und Springens",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_boots-of-the-winterlands": {
+    "de": "Stiefel der Winterlande"
+  },
+  "srd-2024_bowl-of-commanding-water-elementals": {
+    "de": "Schale der Wasserelementar-Herrschaft",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_bracers-of-archery": {
+    "de": "Armschienen des Bogenschützen"
+  },
+  "srd-2024_bracers-of-defense": {
+    "de": "Armschienen der Verteidigung"
+  },
+  "srd-2024_brazier-of-commanding-fire-elementals": {
+    "de": "Feuerschale der Feuerelementar-Herrschaft",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_brooch-of-shielding": {
+    "de": "Brosche des Abschirmens"
+  },
+  "srd-2024_broom-of-flying": {
+    "de": "Flugbesen"
+  },
+  "srd-2024_candle-of-invocation": {
+    "de": "Kerze der Anrufung"
+  },
+  "srd-2024_cape-of-the-mountebank": {
+    "de": "Umhang des Scharlatans"
+  },
+  "srd-2024_carpet-of-flying": {
+    "de": "Fliegender Teppich"
+  },
+  "srd-2024_censer-of-controlling-air-elementals": {
+    "de": "Rauchfass der Luftelementar-Herrschaft",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_chime-of-opening": {
+    "de": "Glocke des Öffnens"
+  },
+  "srd-2024_circlet-of-blasting": {
+    "de": "Diadem des Versengens"
+  },
+  "srd-2024_cloak-of-arachnida": {
+    "de": "Umhang der Spinnentiere"
+  },
+  "srd-2024_cloak-of-displacement": {
+    "de": "Umhang der Verlagerung"
+  },
+  "srd-2024_cloak-of-elvenkind": {
+    "de": "Umhang der Elfen"
+  },
+  "srd-2024_cloak-of-invisibility": {
+    "de": "Umhang der Unsichtbarkeit"
+  },
+  "srd-2024_cloak-of-protection": {
+    "de": "Umhang des Schutzes",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_cloak-of-the-bat": {
+    "de": "Umhang der Fledermaus"
+  },
+  "srd-2024_cloak-of-the-manta-ray": {
+    "de": "Umhang des Mantarochens"
+  },
+  "srd-2024_crystal-ball": {
+    "de": "Kristallkugel"
+  },
+  "srd-2024_crystal-ball-of-mind-reading": {
+    "de": "Kristallkugel des Gedankenlesens"
+  },
+  "srd-2024_crystal-ball-of-telepathy": {
+    "de": "Kristallkugel der Telepathie"
+  },
+  "srd-2024_crystal-ball-of-true-seeing": {
+    "de": "Kristallkugel des Wahren Blicks"
+  },
+  "srd-2024_cube-of-force": {
+    "de": "Würfel der Kraft"
+  },
+  "srd-2024_cubic-gate": {
+    "de": "Würfel der Ebenen"
+  },
+  "srd-2024_dagger-of-venom": {
+    "de": "Dolch des Gifts"
+  },
+  "srd-2024_dancing-sword": {
+    "de": "Tanzendes Schwert"
+  },
+  "srd-2024_decanter-of-endless-water": {
+    "de": "Karaffe des Endlosen Wassers"
+  },
+  "srd-2024_deck-of-illusions": {
+    "de": "Karten der Illusionen"
+  },
+  "srd-2024_defender": {
+    "de": "Verteidiger"
+  },
+  "srd-2024_demon-armor": {
+    "de": "Dämonenrüstung"
+  },
+  "srd-2024_dimensional-shackles": {
+    "de": "Dimensionsfesseln"
+  },
+  "srd-2024_dragon-orb": {
+    "de": "Kugel der Drachen"
+  },
+  "srd-2024_dragon-scale-mail": {
+    "de": "Drachenschuppenpanzer"
+  },
+  "srd-2024_dragon-slayer": {
+    "de": "Drachentöter"
+  },
+  "srd-2024_dust-of-disappearance": {
+    "de": "Staub des Verschwindens"
+  },
+  "srd-2024_dust-of-dryness": {
+    "de": "Staub der Trockenheit"
+  },
+  "srd-2024_dust-of-sneezing-and-choking": {
+    "de": "Staub des Niesens und Erstickens"
+  },
+  "srd-2024_dwarven-plate": {
+    "de": "Zwergische Ritterrüstung"
+  },
+  "srd-2024_dwarven-thrower": {
+    "de": "Zwergischer Wurfhammer"
+  },
+  "srd-2024_efficient-quiver": {
+    "de": "Effizienter Köcher",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_efreeti-bottle": {
+    "de": "Ifrit-Flasche"
+  },
+  "srd-2024_elemental-gem": {
+    "de": "Elementarer Edelstein",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_elixir-of-health": {
+    "de": "Elixier der Gesundheit"
+  },
+  "srd-2024_elven-chain": {
+    "de": "Elfenrüstung"
+  },
+  "srd-2024_energy-bow": {
+    "de": "Energiebogen"
+  },
+  "srd-2024_eversmoking-bottle": {
+    "de": "Rauchflasche"
+  },
+  "srd-2024_eyes-of-charming": {
+    "de": "Augen der Bezauberung"
+  },
+  "srd-2024_eyes-of-minute-seeing": {
+    "de": "Augen des Präzisen Sehens"
+  },
+  "srd-2024_eyes-of-the-eagle": {
+    "de": "Augen des Adlers"
+  },
+  "srd-2024_feather-token": {
+    "de": "Federfigur"
+  },
+  "srd-2024_figurine-of-wondrous-power": {
+    "de": "Figur der wundersamen Kraft"
+  },
+  "srd-2024_flame-tongue": {
+    "de": "Flammenzunge"
+  },
+  "srd-2024_folding-boat": {
+    "de": "Faltboot"
+  },
+  "srd-2024_frost-brand": {
+    "de": "Frostbrand"
+  },
+  "srd-2024_gauntlets-of-ogre-power": {
+    "de": "Panzerhandschuhe der Ogerkraft"
+  },
+  "srd-2024_gem-of-brightness": {
+    "de": "Edelstein der Helligkeit"
+  },
+  "srd-2024_gem-of-seeing": {
+    "de": "Edelstein des Sehens"
+  },
+  "srd-2024_giant-slayer": {
+    "de": "Riesentöter"
+  },
+  "srd-2024_glamoured-studded-leather": {
+    "de": "Verzaubertes Beschlagenes Leder"
+  },
+  "srd-2024_gloves-of-missile-snaring": {
+    "de": "Handschuhe des Geschossfangens"
+  },
+  "srd-2024_gloves-of-swimming-and-climbing": {
+    "de": "Handschuhe des Schwimmens und Kletterns"
+  },
+  "srd-2024_gloves-of-thievery": {
+    "de": "Handschuhe des Diebstahls"
+  },
+  "srd-2024_goggles-of-night": {
+    "de": "Nachtbrille"
+  },
+  "srd-2024_hammer-of-thunderbolts": {
+    "de": "Hammer des Blitzschlags"
+  },
+  "srd-2024_handy-haversack": {
+    "de": "Praktischer Rucksack"
+  },
+  "srd-2024_hat-of-disguise": {
+    "de": "Hut der Verkleidung"
+  },
+  "srd-2024_hat-of-many-spells": {
+    "de": "Hut der Vielen Zauber"
+  },
+  "srd-2024_headband-of-intellect": {
+    "de": "Stirnband der Intelligenz"
+  },
+  "srd-2024_helm-of-brilliance": {
+    "de": "Helm der Pracht"
+  },
+  "srd-2024_helm-of-comprehending-languages": {
+    "de": "Helm des Sprachenverstehens"
+  },
+  "srd-2024_helm-of-telepathy": {
+    "de": "Helm der Telepathie"
+  },
+  "srd-2024_helm-of-teleportation": {
+    "de": "Helm der Teleportation"
+  },
+  "srd-2024_holy-avenger": {
+    "de": "Heiliger Rächer"
+  },
+  "srd-2024_horn-of-blasting": {
+    "de": "Horn der Sprengung"
+  },
+  "srd-2024_horn-of-valhalla": {
+    "de": "Horn von Walhalla"
+  },
+  "srd-2024_horseshoes-of-a-zephyr": {
+    "de": "Hufeisen des Zephyrs"
+  },
+  "srd-2024_horseshoes-of-speed": {
+    "de": "Hufeisen der Geschwindigkeit",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_immovable-rod": {
+    "de": "Unbewegliches Zepter"
+  },
+  "srd-2024_instant-fortress": {
+    "de": "Flotte Festung"
+  },
+  "srd-2024_ioun-stone": {
+    "de": "Ioun-Stein"
+  },
+  "srd-2024_iron-bands": {
+    "de": "Eisenbänder"
+  },
+  "srd-2024_iron-flask": {
+    "de": "Eiserne Flasche"
+  },
+  "srd-2024_javelin-of-lightning": {
+    "de": "Wurfspeer des Blitzes"
+  },
+  "srd-2024_lantern-of-revealing": {
+    "de": "Laterne der Enttarnung"
+  },
+  "srd-2024_luck-blade": {
+    "de": "Glücksklinge"
+  },
+  "srd-2024_mace-of-disruption": {
+    "de": "Streitkolben des Zusammenbruchs"
+  },
+  "srd-2024_mace-of-smiting": {
+    "de": "Streitkolben des Niederstreckens"
+  },
+  "srd-2024_mace-of-terror": {
+    "de": "Streitkolben des Terrors"
+  },
+  "srd-2024_mantle-of-spell-resistance": {
+    "de": "Mantel der Zauberresistenz"
+  },
+  "srd-2024_manual-of-bodily-health": {
+    "de": "Handbuch der Körperlichen Gesundheit"
+  },
+  "srd-2024_manual-of-gainful-exercise": {
+    "de": "Handbuch der Körperlichen Ertüchtigung"
+  },
+  "srd-2024_manual-of-golems": {
+    "de": "Handbuch der Golems"
+  },
+  "srd-2024_manual-of-quickness-of-action": {
+    "de": "Handbuch des Schnellen Handelns"
+  },
+  "srd-2024_marvelous-pigments": {
+    "de": "Wunderfarben"
+  },
+  "srd-2024_medallion-of-thoughts": {
+    "de": "Medaillon der Gedanken"
+  },
+  "srd-2024_mirror-of-life-trapping": {
+    "de": "Seelenspiegel"
+  },
+  "srd-2024_mithral-armor": {
+    "de": "Mithralrüstung"
+  },
+  "srd-2024_mysterious-deck": {
+    "de": "Mysteriöse Karten"
+  },
+  "srd-2024_necklace-of-adaptation": {
+    "de": "Halskette der Anpassung"
+  },
+  "srd-2024_necklace-of-fireballs": {
+    "de": "Halskette der Feuerbälle"
+  },
+  "srd-2024_necklace-of-prayer-beads": {
+    "de": "Halskette der Gebetsperlen"
+  },
+  "srd-2024_nine-lives-stealer": {
+    "de": "Dieb der Neun Leben"
+  },
+  "srd-2024_oathbow": {
+    "de": "Schwurbogen"
+  },
+  "srd-2024_oil-of-etherealness": {
+    "de": "Öl der Körperlosigkeit"
+  },
+  "srd-2024_oil-of-sharpness": {
+    "de": "Öl der Schärfe"
+  },
+  "srd-2024_oil-of-slipperiness": {
+    "de": "Öl der Glätte"
+  },
+  "srd-2024_pearl-of-power": {
+    "de": "Perle der Macht",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_periapt-of-health": {
+    "de": "Anhänger der Gesundheit"
+  },
+  "srd-2024_periapt-of-proof-against-poison": {
+    "de": "Anhänger des Giftschutzes"
+  },
+  "srd-2024_periapt-of-wound-closure": {
+    "de": "Anhänger der Wundheilung",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_philter-of-love": {
+    "de": "Liebestrank"
+  },
+  "srd-2024_pipes-of-haunting": {
+    "de": "Flöte des Unheimlichen"
+  },
+  "srd-2024_pipes-of-the-sewers": {
+    "de": "Flöte des Rattenfängers"
+  },
+  "srd-2024_plate-armor-of-etherealness": {
+    "de": "Ritterrüstung der Körperlosigkeit"
+  },
+  "srd-2024_portable-hole": {
+    "de": "Tragbares Loch"
+  },
+  "srd-2024_potion-of-animal-friendship": {
+    "de": "Trank der Tierfreundschaft"
+  },
+  "srd-2024_potion-of-clairvoyance": {
+    "de": "Trank des Hellsehens"
+  },
+  "srd-2024_potion-of-climbing": {
+    "de": "Trank des Kletterns"
+  },
+  "srd-2024_potion-of-diminution": {
+    "de": "Trank der Verkleinerung"
+  },
+  "srd-2024_potion-of-flying": {
+    "de": "Trank des Fliegens"
+  },
+  "srd-2024_potion-of-gaseous-form": {
+    "de": "Trank der Gasförmigen Gestalt"
+  },
+  "srd-2024_potion-of-giant-strength": {
+    "de": "Trank der Riesenstärke"
+  },
+  "srd-2024_potion-of-growth": {
+    "de": "Trank des Wachstums"
+  },
+  "srd-2024_potion-of-heroism": {
+    "de": "Trank des Heldenmuts"
+  },
+  "srd-2024_potion-of-invisibility": {
+    "de": "Trank der Unsichtbarkeit"
+  },
+  "srd-2024_potion-of-invulnerability": {
+    "de": "Trank der Unverwundbarkeit"
+  },
+  "srd-2024_potion-of-longevity": {
+    "de": "Trank der Langlebigkeit"
+  },
+  "srd-2024_potion-of-mind-reading": {
+    "de": "Trank des Gedankenlesens"
+  },
+  "srd-2024_potion-of-poison": {
+    "de": "Trank des Gifts"
+  },
+  "srd-2024_potion-of-resistance": {
+    "de": "Trank der Resistenz"
+  },
+  "srd-2024_potion-of-speed": {
+    "de": "Trank der Geschwindigkeit"
+  },
+  "srd-2024_potion-of-vitality": {
+    "de": "Trank der Vitalität"
+  },
+  "srd-2024_potion-of-water-breathing": {
+    "de": "Trank der Wasseratmung"
+  },
+  "srd-2024_potions-of-healing": {
+    "de": "Heiltränke"
+  },
+  "srd-2024_quarterstaff-of-the-acrobat": {
+    "de": "Kampfstab des Akrobaten"
+  },
+  "srd-2024_ring-of-animal-influence": {
+    "de": "Ring des Tierumgangs"
+  },
+  "srd-2024_ring-of-djinni-summoning": {
+    "de": "Ring der Dschinni-Beschwörung"
+  },
+  "srd-2024_ring-of-elemental-command": {
+    "de": "Ring der Elementar-Herrschaft"
+  },
+  "srd-2024_ring-of-evasion": {
+    "de": "Ring des Ausweichens"
+  },
+  "srd-2024_ring-of-feather-falling": {
+    "de": "Ring des Federfalls"
+  },
+  "srd-2024_ring-of-free-action": {
+    "de": "Ring der Bewegungsfreiheit"
+  },
+  "srd-2024_ring-of-invisibility": {
+    "de": "Ring der Unsichtbarkeit"
+  },
+  "srd-2024_ring-of-jumping": {
+    "de": "Ring des Springens"
+  },
+  "srd-2024_ring-of-mind-shielding": {
+    "de": "Ring der Gedankenabschirmung"
+  },
+  "srd-2024_ring-of-protection": {
+    "de": "Ring des Schutzes"
+  },
+  "srd-2024_ring-of-regeneration": {
+    "de": "Ring der Regeneration"
+  },
+  "srd-2024_ring-of-resistance": {
+    "de": "Ring der Resistenz"
+  },
+  "srd-2024_ring-of-shooting-stars": {
+    "de": "Ring der Sternschnuppen"
+  },
+  "srd-2024_ring-of-spell-storing": {
+    "de": "Ring des Zauberspeichers"
+  },
+  "srd-2024_ring-of-spell-turning": {
+    "de": "Ring des Zauberwendens"
+  },
+  "srd-2024_ring-of-swimming": {
+    "de": "Ring des Schwimmens"
+  },
+  "srd-2024_ring-of-telekinesis": {
+    "de": "Ring der Telekinese"
+  },
+  "srd-2024_ring-of-the-ram": {
+    "de": "Ring des Widders"
+  },
+  "srd-2024_ring-of-three-wishes": {
+    "de": "Ring der Drei Wünsche"
+  },
+  "srd-2024_ring-of-warmth": {
+    "de": "Ring der Wärme"
+  },
+  "srd-2024_ring-of-water-walking": {
+    "de": "Ring des Wasserwandelns"
+  },
+  "srd-2024_ring-of-x-ray-vision": {
+    "de": "Ring der Durchsicht"
+  },
+  "srd-2024_robe-of-eyes": {
+    "de": "Robe der Augen"
+  },
+  "srd-2024_robe-of-scintillating-colors": {
+    "de": "Robe der Schillernden Farben"
+  },
+  "srd-2024_robe-of-stars": {
+    "de": "Robe der Sterne"
+  },
+  "srd-2024_robe-of-the-archmagi": {
+    "de": "Robe der Erzmagier"
+  },
+  "srd-2024_robe-of-useful-items": {
+    "de": "Robe der Nützlichen Dinge"
+  },
+  "srd-2024_rod-of-absorption": {
+    "de": "Zepter der Absorption"
+  },
+  "srd-2024_rod-of-alertness": {
+    "de": "Zepter der Wachsamkeit"
+  },
+  "srd-2024_rod-of-lordly-might": {
+    "de": "Zepter der Herrschaftlichen Macht"
+  },
+  "srd-2024_rod-of-resurrection": {
+    "de": "Zepter der Auferstehung"
+  },
+  "srd-2024_rod-of-rulership": {
+    "de": "Zepter der Herrschaft"
+  },
+  "srd-2024_rod-of-security": {
+    "de": "Zepter der Sicherheit"
+  },
+  "srd-2024_rope-of-climbing": {
+    "de": "Seil des Kletterns"
+  },
+  "srd-2024_rope-of-entanglement": {
+    "de": "Fesselseil"
+  },
+  "srd-2024_scarab-of-protection": {
+    "de": "Skarabäus des Schutzes"
+  },
+  "srd-2024_scimitar-of-speed": {
+    "de": "Krummsäbel der Geschwindigkeit"
+  },
+  "srd-2024_sending-stones": {
+    "de": "Steine der Verständigung"
+  },
+  "srd-2024_sentinel-shield": {
+    "de": "Wächterschild"
+  },
+  "srd-2024_shield-of-missile-attraction": {
+    "de": "Schild der Geschossanziehung"
+  },
+  "srd-2024_shield-of-the-cavalier": {
+    "de": "Schild des Kavaliers"
+  },
+  "srd-2024_shield-plus-1-2-3": {
+    "de": "Schild +1, +2 oder +3"
+  },
+  "srd-2024_slippers-of-spider-climbing": {
+    "de": "Schuhe des Spinnenkletterns",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_sovereign-glue": {
+    "de": "Ewiger Leim"
+  },
+  "srd-2024_spell-scroll": {
+    "de": "Zauberschriftrolle"
+  },
+  "srd-2024_spellguard-shield": {
+    "de": "Zauberabwehrschild"
+  },
+  "srd-2024_sphere-of-annihilation": {
+    "de": "Kugel der Auslöschung"
+  },
+  "srd-2024_staff-of-charming": {
+    "de": "Stab der Bezauberung"
+  },
+  "srd-2024_staff-of-fire": {
+    "de": "Stab des Feuers"
+  },
+  "srd-2024_staff-of-frost": {
+    "de": "Stab des Frosts"
+  },
+  "srd-2024_staff-of-healing": {
+    "de": "Stab der Heilung"
+  },
+  "srd-2024_staff-of-power": {
+    "de": "Stab der Macht"
+  },
+  "srd-2024_staff-of-striking": {
+    "de": "Stab des Schlagens"
+  },
+  "srd-2024_staff-of-swarming-insects": {
+    "de": "Stab der Insektenschwärme"
+  },
+  "srd-2024_staff-of-the-magi": {
+    "de": "Stab der Magier"
+  },
+  "srd-2024_staff-of-the-python": {
+    "de": "Stab der Python"
+  },
+  "srd-2024_staff-of-the-woodlands": {
+    "de": "Stab der Waldlande"
+  },
+  "srd-2024_staff-of-thunder-and-lightning": {
+    "de": "Stab des Blitzes und Donners"
+  },
+  "srd-2024_staff-of-withering": {
+    "de": "Stab der Verkümmerung",
+    "manual": true,
+    "note": "Category differs between the editions: EN \"Staff\", DE \"Zauberstab\" (wand)."
+  },
+  "srd-2024_stone-of-controlling-earth-elementals": {
+    "de": "Stein der Erdelementar-Herrschaft",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_stone-of-good-luck-luckstone": {
+    "de": "Stein des Glücks (Glücksstein)",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_sun-blade": {
+    "de": "Sonnenklinge"
+  },
+  "srd-2024_sword-of-life-stealing": {
+    "de": "Schwert des Lebensentzugs"
+  },
+  "srd-2024_sword-of-sharpness": {
+    "de": "Schwert der Schärfe"
+  },
+  "srd-2024_sword-of-wounding": {
+    "de": "Schwert der Verwundung"
+  },
+  "srd-2024_talisman-of-pure-good": {
+    "de": "Talisman des Reinen Guten"
+  },
+  "srd-2024_talisman-of-the-sphere": {
+    "de": "Talisman des Nichts"
+  },
+  "srd-2024_talisman-of-ultimate-evil": {
+    "de": "Talisman des Absolut Bösen"
+  },
+  "srd-2024_thunderous-greatclub": {
+    "de": "Donnernder Zweihandknüppel"
+  },
+  "srd-2024_tome-of-clear-thought": {
+    "de": "Leitfaden des Klaren Denkens"
+  },
+  "srd-2024_tome-of-leadership-and-influence": {
+    "de": "Leitfaden der Führungskraft und der Einflussnahme"
+  },
+  "srd-2024_tome-of-understanding": {
+    "de": "Leitfaden des Verständnisses"
+  },
+  "srd-2024_trident-of-fish-command": {
+    "de": "Dreizack der Fischherrschaft"
+  },
+  "srd-2024_universal-solvent": {
+    "de": "Universelles Lösungsmittel"
+  },
+  "srd-2024_vicious-weapon": {
+    "de": "Bösartige Waffe"
+  },
+  "srd-2024_vorpal-sword": {
+    "de": "Henkersschwert"
+  },
+  "srd-2024_wand-of-binding": {
+    "de": "Zauberstab der Bindung"
+  },
+  "srd-2024_wand-of-enemy-detection": {
+    "de": "Zauberstab der Feindeslokalisierung",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_wand-of-fear": {
+    "de": "Zauberstab der Angst",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_wand-of-fireballs": {
+    "de": "Zauberstab der Feuerbälle"
+  },
+  "srd-2024_wand-of-lightning-bolts": {
+    "de": "Zauberstab der Blitzschläge"
+  },
+  "srd-2024_wand-of-magic-detection": {
+    "de": "Zauberstab der Magieerkennung"
+  },
+  "srd-2024_wand-of-magic-missiles": {
+    "de": "Zauberstab der Magischen Geschosse"
+  },
+  "srd-2024_wand-of-paralysis": {
+    "de": "Zauberstab der Paralyse",
+    "manual": true,
+    "note": "Same category, rarity and attunement and too few shared rules concepts for an automatic match; checked against both PDFs."
+  },
+  "srd-2024_wand-of-polymorph": {
+    "de": "Zauberstab der Verwandlung"
+  },
+  "srd-2024_wand-of-secrets": {
+    "de": "Zauberstab der Geheimnisse"
+  },
+  "srd-2024_wand-of-the-war-mage-plus-1-2-3": {
+    "de": "Zauberstab des Kriegsmagiers +1, +2 oder +3"
+  },
+  "srd-2024_wand-of-web": {
+    "de": "Zauberstab des Netzes"
+  },
+  "srd-2024_wand-of-wonder": {
+    "de": "Zauberstab des Wunders"
+  },
+  "srd-2024_weapon-of-warning": {
+    "de": "Waffe der Warnung"
+  },
+  "srd-2024_weapon-plus-1-2-3": {
+    "de": "Waffe +1, +2 oder +3"
+  },
+  "srd-2024_well-of-many-worlds": {
+    "de": "Brunnen der Vielen Welten"
+  },
+  "srd-2024_wind-fan": {
+    "de": "Windfächer"
+  },
+  "srd-2024_winged-boots": {
+    "de": "Geflügelte Stiefel"
+  },
+  "srd-2024_wings-of-flying": {
+    "de": "Zauberflügel"
+  }
+}
