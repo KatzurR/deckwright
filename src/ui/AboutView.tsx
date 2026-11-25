@@ -17,30 +17,33 @@ export function AboutView({ uiLang }: { uiLang: Lang }) {
       <blockquote lang="en">{SRD_ATTRIBUTION.en}</blockquote>
       <p>{SRD_CHANGES[uiLang]}</p>
 
-      <h2>{t('about.icons')}</h2>
-      <p>{t('about.iconsText')}</p>
-      <ul className="about__icons">
-        {icons.map((icon) => (
-          <li key={icon.slug}>
-            <svg viewBox="0 0 512 512" width="20" height="20" aria-hidden="true"><path d={icon.path} /></svg>
-            <span>
-              „{icon.slug}“ – {icon.author}, <a href={`https://game-icons.net/1x1/${icon.author.toLowerCase()}/${icon.slug}.html`} target="_blank" rel="noreferrer">game-icons.net</a>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <p><a href="./licenses/CC-BY-3.0.txt" target="_blank" rel="noreferrer">CC BY 3.0 – {t('about.license')}</a></p>
+      {/* From the icon credits on, the page is reference material and reads left-aligned. */}
+      <div className="about__details">
+        <h2>{t('about.icons')}</h2>
+        <p>{t('about.iconsText')}</p>
+        <ul className="about__icons">
+          {icons.map((icon) => (
+            <li key={icon.slug}>
+              <svg viewBox="0 0 512 512" width="20" height="20" aria-hidden="true"><path d={icon.path} /></svg>
+              <span>
+                „{icon.slug}“ – {icon.author}, <a href={`https://game-icons.net/1x1/${icon.author.toLowerCase()}/${icon.slug}.html`} target="_blank" rel="noreferrer">game-icons.net</a>
+              </span>
+            </li>
+          ))}
+        </ul>
+        <p><a href="./licenses/CC-BY-3.0.txt" target="_blank" rel="noreferrer">CC BY 3.0 – {t('about.license')}</a></p>
 
-      <h2>{t('about.fonts')}</h2>
-      <p>{t('about.fontsText')}</p>
-      <p>
-        <a href="./licenses/OFL-alegreya.txt" target="_blank" rel="noreferrer">Alegreya – {t('about.license')}</a>
-        {' · '}
-        <a href="./licenses/OFL-grenze-gotisch.txt" target="_blank" rel="noreferrer">Grenze Gotisch – {t('about.license')}</a>
-      </p>
+        <h2>{t('about.fonts')}</h2>
+        <p>{t('about.fontsText')}</p>
+        <p>
+          <a href="./licenses/OFL-alegreya.txt" target="_blank" rel="noreferrer">Alegreya – {t('about.license')}</a>
+          {' · '}
+          <a href="./licenses/OFL-grenze-gotisch.txt" target="_blank" rel="noreferrer">Grenze Gotisch – {t('about.license')}</a>
+        </p>
 
-      <h2>{t('about.code')}</h2>
-      <p>{t('about.codeText')} <a href="https://github.com/KatzurR/deckwright" target="_blank" rel="noreferrer">github.com/KatzurR/deckwright</a></p>
+        <h2>{t('about.code')}</h2>
+        <p>{t('about.codeText')} <a href="https://github.com/KatzurR/deckwright" target="_blank" rel="noreferrer">github.com/KatzurR/deckwright</a></p>
+      </div>
     </article>
   );
 }
