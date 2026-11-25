@@ -4,7 +4,8 @@ import {
   cardsMissingLanguage, copyCardsToDeck, duplicateCards, moveCard, removeCards, renameDeck, setDeckLanguage, sortCards,
   type SortKey,
 } from '../model/deck';
-import { CARD_TYPES, type Card, type CardType, type Deck } from '../model/schema';
+import { CARD_COLORS, CARD_LAYOUTS, CARD_TYPES, type Card, type CardColor, type CardLayout, type CardType, type Deck } from '../model/schema';
+import { deckDisplayOptions } from '../render/format';
 import { deckFileName, serializeDeck } from '../model/deckFile';
 import { downloadBlob } from '../export/files';
 import { useAppState, useLaidOutCards } from './state';
@@ -27,12 +28,14 @@ export function DeckView({ deck, onEdit, onNew, onOpenCatalog }: DeckViewProps) 
   const [exporting, setExporting] = useState(false);
   const [copying, setCopying] = useState(false);
   const [dragIndex, setDragIndex] = useState<number | null>(null);
-  const options = useMemo(() => ({ colorBySchool: deck.options?.colorBySchool ?? false }), [deck.options?.colorBySchool]);
+  const options = deckDisplayOptions(deck);
   const laid = useLaidOutCards(deck.cards, deck.lang, options);
   const laidById = useMemo(() => new Map((laid ?? []).map((l) => [l.card.id, l])), [laid]);
   const missing = cardsMissingLanguage(deck).length;
   const selectedCards = deck.cards.filter((c) => selected.has(c.id));
   const update = (next: Deck) => app.update(next);
+  const setOptions = (changes: NonNullable<Deck['options']>) =>
+    update({ ...deck, options: { ...deck.options, ...changes }, updatedAt: new Date().toISOString() });
 
   const toggle = (id: string) =>
     setSelected((s) => {
@@ -76,10 +79,22 @@ export function DeckView({ deck, onEdit, onNew, onOpenCatalog }: DeckViewProps) 
               <option value="en">{t('common.english')}</option>
             </select>
           </label>
+          <label className="inline-field">
+            {t('decks.cardColor')}
+            <select value={options.cardColor} onChange={(e) => setOptions({ cardColor: e.target.value as CardColor })}>
+              {CARD_COLORS.map((c) => <option key={c} value={c}>{t(`cardColors.${c}`)}</option>)}
+            </select>
+          </label>
+          <label className="inline-field">
+            {t('decks.cardLayout')}
+            <select value={options.cardLayout} onChange={(e) => setOptions({ cardLayout: e.target.value as CardLayout })}>
+              {CARD_LAYOUTS.map((l) => <option key={l} value={l}>{t(`cardLayouts.${l}`)}</option>)}
+            </select>
+          </label>
           <Check
             label={t('decks.colorBySchool')}
             checked={options.colorBySchool}
-            onChange={(v) => update({ ...deck, options: { ...deck.options, colorBySchool: v }, updatedAt: new Date().toISOString() })}
+            onChange={(v) => setOptions({ colorBySchool: v })}
           />
           <label className="inline-field">
             {t('decks.sort')}

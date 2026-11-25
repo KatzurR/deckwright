@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { displayCard } from './format';
+import { deckDisplayOptions, displayCard } from './format';
+import { SCHOOL_ACCENT } from './theme';
+import { createDeck } from '../model/deck';
 import { actionSurge, bagOfHolding, blinded, fireball, longbow, longsword, wandOfMagicMissiles } from '../test/fixtures';
 import type { Card } from '../model/schema';
 
@@ -55,9 +57,17 @@ describe('displayCard – spell (design reference "Feuerball")', () => {
   it('colours spells by school only when enabled', () => {
     if (fireball.type !== 'spell') throw new Error();
     const illusion: Card = { ...fireball, spell: { ...fireball.spell, school: 'illusion' } };
-    expect(displayCard(illusion, 'de').accent).toBe('#8a2a12');
-    expect(displayCard(illusion, 'de', { colorBySchool: true }).accent).not.toBe('#8a2a12');
+    expect(displayCard(illusion, 'de').accent).toBeUndefined();
+    expect(displayCard(illusion, 'de', { colorBySchool: true }).accent).toBe(SCHOOL_ACCENT.illusion);
     expect(displayCard(illusion, 'de').icon).toBe('domino-mask');
+  });
+
+  it('takes colour and picture layout from the deck options, with defaults', () => {
+    expect(displayCard(fireball, 'de')).toMatchObject({ color: 'red', layout: 'medallion' });
+    expect(displayCard(fireball, 'de', { cardColor: 'green', cardLayout: 'panel' })).toMatchObject({ color: 'green', layout: 'panel' });
+    const deck = { ...createDeck('Zauber', 'de'), options: { cardColor: 'purple' as const, cardLayout: 'window' as const } };
+    expect(deckDisplayOptions(deck)).toEqual({ colorBySchool: false, cardColor: 'purple', cardLayout: 'window' });
+    expect(deckDisplayOptions(undefined)).toEqual({ colorBySchool: false, cardColor: 'red', cardLayout: 'medallion' });
   });
 });
 

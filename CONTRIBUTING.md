@@ -30,6 +30,7 @@ The SRD catalog is committed (`data/catalog/`), so you only need the pipeline if
 | `npm run pipeline` / `npm run pipeline:offline` | Rebuild the SRD catalog (online, or from `data/cache/`) |
 | `npm run schema` | Regenerate `docs/deck-format.schema.json` after changing the data model |
 | `npm run textures` | Regenerate the card textures |
+| `npm run ornaments` | Regenerate the gold ornaments of the card frame (SVG) |
 
 How the code is organised, and how to add an icon, a card field or a card type, is described in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 

@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CARD_TYPES, CLASSES, SCHOOLS, type Card, type CardType, type ClassKey, type Lang, type School } from '../model/schema';
+import { CARD_TYPES, CLASSES, SCHOOLS, type Card, type CardType, type ClassKey, type Deck, type Lang, type School } from '../model/schema';
 import { adoptCatalogCards, cardName } from '../model/deck';
 import { terms } from '../i18n/terms';
 import { loadCatalog, type Catalog } from '../catalog/catalog';
 import { EMPTY_FILTER, searchCatalog, type CatalogFilter } from '../catalog/search';
+import { deckDisplayOptions } from '../render/format';
 import { useAppState, useLaidOutCards } from './state';
 import { CardPlaceholder, CardPreview } from './widgets';
 
@@ -151,17 +152,17 @@ export function CatalogView({ uiLang, onDone }: { uiLang: Lang; onDone(): void }
           {results.length === 0 && <li className="empty">{t('catalog.empty')}</li>}
         </ul>
         <aside className="catalog__preview" aria-label={t('catalog.preview')}>
-          {focus ? <FocusPreview card={focus} lang={cardLang} colorBySchool={target?.options?.colorBySchool ?? false} /> : <CardPlaceholder />}
+          {focus ? <FocusPreview card={focus} lang={cardLang} deck={target} /> : <CardPlaceholder />}
         </aside>
       </div>
     </section>
   );
 }
 
-function FocusPreview({ card, lang, colorBySchool }: { card: Card; lang: Lang; colorBySchool: boolean }) {
+/** Preview of the focused catalog card in the style of the target deck. */
+function FocusPreview({ card, lang, deck }: { card: Card; lang: Lang; deck: Deck | null | undefined }) {
   const cards = useMemo(() => [card], [card]);
-  const options = useMemo(() => ({ colorBySchool }), [colorBySchool]);
-  const laid = useLaidOutCards(cards, lang, options, 60);
+  const laid = useLaidOutCards(cards, lang, deckDisplayOptions(deck), 60);
   return laid?.[0]?.card.id === card.id ? <CardPreview laid={laid[0]} /> : <CardPlaceholder />;
 }
 

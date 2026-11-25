@@ -2,9 +2,9 @@
  * Sheet geometry for PDF and browser print (SPEC §8): A4 or US Letter, 3 × 3 cards,
  * cut marks, optional 3 mm bleed. All values in millimetres, origin top left.
  *
- * Bleed strategy: every card has the same leather border at its edge, so neighbouring cards
+ * Bleed strategy: every card of a deck has the same frame at its edge, so neighbouring cards
  * touch without a gap – a slightly off cut between two cards only shows more of the identical
- * leather. Bleed is therefore only added around the outside of the 3 × 3 grid. Each card is
+ * frame. Bleed is therefore only added around the outside of the 3 × 3 grid. Each card is
  * rendered with bleed on all sides and clipped to its cell, so the bleed never covers a neighbour.
  */
 

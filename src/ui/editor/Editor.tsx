@@ -5,6 +5,7 @@ import { SOURCES, type Card, type Deck, type Lang } from '../../model/schema';
 import { validateCard, type ValidationErrors } from '../../model/templates';
 import { formatNumber } from '../../model/units';
 import { localized } from '../../model/deck';
+import { deckDisplayOptions } from '../../render/format';
 import { useLaidOutCards } from '../state';
 import { CardPlaceholder, CardPreview, Field, Modal } from '../widgets';
 import { LocalizedInput } from './inputs';
@@ -36,8 +37,7 @@ export function Editor({ deck, card, isNew, uiLang, onSave, onClose }: EditorPro
     const { card: valid } = validateCard(draft);
     return valid ? [valid] : [];
   }, [draft]);
-  const options = useMemo(() => ({ colorBySchool: deck.options?.colorBySchool ?? false }), [deck.options?.colorBySchool]);
-  const laid = useLaidOutCards(previewCards, deck.lang, options, 120);
+  const laid = useLaidOutCards(previewCards, deck.lang, deckDisplayOptions(deck), 120);
   const current = laid?.[0];
 
   const save = () => {

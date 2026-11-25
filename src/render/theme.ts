@@ -1,26 +1,33 @@
-/** Colours of the "Grimoire Codex" design (docs/design/README.md). */
-import type { Card, School } from '../model/schema';
+/** Colours of the "Beschlag" card design (docs/design/README.md). */
+import type { Card, CardColor, School } from '../model/schema';
 import type { IconName } from './icons';
 
+/** Colours shared by every card colour; keep in sync with the variables in card.css. */
 export const PALETTE = {
-  leather: '#4b2a16',
-  gold: '#c79a3e',
-  parchment: '#efe1bd',
-  medallion: '#f7ecd2',
-  text: '#3b2614',
-  line: '#6b4523',
+  gold: '#d6aa52',
+  parchment: '#f0e2c0',
+  text: '#2b1d12',
+  line: '#7a5630',
 } as const;
 
-/** Accent per card type (SPEC §5). Spells use the evocation red unless coloured by school. */
-export const TYPE_ACCENT: Record<Card['type'], string> = {
-  spell: '#8a2a12',
-  action: '#7a3a10',
-  feature: '#2e5a3a',
-  item: '#1f4e6e',
-  condition: '#5b2d6e',
+export interface CardColorTheme {
+  /** Frame (binding) around the parchment. */
+  frame: string;
+  /** Darker frame tone: ring around the parchment, medallion background. */
+  frameDeep: string;
+  /** Title, labels, drop cap, divider lozenges and the picture background. */
+  accent: string;
+}
+
+/** The selectable card colours (deck option `cardColor`). Accents keep 4.5:1 against the parchment. */
+export const CARD_COLOR_THEMES: Record<CardColor, CardColorTheme> = {
+  red: { frame: '#4a1715', frameDeep: '#2c0c0b', accent: '#8f2416' },
+  blue: { frame: '#16223a', frameDeep: '#0e1729', accent: '#1f4a80' },
+  green: { frame: '#163226', frameDeep: '#0c2018', accent: '#2b6142' },
+  purple: { frame: '#2e1c47', frameDeep: '#1c1030', accent: '#5d2d85' },
 };
 
-/** Accent per school of magic; all keep a contrast ratio ≥ 4.5 against the parchment. */
+/** Accent per school of magic (deck option `colorBySchool`); all keep 4.5:1 against the parchment. */
 export const SCHOOL_ACCENT: Record<School, string> = {
   abjuration: '#24527a',
   conjuration: '#7a4a0c',
@@ -51,9 +58,9 @@ export const SCHOOL_ICON: Record<School, IconName> = {
   transmutation: 'cycle',
 };
 
-export function accentFor(card: Card, colorBySchool: boolean): string {
-  if (card.type === 'spell' && colorBySchool) return SCHOOL_ACCENT[card.spell.school];
-  return TYPE_ACCENT[card.type];
+/** Accent that replaces the card colour's accent: the school colour for spells, if enabled. */
+export function accentOverride(card: Card, colorBySchool: boolean): string | undefined {
+  return card.type === 'spell' && colorBySchool ? SCHOOL_ACCENT[card.spell.school] : undefined;
 }
 
 export function iconFor(card: Card): IconName {
