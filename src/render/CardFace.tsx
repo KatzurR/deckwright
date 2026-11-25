@@ -2,6 +2,7 @@ import { forwardRef, useLayoutEffect, useRef, type CSSProperties, type ReactNode
 import type { Block, Inline } from '../model/markdown';
 import type { CardDisplay } from './format';
 import { ICONS } from './icons';
+import { CARD_COLOR_THEMES } from './theme';
 import './card.css';
 
 export interface CardFaceProps {
@@ -31,19 +32,36 @@ export function bodyLineHeightPx(fontSizePt: number): number {
   return Math.max(1, Math.round(((fontSizePt * 96) / 72) * BODY_LEADING));
 }
 
-function renderInlines(inlines: Inline[]): ReactNode[] {
+/** A letter or digit at the start of the text, after optional opening punctuation. */
+const INITIAL = /^([\p{Ps}\p{Pi}"'„‚]*[\p{L}\p{N}])(.*)$/su;
+/**
+ * Shortest first paragraph (in characters) that gets a drop cap: the cap spans about three
+ * lines, so a paragraph of one line would leave it hanging.
+ */
+export const INITIAL_MIN_CHARS = 110;
+
+function renderInlines(inlines: Inline[], initial = false): ReactNode[] {
   return inlines.map((run, i) => {
-    let node: ReactNode = run.text;
+    const match = initial && i === 0 ? INITIAL.exec(run.text) : null;
+    let node: ReactNode = match ? <><span className="otc-card__initial">{match[1]}</span>{match[2]}</> : run.text;
     if (run.italic) node = <em>{node}</em>;
     if (run.bold) node = <strong>{node}</strong>;
     return <span key={i}>{node}</span>;
   });
 }
 
-export function renderBlocks(blocks: Block[]): ReactNode[] {
+/**
+ * Rule text blocks. With `initial`, the first letter of a leading paragraph becomes a drop cap.
+ * It is a real element rather than `::first-letter`, because html-to-image does not copy
+ * `::first-letter` styles into the 300 dpi export.
+ */
+export function renderBlocks(blocks: Block[], { initial = false }: { initial?: boolean } = {}): ReactNode[] {
+  const first = blocks[0];
+  const withInitial = initial && first?.kind === 'p'
+    && first.inlines.reduce((n, run) => n + run.text.length, 0) >= INITIAL_MIN_CHARS;
   return blocks.map((block, i) =>
     block.kind === 'p' ? (
-      <p key={i}>{renderInlines(block.inlines)}</p>
+      <p key={i}>{renderInlines(block.inlines, withInitial && i === 0)}</p>
     ) : (
       <ul key={i} className={block.continued ? 'otc-card__continued' : undefined}>
         {block.items.map((item, j) => (
@@ -56,7 +74,9 @@ export function renderBlocks(blocks: Block[]): ReactNode[] {
 
 /**
  * One physical card (63 × 88 mm, optionally with bleed). Pure presentation: the caller decides
- * which blocks go on this card and at which font size (see paginate.ts).
+ * which blocks go on this card and at which font size (see paginate.ts). Colour and picture
+ * layout come from the display model (deck options); card.css draws the three layouts from
+ * the same markup.
  */
 export const CardFace = forwardRef<HTMLDivElement, CardFaceProps>(function CardFace(
   { display, blocks, fontSize, first = true, part = 1, total = 1, bleed = 0, className },
@@ -79,8 +99,11 @@ export const CardFace = forwardRef<HTMLDivElement, CardFaceProps>(function CardF
     if (el.scrollWidth > el.clientWidth + 0.5) el.classList.add('otc-card__title--wrap');
   }, [title]);
 
+  const theme = CARD_COLOR_THEMES[display.color];
   const style = {
-    '--accent': display.accent,
+    '--frame': theme.frame,
+    '--frame-deep': theme.frameDeep,
+    '--accent': display.accent ?? theme.accent,
     '--bleed': `${bleed}mm`,
     '--body-size': `${fontSize}pt`,
     '--body-line': `${bodyLineHeightPx(fontSize)}px`,
@@ -88,39 +111,53 @@ export const CardFace = forwardRef<HTMLDivElement, CardFaceProps>(function CardF
   const icon = ICONS[display.icon];
   const showProps = first && display.properties.length > 0;
   const showFootnotes = first && display.footnotes.length > 0;
-  const badgeSmall = (display.badge?.length ?? 0) > 1;
+  // The picture sits in the property block, so it only appears on the first card. In the window
+  // layout it moves above the title and leaves no block of its own behind.
+  const showSummaryBlock = showProps || showFootnotes || (first && display.layout !== 'window');
+  const badgeClass = [
+    'otc-card__badge-inner',
+    (display.badge?.length ?? 0) > 1 ? 'otc-card__badge-inner--small' : '',
+    /\D/.test(display.badge ?? '') ? 'otc-card__badge-inner--letters' : '',
+  ].filter(Boolean).join(' ');
 
   return (
     <div
       ref={ref}
-      className={['otc-card', bleed > 0 ? 'otc-card--bleed' : '', className].filter(Boolean).join(' ')}
+      className={['otc-card', bleed > 0 ? 'otc-card--bleed' : '', display.badge ? 'otc-card--badge' : '', className]
+        .filter(Boolean).join(' ')}
       style={style}
+      data-color={display.color}
+      data-layout={display.layout}
       data-card-part={part}
     >
       <div className="otc-card__leather" />
       <div className="otc-card__trim">
         <div className="otc-card__parchment" />
-        <div className="otc-card__medallion">
-          <div className="otc-card__medallion-inner">
-            <svg className="otc-card__icon" viewBox="0 0 512 512" aria-hidden="true">
-              <path d={icon.path} />
-            </svg>
-          </div>
-        </div>
         <div className="otc-card__content">
           <header className="otc-card__header">
             <h2 className="otc-card__title" ref={titleRef}>{title}</h2>
             {display.subtitle && <p className="otc-card__subtitle">{display.subtitle}</p>}
           </header>
           <div className="otc-card__divider"><span className="otc-card__diamond" /></div>
-          {showProps && (
-            <div className="otc-card__props">
-              {display.properties.map((p, i) => (
-                <div className="otc-card__prop" key={i}>
-                  <span className="otc-card__prop-label">{p.label}</span>
-                  <span className="otc-card__prop-value">{p.value}</span>
+          {first && (
+            <div className={`otc-card__summary${showProps ? '' : ' otc-card__summary--bare'}`}>
+              <div className="otc-card__medallion">
+                <div className="otc-card__medallion-inner">
+                  <svg className="otc-card__icon" viewBox="0 0 512 512" aria-hidden="true">
+                    <path d={icon.path} />
+                  </svg>
                 </div>
-              ))}
+              </div>
+              {showProps && (
+                <div className="otc-card__props">
+                  {display.properties.map((p, i) => (
+                    <div className="otc-card__prop" key={i}>
+                      <span className="otc-card__prop-label">{p.label}</span>
+                      <span className="otc-card__prop-value">{p.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
           {showFootnotes && (
@@ -128,18 +165,19 @@ export const CardFace = forwardRef<HTMLDivElement, CardFaceProps>(function CardF
               {display.footnotes.map((f, i) => <p key={i}>{f}</p>)}
             </div>
           )}
-          {(showProps || showFootnotes) && <div className="otc-card__divider"><span className="otc-card__diamond" /></div>}
+          {showSummaryBlock && <div className="otc-card__divider"><span className="otc-card__diamond" /></div>}
           <div className="otc-card__body" data-card-body="">
-            {renderBlocks(blocks)}
+            {renderBlocks(blocks, { initial: first })}
           </div>
           <footer className="otc-card__footer">
             <span>{display.footerLeft}</span>
             <span>{display.footerRight}</span>
           </footer>
         </div>
+        <div className="otc-card__corners" />
         {display.badge && (
           <div className="otc-card__badge">
-            <div className={`otc-card__badge-inner${badgeSmall ? ' otc-card__badge-inner--small' : ''}`}>{display.badge}</div>
+            <div className={badgeClass}>{display.badge}</div>
           </div>
         )}
       </div>

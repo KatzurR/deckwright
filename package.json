@@ -19,7 +19,8 @@
     "pipeline": "tsx scripts/pipeline/run.ts",
     "pipeline:offline": "tsx scripts/pipeline/run.ts --offline",
     "schema": "tsx scripts/gen-schema.ts",
-    "textures": "tsx scripts/gen-textures.ts"
+    "textures": "tsx scripts/gen-textures.ts",
+    "ornaments": "tsx scripts/gen-ornaments.ts"
   },
   "dependencies": {
     "dexie": "4.4.7",

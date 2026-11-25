@@ -69,3 +69,16 @@ test('decks stored under the old database name are migrated once', async ({ page
     req.onerror = () => reject(req.error);
   }));
 });
+
+test('card colour and picture layout apply to every card of the deck and are persisted', async ({ page }) => {
+  const cards = page.locator('.card-tile .otc-card');
+  await expect(cards.first()).toHaveAttribute('data-color', 'red');
+  await expect(cards.first()).toHaveAttribute('data-layout', 'medallion');
+
+  await page.getByLabel(/^Kartenfarbe/).selectOption({ label: 'Blau' });
+  await page.getByLabel(/^Bild/).selectOption({ label: 'Fenster über dem Titel' });
+  await expect(page.locator('.card-tile .otc-card[data-color="blue"][data-layout="window"]')).toHaveCount(7);
+
+  await page.reload();
+  await expect(page.locator('.card-tile .otc-card[data-color="blue"][data-layout="window"]')).toHaveCount(7);
+});

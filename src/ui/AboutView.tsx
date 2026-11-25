@@ -32,7 +32,12 @@ export function AboutView({ uiLang }: { uiLang: Lang }) {
       <p><a href="./licenses/CC-BY-3.0.txt" target="_blank" rel="noreferrer">CC BY 3.0 – {t('about.license')}</a></p>
 
       <h2>{t('about.fonts')}</h2>
-      <p>{t('about.fontsText')} <a href="./licenses/GUST-FONT-LICENSE.txt" target="_blank" rel="noreferrer">{t('about.license')}</a></p>
+      <p>{t('about.fontsText')}</p>
+      <p>
+        <a href="./licenses/OFL-alegreya.txt" target="_blank" rel="noreferrer">Alegreya – {t('about.license')}</a>
+        {' · '}
+        <a href="./licenses/OFL-grenze-gotisch.txt" target="_blank" rel="noreferrer">Grenze Gotisch – {t('about.license')}</a>
+      </p>
 
       <h2>{t('about.code')}</h2>
       <p>{t('about.codeText')} <a href="https://github.com/KatzurR/deckwright" target="_blank" rel="noreferrer">github.com/KatzurR/deckwright</a></p>

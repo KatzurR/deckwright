@@ -1,20 +1,21 @@
 /// <reference types="node" />
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { CARD_FONT_FAMILY, fontFaceRule } from './fonts';
+import { CARD_FONT_FACES, fontFaceRule } from './fonts';
 
-describe('embedded card font', () => {
+describe('embedded card fonts', () => {
   it('builds @font-face rules like those in card.css', () => {
-    expect(fontFaceRule('data:font/otf;base64,AAAA', 700, 'italic')).toBe(
-      "@font-face { font-family: 'TeX Gyre Schola'; src: url(data:font/otf;base64,AAAA) format('opentype'); font-weight: 700; font-style: italic; font-display: block; }",
+    expect(fontFaceRule({ family: 'Alegreya', weight: 700, style: 'italic' }, 'data:font/woff2;base64,AAAA')).toBe(
+      "@font-face { font-family: 'Alegreya'; src: url(data:font/woff2;base64,AAAA) format('woff2'); font-weight: 700; font-style: italic; font-display: block; }",
     );
   });
 
-  it('uses the family, weights and styles declared in card.css', () => {
+  it('embeds exactly the families, weights and styles declared in card.css', () => {
     const css = readFileSync(new URL('../render/card.css', import.meta.url), 'utf8');
-    const faces = [...css.matchAll(/@font-face \{ font-family: '([^']+)'; src: [^;]+; font-weight: (\d+); font-style: (\w+);/g)].map((m) => `${m[1]}|${m[2]}|${m[3]}`);
-    expect(faces.sort()).toEqual(
-      [`${CARD_FONT_FAMILY}|400|normal`, `${CARD_FONT_FAMILY}|700|normal`, `${CARD_FONT_FAMILY}|400|italic`, `${CARD_FONT_FAMILY}|700|italic`].sort(),
-    );
+    const declared = [...css.matchAll(/@font-face \{ font-family: '([^']+)'; src: url\('\.\/fonts\/([^']+)'\) format\('woff2'\); font-weight: (\d+); font-style: (\w+);/g)]
+      .map((m) => `${m[1]}|${m[3]}|${m[4]}|${m[2]}`);
+    const embedded = CARD_FONT_FACES.map((f) => `${f.family}|${f.weight}|${f.style}|${f.url.split('/').pop()}`);
+    expect(declared).toHaveLength(5);
+    expect(embedded.sort()).toEqual(declared.sort());
   });
 });

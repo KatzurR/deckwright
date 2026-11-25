@@ -44,7 +44,7 @@ Deckwright is a static single-page app (React + Vite + TypeScript). There is no 
 
 1. **Catalog → deck.** `loadCatalog()` lazily imports the generated JSON files and validates them. Selected entries are copied into a deck by `adoptCatalogCards()`: each card gets a new `id` and keeps its `srdKey`.
 2. **Deck → card model.** A deck is an ordered list of language-neutral cards (`src/model/schema.ts`). Every change goes through pure functions in `src/model/deck.ts` and is saved automatically by `DeckStore`.
-3. **Card model → display model.** `displayCard()` (`src/render/format.ts`) turns a card into everything the card face shows in the deck's card language: title, subtitle, accent colour, icon, property block, footnotes, rules text, closing paragraph, footer and badge.
+3. **Card model → display model.** `displayCard()` (`src/render/format.ts`) turns a card into everything the card face shows in the deck's card language: title, subtitle, card colour and picture layout of the deck, an optional school accent, icon, property block, footnotes, rules text, closing paragraph, footer and badge.
 4. **Display model → pages.** `layoutCards()` (`src/render/measure.tsx`) finds the largest rules-text size that fits and, if necessary, splits the text over continuation cards.
 5. **Pages → output.** The same `CardFace` component renders the preview, the 300 dpi images for PNG/PDF and the browser print sheets, so all outputs match.
 
@@ -80,7 +80,7 @@ Exact versions are pinned in [package.json](../package.json). The dev server and
 | `src/ui` | React user interface | `App.tsx` (views, import, storage notice), `state.tsx` (app state, `useLaidOutCards`), `DeckView.tsx`, `CatalogView.tsx`, `ExportDialog.tsx`, `AboutView.tsx`, `editor/` (`Editor.tsx`, `forms.tsx` per card type, `inputs.tsx`), `widgets.tsx` |
 | `src/i18n` | UI translations and card vocabulary | `ui.ts` (i18next resources, language detection), `terms.ts` (card terms per card language) |
 | `scripts/pipeline` | Builds `data/catalog`, `data/mapping` and `data/pipeline-report.md` from Open5e and both SRD PDFs | `run.ts`, `sources.ts`, `pdf/` (XML parsing, line layout), `doc.ts`, `text.ts`, `parse/` (per entry kind), `build/` (per card type), `match.ts`, `concepts.ts`, `mapping.ts`, `report.ts`, `expected.ts` |
-| `scripts` | Other generators | `gen-schema.ts` (`npm run schema`), `gen-textures.ts` (`npm run textures`) |
+| `scripts` | Other generators | `gen-schema.ts` (`npm run schema`), `gen-textures.ts` (`npm run textures`), `gen-ornaments.ts` (`npm run ornaments`) |
 | `e2e` | Playwright tests and their fixture | `*.spec.ts`, `make-fixture.ts`, `fixtures/sample-deck.deckwright.json` |
 
 `src/model` has no dependency on React or the browser (except `crypto.randomUUID`, with a fallback), so the pipeline reuses it (schemas, units).
@@ -93,7 +93,7 @@ The zod schemas in [src/model/schema.ts](../src/model/schema.ts) are the single 
 - **Common fields:** `id`, `srdKey` (catalog reference), `name` and `description` (both required in at least one language, `requiredTextSchema`), `source` (`srd-5.2.1` or `custom`), `tags`.
 - **Keys, not texts:** structured values (school, damage type, class, ability, mastery …) are stored as language-neutral keys and translated when rendering. Only free text is stored per language as `{ de?, en? }` (`localizedTextSchema`). `localized()` in `deck.ts` falls back to the other language when the deck language is missing.
 - **Units:** distances are stored in feet. `src/model/units.ts` converts them for German cards with the factors of the German SRD (5 ft = 1.5 m, `METRES_PER_FOOT = 0.3`; 1 mile = 1.6 km) and formats numbers with the decimal separator of the language. Dice are stored in English notation (`8d6`) and shown as `8W6` on German cards (`formatDice`). The editor converts entered metres back to feet (`metresToFeet`).
-- **Decks:** `deckSchema` – `id`, `name`, `lang` (card language), `options.colorBySchool`, `cards`, `createdAt`, `updatedAt`. Deck operations in `deck.ts` are pure and return new objects (`addCard`, `moveCard`, `sortCards`, `duplicateCards`, `copyCardsToDeck`, `setDeckLanguage` …).
+- **Decks:** `deckSchema` – `id`, `name`, `lang` (card language), `options` (`cardColor`, `cardLayout`, `colorBySchool`), `cards`, `createdAt`, `updatedAt`. Deck operations in `deck.ts` are pure and return new objects (`addCard`, `moveCard`, `sortCards`, `duplicateCards`, `copyCardsToDeck`, `setDeckLanguage` …).
 - **Catalog files:** `catalogFileSchema` (`formatVersion` 1, `type`, `source: 'srd-5.2.1'`, `entries`); every entry has `id === srdKey`.
 - **Deck files:** `deckFileSchema` in [src/model/deckFile.ts](../src/model/deckFile.ts) wraps a deck with `formatVersion` (currently 1), `generator` and `exportedAt`. `parseDeckFile()` rejects newer versions and reports validation problems with paths (`deck.cards.0.spell.level`). The JSON Schema [docs/deck-format.schema.json](deck-format.schema.json) is generated from the zod schema with `npm run schema`. The format is documented in [deck-format.md](deck-format.md).
 - **Markdown subset:** `src/model/markdown.ts` parses rules texts into blocks (`p`, `ul`) of inline runs (bold, italic). Other Markdown stays literal text.
@@ -102,10 +102,11 @@ The zod schemas in [src/model/schema.ts](../src/model/schema.ts) are the single 
 
 ### Card face
 
-`CardFace` ([src/render/CardFace.tsx](../src/render/CardFace.tsx)) renders one physical card from a `CardDisplay`, the blocks for this page, the rules-text font size and an optional bleed. It is pure presentation; which text goes on which page is decided before. All dimensions in [src/render/card.css](../src/render/card.css) are in `mm` and `pt`: the card is `63mm × 88mm` plus `2 × --bleed`, the leather band is 2.9 mm. The layers are leather, trim with parchment, medallion with icon, content (header, divider, property block, footnotes, body, footer) and the badge in the bottom band. Colours and the icon per type or school of magic come from `theme.ts`; the design is described in [design/README.md](design/README.md).
+`CardFace` ([src/render/CardFace.tsx](../src/render/CardFace.tsx)) renders one physical card from a `CardDisplay`, the blocks for this page, the rules-text font size and an optional bleed. It is pure presentation; which text goes on which page is decided before. All dimensions in [src/render/card.css](../src/render/card.css) are in `mm` and `pt`: the card is `63mm × 88mm` plus `2 × --bleed`, the frame band is 4.4 mm. The layers are the frame (`.otc-card__leather`, with the lozenge chain), trim with parchment, content (header, divider, summary with picture and properties, footnotes, body, footer), the corner plates and the badge in the bottom chain. The colours per card colour and school of magic and the icons per type or school come from `theme.ts`; the design is described in [design/README.md](design/README.md).
 
-- **Fonts:** TeX Gyre Schola (four OpenType files in `src/render/fonts/`), declared with `@font-face` in `card.css`. `cardFontsReady()` waits for all four faces before measuring.
-- **Textures:** leather and parchment are small tileable PNGs in `src/render/textures/`, generated deterministically by `scripts/gen-textures.ts` (`npm run textures`), see [§13](#13-technical-decisions).
+- **Fonts:** Alegreya (four faces) and Grenze Gotisch (bold) as WOFF2 files in `src/render/fonts/`, declared with `@font-face` in `card.css`. `cardFontsReady()` waits for all five faces before measuring.
+- **Colour and layout:** `CardFace` sets the colour of the deck (`CARD_COLOR_THEMES` in `theme.ts`) as CSS variables and the picture layout as `data-layout`; `card.css` draws the three layouts (medallion, window, panel) from the same markup. The ornaments are SVG files in `src/render/ornaments/`, generated by `npm run ornaments`.
+- **Textures:** the parchment is a small tileable PNG in `src/render/textures/`, generated deterministically by `scripts/gen-textures.ts` (`npm run textures`), see [§13](#13-technical-decisions).
 - **Icons:** SVG path data from game-icons.net in `src/render/icons.ts` (`viewBox 0 0 512 512`, foreground path only), each with `slug` and `author`.
 - **Title:** a `useLayoutEffect` shrinks long titles from 14.4 pt in steps of 0.4 pt down to 8 pt and only wraps below that (`TITLE_MAX_PT`, `TITLE_MIN_PT`).
 - **Line height:** the rules-text line height is rounded to whole CSS pixels (`bodyLineHeightPx`, leading 1.15).
@@ -137,7 +138,7 @@ All outputs use the laid-out pages from §5 and the sheet geometry from [src/exp
 
 ### PNG (html-to-image)
 
-`renderCardImages()` ([src/export/render.tsx](../src/export/render.tsx)) renders each page with `CardFace` into an off-screen root and rasterises it with `toPng()` at the exact pixel size. html-to-image draws the node inside an SVG `foreignObject`, which cannot load external fonts, so the card font is passed as `fontEmbedCSS` with the font files inlined as data URLs (`cardFontEmbedCSS()` in `src/export/fonts.ts`). `setPngDpi()` (`src/export/png.ts`) writes a `pHYs` chunk so that the PNGs carry 300 dpi. File names are numbered in deck order (`01-feuerball.png`, continuation cards `-2`, `-3`). For the PNG export, `ExportDialog` zips the images together with `NAMENSNENNUNG.txt` / `ATTRIBUTION.txt` (`noticeText()`) using fflate without recompression (`zipFiles`).
+`renderCardImages()` ([src/export/render.tsx](../src/export/render.tsx)) renders each page with `CardFace` into an off-screen root and rasterises it with `toPng()` at the exact pixel size. html-to-image draws the node inside an SVG `foreignObject`, which cannot load external fonts, so the card fonts are passed as `fontEmbedCSS` with the font files inlined as data URLs (`cardFontEmbedCSS()` in `src/export/fonts.ts`). `setPngDpi()` (`src/export/png.ts`) writes a `pHYs` chunk so that the PNGs carry 300 dpi. File names are numbered in deck order (`01-feuerball.png`, continuation cards `-2`, `-3`). For the PNG export, `ExportDialog` zips the images together with `NAMENSNENNUNG.txt` / `ATTRIBUTION.txt` (`noticeText()`) using fflate without recompression (`zipFiles`).
 
 ### PDF (pdf-lib)
 
@@ -259,7 +260,7 @@ Test fixtures (SRD 5.2.1 texts) are in `src/test/fixtures.ts`.
 ### Add a card type
 
 1. `src/model/schema.ts`: add the key to `CARD_TYPES`, a data schema, a card schema and add it to the `cardSchema` union.
-2. Fill every `Record<CardType, …>` that the type checker reports: `TYPE_ACCENT` and `TYPE_ICON` in `theme.ts`, `EXPECTED_COUNTS` in `scripts/pipeline/expected.ts`, `PDF_COUNT_KEYS` in `pipeline.test.ts`, and the `switch` statements in `displayCard()` (`format.ts`) and `blankCard()` (`templates.ts`).
+2. Fill every `Record<CardType, …>` that the type checker reports: `TYPE_ICON` in `theme.ts`, `EXPECTED_COUNTS` in `scripts/pipeline/expected.ts`, `PDF_COUNT_KEYS` in `pipeline.test.ts`, and the `switch` statements in `displayCard()` (`format.ts`) and `blankCard()` (`templates.ts`).
 3. Card terms and the UI name (`types.<type>` in `ui.ts`), an editor form in `forms.tsx` and its use in `Editor.tsx`.
 4. For SRD content: a parser in `scripts/pipeline/parse/`, a builder in `scripts/pipeline/build/`, an entry in the `builders` list in `run.ts`, then run the pipeline. `loadCatalog()` picks up `data/catalog/<type>.json` automatically.
 5. Update SPEC §4, [deck-format.md](deck-format.md) and the JSON Schema (`npm run schema`).
@@ -274,7 +275,7 @@ Test fixtures (SRD 5.2.1 texts) are in `src/test/fixtures.ts`.
 
 ## 12. Legal notices in the code
 
-The rules content is licensed under CC BY 4.0, the icons under CC BY 3.0 and the font under the GUST Font License. CC BY requires an attribution wherever the material is shared, and CC BY 4.0 §3(a)(1)(B) also requires a notice that the material was modified. Because cards leave the app as PDF, PNG and print, the notices travel with every output, not only with the app. According to the SRD license notice, no other references to the publisher may appear; the app only says "kompatibel mit der fünften Edition" / "5E compatible".
+The rules content is licensed under CC BY 4.0, the icons under CC BY 3.0 and the fonts under the SIL Open Font License. CC BY requires an attribution wherever the material is shared, and CC BY 4.0 §3(a)(1)(B) also requires a notice that the material was modified. Because cards leave the app as PDF, PNG and print, the notices travel with every output, not only with the app. According to the SRD license notice, no other references to the publisher may appear; the app only says "kompatibel mit der fünften Edition" / "5E compatible".
 
 All texts are in [src/model/legal.ts](../src/model/legal.ts):
 
@@ -295,7 +296,8 @@ In the repository: [README.md](../README.md) and [THIRD_PARTY_NOTICES.md](../THI
 
 Decisions from the implementation (formerly SPEC §11.1); the product-level decisions stay in [SPEC §11.1](SPEC.md#111-decided).
 
-- **Textures** (leather, parchment) are generated PNG files (`npm run textures`), because SVG `feTurbulence` renders black in the 300 dpi export (html-to-image renders through an SVG `foreignObject`).
+- **Textures** (parchment) are generated PNG files (`npm run textures`), because SVG `feTurbulence` renders black in the 300 dpi export (html-to-image renders through an SVG `foreignObject`).
+- **No `url()` in pseudo elements:** html-to-image embeds background images only for real elements and copies no `::first-letter` styles. The lozenge chain, the corner plates and the drop cap are therefore real elements (`.otc-card__leather`, `.otc-card__corners`, `.otc-card__initial`).
 - **Line height** in whole CSS pixels, otherwise the line spacing becomes uneven in the export.
 - **Units:** the German SRD uses 5 feet = 1.5 m and 1 mile = 1.6 km. Values are stored in feet; the German card converts when rendering.
 - **Text extraction:** Poppler `pdftohtml -xml` instead of `pdftotext`, because the XML output keeps the font, bold/italic and position. This makes headings, bold lead-ins and tables reliably detectable. Class tables and sidebars ("Breaking Your Oath") are removed, because they do not belong to a single feature. The text is extracted in reading order (not layout mode), because the two-column layout would otherwise mix lines.
