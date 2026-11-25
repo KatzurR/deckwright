@@ -16,17 +16,19 @@ export function cardBlocks(display: CardDisplay): Block[] {
   return blocks;
 }
 
-const FONT_FACES = ['400 normal', '700 normal', '400 italic', '700 italic'];
+/** The faces declared in card.css, as CSS font shorthands. */
+const FONT_FACES = [
+  'normal 400 6pt "Alegreya"',
+  'normal 700 6pt "Alegreya"',
+  'italic 400 6pt "Alegreya"',
+  'italic 700 6pt "Alegreya"',
+  'normal 700 14pt "Grenze Gotisch"',
+];
 
 /** Resolves when the card fonts are loaded (measuring before would give wrong results). */
 export async function cardFontsReady(): Promise<void> {
   if (typeof document === 'undefined' || !document.fonts) return;
-  await Promise.all(
-    FONT_FACES.map((f) => {
-      const [weight, style] = f.split(' ');
-      return document.fonts.load(`${style} ${weight} 6pt "TeX Gyre Schola"`).catch(() => []);
-    }),
-  );
+  await Promise.all(FONT_FACES.map((font) => document.fonts.load(font).catch(() => [])));
   await document.fonts.ready;
 }
 

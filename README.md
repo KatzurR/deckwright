@@ -14,7 +14,7 @@ Deckwright makes those cards quick to create, consistent in layout, and easy to 
 
 ## Features
 
-- **Five card types** – spell, action, feature, item, condition – in poker size (63 × 88 mm), card design "Grimoire Codex" ([docs/design](docs/design/README.md))
+- **Five card types** – spell, action, feature, item, condition – in poker size (63 × 88 mm), card design "Beschlag" in four colours and three picture layouts ([docs/design](docs/design/README.md))
 - **Bundled SRD 5.2.1 catalog in German and English**: 339 spells, 15 conditions, 50 actions (incl. 38 weapons), 258 magic items, 316 class features, species traits and feats – searchable, filterable, added to a deck with one click
 - **Card editor** with a live preview that matches the print exactly; long texts shrink to a minimum size and then continue on follow-up cards ("Name (2/3)")
 - **Decks**: sort, duplicate, copy cards between decks, reorder by drag & drop; stored automatically in the browser (IndexedDB)
@@ -79,7 +79,7 @@ The source code in this repository is released under the [MIT License](LICENSE).
 |---|---|
 | Rules content: the catalog derived from the SRD 5.2.1 ([data/catalog/](data/catalog/)); the PDFs themselves are not in the repository, the pipeline downloads them ([srd/](srd/README.md)) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ([details](data/catalog/LICENSE.md)) |
 | Card icons from [game-icons.net](https://game-icons.net) | CC BY 3.0 ([license](public/licenses/CC-BY-3.0.txt)) |
-| Card font TeX Gyre Schola ([src/render/fonts/](src/render/fonts/)) | GUST Font License ([license](public/licenses/GUST-FONT-LICENSE.txt)) |
+| Card fonts Alegreya and Grenze Gotisch ([src/render/fonts/](src/render/fonts/)) | SIL Open Font License 1.1 ([Alegreya](public/licenses/OFL-alegreya.txt), [Grenze Gotisch](public/licenses/OFL-grenze-gotisch.txt)) |
 
 Deckwright is compatible with fifth edition (2024 rules). The only rules content included is the System Reference Document 5.2.1, in its official English and German versions:
 

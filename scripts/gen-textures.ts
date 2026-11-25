@@ -1,5 +1,5 @@
 /**
- * Generates the tileable card textures (leather grain, parchment clouds) as small PNG files in
+ * Generates the tileable parchment texture of the cards as a small PNG file in
  * src/render/textures/. Deterministic (seeded), so re-running produces identical files.
  * Run: npm run textures
  *
@@ -66,12 +66,8 @@ const SIZE = 256;
 const dir = new URL('../src/render/textures/', import.meta.url);
 mkdirSync(dir, { recursive: true });
 
-// Leather: mottled dark patches plus fine grain, as a dark overlay on the leather colour.
-const leather = fractal(SIZE, [4, 8, 16, 64, 128], [0.35, 0.25, 0.15, 0.15, 0.1], 7);
-writeFileSync(new URL('leather.png', dir), texture(SIZE, leather, [24, 10, 3], (v) => (v - 0.25) * 1.1));
-
 // Parchment: soft clouds, as a light brown overlay on the parchment colour.
 const parchment = fractal(SIZE, [2, 4, 8, 32], [0.4, 0.3, 0.2, 0.1], 3);
 writeFileSync(new URL('parchment.png', dir), texture(SIZE, parchment, [120, 82, 36], (v) => (v - 0.3) * 0.42));
 
-console.log('src/render/textures/{leather,parchment}.png written');
+console.log('src/render/textures/parchment.png written');

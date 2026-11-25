@@ -59,7 +59,9 @@ A deck is a named, ordered list of cards, for example "Wizard spells levels 1–
 
 - **New deck** creates an empty deck. You change its name directly in the name field.
 - **Card language**: German or English. It determines the texts and labels of the cards, independently of the interface language.
-- **Colour spells by school**: spell cards get the accent colour of their school instead of the common spell colour.
+- **Card colour**: red, blue, green or purple. It colours the frame and the accents of all cards in the deck.
+- **Picture**: where the cards show their icon – *Medallion in the middle* between the properties, *Window above the title*, or *Panel on the left* next to the properties.
+- **Colour spells by school**: spell cards get the accent colour of their school instead of the accent of the card colour; the frame keeps the card colour.
 - **Sort**: by name, by type, or by type and level.
 - **Duplicate deck** and **Delete deck** (with confirmation).
 
@@ -124,7 +126,7 @@ In the deck, **Print & export …** opens the export dialog.
 | **PNG images (ZIP)** | one PNG file per card, 744 × 1039 px (300 dpi), packed as a ZIP together with a text file containing the attribution (`NAMENSNENNUNG.txt` or `ATTRIBUTION.txt`), for example for print services or virtual tabletops. If you pass the images on, include the attribution. |
 | **Print directly (browser)** | opens the browser's print dialog with the same arrangement as the PDF |
 
-**3 mm bleed** (PDF only): the leather border of the cards extends 3 mm beyond the cut line. This is meant for print shops and borderless printing, so that no white edge remains after cutting. A home printer does not need it.
+**3 mm bleed** (PDF only): the frame of the cards extends 3 mm beyond the cut line. This is meant for print shops and borderless printing, so that no white edge remains after cutting. A home printer does not need it.
 
 ### Printing correctly: 100 %
 

@@ -135,11 +135,11 @@ Name and rules text, as a list of the effects. No further fields.
 
 - Format: 63 × 88 mm (poker card), fits standard card sleeves
 - Each card type has a fixed layout: header (name, type icon), property block, rules text, footer (source, level/rarity)
-- Each type has its own accent colour; spell cards optionally coloured by school
+- Each deck chooses a card colour (red, blue, green, purple) and a picture layout (medallion, window, panel) for all its cards; spell cards optionally take the accent colour of their school
 - Icons: game-icons.net (CC BY 3.0, credited in the app, on every sheet and in the PNG export)
 - **Text overflow:** if the rules text does not fit, the font is reduced down to a minimum size. If that is not enough, a continuation card is created automatically ("Name (2/2)"). The editor shows a warning.
 - The preview in the editor matches the printed result exactly
-- Design: style "Grimoire Codex", see [design/README.md](design/README.md)
+- Design: style "Beschlag", see [design/README.md](design/README.md)
 
 ## 6. Data sources
 
@@ -217,10 +217,10 @@ The pipeline fails if an SRD entry has no German assignment or a German entry is
 
 ### 11.1 Decided
 
-1. **Typeface:** TeX Gyre Schola (GUST Font License) instead of C059. It belongs to the same family (Century Schoolbook) and may be shipped with the app without restriction. License: `public/licenses/GUST-FONT-LICENSE.txt`.
-2. **Bleed:** the cards lie on the sheet next to each other without gaps. Because the leather border is the same on all edges, the neighbouring card acts as bleed. Only the 3 × 3 grid gets 3 mm bleed on the outside. This way the bleed also fits on US Letter.
+1. **Typefaces:** Alegreya for the text and Grenze Gotisch for the titles, both under the SIL Open Font License 1.1, so they may be shipped with the app. Licenses: `public/licenses/OFL-alegreya.txt`, `public/licenses/OFL-grenze-gotisch.txt`.
+2. **Bleed:** the cards lie on the sheet next to each other without gaps. Because the frame is the same on all edges, the neighbouring card acts as bleed. Only the 3 × 3 grid gets 3 mm bleed on the outside. This way the bleed also fits on US Letter.
 3. **SRD attribution on the sheet:** in the larger margin outside the cut marks (A4 bottom, US Letter left, rotated). The change note and the icon credits are mirrored in the opposite margin (A4 top, US Letter right), because on US Letter with bleed there is only room for one line.
-4. **Textures** (leather, parchment) as generated PNG files – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
+4. **Textures** (parchment) as generated PNG files, ornaments as generated SVG files – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
 5. **Line height** in whole CSS pixels – technical decision, see [ARCHITECTURE.md §13](ARCHITECTURE.md#13-technical-decisions).
 6. **Magic items:** Open5e variants ("Battleaxe (+1)", "Battleaxe (+2)" …) are merged into one entry per PDF entry ("Weapon, +1, +2, or +3").
 7. **Not in the catalog:** the 4 backgrounds and mundane equipment (no card types of their own in the MVP).

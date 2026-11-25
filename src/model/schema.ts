@@ -299,6 +299,22 @@ export type CardInput = z.input<typeof cardSchema>;
 // ---------------------------------------------------------------------------
 // Decks
 
+/** Colour of the card frame, chosen per deck (docs/design/README.md). */
+export const CARD_COLORS = ['red', 'blue', 'green', 'purple'] as const;
+export const cardColorSchema = z.enum(CARD_COLORS);
+export type CardColor = z.infer<typeof cardColorSchema>;
+export const DEFAULT_CARD_COLOR: CardColor = 'red';
+
+/**
+ * Where the card shows its picture (the type or school icon), chosen per deck:
+ * `medallion` round medallion between the properties, `window` arched window above the title,
+ * `panel` framed panel to the left of the properties.
+ */
+export const CARD_LAYOUTS = ['medallion', 'window', 'panel'] as const;
+export const cardLayoutSchema = z.enum(CARD_LAYOUTS);
+export type CardLayout = z.infer<typeof cardLayoutSchema>;
+export const DEFAULT_CARD_LAYOUT: CardLayout = 'medallion';
+
 export const deckSchema = z
   .object({
     id: z.string().min(1),
@@ -307,8 +323,12 @@ export const deckSchema = z
     lang: langSchema,
     options: z
       .object({
-        /** Spell cards take the accent colour of their school instead of the spell colour (SPEC §5). */
+        /** Spell cards take the accent colour of their school instead of the deck's accent (SPEC §5). */
         colorBySchool: z.boolean().optional(),
+        /** Frame colour of all cards in the deck; default `DEFAULT_CARD_COLOR`. */
+        cardColor: cardColorSchema.optional(),
+        /** Picture layout of all cards in the deck; default `DEFAULT_CARD_LAYOUT`. */
+        cardLayout: cardLayoutSchema.optional(),
       })
       .strict()
       .optional(),

@@ -23,6 +23,7 @@ const de = {
   decks: {
     title: 'Decks', new: 'Neues Deck', newName: 'Neues Deck', import: 'Deck importieren …', empty: 'Noch keine Decks. Lege ein neues Deck an oder importiere eine JSON-Datei.',
     namePlaceholder: 'Name des Decks', cardLanguage: 'Kartensprache', colorBySchool: 'Zauber nach Schule einfärben',
+    cardColor: 'Kartenfarbe', cardLayout: 'Bild',
     addCard: 'Neue Karte', fromCatalog: 'Aus dem Katalog', exportJson: 'Als JSON exportieren', export: 'Drucken & Export …',
     duplicate: 'Deck duplizieren', deleteDeck: 'Deck löschen', confirmDelete: 'Deck „{{name}}“ mit {{count}} Karten wirklich löschen?',
     sort: 'Sortieren', sortName: 'nach Name', sortType: 'nach Typ', sortLevel: 'nach Typ und Grad',
@@ -36,6 +37,8 @@ const de = {
     cardCount_one: '{{count}} Karte', cardCount_other: '{{count}} Karten',
   },
   types: { spell: 'Zauber', action: 'Aktion', feature: 'Fähigkeit', item: 'Gegenstand', condition: 'Zustand' },
+  cardColors: { red: 'Rot', blue: 'Blau', green: 'Grün', purple: 'Lila' },
+  cardLayouts: { medallion: 'Medaillon in der Mitte', window: 'Fenster über dem Titel', panel: 'Feld links' },
   catalog: {
     title: 'SRD-5.2.1-Katalog', search: 'Suche nach Name (Deutsch oder Englisch)', type: 'Typ', level: 'Grad', school: 'Schule', class: 'Klasse',
     all: 'alle', cantrip: 'Zaubertrick', reset: 'Filter zurücksetzen', results_one: '{{count}} Eintrag', results_other: '{{count}} Einträge',
@@ -78,7 +81,7 @@ const de = {
   },
   export: {
     title: 'Drucken & Export', format: 'Format', pdf: 'PDF-Bogen', png: 'PNG-Bilder (ZIP)', print: 'Direkt drucken (Browser)',
-    paper: 'Papierformat', a4: 'A4', letter: 'US Letter', bleed: '3 mm Beschnittzugabe', bleedHint: 'Für Druckereien oder randlosen Druck: Der Ledereinband reicht 3 mm über die Schnittkante.',
+    paper: 'Papierformat', a4: 'A4', letter: 'US Letter', bleed: '3 mm Beschnittzugabe', bleedHint: 'Für Druckereien oder randlosen Druck: Der Kartenrahmen reicht 3 mm über die Schnittkante.',
     scope: 'Umfang', wholeDeck: 'Ganzes Deck ({{count}})', selection: 'Auswahl ({{count}})', start: 'Exportieren', printStart: 'Druckdialog öffnen',
     progress: 'Karte {{done}} von {{total}} wird gerendert …', layout: 'Karten werden gesetzt …', done: 'Fertig.', failed: 'Export fehlgeschlagen: {{message}}',
     hint100: 'Beim Drucken unbedingt „Tatsächliche Größe“ bzw. 100 % wählen, nicht „An Seite anpassen“.',
@@ -89,7 +92,7 @@ const de = {
     intro: 'Deckwright erstellt kleine, druckbare Regelkarten (63 × 88 mm) für Zauber, Aktionen, Fähigkeiten, Gegenstände und Zustände. Alles läuft lokal in deinem Browser – es gibt keinen Server und keine Konten.',
     srd: 'Regelinhalte', icons: 'Symbole', fonts: 'Schrift', code: 'Programmcode',
     iconsText: 'Die Kartensymbole stammen von game-icons.net und stehen unter der Lizenz Creative Commons Namensnennung 3.0:',
-    fontsText: 'Die Kartenschrift ist TeX Gyre Schola (GUST e-foundry), lizenziert unter der GUST Font License.',
+    fontsText: 'Die Kartenschriften sind Alegreya (The Alegreya Project Authors) und Grenze Gotisch (The Grenze Gotisch Project Authors), beide lizenziert unter der SIL Open Font License 1.1.',
     codeText: 'Der Programmcode steht unter der MIT-Lizenz.',
     license: 'Lizenztext',
   },
@@ -113,6 +116,7 @@ const en: Resources = {
   decks: {
     title: 'Decks', new: 'New deck', newName: 'New deck', import: 'Import deck …', empty: 'No decks yet. Create a new deck or import a JSON file.',
     namePlaceholder: 'Deck name', cardLanguage: 'Card language', colorBySchool: 'Colour spells by school',
+    cardColor: 'Card colour', cardLayout: 'Picture',
     addCard: 'New card', fromCatalog: 'From the catalog', exportJson: 'Export as JSON', export: 'Print & export …',
     duplicate: 'Duplicate deck', deleteDeck: 'Delete deck', confirmDelete: 'Really delete deck "{{name}}" with {{count}} cards?',
     sort: 'Sort', sortName: 'by name', sortType: 'by type', sortLevel: 'by type and level',
@@ -126,6 +130,8 @@ const en: Resources = {
     cardCount_one: '{{count}} card', cardCount_other: '{{count}} cards',
   },
   types: { spell: 'Spell', action: 'Action', feature: 'Feature', item: 'Item', condition: 'Condition' },
+  cardColors: { red: 'Red', blue: 'Blue', green: 'Green', purple: 'Purple' },
+  cardLayouts: { medallion: 'Medallion in the middle', window: 'Window above the title', panel: 'Panel on the left' },
   catalog: {
     title: 'SRD 5.2.1 catalog', search: 'Search by name (English or German)', type: 'Type', level: 'Level', school: 'School', class: 'Class',
     all: 'all', cantrip: 'Cantrip', reset: 'Reset filters', results_one: '{{count}} entry', results_other: '{{count}} entries',
@@ -168,7 +174,7 @@ const en: Resources = {
   },
   export: {
     title: 'Print & export', format: 'Format', pdf: 'PDF sheets', png: 'PNG images (ZIP)', print: 'Print directly (browser)',
-    paper: 'Paper size', a4: 'A4', letter: 'US Letter', bleed: '3 mm bleed', bleedHint: 'For print shops or borderless printing: the leather border extends 3 mm beyond the cut line.',
+    paper: 'Paper size', a4: 'A4', letter: 'US Letter', bleed: '3 mm bleed', bleedHint: 'For print shops or borderless printing: the card frame extends 3 mm beyond the cut line.',
     scope: 'Scope', wholeDeck: 'Whole deck ({{count}})', selection: 'Selection ({{count}})', start: 'Export', printStart: 'Open print dialog',
     progress: 'Rendering card {{done}} of {{total}} …', layout: 'Laying out cards …', done: 'Done.', failed: 'Export failed: {{message}}',
     hint100: 'When printing, choose "Actual size" / 100 %, not "Fit to page".',
@@ -179,7 +185,7 @@ const en: Resources = {
     intro: 'Deckwright creates small printable rules reference cards (63 × 88 mm) for spells, actions, features, items and conditions. Everything runs locally in your browser – there is no server and there are no accounts.',
     srd: 'Rules content', icons: 'Icons', fonts: 'Typeface', code: 'Source code',
     iconsText: 'The card icons are from game-icons.net, licensed under Creative Commons Attribution 3.0:',
-    fontsText: 'The card typeface is TeX Gyre Schola (GUST e-foundry), licensed under the GUST Font License.',
+    fontsText: 'The card typefaces are Alegreya (The Alegreya Project Authors) and Grenze Gotisch (The Grenze Gotisch Project Authors), both licensed under the SIL Open Font License 1.1.',
     codeText: 'The source code is released under the MIT License.',
     license: 'License text',
   },

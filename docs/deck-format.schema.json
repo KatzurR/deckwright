@@ -35,6 +35,23 @@
           "properties": {
             "colorBySchool": {
               "type": "boolean"
+            },
+            "cardColor": {
+              "type": "string",
+              "enum": [
+                "red",
+                "blue",
+                "green",
+                "purple"
+              ]
+            },
+            "cardLayout": {
+              "type": "string",
+              "enum": [
+                "medallion",
+                "window",
+                "panel"
+              ]
             }
           },
           "additionalProperties": false

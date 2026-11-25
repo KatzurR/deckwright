@@ -2,13 +2,15 @@
  * Turns a card into its display model for a given card language: everything the card face
  * shows, already translated and formatted. Pure function, shared by preview, print and export.
  */
-import type {
-  ActionCard, Card, Damage, FeatureCard, ItemCard, Lang, SpellCard,
+import {
+  DEFAULT_CARD_COLOR, DEFAULT_CARD_LAYOUT,
+  type ActionCard, type Card, type CardColor, type CardLayout, type Damage, type Deck, type FeatureCard, type ItemCard,
+  type Lang, type SpellCard,
 } from '../model/schema';
 import { formatDice, formatDistance, formatRangePair } from '../model/units';
 import { localized } from '../model/deck';
 import { terms, type CardTerms } from '../i18n/terms';
-import { accentFor, iconFor } from './theme';
+import { accentOverride, iconFor } from './theme';
 import type { IconName } from './icons';
 
 export interface DisplayProperty {
@@ -19,7 +21,12 @@ export interface DisplayProperty {
 export interface CardDisplay {
   title: string;
   subtitle: string;
-  accent: string;
+  /** Frame colour of the deck. */
+  color: CardColor;
+  /** Picture layout of the deck. */
+  layout: CardLayout;
+  /** Accent that replaces the colour's own accent (school colours); usually undefined. */
+  accent?: string;
   icon: IconName;
   properties: DisplayProperty[];
   /** Footnotes under the property block, e.g. material components ("* …"). */
@@ -30,12 +37,23 @@ export interface CardDisplay {
   closing?: { label: string; text: string };
   footerLeft: string;
   footerRight: string;
-  /** Text of the shield in the bottom leather band (spell level, rarity); omitted when empty. */
+  /** Text of the shield in the bottom chain (spell level, rarity); omitted when empty. */
   badge?: string;
 }
 
 export interface DisplayOptions {
   colorBySchool?: boolean;
+  cardColor?: CardColor;
+  cardLayout?: CardLayout;
+}
+
+/** Display options from the deck settings. */
+export function deckDisplayOptions(deck: Deck | null | undefined): Required<DisplayOptions> {
+  return {
+    colorBySchool: deck?.options?.colorBySchool ?? false,
+    cardColor: deck?.options?.cardColor ?? DEFAULT_CARD_COLOR,
+    cardLayout: deck?.options?.cardLayout ?? DEFAULT_CARD_LAYOUT,
+  };
 }
 
 export function formatDamage(damage: Damage | undefined, lang: Lang, t: CardTerms): string {
@@ -226,7 +244,9 @@ export function displayCard(card: Card, lang: Lang, options: DisplayOptions = {}
   const t = terms(lang);
   const common = {
     title: localized(card.name, lang),
-    accent: accentFor(card, options.colorBySchool ?? false),
+    color: options.cardColor ?? DEFAULT_CARD_COLOR,
+    layout: options.cardLayout ?? DEFAULT_CARD_LAYOUT,
+    accent: accentOverride(card, options.colorBySchool ?? false),
     icon: iconFor(card),
     body: localized(card.description, lang),
     footerRight: t.sources[card.source ?? 'custom'],

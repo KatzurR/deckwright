@@ -19,7 +19,7 @@ documented, so that other tools can create or read decks.
     "id": "6f1c…",
     "name": "Wizard spells levels 1–3",
     "lang": "de",
-    "options": { "colorBySchool": true },
+    "options": { "cardColor": "blue", "cardLayout": "window", "colorBySchool": true },
     "createdAt": "2026-11-03T10:00:00.000Z",
     "updatedAt": "2026-11-03T12:00:00.000Z",
     "cards": [ … ]
@@ -34,7 +34,9 @@ documented, so that other tools can create or read decks.
 | `deck.id` | yes | Any unique string. If a deck with this ID already exists on import, the imported deck gets a new one. |
 | `deck.name` | yes | Name of the deck. |
 | `deck.lang` | yes | Card language `de` or `en`. The labels and texts of the cards follow it. |
-| `deck.options.colorBySchool` | no | Colour spell cards in the colour of their school. |
+| `deck.options.cardColor` | no | Frame colour of the cards: `red` (default), `blue`, `green` or `purple`. |
+| `deck.options.cardLayout` | no | Picture layout of the cards: `medallion` (default, round medallion between the properties), `window` (arched window above the title) or `panel` (panel to the left of the properties). |
+| `deck.options.colorBySchool` | no | Spell cards take the accent colour of their school instead of the accent of the card colour. |
 | `deck.cards` | yes | Ordered list of cards (order = print order). |
 
 ## Cards
