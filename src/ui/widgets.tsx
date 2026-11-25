@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react';
 import { CardFace } from '../render/CardFace';
 import type { LaidOutCard } from '../render/measure';
+import type { CardDisplay, DisplayOptions } from '../render/format';
 
 export function Modal({ title, onClose, children, footer, wide }: {
   title: string; onClose: () => void; children: ReactNode; footer?: ReactNode; wide?: boolean;
@@ -58,6 +59,21 @@ export function CardPreview({ laid, page = 0, scale = 1 }: { laid: LaidOutCard; 
     <div className="card-preview" style={{ width: `calc(63mm * ${scale})`, height: `calc(88mm * ${scale})` }}>
       <div style={{ transform: `scale(${scale})`, transformOrigin: '0 0' }}>
         <CardFace display={laid.display} blocks={p.blocks} fontSize={p.fontSize} first={p.first} part={p.part} total={p.total} />
+      </div>
+    </div>
+  );
+}
+
+/** An empty card (frame and parchment, no text) in the given deck colour and layout. */
+export function BlankCardPreview({ options, scale = 1 }: { options: Required<DisplayOptions>; scale?: number }) {
+  const display: CardDisplay = {
+    title: '', subtitle: '', color: options.cardColor, layout: options.cardLayout, icon: 'third-eye',
+    properties: [], footnotes: [], body: '', footerLeft: '', footerRight: '',
+  };
+  return (
+    <div className="card-preview" style={{ width: `calc(63mm * ${scale})`, height: `calc(88mm * ${scale})` }}>
+      <div style={{ transform: `scale(${scale})`, transformOrigin: '0 0' }} aria-hidden="true">
+        <CardFace display={display} blocks={[]} fontSize={6} first={false} />
       </div>
     </div>
   );

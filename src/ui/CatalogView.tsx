@@ -7,7 +7,7 @@ import { loadCatalog, type Catalog } from '../catalog/catalog';
 import { EMPTY_FILTER, searchCatalog, type CatalogFilter } from '../catalog/search';
 import { deckDisplayOptions } from '../render/format';
 import { useAppState, useLaidOutCards } from './state';
-import { CardPlaceholder, CardPreview } from './widgets';
+import { BlankCardPreview, CardPlaceholder, CardPreview } from './widgets';
 
 const PAGE = 200;
 
@@ -152,7 +152,7 @@ export function CatalogView({ uiLang, onDone }: { uiLang: Lang; onDone(): void }
           {results.length === 0 && <li className="empty">{t('catalog.empty')}</li>}
         </ul>
         <aside className="catalog__preview" aria-label={t('catalog.preview')}>
-          {focus ? <FocusPreview card={focus} lang={cardLang} deck={target} /> : <CardPlaceholder />}
+          {focus ? <FocusPreview card={focus} lang={cardLang} deck={target} /> : <BlankCardPreview options={deckDisplayOptions(target)} />}
         </aside>
       </div>
     </section>

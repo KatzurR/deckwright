@@ -31,6 +31,14 @@ Deckwright is an independent project. It is compatible with fifth edition and is
 - Copyright 2020 The Grenze Gotisch Project Authors (https://github.com/Omnibus-Type/Grenze-Gotisch)
 - License: SIL Open Font License 1.1, [public/licenses/OFL-grenze-gotisch.txt](public/licenses/OFL-grenze-gotisch.txt)
 
+## Sora (interface font)
+
+This font is used for the app interface only, never on the cards.
+
+- Files: [src/ui/fonts/](src/ui/fonts/) (unmodified variable WOFF2 file, Latin subset, from Fontsource)
+- Copyright 2019 The Sora Project Authors (https://github.com/sora-xor/sora-font)
+- License: SIL Open Font License 1.1, [public/licenses/OFL-sora.txt](public/licenses/OFL-sora.txt)
+
 ## npm dependencies
 
 The app bundles React, React DOM, i18next, react-i18next, zod, Dexie, pdf-lib, fflate and html-to-image together with their dependencies. All of them are released under permissive licenses (MIT, Apache-2.0, ISC, 0BSD, Zlib); their license texts are in the respective packages under `node_modules/` after `npm install`.
